@@ -1,0 +1,44 @@
+Content-Type: text/enriched
+Text-Width: 70
+
+Colors used in light and dark themes
+
+
+LIGHT   -2      -1      0       +1      +2
+
+fg      <x-color><param>#6c6c6c</param>#6c6c6c</x-color> <x-color><param>#505050</param>#505050</x-color> <x-color><param>#3f3f3f</param>#3f3f3f</x-color> <x-color><param>#262626</param>#262626</x-color> <x-color><param>#101010</param>#101010</x-color>
+
+bg      <x-color><param>#f6f0e1</param>#f6f0e1</x-color> <x-color><param>#ded6c5</param>#ded6c5</x-color> <x-color><param>#d9ceb2</param>#d9ceb2</x-color> <x-color><param>#d7c89b</param>#d7c89b</x-color> <x-color><param>#ccc1a0</param>#ccc1a0</x-color>
+
+red     <x-color><param>#fa5151</param>#fa5151</x-color> <x-color><param>#e43838</param>#e43838</x-color> <x-color><param>#f71010</param>#f71010</x-color> <x-color><param>#d81212</param>#d81212</x-color> <x-color><param>#b22222</param>#b22222</x-color>
+
+yellow  <x-color><param>#f8ffc5</param>#f8ffc5</x-color> <x-color><param>#ab9c3a</param>#ab9c3a</x-color> <x-color><param>#ef8300</param>#ef8300</x-color> <x-color><param>#a0682d</param>#a0682d</x-color> <x-color><param>#6a621b</param>#6a621b</x-color>
+
+green   <x-color><param>#3cb368</param>#3cb368</x-color> <x-color><param>#1c9e28</param>#1c9e28</x-color> <x-color><param>#028902</param>#028902</x-color> <x-color><param>#008b45</param>#008b45</x-color> <x-color><param>#077707</param>#077707</x-color>
+
+cyan    <x-color><param>#1fb3b3</param>#1fb3b3</x-color> <x-color><param>#409e9f</param>#409e9f</x-color> <x-color><param>#528d8d</param>#528d8d</x-color> <x-color><param>#0d7b72</param>#0d7b72</x-color> <x-color><param>#286060</param>#286060</x-color>
+
+blue    <x-color><param>#0092ff</param>#0092ff</x-color> <x-color><param>#2c53ca</param>#2c53ca</x-color> <x-color><param>#0000ff</param>#0000ff</x-color> <x-color><param>#0505cc</param>#0505cc</x-color> <x-color><param>#00008b</param>#00008b</x-color>
+
+magenta <x-color><param>#dc63dc</param>#dc63dc</x-color> <x-color><param>#ba55d3</param>#ba55d3</x-color> <x-color><param>#a020f0</param>#a020f0</x-color> <x-color><param>#9400d3</param>#9400d3</x-color> <x-color><param>#8b008b</param>#8b008b</x-color>
+
+
+DARK    -2      -1      0       +1      +2
+
+fg      <x-color><param>#8c826d</param>#8c826d</x-color> <x-color><param>#d0bf8f</param>#d0bf8f</x-color> <x-color><param>#f0dfaf</param>#f0dfaf</x-color> <x-color><param>#d5d2be</param>#d5d2be</x-color> <x-color><param>#f6f0e1</param>#f6f0e1</x-color>
+
+bg      <x-color><param>#2b2b2b</param>#2b2b2b</x-color> <x-color><param>#3f3f3f</param>#3f3f3f</x-color> <x-color><param>#4f4f4f</param>#4f4f4f</x-color> <x-color><param>#5f5f5f</param>#5f5f5f</x-color> <x-color><param>#6f6f6f</param>#6f6f6f</x-color>
+
+red     <x-color><param>#fa6a6e</param>#fa6a6e</x-color> <x-color><param>#fa5151</param>#fa5151</x-color> <x-color><param>#e43838</param>#e43838</x-color> <x-color><param>#f21515</param>#f21515</x-color> <x-color><param>#bc1417</param>#bc1417</x-color>
+
+yellow  <x-color><param>#f8ffa0</param>#f8ffa0</x-color> <x-color><param>#e8e815</param>#e8e815</x-color> <x-color><param>#fe8b04</param>#fe8b04</x-color> <x-color><param>#e5c900</param>#e5c900</x-color> <x-color><param>#abab3a</param>#abab3a</x-color>
+
+green   <x-color><param>#8ce096</param>#8ce096</x-color> <x-color><param>#32cd32</param>#32cd32</x-color> <x-color><param>#7fb07f</param>#7fb07f</x-color> <x-color><param>#3cb370</param>#3cb370</x-color> <x-color><param>#099709</param>#099709</x-color>
+
+cyan    <x-color><param>#8cf1f1</param>#8cf1f1</x-color> <x-color><param>#2fdbde</param>#2fdbde</x-color> <x-color><param>#1fb3b3</param>#1fb3b3</x-color> <x-color><param>#528d8d</param>#528d8d</x-color> <x-color><param>#0d7b72</param>#0d7b72</x-color>
+
+blue    <x-color><param>#b2c3f8</param>#b2c3f8</x-color> <x-color><param>#94bff3</param>#94bff3</x-color> <x-color><param>#62b6ea</param>#62b6ea</x-color> <x-color><param>#00aff5</param>#00aff5</x-color> <x-color><param>#2884c6</param>#2884c6</x-color>
+
+magenta <x-color><param>#ebabde</param>#ebabde</x-color> <x-color><param>#dc8cc3</param>#dc8cc3</x-color> <x-color><param>#e81ee7</param>#e81ee7</x-color> <x-color><param>#ba55d3</param>#ba55d3</x-color> <x-color><param>#a44bbb</param>#a44bbb</x-color>
+
+
