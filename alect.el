@@ -3,10 +3,10 @@
 ;; Copyright (C) 2013 Alex Kost
 
 ;; Author: Alex Kost <alezost@gmail.com>
-;; URL: http://github.com/alezost/alect-theme
+;; URL: http://github.com/alezost/alect-themes
 ;; Created: 2013-07-10
-;; Version: 0.1
-;; Last-Updated: 2013-10-04
+;; Version: 0.1.1
+;; Last-Updated: 2013-10-05
 ;; Package-Requires: ((emacs "24.0"))
 ;; Keywords: color theme
 
@@ -339,6 +339,12 @@ color names and values."
       (egg-diff-file-header ((t (:foreground ,(gc 'yellow-2)))))
       (egg-section-title    ((t (:foreground ,(gc 'red-1)))))
       (egg-stash-mono       ((t (:foreground ,(gc 'green)))))
+
+      ;; emms
+      (emms-playlist-track-face    ((t (:inherit gnus-summary-normal-unread))))
+      (emms-playlist-selected-face ((t (:inherit gnus-summary-selected))))
+      (emms-stream-name-face       ((t (:foreground ,(gc 'blue+1)))))
+      (emms-stream-url-face        ((t (:inherit default))))
 
       ;; erc
       (erc-header-line          ((t (:inherit header-line))))
