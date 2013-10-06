@@ -5,8 +5,8 @@
 ;; Author: Alex Kost <alezost@gmail.com>
 ;; URL: http://github.com/alezost/alect-themes
 ;; Created: 2013-07-10
-;; Version: 0.1.1
-;; Last-Updated: 2013-10-05
+;; Version: 0.1.2
+;; Last-Updated: 2013-10-06
 ;; Package-Requires: ((emacs "24.0"))
 ;; Keywords: color theme
 
@@ -29,23 +29,15 @@
 ;; later.  These themes were intended to be used with a GUI.  Use those
 ;; in terminal at your own risk :)
 
-;; You can modify a color palette for the themes by customizing
+;; Screenshots are available at <http://github.com/alezost/alect-themes>
+
+;; It is possible to modify color palette for the themes by customizing
 ;; `alect-colors' variable (you may use `alect-generate-colors' function
-;; for that -- see the code below).
+;; for that -- see the code).
 
 ;; If you use one (or both) of these themes and want it to support a
 ;; major mode the faces of which are not supported yet, you may send me
 ;; a letter to add it.
-
-;;; History:
-
-;; At first i had only a light theme -- it was just a set of customized
-;; faces.  Then i realized that at night it's better for eyes to use a
-;; dark theme (it was derived from zenburn-theme initially, but then the
-;; colors were modified a lot).  The idea of creating two themes with
-;; different colors and same code base came from solarized-theme.  The
-;; code of solarized and zenburn themes was used hardly.  Many thanks to
-;; their authors.
 
 ;;; Code:
 
@@ -305,12 +297,12 @@ color names and values."
       (diff-indicator-added   ((t (:inherit diff-added))))
       (diff-indicator-changed ((t (:inherit diff-changed))))
       (diff-indicator-removed ((t (:inherit diff-removed))))
-      (diff-refine-added      ((t (:inherit diff-added :weight bold))))
-      (diff-refine-change     ((t (:inherit diff-changed :weight bold))))
-      (diff-refine-removed    ((t (:inherit diff-removed :weight bold))))
-      (diff-header            ((t (:foreground ,(gc 'blue+2) :background ,(gc 'bg)))))
+      (diff-refine-added      ((t (:inherit diff-added :slant italic))))
+      (diff-refine-change     ((t (:inherit diff-changed :slant italic))))
+      (diff-refine-removed    ((t (:inherit diff-removed :slant italic))))
+      (diff-header            ((t (:foreground ,(gc 'blue-2) :weight bold))))
       (diff-hunk-header       ((t (:inherit diff-header :foreground ,(gc 'green+2)))))
-      (diff-file-header       ((t (:inherit diff-header :foreground ,(gc 'cyan+2)))))
+      (diff-file-header       ((t (:inherit diff-header :foreground ,(gc 'cyan-1)))))
       (diff-function          ((t (:inherit diff-header :foreground ,(gc 'blue)))))
       (diff-index             ((t (:inherit diff-header :foreground ,(gc 'red-1)))))
       (diff-nonexistent       ((t (:inherit diff-header :foreground ,(gc 'gray)))))
@@ -601,12 +593,12 @@ color names and values."
       (message-cited-text        ((t (:inherit font-lock-comment-face))))
       (message-separator         ((t (:inherit font-lock-comment-face))))
       (message-header-name       ((t (:foreground ,(gc 'yellow+1) :weight bold))))
-      (message-header-other      ((t (:foreground ,(gc 'green)))))
+      (message-header-other      ((t (:foreground ,(gc 'green+1)))))
       (message-header-to         ((t (:foreground ,(gc 'blue)))))
-      (message-header-from       ((t (:foreground ,(gc 'red)))))
+      (message-header-from       ((t (:foreground ,(gc 'red-1)))))
       (message-header-cc         ((t (:foreground ,(gc 'blue-1)))))
       (message-header-newsgroups ((t (:foreground ,(gc 'yellow+2)))))
-      (message-header-subject    ((t (:foreground ,(gc 'red+2)))))
+      (message-header-subject    ((t (:foreground ,(gc 'red+1)))))
       (message-header-xheader    ((t (:foreground ,(gc 'green-1)))))
       (message-mml               ((t (:foreground ,(gc 'cyan-2) :weight bold))))
 
