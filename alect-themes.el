@@ -1,12 +1,12 @@
-;;; alect.el --- 2 color themes for Emacs
+;;; alect-themes.el --- 2 color themes for Emacs
 
 ;; Copyright (C) 2013 Alex Kost
 
 ;; Author: Alex Kost <alezost@gmail.com>
 ;; URL: http://github.com/alezost/alect-themes
 ;; Created: 2013-07-10
-;; Version: 0.1.2
-;; Last-Updated: 2013-10-06
+;; Version: 0.1.3
+;; Last-Updated: 2013-10-07
 ;; Package-Requires: ((emacs "24.0"))
 ;; Keywords: color theme
 
@@ -1108,11 +1108,11 @@ static char *gnus-pointer[] = {
                   (file-name-as-directory
                    (file-name-directory load-file-name))))
 
-(provide 'alect)
+(provide 'alect-themes)
 
 ;; Local Variables:
 ;; fill-column: 72
 ;; eval: (and (fboundp 'rainbow-mode) (rainbow-mode))
 ;; End:
 
-;;; alect.el ends here
+;;; alect-themes.el ends here

@@ -1,3 +1,3 @@
-(require 'alect)
+(require 'alect-themes)
 
 (alect-create-theme light)
