@@ -5,8 +5,8 @@
 ;; Author: Alex Kost <alezost@gmail.com>
 ;; URL: http://github.com/alezost/alect-themes
 ;; Created: 2013-07-10
-;; Version: 0.1.3
-;; Last-Updated: 2013-10-07
+;; Version: 0.1.4
+;; Last-Updated: 2013-10-22
 ;; Package-Requires: ((emacs "24.0"))
 ;; Keywords: color theme
 
@@ -864,6 +864,15 @@ color names and values."
       (sr-log-face               ((t (:foreground ,(gc 'green-1)))))
       (sr-xml-face               ((t (:foreground ,(gc 'green+2)))))
       (sr-html-face              ((t (:foreground ,(gc 'cyan+2)))))
+
+      ;; syslog-mode
+      (syslog-error ((t (:inherit font-lock-warning-face))))
+      (syslog-warn  ((t (:inherit warning))))
+      (syslog-info  ((t (:foreground ,(gc 'blue-2)))))
+      (syslog-debug ((t (:foreground ,(gc 'magenta-1)))))
+      (syslog-hour  ((t (:foreground ,(gc 'blue+1)))))
+      (syslog-su    ((t (:foreground ,(gc 'cyan)))))
+      (syslog-ip    ((t (:foreground ,(gc 'yellow+1) :underline t))))
 
       ;; tabbar
       (tabbar-button     ((t (:foreground ,(gc 'fg+1)
