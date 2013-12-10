@@ -4,8 +4,8 @@
 
 ;; Author: Alex Kost <alezost@gmail.com>
 ;; Created: 10 Jul 2013
-;; Version: 0.1.4
-;; Last-Updated: 2013-12-10
+;; Version: 0.1.5
+;; Last-Updated: 2013-12-11
 ;; Package-Requires: ((emacs "24.0"))
 ;; URL: http://github.com/alezost/alect-themes
 ;; Keywords: color theme
@@ -118,17 +118,17 @@ values should be in matching order)."
      (cyan-1    "#409e9f" "#2fdbde")
      (cyan      "#528d8d" "#1fb3b3")
      (cyan+1    "#0d7b72" "#528d8d")
-     (cyan+2    "#286060" "#0d7b72")
+     (cyan+2    "#286060" "#0c8782")
      (blue-2    "#0092ff" "#b2c3f8")
      (blue-1    "#2c53ca" "#94bff3")
      (blue      "#0000ff" "#62b6ea")
      (blue+1    "#0505cc" "#00aff5")
-     (blue+2    "#00008b" "#2884c6")
+     (blue+2    "#00008b" "#3390dc")
      (magenta-2 "#dc63dc" "#ebabde")
      (magenta-1 "#ba55d3" "#dc8cc3")
-     (magenta   "#a020f0" "#e81ee7")
-     (magenta+1 "#9400d3" "#ba55d3")
-     (magenta+2 "#8b008b" "#a44bbb")))
+     (magenta   "#a020f0" "#e353b9")
+     (magenta+1 "#9400d3" "#e81eda")
+     (magenta+2 "#8b008b" "#be59d8")))
   "Alist of alect color themes.
 
 Each association is a cons cell of a theme name and alist of
