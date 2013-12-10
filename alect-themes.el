@@ -3,11 +3,11 @@
 ;; Copyright (C) 2013 Alex Kost
 
 ;; Author: Alex Kost <alezost@gmail.com>
-;; URL: http://github.com/alezost/alect-themes
-;; Created: 2013-07-10
+;; Created: 10 Jul 2013
 ;; Version: 0.1.4
-;; Last-Updated: 2013-10-22
+;; Last-Updated: 2013-12-10
 ;; Package-Requires: ((emacs "24.0"))
+;; URL: http://github.com/alezost/alect-themes
 ;; Keywords: color theme
 
 ;; This program is free software; you can redistribute it and/or modify
@@ -29,15 +29,20 @@
 ;; later.  These themes were intended to be used with a GUI.  Use those
 ;; in terminal at your own risk :)
 
-;; Screenshots are available at <http://github.com/alezost/alect-themes>
+;; You can install the package from MELPA.  If you prefer the manual
+;; installation, put these lines into your init-file:
+;;   (add-to-list 'load-path "/path/to/alect-themes")
+;;   (add-to-list 'custom-theme-load-path "/path/to/alect-themes")
+
+;; If you also want to enable a theme on Emacs start, use this:
+;;   (load-theme 'alect-light t)
 
 ;; It is possible to modify color palette for the themes by customizing
 ;; `alect-colors' variable (you may use `alect-generate-colors' function
-;; for that -- see the code).
+;; for that - see the code).
 
-;; If you use one (or both) of these themes and want it to support a
-;; major mode the faces of which are not supported yet, you may send me
-;; a letter to add it.
+;; For screenshots and full description, see
+;; <http://github.com/alezost/alect-themes>.
 
 ;;; Code:
 
