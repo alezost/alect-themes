@@ -4,7 +4,7 @@
 
 ;; Author: Alex Kost <alezost@gmail.com>
 ;; Created: 10 Jul 2013
-;; Version: 0.1.5
+;; Version: 0.1.6
 ;; Last-Updated: 2013-12-11
 ;; Package-Requires: ((emacs "24.0"))
 ;; URL: http://github.com/alezost/alect-themes
@@ -825,6 +825,10 @@ color names and values."
       (rst-level-4-face ((t (:inherit color-level-4))))
       (rst-level-5-face ((t (:inherit color-level-5))))
       (rst-level-6-face ((t (:inherit color-level-6))))
+
+      ;; shell-script
+      (sh-heredoc     ((t (:inherit font-lock-doc-face))))
+      (sh-quoted-exec ((t (:foreground ,(gc 'cyan)))))
 
       ;; show-paren
       (show-paren-mismatch  ((t (:foreground ,(gc 'white)
