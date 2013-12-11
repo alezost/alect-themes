@@ -64,8 +64,13 @@ To load a theme on Emacs start, add this to your init file:
 
 ## Screenshots
 
-![alect-light](http://i.imgur.com/D0UASEQ.png "alect-light-theme screenshot")
-![alect-dark](http://i.imgur.com/GXnGuO0.png "alect-dark-theme screenshot")
+### Custom, emacs-lisp, minibuffer ("DejaVu Sans Mono-12" font)
+<a href="http://imgur.com/D0UASEQ"><img src="http://i.imgur.com/D0UASEQ.png" width=320 height=240/></a>
+<a href="http://imgur.com/GXnGuO0"><img src="http://i.imgur.com/GXnGuO0.png" width=320 height=240/></a>
+
+### C, shell ("Anonymous Pro-13" font)
+<a href="http://imgur.com/GkjhzKK"><img src="http://i.imgur.com/GkjhzKK.png" width=320 height=240/></a>
+<a href="http://imgur.com/Stl0mba"><img src="http://i.imgur.com/Stl0mba.png" width=320 height=240/></a>
 
 ## Feedback
 
