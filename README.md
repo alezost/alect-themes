@@ -4,6 +4,10 @@ Alect is a package that provides (rather low contrast but colourful
 enough) light and dark color themes for Emacs 24 or later.  I use it
 only with GUI, so colors in terminal may look not very nice.
 
+You can open
+[colors](https://github.com/alezost/alect-themes/blob/master/colors)
+file (in Emacs) to get an idea about the color palettes.
+
 ## History
 
 At first i had only a light theme – it was just a set of customized
@@ -65,6 +69,6 @@ To load a theme on Emacs start, add this to your init file:
 
 ## Feedback
 
-If you use this package and want it to support a major mode the faces
-of which are not supported yet, you may send me a letter about it.
+If you want this package to support more faces, you may send me a
+letter about your favourite unsupported modes.
 
