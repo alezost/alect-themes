@@ -62,6 +62,31 @@ To load a theme on Emacs start, add this to your init file:
 (load-theme 'alect-light t)
 ```
 
+## Configuration
+
+All color values for the themes are stored in `alect-colors`
+variable.  You can change this variable by customizing it or you may
+use `alect-generate-colors` function (see how the variable is defined
+in the code).
+
+However those methods redefine the whole variable, so if the palette
+will be changed in future (it happens sometimes) or a new theme will
+be added (it's planned), you may not notice that.  So you can use
+another approach if you want to modify only some colors.
+
+Let's say you don't like `cursor` color for the light theme and
+`red-2` color (it is used for `font-lock-string-face`, and you
+strongly believe that «strings should not be red!!») for both themes.
+You can change those colors by putting this into your `.emacs`:
+
+```lisp
+(eval-after-load 'alect-themes
+  '(progn
+     (alect-set-color 'light 'cursor "black")
+     (alect-set-color 'light 'red-2 "#126512")
+     (alect-set-color 'dark 'red-2 "#32cd32")))
+```
+
 ## Screenshots
 
 ### Custom, emacs-lisp, minibuffer ("DejaVu Sans Mono-12" font)
