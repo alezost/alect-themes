@@ -5,7 +5,7 @@
 ;; Author: Alex Kost <alezost@gmail.com>
 ;; Created: 10 Jul 2013
 ;; Version: 0.1.6
-;; Last-Updated: 2013-12-11
+;; Last-Updated: 2013-12-12
 ;; Package-Requires: ((emacs "24.0"))
 ;; URL: http://github.com/alezost/alect-themes
 ;; Keywords: color theme
@@ -129,10 +129,18 @@ values should be in matching order)."
      (magenta   "#a020f0" "#e353b9")
      (magenta+1 "#9400d3" "#e81eda")
      (magenta+2 "#8b008b" "#be59d8")))
-  "Alist of alect color themes.
+  "List of lists containing color palettes for alect-themes.
 
-Each association is a cons cell of a theme name and alist of
-color names and values."
+List ((theme (color . val) ...) ...).
+
+Each list is a cons cell of a theme name (symbol) and alist of
+color names (symbols) and values (strings)."
+  :type '(alist :key-type symbol
+                :value-type (alist :key-type symbol
+                                   :value-type string))
+  ;; another suitable variant
+  ;; :type '(repeat (cons symbol
+  ;;                      (alist :key-type symbol :value-type string)))
   :group 'alect)
 
 (defun alect-get-color (theme-name color-name)
