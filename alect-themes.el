@@ -143,6 +143,18 @@ color names (symbols) and values (strings)."
   ;;                      (alist :key-type symbol :value-type string)))
   :group 'alect)
 
+(defun alect-set-color (theme-name color-name color-val)
+  "Set color COLOR-NAME of a theme THEME-NAME to the value of COLOR-VAL.
+COLOR-NAME and THEME-NAME are symbols, COLOR-VAL is a string.
+See `alect-colors' for details."
+  (let ((color-alist (cdr (assoc theme-name alect-colors))))
+    (or color-alist
+        (error "Theme '%s' does not exist" theme-name))
+    (let ((color-cons (assoc color-name color-alist)))
+      (or color-cons
+          (error "Color '%s' does not exist" color-name))
+      (setcdr color-cons color-val))))
+
 (defun alect-get-color (theme-name color-name)
   "Return the value of color for the specified theme."
   (cdr (assoc color-name
