@@ -4,7 +4,7 @@
 
 ;; Author: Alex Kost <alezost@gmail.com>
 ;; Created: 10 Jul 2013
-;; Version: 0.1.7
+;; Version: 0.1.8
 ;; Last-Updated: 2013-12-13
 ;; Package-Requires: ((emacs "24.0"))
 ;; URL: http://github.com/alezost/alect-themes
@@ -193,7 +193,8 @@ See `alect-colors' for details."
       (trailing-whitespace ((t (:background ,(gc 'red)))))
       (vertical-border     ((t (:foreground ,(gc 'fg+1)))))
 
-      ;; auxiliary faces to be inherited by org, gnus and other faces with levels
+      ;; auxiliary faces for inheriting
+      (alect-title          ((t (:foreground ,(gc 'green+2) :weight bold :height 1.13))))
       (alect-color-level-1  ((t (:foreground ,(gc 'blue+1)))))
       (alect-color-level-2  ((t (:foreground ,(gc 'green)))))
       (alect-color-level-3  ((t (:foreground ,(gc 'red+1)))))
@@ -335,7 +336,7 @@ See `alect-colors' for details."
       ;; dired
       (dired-directory  ((t (:inherit font-lock-function-name-face))))
       (dired-flagged    ((t (:foreground ,(gc 'red)))))
-      (dired-header     ((t (:inherit header-line))))
+      (dired-header     ((t (:inherit alect-title))))
       (dired-ignored    ((t (:foreground ,(gc 'gray)))))
       (dired-mark       ((t (:foreground ,(gc 'blue+1)))))
       (dired-marked     ((t (:inherit warning))))
@@ -582,7 +583,7 @@ See `alect-colors' for details."
       (linum ((t (:foreground ,(gc 'fg-2)))))
 
       ;; magit
-      (magit-section-title ((t (:foreground ,(gc 'yellow) :weight bold))))
+      (magit-section-title ((t (:inherit alect-title))))
       (magit-branch ((t (:foreground ,(gc 'fg-2) :weight bold))))
       (magit-item-highlight ((t (:background ,(gc 'bg)))))
 
@@ -870,11 +871,8 @@ See `alect-colors' for details."
 
       ;; sunrise-commander
       (sr-active-path-face       ((t (:inherit dired-header))))
-      (sr-passive-path-face      ((t (:foreground ,(gc 'fg-2)
-                                      :height 1.13
-                                      :box (:line-width 1
-                                            :color ,(gc 'fg-2)
-                                            :style nil)))))
+      (sr-passive-path-face      ((t (:inherit dired-header
+                                      :foreground ,(gc 'fg-2)))))
       (sr-directory-face         ((t (:inherit dired-directory))))
       (sr-marked-file-face       ((t (:inherit dired-marked))))
       (sr-marked-dir-face        ((t (:inherit sr-alt-marked-file-face :weight bold))))
@@ -957,7 +955,7 @@ See `alect-colors' for details."
                                              :backround ,(gc 'gray)))))
       (w3m-tab-mouse                    ((t (:inherit custom-button-mouse))))
       (w3m-header-line-location-title   ((t (:inherit header-line))))
-      (w3m-header-line-location-content ((t (:foreground ,(gc 'yellow+2)
+      (w3m-header-line-location-content ((t (:foreground ,(gc 'blue-1)
                                              :inherit header-line))))
       (w3m-history-current-url          ((t (:inherit match))))
       (w3m-lnum                         ((t (:foreground ,(gc 'green+2)
