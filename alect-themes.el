@@ -5,7 +5,7 @@
 ;; Author: Alex Kost <alezost@gmail.com>
 ;; Created: 10 Jul 2013
 ;; Version: 0.1.7
-;; Last-Updated: 2013-12-12
+;; Last-Updated: 2013-12-13
 ;; Package-Requires: ((emacs "24.0"))
 ;; URL: http://github.com/alezost/alect-themes
 ;; Keywords: color theme
@@ -194,18 +194,18 @@ See `alect-colors' for details."
       (vertical-border     ((t (:foreground ,(gc 'fg+1)))))
 
       ;; auxiliary faces to be inherited by org, gnus and other faces with levels
-      (color-level-1 ((t (:foreground ,(gc 'blue+1)))))
-      (color-level-2 ((t (:foreground ,(gc 'green)))))
-      (color-level-3 ((t (:foreground ,(gc 'red+1)))))
-      (color-level-4 ((t (:foreground ,(gc 'yellow+2)))))
-      (color-level-5 ((t (:foreground ,(gc 'cyan+1)))))
-      (color-level-6 ((t (:foreground ,(gc 'blue-1)))))
-      (color-level-7 ((t (:foreground ,(gc 'magenta-1)))))
-      (color-level-8 ((t (:foreground ,(gc 'yellow)))))
-      (color-level-9 ((t (:foreground ,(gc 'green+2)))))
-      (color-level-10 ((t (:foreground ,(gc 'red-2)))))
-      (color-level-11 ((t (:foreground ,(gc 'cyan-2)))))
-      (color-level-12 ((t (:foreground ,(gc 'magenta+2)))))
+      (alect-color-level-1  ((t (:foreground ,(gc 'blue+1)))))
+      (alect-color-level-2  ((t (:foreground ,(gc 'green)))))
+      (alect-color-level-3  ((t (:foreground ,(gc 'red+1)))))
+      (alect-color-level-4  ((t (:foreground ,(gc 'yellow+2)))))
+      (alect-color-level-5  ((t (:foreground ,(gc 'cyan+1)))))
+      (alect-color-level-6  ((t (:foreground ,(gc 'blue-1)))))
+      (alect-color-level-7  ((t (:foreground ,(gc 'magenta-1)))))
+      (alect-color-level-8  ((t (:foreground ,(gc 'yellow)))))
+      (alect-color-level-9  ((t (:foreground ,(gc 'green+2)))))
+      (alect-color-level-10 ((t (:foreground ,(gc 'red-2)))))
+      (alect-color-level-11 ((t (:foreground ,(gc 'cyan-2)))))
+      (alect-color-level-12 ((t (:foreground ,(gc 'magenta+2)))))
 
       ;; ace-jump
       (ace-jump-face-background ((t (:foreground ,(gc 'bg+2)
@@ -451,13 +451,13 @@ See `alect-colors' for details."
       (git-gutter-fr:modified ((t (:foreground ,(gc 'magenta) :weight bold))))
 
       ;; gnus
-      (gnus-group-news-1-empty      ((t (:inherit color-level-1))))
-      (gnus-group-news-2-empty      ((t (:inherit color-level-2))))
-      (gnus-group-news-3-empty      ((t (:inherit color-level-3))))
-      (gnus-group-news-4-empty      ((t (:inherit color-level-4))))
-      (gnus-group-news-5-empty      ((t (:inherit color-level-5))))
-      (gnus-group-news-6-empty      ((t (:inherit color-level-6))))
-      (gnus-group-news-low-empty    ((t (:inherit color-level-7))))
+      (gnus-group-news-1-empty      ((t (:inherit alect-color-level-1))))
+      (gnus-group-news-2-empty      ((t (:inherit alect-color-level-2))))
+      (gnus-group-news-3-empty      ((t (:inherit alect-color-level-3))))
+      (gnus-group-news-4-empty      ((t (:inherit alect-color-level-4))))
+      (gnus-group-news-5-empty      ((t (:inherit alect-color-level-5))))
+      (gnus-group-news-6-empty      ((t (:inherit alect-color-level-6))))
+      (gnus-group-news-low-empty    ((t (:inherit alect-color-level-7))))
       (gnus-group-news-1            ((t (:inherit gnus-group-news-1-empty :weight bold))))
       (gnus-group-news-2            ((t (:inherit gnus-group-news-2-empty :weight bold))))
       (gnus-group-news-3            ((t (:inherit gnus-group-news-3-empty :weight bold))))
@@ -495,17 +495,17 @@ See `alect-colors' for details."
       (gnus-summary-high-unread     ((t (:inherit gnus-summary-normal-unread  :weight bold))))
       (gnus-summary-selected        ((t (:background ,(gc 'green)
                                          :foreground ,(gc 'white)))))
-      (gnus-cite-1                  ((t (:inherit color-level-1))))
-      (gnus-cite-2                  ((t (:inherit color-level-2))))
-      (gnus-cite-3                  ((t (:inherit color-level-3))))
-      (gnus-cite-4                  ((t (:inherit color-level-4))))
-      (gnus-cite-5                  ((t (:inherit color-level-5))))
-      (gnus-cite-6                  ((t (:inherit color-level-6))))
-      (gnus-cite-7                  ((t (:inherit color-level-7))))
-      (gnus-cite-8                  ((t (:inherit color-level-8))))
-      (gnus-cite-9                  ((t (:inherit color-level-9))))
-      (gnus-cite-10                 ((t (:inherit color-level-10))))
-      (gnus-cite-11                 ((t (:inherit color-level-11))))
+      (gnus-cite-1                  ((t (:inherit alect-color-level-1))))
+      (gnus-cite-2                  ((t (:inherit alect-color-level-2))))
+      (gnus-cite-3                  ((t (:inherit alect-color-level-3))))
+      (gnus-cite-4                  ((t (:inherit alect-color-level-4))))
+      (gnus-cite-5                  ((t (:inherit alect-color-level-5))))
+      (gnus-cite-6                  ((t (:inherit alect-color-level-6))))
+      (gnus-cite-7                  ((t (:inherit alect-color-level-7))))
+      (gnus-cite-8                  ((t (:inherit alect-color-level-8))))
+      (gnus-cite-9                  ((t (:inherit alect-color-level-9))))
+      (gnus-cite-10                 ((t (:inherit alect-color-level-10))))
+      (gnus-cite-11                 ((t (:inherit alect-color-level-11))))
       (gnus-signature               ((t (:foreground ,(gc 'cyan+1)))))
       (gnus-x                       ((t (:background ,(gc 'fg+1)
                                          :foreground ,(gc 'bg-1)))))
@@ -780,14 +780,14 @@ See `alect-colors' for details."
       (org-column-title          ((t (:background ,(gc 'bg-2) :underline t :weight bold))))
 
       ;; outline
-      (outline-1 ((t (:inherit color-level-1 :weight bold :height 1.12))))
-      (outline-2 ((t (:inherit color-level-2 :weight bold :height 1.12))))
-      (outline-3 ((t (:inherit color-level-3 :weight bold :height 1.12))))
-      (outline-4 ((t (:inherit color-level-4 :weight bold :height 1.12))))
-      (outline-5 ((t (:inherit color-level-5 :weight bold :height 1.12))))
-      (outline-6 ((t (:inherit color-level-6 :weight bold :height 1.12))))
-      (outline-7 ((t (:inherit color-level-7 :weight bold :height 1.12))))
-      (outline-8 ((t (:inherit color-level-8 :weight bold :height 1.12))))
+      (outline-1 ((t (:inherit alect-color-level-1 :weight bold :height 1.12))))
+      (outline-2 ((t (:inherit alect-color-level-2 :weight bold :height 1.12))))
+      (outline-3 ((t (:inherit alect-color-level-3 :weight bold :height 1.12))))
+      (outline-4 ((t (:inherit alect-color-level-4 :weight bold :height 1.12))))
+      (outline-5 ((t (:inherit alect-color-level-5 :weight bold :height 1.12))))
+      (outline-6 ((t (:inherit alect-color-level-6 :weight bold :height 1.12))))
+      (outline-7 ((t (:inherit alect-color-level-7 :weight bold :height 1.12))))
+      (outline-8 ((t (:inherit alect-color-level-8 :weight bold :height 1.12))))
 
       ;; popup
       (popup-tip-face                    ((t (:foreground ,(gc 'black)
@@ -839,12 +839,12 @@ See `alect-colors' for details."
       (rpm-spec-var-face           ((t (:foreground ,(gc 'red)))))
 
       ;; rst-mode
-      (rst-level-1-face ((t (:inherit color-level-1))))
-      (rst-level-2-face ((t (:inherit color-level-2))))
-      (rst-level-3-face ((t (:inherit color-level-3))))
-      (rst-level-4-face ((t (:inherit color-level-4))))
-      (rst-level-5-face ((t (:inherit color-level-5))))
-      (rst-level-6-face ((t (:inherit color-level-6))))
+      (rst-level-1-face ((t (:inherit alect-color-level-1))))
+      (rst-level-2-face ((t (:inherit alect-color-level-2))))
+      (rst-level-3-face ((t (:inherit alect-color-level-3))))
+      (rst-level-4-face ((t (:inherit alect-color-level-4))))
+      (rst-level-5-face ((t (:inherit alect-color-level-5))))
+      (rst-level-6-face ((t (:inherit alect-color-level-6))))
 
       ;; shell-script
       (sh-heredoc     ((t (:inherit font-lock-doc-face))))
