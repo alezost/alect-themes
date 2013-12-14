@@ -337,11 +337,10 @@ For INVERT, see `alect-get-color'."
        (custom-button-pressed          ((t (:inherit custom-button-unraised
                                             :box (:line-width 2
                                                   :style pressed-button)))))
-       (custom-button-mouse            ((t (:inherit custom-button-unraised
-                                            :background ,(gc 'gray-2)
+       (custom-button-mouse            ((t (:inherit highlight
                                             :box (:line-width 2
                                                   :style released-button)))))
-       (custom-button-unraised         ((t (:foreground ,(gc 'gray+2)
+       (custom-button-unraised         ((t (:foreground ,(gc 'fg+2)
                                             :background ,(gc 'bg+2)))))
        (custom-button-pressed-unraised ((t (:inherit custom-button-unraised :underline t))))
        (custom-documentation           ((t (:inherit font-lock-doc-face))))
