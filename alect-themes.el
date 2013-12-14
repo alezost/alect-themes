@@ -86,9 +86,11 @@ values should be in matching order)."
   (alect-generate-colors
    '(light dark)
    '((cursor    "#1074cd" "#ffec8b")
-     (white     "#fafafa" "#e9e9e9")
+     (gray-2    "#fafafa" "#e9e9e9")
+     (gray-1    "#bdbdbd" "#c0c0c0")
      (gray      "#808080" "#aaaaaa")
-     (black     "#070707" "#000000")
+     (gray+1    "#444444" "#555555")
+     (gray+2    "#070707" "#000000")
      (fg-2      "#6c6c6c" "#8c826d")
      (fg-1      "#505050" "#d0bf8f")
      (fg        "#3f3f3f" "#f0dfaf")
@@ -220,8 +222,8 @@ For INVERT, see `alect-get-color'."
                                  :box (:line-width 1
                                        :color ,(gc 'fg+2)
                                        :style nil)))))
-       (highlight           ((t (:foreground ,(gc 'black)
-                                 :background ,(gc 'white)))))
+       (highlight           ((t (:foreground ,(gc 'gray+2)
+                                 :background ,(gc 'gray-2)))))
        (shadow              ((t (:foreground ,(gc 'gray)))))
        (success             ((t (:foreground ,(gc 'green) :weight bold))))
        (warning             ((t (:foreground ,(gc 'yellow-1) :weight normal))))
@@ -277,7 +279,7 @@ For INVERT, see `alect-get-color'."
        (font-latex-title-4  ((t (:inherit variable-pitch :weight bold))))
 
        ;; auto-complete
-       (ac-candidate-face                 ((t (:foreground ,(gc 'black)
+       (ac-candidate-face                 ((t (:foreground ,(gc 'gray+2)
                                                :background ,(gc 'bg+2)))))
        (ac-selection-face                 ((t (:foreground ,(gc 'fg+1)
                                                :background ,(gc 'cyan+1) ))))
@@ -336,10 +338,10 @@ For INVERT, see `alect-get-color'."
                                             :box (:line-width 2
                                                   :style pressed-button)))))
        (custom-button-mouse            ((t (:inherit custom-button-unraised
-                                            :background ,(gc 'white)
+                                            :background ,(gc 'gray-2)
                                             :box (:line-width 2
                                                   :style released-button)))))
-       (custom-button-unraised         ((t (:foreground ,(gc 'black)
+       (custom-button-unraised         ((t (:foreground ,(gc 'gray+2)
                                             :background ,(gc 'bg+2)))))
        (custom-button-pressed-unraised ((t (:inherit custom-button-unraised :underline t))))
        (custom-documentation           ((t (:inherit font-lock-doc-face))))
@@ -535,7 +537,7 @@ For INVERT, see `alect-get-color'."
        (gnus-summary-high-ticked     ((t (:inherit gnus-summary-normal-ticked  :weight bold))))
        (gnus-summary-high-unread     ((t (:inherit gnus-summary-normal-unread  :weight bold))))
        (gnus-summary-selected        ((t (:background ,(gc 'green)
-                                          :foreground ,(gc 'white)))))
+                                          :foreground ,(gc 'gray-2)))))
        (gnus-cite-1                  ((t (:inherit alect-color-level-1))))
        (gnus-cite-2                  ((t (:inherit alect-color-level-2))))
        (gnus-cite-3                  ((t (:inherit alect-color-level-3))))
@@ -784,15 +786,15 @@ For INVERT, see `alect-get-color'."
        (newsticker-treeview-selection-face  ((t (:foreground ,(gc 'yellow)))))
 
        ;; org-mode
-       (org-agenda-date-today     ((t (:foreground ,(gc 'white)
+       (org-agenda-date-today     ((t (:foreground ,(gc 'gray-2)
                                        :slant italic :weight bold))) t)
        (org-agenda-structure      ((t (:inherit font-lock-comment-face))))
        (org-archived              ((t (:foreground ,(gc 'fg+1) :weight bold))))
        (org-checkbox              ((t (:background ,(gc 'bg+1)
-                                       :foreground ,(gc 'white)
+                                       :foreground ,(gc 'gray-2)
                                        :box (:line-width 1 :style released-button)))))
        (org-date                  ((t (:foreground ,(gc 'cyan-2) :underline nil))))
-       (org-date-selected         ((t (:foreground ,(gc 'white) :background ,(gc 'red+1)))))
+       (org-date-selected         ((t (:foreground ,(gc 'gray-2) :background ,(gc 'red+1)))))
        (org-deadline-announce     ((t (:foreground ,(gc 'red-1)))))
        (org-done                  ((t (:foreground ,(gc 'cyan-1) :weight bold))))
        (org-formula               ((t (:foreground ,(gc 'yellow-2)))))
@@ -831,7 +833,7 @@ For INVERT, see `alect-get-color'."
        (outline-8 ((t (:inherit alect-color-level-8 :weight bold :height 1.12))))
 
        ;; popup
-       (popup-tip-face                    ((t (:foreground ,(gc 'black)
+       (popup-tip-face                    ((t (:foreground ,(gc 'gray+2)
                                                :background ,(gc 'yellow-2)))))
        (popup-scroll-bar-foreground-face  ((t (:background ,(gc 'cyan+2)))))
        (popup-scroll-bar-background-face  ((t (:background ,(gc 'bg-2)))))
@@ -892,9 +894,9 @@ For INVERT, see `alect-get-color'."
        (sh-quoted-exec ((t (:foreground ,(gc 'cyan)))))
 
        ;; show-paren
-       (show-paren-mismatch  ((t (:foreground ,(gc 'white)
+       (show-paren-mismatch  ((t (:foreground ,(gc 'gray-2)
                                   :background ,(gc 'red)))))
-       (show-paren-match     ((t (:foreground ,(gc 'white)
+       (show-paren-match     ((t (:foreground ,(gc 'gray-2)
                                   :background ,(gc 'green+1)))))
 
        ;; SLIME
@@ -1048,7 +1050,7 @@ For INVERT, see `alect-get-color'."
        (whitespace-newline           ((t (:foreground ,(gc 'blue-2)))))
        (whitespace-trailing          ((t (:background ,(gc 'red)))))
        (whitespace-line              ((t (:background ,(gc 'gray)
-                                          :foreground ,(gc 'white)))))
+                                          :foreground ,(gc 'gray-2)))))
        (whitespace-space-before-tab  ((t (:background ,(gc 'fg-2)
                                           :foreground ,(gc 'fg-2)))))
        (whitespace-indentation       ((t (:background ,(gc 'yellow-2)
