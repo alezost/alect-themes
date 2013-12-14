@@ -155,17 +155,52 @@ See `alect-colors' for details."
           (error "Color '%s' does not exist" color-name))
       (setcdr color-cons color-val))))
 
-(defun alect-get-color (theme-name color-name)
-  "Return the value of color for the specified theme."
+(defcustom alect-inverted-color-regexp
+  "^\\(red\\|yellow\\|green\\|cyan\\|blue\\|magenta\\)\\([-+]\\)\\([012]\\)$"
+  "Regexp matching a name of the color for inverted theme.
+
+The first parenthesized group should match a base color
+name (e.g. \"fg\" or \"blue\").
+The second group should match a sign (\"-\" or \"+\").
+The third group should match a color number (0, 1 or 2).
+
+For available color names, see `alect-colors'.
+For description of inverting colors, see `alect-get-color'."
+  :type 'string
+  :group 'alect)
+
+(defun alect-get-color (theme-name color-name &optional invert)
+  "Return the value of color COLOR-NAME for a theme THEME-NAME.
+
+If INVERT is non-nil, return the value of the \"opposite\" color.
+E.g. use the value of \"magenta+1\" if COLOR-NAME is
+\"magenta-1\" or use \"red-2\" instead of \"red+2\" and so on.
+Invert only the color matching `alect-inverted-color-regexp'.
+
+For the values of THEME-NAME and COLOR-NAME, see `alect-colors'."
+  (and invert
+       (let ((color (symbol-name color-name)))
+         (and (string-match alect-inverted-color-regexp color)
+              (let ((base (match-string 1 color))
+                    (sign (match-string 2 color))
+                    (num  (match-string 3 color)))
+                (and base sign num
+                     (setq color-name
+                           (intern (concat base
+                                           (if (equal sign "-")
+                                               "+"
+                                             "-")
+                                           num))))))))
   (cdr (assoc color-name
               (cdr (assoc theme-name alect-colors)))))
 
-(defun alect-get-customization (theme)
+(defun alect-get-customization (theme &optional invert)
   "Return cons of settings for theme THEME.
 Car of the cons is a list for `custom-theme-set-faces' function.
 Cdr of the cons is a list for `custom-theme-set-variables' function.
-THEME is a name of the color theme (symbol from `alect-colors')."
-  (cl-flet ((gc (col) (alect-get-color theme col)))
+THEME is a name of the color theme (symbol from `alect-colors').
+For INVERT, see `alect-get-color'."
+  (cl-flet ((gc (col) (alect-get-color theme col invert)))
     (cons
      ;; FACES
      `(;; basic colors
@@ -1124,8 +1159,12 @@ static char *gnus-pointer[] = {
        (vc-annotate-background ,(gc 'bg-2))
        ))))
 
-(defmacro alect-create-theme (theme)
-  (let* ((theme-name  (intern (concat "alect-" (symbol-name theme))))
+(defmacro alect-create-theme (theme &optional invert)
+  "Define and provide a color theme THEME.
+For INVERT, see `alect-get-color'."
+  (let* ((theme-name  (intern (concat "alect-"
+                                      (symbol-name theme)
+                                      (and invert "-alt"))))
          (theme-vals  (alect-get-customization theme invert))
          (theme-faces (car theme-vals))
          (theme-vars  (cdr theme-vals)))
@@ -1135,7 +1174,9 @@ static char *gnus-pointer[] = {
     (defvar gnus-mode-line-image-cache nil)
 
     `(progn
-       (deftheme ,theme-name ,(format "Just another %s color theme." theme))
+       (deftheme ,theme-name ,(format "The %s color theme."
+                                      (concat (and invert "alternative ")
+                                              (symbol-name theme))))
        (apply 'custom-theme-set-variables ',theme-name ',theme-vars)
        (apply 'custom-theme-set-faces     ',theme-name ',theme-faces)
        (provide-theme ',theme-name))))
