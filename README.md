@@ -87,15 +87,95 @@ You can change those colors by putting this into your `.emacs`:
      (alect-set-color 'dark 'red-2 "#32cd32")))
 ```
 
+### Alternative themes
+
+Along with 2 original light and dark themes, the package provides 2
+inverted (alternative) themes.  They use the same color palettes, so
+they look very similar to the original ones.  The difference (by
+default) is that dark and bright colors are reversed.
+
+However these 2 themes can be configured with
+`alect-inverted-color-regexp` variable (for details, see docstrings of
+this variable and `alect-get-color` function).  For example, if you
+set this variable to invert background colors, alternative themes will
+look... unusual – see [alternative screenshots](#dired-elisp).
+
+### Emacs 24.3.1 and earlier
+
+While using any theme (not only from this package) you may meet faces
+that do not look how they should (intended by the theme).  For example,
+if you enable `alect-light` theme, you can see ugly gray buttons (the
+left picture) in the `Custom-mode` instead of the themed colored
+buttons (the right picture):
+
+<a href="http://imgur.com/M6eyfWq" title="alect-light - Custom-mode">
+<img src="http://i.imgur.com/M6eyfWq.png" title="alect-light - Custom-mode (wrong colors)" width=320 height=240/></a>
+<a href="http://imgur.com/WOz6Po2" title="alect-light - Custom-mode">
+<img src="http://i.imgur.com/WOz6Po2.png" title="alect-light - Custom-mode (proper colors)" width=320 height=240/></a>
+
+This happens because Emacs applies default face settings even for a
+themed face.  This behaviour is changed in new versions of Emacs (24.4
+and above).  Happily it can be easily fixed for earlier versions by
+redefining `face-spec-recalc` function (can be found on
+[Emacs git mirror](http://git.savannah.gnu.org/cgit/emacs.git/tree/lisp/faces.el)):
+
+```lisp
+(defun face-spec-recalc (face frame)
+  "Reset the face attributes of FACE on FRAME according to its specs.
+This applies the defface/custom spec first, then the custom theme specs,
+then the override spec."
+  (while (get face 'face-alias)
+    (setq face (get face 'face-alias)))
+  (face-spec-reset-face face frame)
+  ;; If FACE is customized or themed, set the custom spec from
+  ;; `theme-face' records, which completely replace the defface spec
+  ;; rather than inheriting from it.
+  (let ((theme-faces (get face 'theme-face)))
+    (if theme-faces
+	(dolist (spec (reverse theme-faces))
+	  (face-spec-set-2 face frame (cadr spec)))
+      (face-spec-set-2 face frame (face-default-spec face))))
+  (face-spec-set-2 face frame (get face 'face-override-spec)))
+```
+
+If you put it into your `.emacs`, you will always get pure themes
+without unintended face settings.
+
 ## Screenshots
 
-### Custom, emacs-lisp, minibuffer ("DejaVu Sans Mono-12" font)
-<a href="http://imgur.com/D0UASEQ"><img src="http://i.imgur.com/D0UASEQ.png" width=320 height=240/></a>
-<a href="http://imgur.com/GXnGuO0"><img src="http://i.imgur.com/GXnGuO0.png" width=320 height=240/></a>
+### C, shell, linum, ido
 
-### C, shell ("Anonymous Pro-13" font)
-<a href="http://imgur.com/GkjhzKK"><img src="http://i.imgur.com/GkjhzKK.png" width=320 height=240/></a>
-<a href="http://imgur.com/Stl0mba"><img src="http://i.imgur.com/Stl0mba.png" width=320 height=240/></a>
+**Font:** *Anonymous Pro-13*
+
+<a href="http://imgur.com/Mjupclm">
+<img src="http://i.imgur.com/Mjupclm.png" title="alect-light - c, shell" width=320 height=240/></a>
+<a href="http://imgur.com/AiG3TsM">
+<img src="http://i.imgur.com/AiG3TsM.png" title="alect-dark - c, shell" width=320 height=240/></a>
+
+### Org, markdown
+
+**Font:** *DejaVu Sans Mono-12*
+
+<a href="http://imgur.com/B1Pl5kX">
+<img src="http://i.imgur.com/B1Pl5kX.png" title="alect-light - org, markdown" width=320 height=240/></a>
+<a href="http://imgur.com/Tck5Aj2">
+<img src="http://i.imgur.com/Tck5Aj2.png" title="alect-dark - org, markdown" width=320 height=240/></a>
+
+### Dired, elisp
+
+Alternative themes, configured to invert background (see
+[alternative configuration](#alternative-themes)) like this:
+
+```lisp
+(setq alect-inverted-color-regexp "^\\(bg\\)\\([-+]\\)\\([012]\\)$")
+```
+
+**Font:** *Anonymous Pro-13*
+
+<a href="http://imgur.com/ljO1Dlf">
+<img src="http://i.imgur.com/ljO1Dlf.png" title="alect-light-alt - dired, elisp" width=320 height=240/></a>
+<a href="http://imgur.com/HNMr4qj">
+<img src="http://i.imgur.com/HNMr4qj.png" title="alect-dark-alt - dired, elisp" width=320 height=240/></a>
 
 ## Feedback
 
