@@ -5,7 +5,7 @@
 ;; Author: Alex Kost <alezost@gmail.com>
 ;; Created: 10 Jul 2013
 ;; Version: 0.1.8
-;; Last-Updated: 2013-12-14
+;; Last-Updated: 2013-12-15
 ;; Package-Requires: ((emacs "24.0"))
 ;; URL: http://github.com/alezost/alect-themes
 ;; Keywords: color theme
@@ -106,8 +106,8 @@ values should be in matching order)."
      (red       "#f71010" "#e43838")
      (red+1     "#d81212" "#f21515")
      (red+2     "#b22222" "#bc1417")
-     (yellow-2  "#f8ffc5" "#f8ffa0")
-     (yellow-1  "#ab9c3a" "#e8e815")
+     (yellow-2  "#ab9c3a" "#f8ffa0")
+     (yellow-1  "#838a0b" "#e8e815")
      (yellow    "#ef8300" "#fe8b04")
      (yellow+1  "#a0682d" "#e5c900")
      (yellow+2  "#6a621b" "#abab3a")
