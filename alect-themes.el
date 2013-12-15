@@ -4,7 +4,7 @@
 
 ;; Author: Alex Kost <alezost@gmail.com>
 ;; Created: 10 Jul 2013
-;; Version: 0.1.8
+;; Version: 0.2
 ;; Last-Updated: 2013-12-15
 ;; Package-Requires: ((emacs "24.0"))
 ;; URL: http://github.com/alezost/alect-themes
@@ -25,9 +25,9 @@
 
 ;;; Commentary:
 
-;; This package provides light and dark color-themes for GNU Emacs 24 or
-;; later.  These themes were intended to be used with a GUI.  Use those
-;; in terminal at your own risk :)
+;; This package provides 4 color themes (2 light and 2 dark) with the
+;; same code-base for GNU Emacs 24 or later.  These themes were intended
+;; to be used with a GUI.  Use those in terminal at your own risk :)
 
 ;; You can install the package from MELPA.  If you prefer the manual
 ;; installation, put these lines into your init-file:
@@ -40,6 +40,9 @@
 ;; It is possible to modify color palette for the themes by customizing
 ;; `alect-colors' variable (you may use `alect-generate-colors' function
 ;; for that - see the code).
+
+;; Inverted (alternative) color themes can be configured with
+;; `alect-inverted-color-regexp' variable.
 
 ;; For screenshots and full description, see
 ;; <http://github.com/alezost/alect-themes>.

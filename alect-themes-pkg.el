@@ -1,4 +1,4 @@
 (define-package
   "alect-themes"
-  "0.1.8"
-  "2 color themes (light and dark) for Emacs 24")
+  "0.2"
+  "4 color themes (2 light and 2 dark) for Emacs 24")
