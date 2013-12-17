@@ -143,6 +143,9 @@ without unintended face settings.
 
 ## Screenshots
 
+You can see the following and other screenshots in
+[imgur album](http://imgur.com/a/eBx96).
+
 ### C, shell, linum, ido
 
 **Font:** *Terminus-12*
