@@ -102,16 +102,16 @@ look... unusual – see [alternative screenshots](#dired-elisp).
 
 ### Emacs 24.3.1 and earlier
 
-While using any theme (not only from this package) you may meet faces
-that do not look how they should (intended by the theme).  For example,
-if you enable `alect-light` theme, you can see ugly gray buttons (the
-left picture) in the `Custom-mode` instead of the themed colored
-buttons (the right picture):
+While using **any** theme (not only from this package) you may meet
+faces that do not look how they should (intended by the theme).  For
+example, if you enable `alect-light` theme, you can see ugly gray
+buttons and other faces in the `Custom-mode` (the left picture)
+instead of the themed colored buttons (the right picture):
 
-<a href="http://imgur.com/M6eyfWq" title="alect-light - Custom-mode">
-<img src="http://i.imgur.com/M6eyfWq.png" title="alect-light - Custom-mode (wrong colors)" width=320 height=240/></a>
-<a href="http://imgur.com/WOz6Po2" title="alect-light - Custom-mode">
-<img src="http://i.imgur.com/WOz6Po2.png" title="alect-light - Custom-mode (proper colors)" width=320 height=240/></a>
+<a href="http://i.imgur.com/sLKZI90.png">
+<img src="http://i.imgur.com/Ah1YXNH.png" title="alect-light - Custom-mode (wrong colors)"/></a>
+<a href="http://i.imgur.com/yn6Njtq.png">
+<img src="http://i.imgur.com/66G9VvX.png" title="alect-light - Custom-mode (proper colors)"/></a>
 
 This happens because Emacs applies default face settings even for a
 themed face.  This behaviour is changed in new versions of Emacs (24.4
@@ -145,20 +145,20 @@ without unintended face settings.
 
 ### C, shell, linum, ido
 
-**Font:** *Anonymous Pro-13*
+**Font:** *Terminus-12*
 
-<a href="http://imgur.com/Mjupclm">
-<img src="http://i.imgur.com/Mjupclm.png" title="alect-light - c, shell" width=320 height=240/></a>
-<a href="http://imgur.com/AiG3TsM">
-<img src="http://i.imgur.com/AiG3TsM.png" title="alect-dark - c, shell" width=320 height=240/></a>
+<a href="http://i.imgur.com/XS9TM80.png">
+<img src="http://i.imgur.com/XS9TM80.png" title="alect-light - c, shell" width=320 height=240/></a>
+<a href="http://i.imgur.com/Fj0s7oT.png">
+<img src="http://i.imgur.com/Fj0s7oT.png" title="alect-dark - c, shell" width=320 height=240/></a>
 
 ### Org, markdown
 
 **Font:** *DejaVu Sans Mono-12*
 
-<a href="http://imgur.com/B1Pl5kX">
+<a href="http://i.imgur.com/B1Pl5kX.png">
 <img src="http://i.imgur.com/B1Pl5kX.png" title="alect-light - org, markdown" width=320 height=240/></a>
-<a href="http://imgur.com/Tck5Aj2">
+<a href="http://i.imgur.com/Tck5Aj2.png">
 <img src="http://i.imgur.com/Tck5Aj2.png" title="alect-dark - org, markdown" width=320 height=240/></a>
 
 ### Dired, elisp
@@ -172,9 +172,9 @@ Alternative themes, configured to invert background (see
 
 **Font:** *Anonymous Pro-13*
 
-<a href="http://imgur.com/ljO1Dlf">
+<a href="http://i.imgur.com/ljO1Dlf.png">
 <img src="http://i.imgur.com/ljO1Dlf.png" title="alect-light-alt - dired, elisp" width=320 height=240/></a>
-<a href="http://imgur.com/HNMr4qj">
+<a href="http://i.imgur.com/HNMr4qj.png">
 <img src="http://i.imgur.com/HNMr4qj.png" title="alect-dark-alt - dired, elisp" width=320 height=240/></a>
 
 ## Feedback
