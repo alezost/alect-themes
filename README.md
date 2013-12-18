@@ -164,6 +164,15 @@ You can see the following and other screenshots in
 <a href="http://i.imgur.com/Tck5Aj2.png">
 <img src="http://i.imgur.com/Tck5Aj2.png" title="alect-dark - org, markdown" width=320 height=240/></a>
 
+### Magit
+
+**Font:** *Anonymous Pro-13*
+
+<a href="http://i.imgur.com/rjGvhV6.png">
+<img src="http://i.imgur.com/rjGvhV6.png" title="alect-light - magit" width=320 height=240/></a>
+<a href="http://i.imgur.com/5WJ4xu9.png">
+<img src="http://i.imgur.com/5WJ4xu9.png" title="alect-dark - magit" width=320 height=240/></a>
+
 ### Dired, elisp
 
 Alternative themes, configured to invert background (see
