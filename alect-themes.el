@@ -4,8 +4,8 @@
 
 ;; Author: Alex Kost <alezost@gmail.com>
 ;; Created: 10 Jul 2013
-;; Version: 0.2
-;; Last-Updated: 2013-12-15
+;; Version: 0.2.1
+;; Last-Updated: 2013-12-18
 ;; Package-Requires: ((emacs "24.0"))
 ;; URL: http://github.com/alezost/alect-themes
 ;; Keywords: color theme
@@ -486,6 +486,13 @@ For INVERT, see `alect-get-color'."
        (font-lock-variable-name-face     ((t (:foreground ,(gc 'yellow+2)))))
        (font-lock-warning-face           ((t (:foreground ,(gc 'red+1) :weight bold))))
 
+       ;; git-commit
+       (git-commit-summary-face         ((t (:weight bold))))
+       (git-commit-branch-face          ((t (:inherit magit-branch))))
+       (git-commit-comment-file-face    ((t (:inherit default))))
+       (git-commit-comment-heading-face ((t (:inherit magit-header))))
+       (git-commit-comment-action-face  ((t (:foreground ,(gc 'yellow+1)))))
+
        ;; git-gutter
        (git-gutter:added       ((t (:foreground ,(gc 'green) :weight bold :inverse-video t))))
        (git-gutter:deleted     ((t (:foreground ,(gc 'red) :weight bold :inverse-video t))))
@@ -627,9 +634,38 @@ For INVERT, see `alect-get-color'."
        (linum ((t (:foreground ,(gc 'fg-2)))))
 
        ;; magit
-       (magit-section-title ((t (:inherit alect-title))))
-       (magit-branch ((t (:foreground ,(gc 'fg-2) :weight bold))))
-       (magit-item-highlight ((t (:background ,(gc 'bg)))))
+       (magit-item-highlight               ((t nil)))
+       (magit-header                       ((t (:inherit alect-title))))
+       (magit-tag                          ((t (:foreground ,(gc 'yellow-1) :weight bold))))
+       (magit-branch                       ((t (:foreground ,(gc 'blue+1) :weight bold))))
+       (magit-log-date                     ((t (:inherit org-date))))
+       (magit-log-sha1                     ((t (:foreground ,(gc 'yellow+2)))))
+       (magit-log-author                   ((t (:foreground ,(gc 'magenta-1)))))
+       (magit-log-head-label-head          ((t (:background ,(gc 'bg-2)
+                                                :foreground ,(gc 'fg+2)
+                                                :box (:line-width 2 :color ,(gc 'red))))))
+       (magit-log-head-label-default       ((t (:box (:line-width 1 :color ,(gc 'fg+1))))))
+       (magit-log-head-label-local         ((t (:inherit magit-log-head-label-default
+                                                :foreground ,(gc 'blue)))))
+       (magit-log-head-label-remote        ((t (:inherit magit-log-head-label-default
+                                                :foreground ,(gc 'green+1)))))
+       (magit-log-head-label-tags          ((t (:inherit magit-log-head-label-default
+                                                :foreground ,(gc 'yellow-1)))))
+       (magit-log-head-label-wip           ((t (:inherit magit-log-head-label-default
+                                                :foreground ,(gc 'red-1)))))
+       (magit-log-head-label-patches       ((t (:inherit magit-log-head-label-default
+                                                :foreground ,(gc 'cyan-1)))))
+       (magit-log-reflog-label-other       ((t (:inherit magit-log-head-label-default))))
+       (magit-log-reflog-label-checkout    ((t (:inherit magit-branch))))
+       (magit-log-reflog-label-remote      ((t (:inherit magit-log-head-label-remote))))
+       (magit-log-reflog-label-reset       ((t (:foreground ,(gc 'red) :weight bold))))
+       (magit-log-reflog-label-rebase      ((t (:foreground ,(gc 'yellow)))))
+       (magit-log-reflog-label-cherry-pick ((t (:foreground ,(gc 'cyan)))))
+       (magit-log-reflog-label-commit      ((t (:foreground ,(gc 'green-1)))))
+       (magit-log-reflog-label-amend       ((t (:foreground ,(gc 'magenta)))))
+       (magit-log-reflog-label-merge       ((t (:foreground ,(gc 'blue-2) :weight bold))))
+       (magit-cherry-unmatched             ((t (:foreground ,(gc 'red+2)))))
+       (magit-cherry-equivalent            ((t (:foreground ,(gc 'cyan+2)))))
 
        ;; markdown mode
        (markdown-header-face           ((t (:inherit outline-1))))
