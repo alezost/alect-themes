@@ -4,8 +4,8 @@
 
 ;; Author: Alex Kost <alezost@gmail.com>
 ;; Created: 10 Jul 2013
-;; Version: 0.2.1
-;; Last-Updated: 2013-12-18
+;; Version: 0.2.2
+;; Last-Updated: 2013-12-19
 ;; Package-Requires: ((emacs "24.0"))
 ;; URL: http://github.com/alezost/alect-themes
 ;; Keywords: color theme
@@ -240,6 +240,7 @@ For INVERT, see `alect-get-color'."
 
        ;; auxiliary faces for inheriting
        (alect-title          ((t (:foreground ,(gc 'green+2) :weight bold :height 1.13))))
+       (alect-time           ((t (:foreground ,(gc 'cyan-2)))))
        (alect-color-level-1  ((t (:foreground ,(gc 'blue+1)))))
        (alect-color-level-2  ((t (:foreground ,(gc 'green)))))
        (alect-color-level-3  ((t (:foreground ,(gc 'red+1)))))
@@ -428,7 +429,7 @@ For INVERT, see `alect-get-color'."
        (erc-notice-face          ((t (:foreground ,(gc 'green)))))
        (erc-palect-face          ((t (:foreground ,(gc 'fg-2) :weight normal))))
        (erc-prompt-face          ((t (:inherit comint-highlight-prompt))))
-       (erc-timestamp-face       ((t (:foreground ,(gc 'yellow+1)))))
+       (erc-timestamp-face       ((t (:inherit alect-time))))
 
        ;; epa
        (epa-mark              ((t (:foreground ,(gc 'blue+1)))))
@@ -621,7 +622,7 @@ For INVERT, see `alect-get-color'."
        (jabber-roster-user-away       ((t (:foreground ,(gc 'green+2)))))
        (jabber-roster-user-online     ((t (:foreground ,(gc 'blue-1)))))
        (jabber-roster-user-dnd        ((t (:foreground ,(gc 'red+1)))))
-       (jabber-rare-time-face         ((t (:foreground ,(gc 'green+1)))))
+       (jabber-rare-time-face         ((t (:inherit alect-time))))
        (jabber-chat-prompt-local      ((t (:foreground ,(gc 'blue-1)))))
        (jabber-chat-prompt-foreign    ((t (:foreground ,(gc 'red+1)))))
        (jabber-activity-face          ((t (:foreground ,(gc 'red+1)))))
@@ -638,7 +639,7 @@ For INVERT, see `alect-get-color'."
        (magit-header                       ((t (:inherit alect-title))))
        (magit-tag                          ((t (:foreground ,(gc 'yellow-1) :weight bold))))
        (magit-branch                       ((t (:foreground ,(gc 'blue+1) :weight bold))))
-       (magit-log-date                     ((t (:inherit org-date))))
+       (magit-log-date                     ((t (:inherit alect-time))))
        (magit-log-sha1                     ((t (:foreground ,(gc 'yellow+2)))))
        (magit-log-author                   ((t (:foreground ,(gc 'magenta-1)))))
        (magit-log-head-label-head          ((t (:background ,(gc 'bg-2)
@@ -711,7 +712,7 @@ For INVERT, see `alect-get-color'."
        ;; mew
        (mew-face-header-subject    ((t (:foreground ,(gc 'fg-2)))))
        (mew-face-header-from       ((t (:foreground ,(gc 'yellow)))))
-       (mew-face-header-date       ((t (:foreground ,(gc 'green)))))
+       (mew-face-header-date       ((t (:inherit alect-time))))
        (mew-face-header-to         ((t (:foreground ,(gc 'red)))))
        (mew-face-header-key        ((t (:foreground ,(gc 'green)))))
        (mew-face-header-private    ((t (:foreground ,(gc 'green)))))
@@ -805,7 +806,7 @@ For INVERT, see `alect-get-color'."
        (nethack-yellow-face             ((t (:foreground ,(gc 'yellow)))))
 
        ;; newsticker
-       (newsticker-date-face                ((t (:foreground ,(gc 'fg+1)))))
+       (newsticker-date-face                ((t (:inherit alect-time))))
        (newsticker-default-face             ((t (:foreground ,(gc 'fg+1)))))
        (newsticker-enclosure-face           ((t (:foreground ,(gc 'cyan-1)))))
        (newsticker-extra-face               ((t (:foreground ,(gc 'bg+1) :height 0.8))))
@@ -824,14 +825,15 @@ For INVERT, see `alect-get-color'."
        (newsticker-treeview-selection-face  ((t (:foreground ,(gc 'yellow)))))
 
        ;; org-mode
-       (org-agenda-date-today     ((t (:foreground ,(gc 'gray-2)
-                                       :slant italic :weight bold))) t)
+       (org-agenda-date           ((t (:inherit alect-time))))
+       (org-agenda-date-today     ((t (:inherit org-agenda-date
+                                       :box (:line-width 1 :color ,(gc 'fg+1) :style nil)))))
        (org-agenda-structure      ((t (:inherit font-lock-comment-face))))
        (org-archived              ((t (:foreground ,(gc 'fg+1) :weight bold))))
        (org-checkbox              ((t (:background ,(gc 'bg+1)
                                        :foreground ,(gc 'gray-2)
                                        :box (:line-width 1 :style released-button)))))
-       (org-date                  ((t (:foreground ,(gc 'cyan-2) :underline nil))))
+       (org-date                  ((t (:inherit alect-time))))
        (org-date-selected         ((t (:foreground ,(gc 'gray-2) :background ,(gc 'red+1)))))
        (org-deadline-announce     ((t (:foreground ,(gc 'red-1)))))
        (org-done                  ((t (:foreground ,(gc 'cyan-1) :weight bold))))
@@ -899,7 +901,7 @@ For INVERT, see `alect-get-color'."
        (rcirc-dim-nick                  ((t (:foreground ,(gc 'cyan-2)))))
        (rcirc-server                    ((t (:foreground ,(gc 'green)))))
        (rcirc-server-prefix             ((t (:foreground ,(gc 'green+1)))))
-       (rcirc-timestamp                 ((t (:foreground ,(gc 'green+2)))))
+       (rcirc-timestamp                 ((t (:inherit alect-time))))
        (rcirc-nick-in-message           ((t (:foreground ,(gc 'yellow)))))
        (rcirc-nick-in-message-full-line ((t (:weight bold))))
        (rcirc-prompt                    ((t (:foreground ,(gc 'yellow) :weight bold))))
