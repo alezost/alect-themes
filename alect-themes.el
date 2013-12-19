@@ -4,8 +4,8 @@
 
 ;; Author: Alex Kost <alezost@gmail.com>
 ;; Created: 10 Jul 2013
-;; Version: 0.2.2
-;; Last-Updated: 2013-12-19
+;; Version: 0.2.3
+;; Last-Updated: 2013-12-20 Fri 01:51:17 (+0400)
 ;; Package-Requires: ((emacs "24.0"))
 ;; URL: http://github.com/alezost/alect-themes
 ;; Keywords: color theme
@@ -241,6 +241,10 @@ For INVERT, see `alect-get-color'."
        ;; auxiliary faces for inheriting
        (alect-title          ((t (:foreground ,(gc 'green+2) :weight bold :height 1.13))))
        (alect-time           ((t (:foreground ,(gc 'cyan-2)))))
+       (alect-selected-item  ((t (:background ,(gc 'bg)
+                                  :box (:line-width 1
+                                        :color ,(gc 'fg+1)
+                                        :style nil)))))
        (alect-color-level-1  ((t (:foreground ,(gc 'blue+1)))))
        (alect-color-level-2  ((t (:foreground ,(gc 'green)))))
        (alect-color-level-3  ((t (:foreground ,(gc 'red+1)))))
@@ -405,7 +409,7 @@ For INVERT, see `alect-get-color'."
 
        ;; emms
        (emms-playlist-track-face    ((t (:inherit gnus-summary-normal-unread))))
-       (emms-playlist-selected-face ((t (:inherit gnus-summary-selected))))
+       (emms-playlist-selected-face ((t (:inherit alect-selected-item))))
        (emms-stream-name-face       ((t (:foreground ,(gc 'blue+1)))))
        (emms-stream-url-face        ((t (:inherit default))))
 
@@ -546,8 +550,7 @@ For INVERT, see `alect-get-color'."
        (gnus-summary-high-read       ((t (:inherit gnus-summary-normal-read    :weight bold))))
        (gnus-summary-high-ticked     ((t (:inherit gnus-summary-normal-ticked  :weight bold))))
        (gnus-summary-high-unread     ((t (:inherit gnus-summary-normal-unread  :weight bold))))
-       (gnus-summary-selected        ((t (:background ,(gc 'green)
-                                          :foreground ,(gc 'gray-2)))))
+       (gnus-summary-selected        ((t (:inherit alect-selected-item))))
        (gnus-cite-1                  ((t (:inherit alect-color-level-1))))
        (gnus-cite-2                  ((t (:inherit alect-color-level-2))))
        (gnus-cite-3                  ((t (:inherit alect-color-level-3))))
@@ -826,15 +829,15 @@ For INVERT, see `alect-get-color'."
 
        ;; org-mode
        (org-agenda-date           ((t (:inherit alect-time))))
-       (org-agenda-date-today     ((t (:inherit org-agenda-date
-                                       :box (:line-width 1 :color ,(gc 'fg+1) :style nil)))))
+       (org-agenda-date-today     ((t (:inherit alect-selected-item
+                                       :foreground ,(gc 'cyan-2)))))
        (org-agenda-structure      ((t (:inherit font-lock-comment-face))))
        (org-archived              ((t (:foreground ,(gc 'fg+1) :weight bold))))
        (org-checkbox              ((t (:background ,(gc 'bg+1)
                                        :foreground ,(gc 'gray-2)
                                        :box (:line-width 1 :style released-button)))))
        (org-date                  ((t (:inherit alect-time))))
-       (org-date-selected         ((t (:foreground ,(gc 'gray-2) :background ,(gc 'red+1)))))
+       (org-date-selected         ((t (:inherit alect-selected-item))))
        (org-deadline-announce     ((t (:foreground ,(gc 'red-1)))))
        (org-done                  ((t (:foreground ,(gc 'cyan-1) :weight bold))))
        (org-formula               ((t (:foreground ,(gc 'yellow-2)))))
