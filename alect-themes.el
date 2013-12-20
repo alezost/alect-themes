@@ -5,7 +5,7 @@
 ;; Author: Alex Kost <alezost@gmail.com>
 ;; Created: 10 Jul 2013
 ;; Version: 0.2.3
-;; Last-Updated: 2013-12-20 Fri 01:51:17 (+0400)
+;; Last-Updated: 2013-12-20 Fri 01:58:12 (+0400)
 ;; Package-Requires: ((emacs "24.0"))
 ;; URL: http://github.com/alezost/alect-themes
 ;; Keywords: color theme
@@ -831,7 +831,7 @@ For INVERT, see `alect-get-color'."
        (org-agenda-date           ((t (:inherit alect-time))))
        (org-agenda-date-today     ((t (:inherit alect-selected-item
                                        :foreground ,(gc 'cyan-2)))))
-       (org-agenda-structure      ((t (:inherit font-lock-comment-face))))
+       (org-agenda-structure      ((t (:inherit alect-title))))
        (org-archived              ((t (:foreground ,(gc 'fg+1) :weight bold))))
        (org-checkbox              ((t (:background ,(gc 'bg+1)
                                        :foreground ,(gc 'gray-2)
