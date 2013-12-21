@@ -5,7 +5,7 @@
 ;; Author: Alex Kost <alezost@gmail.com>
 ;; Created: 10 Jul 2013
 ;; Version: 0.2.3
-;; Last-Updated: 2013-12-20 Fri 01:58:12 (+0400)
+;; Last-Updated: 2013-12-21 Sat 15:46:38 (+0400)
 ;; Package-Requires: ((emacs "24.0"))
 ;; URL: http://github.com/alezost/alect-themes
 ;; Keywords: color theme
@@ -26,7 +26,7 @@
 ;;; Commentary:
 
 ;; This package provides 4 color themes (2 light and 2 dark) with the
-;; same code-base for GNU Emacs 24 or later.  These themes were intended
+;; same code-base for GNU Emacs 24 or later.  These themes were intended
 ;; to be used with a GUI.  Use those in terminal at your own risk :)
 
 ;; You can install the package from MELPA.  If you prefer the manual
@@ -44,8 +44,9 @@
 ;; Inverted (alternative) color themes can be configured with
 ;; `alect-inverted-color-regexp' variable.
 
-;; For screenshots and full description, see
+;; For full description and some screenshots, see
 ;; <http://github.com/alezost/alect-themes>.
+;; All screenshots can be found at <http://imgur.com/a/eBx96>.
 
 ;;; Code:
 
