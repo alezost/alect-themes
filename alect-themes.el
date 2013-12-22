@@ -5,7 +5,7 @@
 ;; Author: Alex Kost <alezost@gmail.com>
 ;; Created: 10 Jul 2013
 ;; Version: 0.2.3
-;; Last-Updated: 2013-12-21 Sat 15:46:38 (+0400)
+;; Last-Updated: 2013-12-22 Sun 11:52:46 (+0400)
 ;; Package-Requires: ((emacs "24.0"))
 ;; URL: http://github.com/alezost/alect-themes
 ;; Keywords: color theme
@@ -234,13 +234,14 @@ For INVERT, see `alect-get-color'."
        (region              ((t (:background ,(gc 'bg+2)))))
        (menu                ((t (:foreground ,(gc 'fg+1)
                                  :background ,(gc 'bg-1)))))
-       (minibuffer-prompt   ((t (:foreground ,(gc 'magenta-1) :weight bold))))
+       (minibuffer-prompt   ((t (:inherit alect-prompt))))
        (secondary-selection ((t (:background ,(gc 'bg+1)))))
        (trailing-whitespace ((t (:background ,(gc 'red)))))
        (vertical-border     ((t (:foreground ,(gc 'fg+1)))))
 
        ;; auxiliary faces for inheriting
        (alect-title          ((t (:foreground ,(gc 'green+2) :weight bold :height 1.13))))
+       (alect-prompt         ((t (:foreground ,(gc 'magenta-1) :weight bold))))
        (alect-time           ((t (:foreground ,(gc 'cyan-2)))))
        (alect-selected-item  ((t (:background ,(gc 'bg)
                                   :box (:line-width 1
@@ -312,7 +313,7 @@ For INVERT, see `alect-get-color'."
                                        :weight bold :underline t))))
 
        ;; comint
-       (comint-highlight-prompt ((t (:inherit minibuffer-prompt))))
+       (comint-highlight-prompt ((t (:inherit alect-prompt))))
        (comint-highlight-input  ((t (:weight bold))))
 
        ;; compilation
@@ -433,7 +434,7 @@ For INVERT, see `alect-get-color'."
        (erc-nick-msg-face        ((t (:foreground ,(gc 'fg+2)))))
        (erc-notice-face          ((t (:foreground ,(gc 'green)))))
        (erc-palect-face          ((t (:foreground ,(gc 'fg-2) :weight normal))))
-       (erc-prompt-face          ((t (:inherit comint-highlight-prompt))))
+       (erc-prompt-face          ((t (:inherit alect-prompt))))
        (erc-timestamp-face       ((t (:inherit alect-time))))
 
        ;; epa
@@ -451,7 +452,7 @@ For INVERT, see `alect-get-color'."
                                          :background ,(gc 'bg-1)))))
 
        ;; eshell
-       (eshell-prompt         ((t (:foreground ,(gc 'fg+2) :weight bold))))
+       (eshell-prompt         ((t (:inherit alect-prompt))))
        (eshell-ls-archive     ((t (:foreground ,(gc 'green)))))
        (eshell-ls-backup      ((t (:inherit dired-ignored))))
        (eshell-ls-clutter     ((t (:inherit font-lock-comment-face))))
@@ -908,7 +909,7 @@ For INVERT, see `alect-get-color'."
        (rcirc-timestamp                 ((t (:inherit alect-time))))
        (rcirc-nick-in-message           ((t (:foreground ,(gc 'yellow)))))
        (rcirc-nick-in-message-full-line ((t (:weight bold))))
-       (rcirc-prompt                    ((t (:foreground ,(gc 'yellow) :weight bold))))
+       (rcirc-prompt                    ((t (:inherit alect-prompt))))
        (rcirc-track-nick                ((t (:inverse-video t))))
        (rcirc-track-keyword             ((t (:weight bold))))
        (rcirc-url                       ((t (:weight bold))))
@@ -949,7 +950,7 @@ For INVERT, see `alect-get-color'."
        (slime-repl-output-face           ((t (:foreground ,(gc 'green-1)))))
        (slime-repl-inputed-output-face   ((t (:foreground ,(gc 'red)))))
        (slime-repl-output-mouseover-face ((t (:inherit highlight))))
-       (slime-repl-prompt-face           ((t (:inherit comint-highlight-prompt))))
+       (slime-repl-prompt-face           ((t (:inherit alect-prompt))))
        (slime-repl-result-face           ((t (:foreground ,(gc 'blue+2)))))
 
        ;; sml-mode-line
