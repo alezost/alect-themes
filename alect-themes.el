@@ -86,6 +86,15 @@ values should be in matching order)."
   "Options for alect color themes."
   :group 'faces)
 
+(defcustom alect-overriding-faces nil
+  "List of faces that override original themed faces.
+The faces should be in a form accepted by `custom-theme-set-faces'.
+
+Use this variable if you want alect-themes to use non-default
+specifications of faces."
+  :type 'sexp
+  :group 'alect)
+
 (defcustom alect-colors
   (alect-generate-colors
    '(light dark)
@@ -1199,6 +1208,25 @@ static char *gnus-pointer[] = {
        (vc-annotate-background ,(gc 'bg-2))
        ))))
 
+(defun alect-override-faces (original overriding)
+  "Override faces from ORIGINAL list with faces from OVERRIDING list.
+
+Both ORIGINAL and OVERRIDING are lists of face specifications
+accepted by `custom-theme-set-faces'.
+
+Replace face specifications from ORIGINAL list with the ones from
+OVERRIDING list, add new faces from OVERRIDING list, and return the
+resulting list.
+
+This function is destructive: ORIGINAL list may not stay the same."
+  (mapc (lambda (face)
+          (let ((orig-face (assoc (car face) original)))
+            (and orig-face
+                 (setq original (delete orig-face original)))
+            (add-to-list 'original face)))
+        overriding)
+  original)
+
 (defmacro alect-create-theme (theme &optional invert)
   "Define and provide a color theme THEME.
 For INVERT, see `alect-get-color'."
@@ -1206,7 +1234,9 @@ For INVERT, see `alect-get-color'."
                                       (symbol-name theme)
                                       (and invert "-alt"))))
          (theme-vals  (alect-get-customization theme invert))
-         (theme-faces (car theme-vals))
+         (theme-faces (alect-override-faces
+                       (car theme-vals)
+                       alect-overriding-faces))
          (theme-vars  (cdr theme-vals)))
     ;; FIXME is there a way to avoid this?: variables are not set with
     ;; `custom-theme-set-variables' if they have not been defined yet
