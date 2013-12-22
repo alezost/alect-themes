@@ -4,8 +4,8 @@
 
 ;; Author: Alex Kost <alezost@gmail.com>
 ;; Created: 10 Jul 2013
-;; Version: 0.2.3
-;; Last-Updated: 2013-12-22 Sun 12:01:38 (+0400)
+;; Version: 0.2.4
+;; Last-Updated: 2013-12-22 Sun 12:19:57 (+0400)
 ;; Package-Requires: ((emacs "24.0"))
 ;; URL: http://github.com/alezost/alect-themes
 ;; Keywords: color theme
@@ -218,6 +218,8 @@ For INVERT, see `alect-get-color'."
                                  :underline t :weight normal))))
        (link-visited        ((t (:foreground ,(gc 'blue+2)
                                  :underline t :weight normal))))
+       (match               ((t (:background ,(gc 'green+1)
+                                 :foreground ,(gc 'gray-2)))))
        (escape-glyph        ((t (:foreground ,(gc 'yellow) :weight bold))))
        (fringe              ((t (:foreground ,(gc 'gray)
                                  :background ,(gc 'bg-2)))))
@@ -573,8 +575,6 @@ For INVERT, see `alect-get-color'."
        (grep-error-face    ((t (:foreground ,(gc 'red-1) :weight bold :underline t))))
        (grep-hit-face      ((t (:foreground ,(gc 'blue)))))
        (grep-match-face    ((t (:foreground ,(gc 'fg-2) :weight bold))))
-       (match              ((t (:background ,(gc 'green+1)
-                                :foreground ,(gc 'yellow-2) :weight normal))))
 
        ;; guide-key
        (guide-key/highlight-command-face ((t (:foreground ,(gc 'blue)))))
