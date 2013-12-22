@@ -5,7 +5,7 @@
 ;; Author: Alex Kost <alezost@gmail.com>
 ;; Created: 10 Jul 2013
 ;; Version: 0.2.3
-;; Last-Updated: 2013-12-22 Sun 11:55:45 (+0400)
+;; Last-Updated: 2013-12-22 Sun 12:01:38 (+0400)
 ;; Package-Requires: ((emacs "24.0"))
 ;; URL: http://github.com/alezost/alect-themes
 ;; Keywords: color theme
@@ -1044,7 +1044,7 @@ For INVERT, see `alect-get-color'."
        (w3m-header-line-location-title   ((t (:inherit header-line))))
        (w3m-header-line-location-content ((t (:foreground ,(gc 'blue-1)
                                               :inherit header-line))))
-       (w3m-history-current-url          ((t (:inherit match))))
+       (w3m-history-current-url          ((t (:inherit alect-selected-item))))
        (w3m-image-anchor                 ((t (:background ,(gc 'bg+1)))))
 
        ;; wanderlust
