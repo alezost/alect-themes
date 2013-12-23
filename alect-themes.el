@@ -1208,6 +1208,60 @@ static char *gnus-pointer[] = {
        (vc-annotate-background ,(gc 'bg-2))
        ))))
 
+(defun alect-substitute-color (theme-name plist prop)
+  "Substitute color name for property PROP in property list PLIST.
+
+Return plist with substituted color value.  Replace a color only
+if PROP contains such color name (symbol from `alect-colors').
+
+This function is destructive: PLIST may not stay the same.
+
+See `alect-substitute-colors-in-plist' for details."
+  (let ((color-name (plist-get plist prop))
+        color-val)
+    (and (symbolp color-name)
+         (setq color-val (alect-get-color theme-name color-name))
+         (setq plist (plist-put plist prop color-val)))
+    plist))
+
+(defun alect-substitute-colors-in-plist (theme-name plist)
+  "Substitute color names in property list PLIST with color values.
+
+Color values (strings) are defined by color names (symbols) for a
+specified theme THEME-NAME from `alect-colors' variable.  Replace
+colors for the `:foreground' and `:background' properties.  If
+there is also `:box' property in PLIST, replace its `:color'
+property as well.
+
+Return plist with substituted colors.  This function is
+destructive: PLIST may not stay the same."
+  (setq plist (alect-substitute-color theme-name plist :foreground))
+  (setq plist (alect-substitute-color theme-name plist :background))
+  (let ((box-plist (plist-get plist :box)))
+    (and box-plist
+         (setq box-plist (alect-substitute-color theme-name box-plist :color))
+         (setq plist (plist-put plist :box box-plist))))
+  plist)
+
+(defun alect-substitute-colors-in-faces (theme-name faces)
+  "Substitute color names in a list FACES with color values.
+
+FACES is a list of face specifications accepted by
+`custom-theme-set-faces'.
+
+Return a list of faces with substituted colors.  This function is
+destructive: FACES may not stay the same.
+
+See `alect-substitute-colors-in-plist' for details."
+  (mapcar (lambda (face)
+            (list (car face)
+                  (mapcar (lambda (spec)
+                            (list (car spec)
+                                  (alect-substitute-colors-in-plist
+                                   theme-name (cadr spec))))
+                          (cadr face))))
+          faces))
+
 (defun alect-override-faces (original overriding)
   "Override faces from ORIGINAL list with faces from OVERRIDING list.
 
@@ -1236,7 +1290,8 @@ For INVERT, see `alect-get-color'."
          (theme-vals  (alect-get-customization theme invert))
          (theme-faces (alect-override-faces
                        (car theme-vals)
-                       alect-overriding-faces))
+                       (alect-substitute-colors-in-faces
+                        theme alect-overriding-faces)))
          (theme-vars  (cdr theme-vals)))
     ;; FIXME is there a way to avoid this?: variables are not set with
     ;; `custom-theme-set-variables' if they have not been defined yet
