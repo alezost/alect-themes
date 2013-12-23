@@ -5,7 +5,7 @@
 ;; Author: Alex Kost <alezost@gmail.com>
 ;; Created: 10 Jul 2013
 ;; Version: 0.2.4
-;; Last-Updated: 2013-12-22 Sun 12:19:57 (+0400)
+;; Last-Updated: 2013-12-23 Mon 16:34:22 (+0400)
 ;; Package-Requires: ((emacs "24.0"))
 ;; URL: http://github.com/alezost/alect-themes
 ;; Keywords: color theme
@@ -482,7 +482,7 @@ For INVERT, see `alect-get-color'."
        ;; font lock
        (font-lock-builtin-face           ((t (:foreground ,(gc 'magenta-1)))))
        (font-lock-comment-face           ((t (:foreground ,(gc 'green+1)))))
-       (font-lock-comment-delimiter-face ((t (:foreground ,(gc 'green+1)))))
+       (font-lock-comment-delimiter-face ((t (:inherit font-lock-comment-face))))
        (font-lock-constant-face          ((t (:foreground ,(gc 'cyan-1)))))
        (font-lock-doc-face               ((t (:foreground ,(gc 'fg-1) :slant italic))))
        (font-lock-doc-string-face        ((t (:foreground ,(gc 'cyan+2)))))
