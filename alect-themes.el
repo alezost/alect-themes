@@ -5,7 +5,7 @@
 ;; Author: Alex Kost <alezost@gmail.com>
 ;; Created: 10 Jul 2013
 ;; Version: 0.2.4
-;; Last-Updated: 2013-12-23 Mon 16:34:22 (+0400)
+;; Last-Updated: 2013-12-23 Mon 16:36:44 (+0400)
 ;; Package-Requires: ((emacs "24.0"))
 ;; URL: http://github.com/alezost/alect-themes
 ;; Keywords: color theme
@@ -770,8 +770,7 @@ For INVERT, see `alect-get-color'."
        (mode-line            ((t (:foreground ,(gc 'fg+1)
                                   :background ,(gc 'bg-2)
                                   :box (:line-width 2
-                                        :style released-button)))
-                              (t :inverse-video t)))
+                                        :style released-button)))))
        (mode-line-inactive   ((t (:foreground ,(gc 'fg-2)
                                   :background ,(gc 'bg-1)
                                   :box (:line-width 2
