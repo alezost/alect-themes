@@ -1291,7 +1291,7 @@ For INVERT, see `alect-get-color'."
          (theme-faces (alect-override-faces
                        (car theme-vals)
                        (alect-substitute-colors-in-faces
-                        theme alect-overriding-faces)))
+                        theme (copy-tree alect-overriding-faces))))
          (theme-vars  (cdr theme-vals)))
     ;; FIXME is there a way to avoid this?: variables are not set with
     ;; `custom-theme-set-variables' if they have not been defined yet
