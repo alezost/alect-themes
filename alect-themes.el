@@ -1227,6 +1227,8 @@ See `alect-substitute-colors-in-plist' for details."
 (defun alect-substitute-colors-in-plist (theme-name plist)
   "Substitute color names in property list PLIST with color values.
 
+PLIST can also be a list containing property list.
+
 Color values (strings) are defined by color names (symbols) for a
 specified theme THEME-NAME from `alect-colors' variable.  Replace
 colors for the `:foreground' and `:background' properties.  If
@@ -1235,13 +1237,16 @@ property as well.
 
 Return plist with substituted colors.  This function is
 destructive: PLIST may not stay the same."
-  (setq plist (alect-substitute-color theme-name plist :foreground))
-  (setq plist (alect-substitute-color theme-name plist :background))
-  (let ((box-plist (plist-get plist :box)))
-    (and box-plist
-         (setq box-plist (alect-substitute-color theme-name box-plist :color))
-         (setq plist (plist-put plist :box box-plist))))
-  plist)
+  (if (and (listp (car plist))
+           (null (cdr plist)))
+      (alect-substitute-colors-in-plist theme-name (car plist))
+    (setq plist (alect-substitute-color theme-name plist :foreground))
+    (setq plist (alect-substitute-color theme-name plist :background))
+    (let ((box-plist (plist-get plist :box)))
+      (and box-plist
+           (setq box-plist (alect-substitute-color theme-name box-plist :color))
+           (setq plist (plist-put plist :box box-plist))))
+    plist))
 
 (defun alect-substitute-colors-in-faces (theme-name faces)
   "Substitute color names in a list FACES with color values.
@@ -1256,9 +1261,9 @@ See `alect-substitute-colors-in-plist' for details."
   (mapcar (lambda (face)
             (list (car face)
                   (mapcar (lambda (spec)
-                            (list (car spec)
+                            (cons (car spec)
                                   (alect-substitute-colors-in-plist
-                                   theme-name (cadr spec))))
+                                   theme-name (cdr spec))))
                           (cadr face))))
           faces))
 
