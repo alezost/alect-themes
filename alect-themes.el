@@ -88,10 +88,23 @@ values should be in matching order)."
 
 (defcustom alect-overriding-faces nil
   "List of faces that override original themed faces.
+
 The faces should be in a form accepted by `custom-theme-set-faces'.
+Instead of color values (like \"SkyBlue\" or \"#abcdef\") you may
+use the names of colors from `alect-colors' (like `magenta' or
+`blue+1').  During loading a theme these symbols will be
+substituted with values according to the current theme (light or
+dark).
 
 Use this variable if you want alect-themes to use non-default
-specifications of faces."
+specifications of faces.
+
+Example:
+  (setq alect-overriding-faces
+        '((mode-line-buffer-id ((t :foreground bg-2 :weight bold)))
+          (mode-line           ((t :foreground bg-1 :background fg+1
+                                   :box (:line-width 2 :color bg-2))))))
+Evaluate it and reload an alect-theme to see the difference."
   :type 'sexp
   :group 'alect)
 
