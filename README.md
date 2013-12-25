@@ -1,12 +1,9 @@
 ## About
 
 Alect is a package that provides (rather low contrast but colourful
-enough) light and dark color themes for Emacs 24 or later.  I use it
-only with GUI, so colors in terminal may look not very nice.
-
-You can open
-[colors](https://github.com/alezost/alect-themes/blob/master/colors)
-file (in Emacs) to get an idea about the color palettes.
+enough) **configurable** light and dark color themes for GNU Emacs 24 or
+later.  I use it only with GUI, so colors in terminal may look not very
+nice.
 
 ## History
 
@@ -64,45 +61,95 @@ To load a theme on Emacs start, add this to your init file:
 
 ## Configuration
 
-All color values for the themes are stored in `alect-colors`
-variable.  You can change this variable by customizing it or you may
-use `alect-generate-colors` function (see how the variable is defined
-in the code).
+You can find the names and values of all colors used by alect-themes in
+`alect-colors` variable.  Also you can open
+[colors](https://github.com/alezost/alect-themes/blob/master/colors)
+file **in Emacs** to get an idea about the used color palette.
+
+There are 2 main ways for configuring the themes:
+- modifying palette (`alect-colors` variable);
+- overriding face specifications.
+
+### Modifying palette
+
+If you don't like how some colors look, you can change `alect-colors`
+variable by customizing it or by using `alect-generate-colors` function
+(see how the variable is defined in the code).
 
 However those methods redefine the whole variable, so if the palette
 will be changed in future (it happens sometimes) or a new theme will
 be added (it's planned), you may not notice that.  So you can use
 another approach if you want to modify only some colors.
 
-Let's say you don't like `cursor` color for the light theme and
-`red-2` color (it is used for `font-lock-string-face`, and you
-strongly believe that «strings should not be red!!») for both themes.
-You can change those colors by putting this into your `.emacs`:
+Let's say, you don't like `cyan-2` color for the light theme as it's too
+light and `red+1` color for the dark theme as it's too bright (and it
+burns your eyes).  You can change those colors by putting this into your
+`.emacs` (before loading an alect-theme if you use it on Emacs start):
 
 ```lisp
 (eval-after-load 'alect-themes
   '(progn
-     (alect-set-color 'light 'cursor "black")
-     (alect-set-color 'light 'red-2 "#126512")
-     (alect-set-color 'dark 'red-2 "#32cd32")))
+     (alect-set-color 'light 'cyan-2 "#00a8a8")
+     (alect-set-color 'dark 'red+1 "#f03333")))
 ```
+
+The function `alect-set-color` is just a convenient way for modifying
+`alect-colors` variable, so if you are playing with it, don't forget to
+reload an alect-theme for the changes to take effect.
+
+### Overriding faces
+
+If you don't like how particular faces look, you can change those by
+modifying `alect-overriding-faces` variable.  The real power here is
+that you can use themed color names from `alect-colors` along with the
+usual strings with hex values or defined color names (available with
+``M-x list-colors-display``).
+
+Let's say, you want green strings, gray comments, more distinguishable
+mode-line, and of course you don't like those pink (`magenta-1`) prompts
+everywhere (minibuffer, comint, ...).  Just set that variable like this:
+
+```lisp
+(setq
+ alect-overriding-faces
+ '((alect-prompt           ((t :foreground blue :weight bold)))
+   (font-lock-string-face  ((t :foreground green-1)))
+   (font-lock-doc-face     ((t :inherit font-lock-string-face)))
+   (font-lock-comment-face ((t :foreground gray)))
+   (mode-line-buffer-id    ((t :foreground "yellow" :weight bold)))
+   (mode-line              ((((background light))
+                             :foreground fg+1 :background "#ffaaaa"
+                             :box (:line-width 2 :color bg-2 :style nil))
+                            (((background dark))
+                             :foreground fg+1 :background "firebrick3"
+                             :box (:line-width 2 :color bg-2 :style nil))))))
+```
+
+See [these screenshots](#elisp-ido) to compare the original and modified
+themes.
 
 ### Alternative themes
 
 Along with 2 original light and dark themes, the package provides 2
-inverted (alternative) themes.  They use the same color palettes, so
-they look very similar to the original ones.  The difference (by
-default) is that dark and bright colors are reversed.
+inverted (alternative) themes (`alect-light-alt` and `alect-dark-alt`).
+They use the same color palettes, so they look very similar to the
+original ones.  The difference (by default) is that dark and bright
+colors are reversed.
 
-However these 2 themes can be configured with
+There is an additional way of configuring alternative themes: with
 `alect-inverted-color-regexp` variable (for details, see docstrings of
-this variable and `alect-get-color` function).  For example, if you
-set this variable to invert background colors, alternative themes will
-look... unusual – see [alternative screenshots](#dired-elisp).
+this variable and `alect-get-color` function).  For example, you may set
+this variable to invert background colors:
+
+```lisp
+(setq alect-inverted-color-regexp "^\\(bg\\)\\([-+]\\)\\([012]\\)$")
+```
+
+See [these screenshots](#dired-elisp) for the result.
 
 ### Emacs 24.3.1 and earlier
 
-While using **any** theme (not only from this package) you may meet
+While using **any** theme (not only from this package), you may meet
 faces that do not look how they should (intended by the theme).  For
 example, if you enable `alect-light` theme, you can see ugly gray
 buttons and other faces in the `Custom-mode` (the left picture)
@@ -144,9 +191,11 @@ without unintended face settings.
 ## Screenshots
 
 You can see the following and other screenshots in
-[imgur album](http://imgur.com/a/eBx96).
+[this imgur album](http://imgur.com/a/eBx96).
 
 ### C, shell, linum, ido
+
+**Themes:** *alect-light*, *alect-dark*
 
 **Font:** *Terminus-12*
 
@@ -157,6 +206,8 @@ You can see the following and other screenshots in
 
 ### Org, markdown
 
+**Themes:** *alect-light*, *alect-dark*
+
 **Font:** *DejaVu Sans Mono-12*
 
 <a href="http://i.imgur.com/B1Pl5kX.png">
@@ -166,6 +217,8 @@ You can see the following and other screenshots in
 
 ### Magit
 
+**Themes:** *alect-light*, *alect-dark*
+
 **Font:** *Anonymous Pro-13*
 
 <a href="http://i.imgur.com/rjGvhV6.png">
@@ -173,21 +226,31 @@ You can see the following and other screenshots in
 <a href="http://i.imgur.com/5WJ4xu9.png">
 <img src="http://i.imgur.com/5WJ4xu9.png" title="alect-dark - magit" width=320 height=240/></a>
 
+### Elisp, ido
+
+**Themes:** *alect-dark* (default), *alect-dark* (modified) – the
+original dark theme and a dark theme with some changed faces (see
+[overriding faces](#overriding-faces))
+
+**Font:** *Liberation Mono-12*
+
+<a href="http://i.imgur.com/gZAZgvT.png">
+<img src="http://i.imgur.com/gZAZgvT.png" title="alect-dark (default) - elisp" width=320 height=240/></a>
+<a href="http://i.imgur.com/mAlbxLd.png">
+<img src="http://i.imgur.com/mAlbxLd.png" title="alect-dark (modified) - elisp" width=320 height=240/></a>
+
 ### Dired, elisp
 
-Alternative themes, configured to invert background (see
-[alternative configuration](#alternative-themes)) like this:
-
-```lisp
-(setq alect-inverted-color-regexp "^\\(bg\\)\\([-+]\\)\\([012]\\)$")
-```
+**Themes:** *alect-light-alt* (modified), *alect-dark-alt* (modified) –
+alternative themes, configured to invert background (see
+[configuring alternative themes](#alternative-themes))
 
 **Font:** *Anonymous Pro-13*
 
 <a href="http://i.imgur.com/ljO1Dlf.png">
-<img src="http://i.imgur.com/ljO1Dlf.png" title="alect-light-alt - dired, elisp" width=320 height=240/></a>
+<img src="http://i.imgur.com/ljO1Dlf.png" title="alect-light-alt (modified) - dired, elisp" width=320 height=240/></a>
 <a href="http://i.imgur.com/HNMr4qj.png">
-<img src="http://i.imgur.com/HNMr4qj.png" title="alect-dark-alt - dired, elisp" width=320 height=240/></a>
+<img src="http://i.imgur.com/HNMr4qj.png" title="alect-dark-alt (modified) - dired, elisp" width=320 height=240/></a>
 
 ## Feedback
 
