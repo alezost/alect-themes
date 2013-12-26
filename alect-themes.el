@@ -597,6 +597,11 @@ For INVERT, see `alect-get-color'."
        (gnus-signature               ((t :foreground ,(gc 'cyan+1))))
        (gnus-x                       ((t :background ,(gc 'fg+1)
                                          :foreground ,(gc 'bg-1))))
+       (gnus-server-agent            ((t :foreground ,(gc 'magenta+2))))
+       (gnus-server-closed           ((t :foreground ,(gc 'blue))))
+       (gnus-server-denied           ((t :inherit font-lock-warning-face)))
+       (gnus-server-offline          ((t :foreground ,(gc 'yellow-1))))
+       (gnus-server-opened           ((t :foreground ,(gc 'green))))
 
        ;; grep
        (grep-context-face  ((t :foreground ,(gc 'fg+1))))
