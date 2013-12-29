@@ -1325,10 +1325,6 @@ For INVERT, see `alect-get-color'."
                        (alect-substitute-colors-in-faces
                         theme (copy-tree alect-overriding-faces))))
          (theme-vars  (cdr theme-vals)))
-    ;; FIXME is there a way to avoid this?: variables are not set with
-    ;; `custom-theme-set-variables' if they have not been defined yet
-    (defvar emms-mode-line-icon-image-cache nil)
-    (defvar gnus-mode-line-image-cache nil)
 
     `(progn
        (deftheme ,theme-name ,(format "The %s color theme."
