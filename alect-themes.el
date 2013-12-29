@@ -1164,7 +1164,7 @@ static char *note[] = {
 /* width height num_colors chars_per_pixel */
 \"    10   11        2            1\",
 /* colors */
-\". c " (gc 'green+1)  "\",
+\". c " (gc 'cyan)  "\",
 \"# c None s None\",
 /* pixels */
 \"###...####\",
@@ -1187,7 +1187,7 @@ static char *gnus-pointer[] = {
 /* width height num_colors chars_per_pixel */
 \"    18    13        2            1\",
 /* colors */
-\". c " (gc 'blue-1) "\",
+\". c " (gc 'cyan) "\",
 \"# c None s None\",
 /* pixels */
 \"##################\",
