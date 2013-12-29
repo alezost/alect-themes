@@ -1,3 +1,4 @@
 *.elc
 screenshots
 alect-test.el
+colors-test
