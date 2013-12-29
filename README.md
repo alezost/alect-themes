@@ -188,6 +188,30 @@ then the override spec."
 If you put it into your `.emacs`, you will always get pure themes
 without unintended face settings.
 
+### Emacs bug
+
+Emacs has a bug
+([#16266](http://debbugs.gnu.org/cgi/bugreport.cgi?bug=16266)) that
+doesn't allow to set undefined variables.  For example, if a theme
+customizes a color for emms icon and you load the theme before emms,
+then emms icon will use a default color instead of the themed one.  This
+bug takes effect only on `defvar`-ed variables, `defcustom`-ed variables
+are safe.
+
+The range of such variables (effected by the bug) suitable for
+colorizing is very limited.  For alect themes, the following variables
+are themed: `emms-mode-line-icon-image-cache`,
+`gnus-mode-line-image-cache` and `gnus-logo-colors`.
+
+You can use this workaround to avoid the bug:
+```lisp
+(defadvice custom-theme-set-variables
+  (around fix-inhibit-bug activate)
+  "Allow setting of undefined variables in themes."
+  (let (custom--inhibit-theme-enable)
+    ad-do-it))
+```
+
 ## Screenshots
 
 You can see the following and other screenshots in
