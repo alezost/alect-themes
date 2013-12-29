@@ -1205,6 +1205,9 @@ static char *gnus-pointer[] = {
 \"###########.######\" };"))
         t)
 
+       ;; gnus startup logo
+       (gnus-logo-colors '(,(gc 'cyan+1) ,(gc 'gray-1)) t)
+
        ;; fill-column-indicator
        (fci-rule-color ,(gc 'bg-2))
 
