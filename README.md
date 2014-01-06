@@ -82,15 +82,15 @@ be added (it's planned), you may not notice that.  So you can use
 another approach if you want to modify only some colors.
 
 Let's say, you don't like `cyan-2` color for the light theme as it's too
-light and `red+1` color for the dark theme as it's too bright (and it
-burns your eyes).  You can change those colors by putting this into your
+light and `bg-1` color for the dark theme as you prefer black color for
+the background.  You can change those colors by putting this into your
 `.emacs` (before loading an alect-theme if you use it on Emacs start):
 
 ```lisp
 (eval-after-load 'alect-themes
   '(progn
      (alect-set-color 'light 'cyan-2 "#00a8a8")
-     (alect-set-color 'dark 'red+1 "#f03333")))
+     (alect-set-color 'dark 'bg-1 "black")))
 ```
 
 The function `alect-set-color` is just a convenient way for modifying
