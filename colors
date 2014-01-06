@@ -29,7 +29,7 @@ bg      <x-color><param>#d5d2be</param><x-bg-color><param>#2b2b2b</param>#2b2b2b
 
 fg      <x-color><param>#8c826d</param><x-bg-color><param>#3f3f3f</param>#8c826d</x-bg-color></x-color><x-bg-color><param>#3f3f3f</param> <x-color><param>#d0bf8f</param>#d0bf8f</x-color> <x-color><param>#f0dfaf</param>#f0dfaf</x-color> <x-color><param>#d5d2be</param>#d5d2be</x-color> <x-color><param>#f6f0e1</param>#f6f0e1</x-color></x-bg-color>
 
-red     <x-color><param>#fa6a6e</param><x-bg-color><param>#3f3f3f</param>#fa6a6e</x-bg-color></x-color><x-bg-color><param>#3f3f3f</param> <x-color><param>#fa5151</param>#fa5151</x-color> <x-color><param>#e43838</param>#e43838</x-color> <x-color><param>#f21515</param>#f21515</x-color> <x-color><param>#bc1417</param>#bc1417</x-color></x-bg-color>
+red     <x-color><param>#fa6a6e</param><x-bg-color><param>#3f3f3f</param>#fa6a6e</x-bg-color></x-color><x-bg-color><param>#3f3f3f</param> <x-color><param>#fa5151</param>#fa5151</x-color> <x-color><param>#ea3838</param>#ea3838</x-color> <x-color><param>#db4334</param>#db4334</x-color> <x-color><param>#c83029</param>#c83029</x-color></x-bg-color>
 
 yellow  <x-color><param>#f8ffa0</param><x-bg-color><param>#3f3f3f</param>#f8ffa0</x-bg-color></x-color><x-bg-color><param>#3f3f3f</param> <x-color><param>#e8e815</param>#e8e815</x-color> <x-color><param>#fe8b04</param>#fe8b04</x-color> <x-color><param>#e5c900</param>#e5c900</x-color> <x-color><param>#abab3a</param>#abab3a</x-color></x-bg-color>
 
