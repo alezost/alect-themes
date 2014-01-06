@@ -521,7 +521,7 @@ For INVERT, see `alect-get-color'."
        (font-lock-string-face            ((t :foreground ,(gc 'red-2))))
        (font-lock-type-face              ((t :foreground ,(gc 'magenta+2))))
        (font-lock-variable-name-face     ((t :foreground ,(gc 'yellow+2))))
-       (font-lock-warning-face           ((t :foreground ,(gc 'red+1) :weight bold)))
+       (font-lock-warning-face           ((t :foreground ,(gc 'red) :weight bold)))
 
        ;; git-commit
        (git-commit-summary-face         ((t :weight bold)))
