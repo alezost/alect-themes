@@ -1,4 +1,4 @@
 (define-package
   "alect-themes"
-  "0.3.2"
+  "0.3.3"
   "4 configurable color themes for Emacs 24")
