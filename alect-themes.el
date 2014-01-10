@@ -1,10 +1,10 @@
 ;;; alect-themes.el --- 4 configurable color themes for Emacs
 
-;; Copyright (C) 2013 Alex Kost
+;; Copyright (C) 2013-2014 Alex Kost
 
 ;; Author: Alex Kost <alezost@gmail.com>
 ;; Created: 10 Jul 2013
-;; Version: 0.3.3
+;; Version: 0.3.4
 ;; Package-Requires: ((emacs "24.0"))
 ;; URL: http://github.com/alezost/alect-themes
 ;; Keywords: color theme
