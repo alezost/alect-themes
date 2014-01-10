@@ -396,6 +396,13 @@ For INVERT, see `alect-get-color'."
        (custom-variable-button         ((t :weight bold :underline t)))
        (custom-visibility              ((t :inherit link :height 0.8)))
 
+       ;; dictem
+       (dictem-reference-definition-face ((t :inherit link :underline nil)))
+       (dictem-database-description-face ((t :inherit alect-title)))
+       (dictem-reference-dbname-face     ((t :foreground ,(gc 'red+1))))
+       (dictem-reference-m1-face         ((t :foreground ,(gc 'cyan))))
+       (dictem-reference-m2-face         ((t :foreground ,(gc 'green))))
+
        ;; diff
        (diff-context           ((t :foreground ,(gc 'fg-1))))
        (diff-added             ((t :foreground ,(gc 'green-1))))
