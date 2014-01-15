@@ -284,7 +284,7 @@ For INVERT, see `alect-get-color'."
        (alect-color-level-6  ((t :foreground ,(gc 'blue-1))))
        (alect-color-level-7  ((t :foreground ,(gc 'magenta-1))))
        (alect-color-level-8  ((t :foreground ,(gc 'yellow))))
-       (alect-color-level-9  ((t :foreground ,(gc 'green+2))))
+       (alect-color-level-9  ((t :foreground ,(gc 'green-1))))
        (alect-color-level-10 ((t :foreground ,(gc 'red-2))))
        (alect-color-level-11 ((t :foreground ,(gc 'cyan-2))))
        (alect-color-level-12 ((t :foreground ,(gc 'magenta+2))))
