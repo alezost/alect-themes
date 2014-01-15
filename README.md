@@ -59,6 +59,10 @@ To load a theme on Emacs start, add this to your init file:
 (load-theme 'alect-light t)
 ```
 
+*Note:* For quick switching between themes (with unloading the previous
+one), I use `utl-load-theme` function from
+[emacs-utils](https://github.com/alezost/emacs-utils/blob/master/utl-color.el)
+
 ## Configuration
 
 You can find the names and values of all colors used by alect-themes in
