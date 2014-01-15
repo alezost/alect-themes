@@ -649,6 +649,15 @@ For INVERT, see `alect-get-color'."
        ;; hl-line-mode
        (hl-line       ((t :background ,(gc 'bg))))
 
+       ;; info
+       (info-title-1     ((t :inherit alect-title-1)))
+       (info-title-2     ((t :inherit alect-title-2)))
+       (info-title-3     ((t :inherit alect-title-3)))
+       (info-title-4     ((t :inherit alect-title-4)))
+       (info-menu-header ((t :inherit alect-title-5)))
+       (info-node        ((t :foreground ,(gc 'red+1))))
+       (info-menu-star   ((t :foreground ,(gc 'red))))
+
        ;; ido-mode
        (ido-first-match ((t :weight bold)))
        (ido-only-match  ((t :inherit ido-first-match :foreground ,(gc 'fg+2))))
