@@ -759,7 +759,7 @@ For INVERT, see `alect-get-color'."
        (magit-cherry-equivalent            ((t :foreground ,(gc 'cyan+2))))
 
        ;; markdown mode
-       (markdown-header-face           ((t :inherit alect-title)))
+       (markdown-header-face           ((t :inherit alect-title-1)))
        (markdown-header-face-1         ((t :inherit alect-title-1)))
        (markdown-header-face-2         ((t :inherit alect-title-2)))
        (markdown-header-face-3         ((t :inherit alect-title-3)))
