@@ -92,6 +92,24 @@ values should be in matching order)."
   "Options for alect color themes."
   :group 'faces)
 
+(defcustom alect-header-height 1.13
+  "Height of `header-line' face."
+  :type 'number
+  :group 'alect)
+
+(defcustom alect-single-title-height 1.13
+  "Height of `alect-title' face.
+Used for titles without levels like `dired-header' or `magit-header'."
+  :type 'number
+  :group 'alect)
+
+(defcustom alect-multiple-titles-height 1.13
+  "Height of `alect-title-N' faces.
+Used for titles with levels like `org-level-N' or
+`markdown-header-face-N'."
+  :type 'number
+  :group 'alect)
+
 (defcustom alect-overriding-faces nil
   "List of faces that override original themed faces.
 
@@ -252,7 +270,7 @@ For INVERT, see `alect-get-color'."
        (fringe              ((t :foreground ,(gc 'gray)
                                 :background ,(gc 'bg-2))))
        (header-line         ((t :foreground ,(gc 'fg+2)
-                                :height 1.13
+                                :height ,alect-header-height
                                 :box (:line-width 1
                                       :color ,(gc 'fg+2)
                                       :style nil))))
@@ -289,15 +307,24 @@ For INVERT, see `alect-get-color'."
        (alect-color-level-11 ((t :foreground ,(gc 'cyan-2))))
        (alect-color-level-12 ((t :foreground ,(gc 'magenta+2))))
 
-       (alect-title          ((t :foreground ,(gc 'green+2) :weight bold :height 1.13)))
-       (alect-title-1        ((t :inherit alect-color-level-1 :weight bold :height 1.13)))
-       (alect-title-2        ((t :inherit alect-color-level-2 :weight bold :height 1.13)))
-       (alect-title-3        ((t :inherit alect-color-level-3 :weight bold :height 1.13)))
-       (alect-title-4        ((t :inherit alect-color-level-4 :weight bold :height 1.13)))
-       (alect-title-5        ((t :inherit alect-color-level-5 :weight bold :height 1.13)))
-       (alect-title-6        ((t :inherit alect-color-level-6 :weight bold :height 1.13)))
-       (alect-title-7        ((t :inherit alect-color-level-7 :weight bold :height 1.13)))
-       (alect-title-8        ((t :inherit alect-color-level-8 :weight bold :height 1.13)))
+       (alect-title          ((t :foreground ,(gc 'green+2) :weight bold
+                                 :height ,alect-single-title-height)))
+       (alect-title-1        ((t :inherit alect-color-level-1 :weight bold
+                                 :height ,alect-multiple-titles-height)))
+       (alect-title-2        ((t :inherit alect-color-level-2 :weight bold
+                                 :height ,alect-multiple-titles-height)))
+       (alect-title-3        ((t :inherit alect-color-level-3 :weight bold
+                                 :height ,alect-multiple-titles-height)))
+       (alect-title-4        ((t :inherit alect-color-level-4 :weight bold
+                                 :height ,alect-multiple-titles-height)))
+       (alect-title-5        ((t :inherit alect-color-level-5 :weight bold
+                                 :height ,alect-multiple-titles-height)))
+       (alect-title-6        ((t :inherit alect-color-level-6 :weight bold
+                                 :height ,alect-multiple-titles-height)))
+       (alect-title-7        ((t :inherit alect-color-level-7 :weight bold
+                                 :height ,alect-multiple-titles-height)))
+       (alect-title-8        ((t :inherit alect-color-level-8 :weight bold
+                                 :height ,alect-multiple-titles-height)))
 
        ;; ace-jump
        (ace-jump-face-background ((t :foreground ,(gc 'bg+2)
