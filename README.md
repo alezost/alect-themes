@@ -61,7 +61,7 @@ To load a theme on Emacs start, add this to your init file:
 
 *Note:* For quick switching between themes (with unloading the previous
 one), I use `utl-load-theme` function from
-[emacs-utils](https://github.com/alezost/emacs-utils/blob/master/utl-color.el)
+[emacs-utils](https://github.com/alezost/emacs-utils/blob/master/utl-color.el).
 
 ## Configuration
 
@@ -150,6 +150,26 @@ this variable to invert background colors:
 ```
 
 See [these screenshots](#dired-elisp) for the result.
+
+### Other variables
+
+Many headers and titles are themed and you may not like their height.
+The following 3 variables may be useful:
+- `alect-header-height`
+- `alect-single-title-height`
+- `alect-multiple-titles-height`
+
+For example, if you want to have a normal height for `org` and
+`markdown` titles, use this (put it in `.emacs` before loading an
+alect-theme):
+
+```lisp
+(setq alect-multiple-titles-height 1.0)
+```
+
+*Note:* `1.0` and `1` are different values.  You can play with `Height`
+in Custom buffer (`M-x customize-face RET <any-face>`) to see how
+integers and floats are treated.
 
 ### Emacs 24.3.1 and earlier
 
