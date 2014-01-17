@@ -677,11 +677,11 @@ For INVERT, see `alect-get-color'."
        (hl-line       ((t :background ,(gc 'bg))))
 
        ;; info
-       (info-title-1     ((t :inherit alect-title-1)))
-       (info-title-2     ((t :inherit alect-title-2)))
-       (info-title-3     ((t :inherit alect-title-3)))
-       (info-title-4     ((t :inherit alect-title-4)))
-       (info-menu-header ((t :inherit alect-title-5)))
+       (info-title-1     ((t :inherit alect-color-level-1 :height 1.5 :weight bold)))
+       (info-title-2     ((t :inherit alect-color-level-2 :height 1.4 :weight bold)))
+       (info-title-3     ((t :inherit alect-color-level-3 :height 1.3 :weight bold)))
+       (info-title-4     ((t :inherit alect-color-level-4 :height 1.2 :weight bold)))
+       (info-menu-header ((t :inherit alect-color-level-5 :height 1.1 :weight bold)))
        (info-node        ((t :foreground ,(gc 'red+1))))
        (info-menu-star   ((t :foreground ,(gc 'red))))
 
