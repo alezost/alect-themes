@@ -757,6 +757,8 @@ For INVERT, see `alect-get-color'."
        (magit-log-reflog-label-merge       ((t :foreground ,(gc 'blue-2) :weight bold)))
        (magit-cherry-unmatched             ((t :foreground ,(gc 'red+2))))
        (magit-cherry-equivalent            ((t :foreground ,(gc 'cyan+2))))
+       (magit-process-ok                   ((t :foreground ,(gc 'green))))
+       (magit-process-ng                   ((t :foreground ,(gc 'red))))
 
        ;; markdown mode
        (markdown-header-face           ((t :inherit alect-title-1)))
