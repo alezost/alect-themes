@@ -189,10 +189,10 @@ Each list is a cons cell of a theme name (symbol) and alist of
 color names (symbols) and values (strings)."
   :type '(alist :key-type symbol
                 :value-type (alist :key-type symbol
-                                   :value-type string))
+                                   :value-type color))
   ;; another suitable variant
   ;; :type '(repeat (cons symbol
-  ;;                      (alist :key-type symbol :value-type string)))
+  ;;                      (alist :key-type symbol :value-type color)))
   :group 'alect)
 
 (defun alect-set-color (theme-name color-name color-val)
