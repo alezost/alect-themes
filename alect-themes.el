@@ -218,7 +218,7 @@ The third group should match a color number (0, 1 or 2).
 
 For available color names, see `alect-colors'.
 For description of inverting colors, see `alect-get-color'."
-  :type 'string
+  :type 'regexp
   :group 'alect)
 
 (defun alect-get-color (theme-name color-name &optional invert)
