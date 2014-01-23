@@ -559,7 +559,7 @@ For INVERT, see `alect-get-color'."
        (font-lock-doc-string-face        ((t :foreground ,(gc 'cyan+2))))
        (font-lock-function-name-face     ((t :foreground ,(gc 'blue-1))))
        (font-lock-keyword-face           ((t :foreground ,(gc 'blue+1) :weight bold)))
-       (font-lock-negation-char-face     ((t :foreground ,(gc 'fg+1))))
+       (font-lock-negation-char-face     ((t :foreground ,(gc 'blue))))
        (font-lock-preprocessor-face      ((t :foreground ,(gc 'green-1))))
        (font-lock-string-face            ((t :foreground ,(gc 'red-2))))
        (font-lock-type-face              ((t :foreground ,(gc 'magenta+2))))
