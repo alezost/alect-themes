@@ -565,6 +565,8 @@ For INVERT, see `alect-get-color'."
        (font-lock-type-face              ((t :foreground ,(gc 'magenta+2))))
        (font-lock-variable-name-face     ((t :foreground ,(gc 'yellow+2))))
        (font-lock-warning-face           ((t :foreground ,(gc 'red) :weight bold)))
+       (font-lock-regexp-grouping-backslash ((t :foreground ,(gc 'red+2))))
+       (font-lock-regexp-grouping-construct ((t :foreground ,(gc 'yellow-1))))
 
        ;; git-commit
        (git-commit-summary-face         ((t :weight bold)))
