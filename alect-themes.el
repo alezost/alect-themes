@@ -1024,6 +1024,16 @@ For INVERT, see `alect-get-color'."
        (rst-level-5-face ((t :inherit alect-color-level-5)))
        (rst-level-6-face ((t :inherit alect-color-level-6)))
 
+       ;; sauron
+       (sauron-header-face     ((t nil)))
+       (sauron-timestamp-face  ((t :inherit alect-time)))
+       (sauron-message-face    ((t :inherit font-lock-doc-face)))
+       (sauron-origin-face     ((t :foreground ,(gc 'blue+1))))
+       (sauron-priority-face   ((t :foreground ,(gc 'yellow+2))))
+       (sauron-highlight1-face ((t :foreground ,(gc 'green))))
+       (sauron-highlight2-face ((t :foreground ,(gc 'red-1))))
+       (sauron-highlight3-face ((t :foreground ,(gc 'magenta))))
+
        ;; shell-script
        (sh-heredoc     ((t :inherit font-lock-doc-face)))
        (sh-quoted-exec ((t :foreground ,(gc 'cyan))))
