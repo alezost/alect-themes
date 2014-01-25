@@ -970,7 +970,7 @@ For INVERT, see `alect-get-color'."
        ;; popup
        (popup-tip-face                    ((t :foreground ,(gc 'gray+2)
                                               :background ,(gc 'yellow-2))))
-       (popup-scroll-bar-foreground-face  ((t :background ,(gc 'cyan+2))))
+       (popup-scroll-bar-foreground-face  ((t :background ,(gc 'fg-2))))
        (popup-scroll-bar-background-face  ((t :background ,(gc 'bg-2))))
        (popup-isearch-match               ((t :foreground ,(gc 'fg+1)
                                               :background ,(gc 'bg-1) )))
