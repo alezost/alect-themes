@@ -355,10 +355,12 @@ For INVERT, see `alect-get-color'."
        (font-latex-title-4  ((t :inherit variable-pitch :weight bold)))
 
        ;; auto-complete
-       (ac-candidate-face                 ((t :foreground ,(gc 'gray+2)
-                                              :background ,(gc 'bg+2))))
-       (ac-selection-face                 ((t :foreground ,(gc 'fg+1)
-                                              :background ,(gc 'cyan+1) )))
+       (ac-candidate-face       ((t :foreground ,(gc 'gray+2)
+                                    :background ,(gc 'bg+2))))
+       (ac-selection-face       ((t :foreground ,(gc 'bg-1)
+                                    :background ,(gc 'fg+1))))
+       (ac-completion-face      ((t :foreground ,(gc 'fg-2))))
+       (ac-candidate-mouse-face ((t :inherit highlight)))
 
        ;; bm
        (bm-face                   ((t :background ,(gc 'yellow-1)
