@@ -16,7 +16,7 @@ yellow  <x-color><param>#ab9c3a</param><x-bg-color><param>#ded6c5</param>#ab9c3a
 
 green   <x-color><param>#3cb368</param><x-bg-color><param>#ded6c5</param>#3cb368</x-bg-color></x-color><x-bg-color><param>#ded6c5</param> <x-color><param>#1c9e28</param>#1c9e28</x-color> <x-color><param>#028902</param>#028902</x-color> <x-color><param>#008b45</param>#008b45</x-color> <x-color><param>#077707</param>#077707</x-color></x-bg-color>
 
-cyan    <x-color><param>#1fb3b3</param><x-bg-color><param>#ded6c5</param>#1fb3b3</x-bg-color></x-color><x-bg-color><param>#ded6c5</param> <x-color><param>#409e9f</param>#409e9f</x-color> <x-color><param>#528d8d</param>#528d8d</x-color> <x-color><param>#0d7b72</param>#0d7b72</x-color> <x-color><param>#286060</param>#286060</x-color></x-bg-color>
+cyan    <x-color><param>#0eaeae</param><x-bg-color><param>#ded6c5</param>#0eaeae</x-bg-color></x-color><x-bg-color><param>#ded6c5</param> <x-color><param>#259ea2</param>#259ea2</x-color> <x-color><param>#358d8d</param>#358d8d</x-color> <x-color><param>#0d7b72</param>#0d7b72</x-color> <x-color><param>#286060</param>#286060</x-color></x-bg-color>
 
 blue    <x-color><param>#0092ff</param><x-bg-color><param>#ded6c5</param>#0092ff</x-bg-color></x-color><x-bg-color><param>#ded6c5</param> <x-color><param>#2c53ca</param>#2c53ca</x-color> <x-color><param>#0000ff</param>#0000ff</x-color> <x-color><param>#0505cc</param>#0505cc</x-color> <x-color><param>#00008b</param>#00008b</x-color></x-bg-color>
 
