@@ -1332,7 +1332,7 @@ property as well.
 
 Return plist with substituted colors.  This function is
 destructive: PLIST may not stay the same."
-  (if (and (listp (car plist))
+  (if (and (consp (car plist))
            (null (cdr plist)))
       (alect-substitute-colors-in-plist theme-name (car plist))
     (setq plist (alect-substitute-color theme-name plist :foreground))
