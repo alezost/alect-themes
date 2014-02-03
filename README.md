@@ -2,8 +2,8 @@
 
 Alect is a package that provides (rather low contrast but colourful
 enough) **configurable** light and dark color themes for GNU Emacs 24 or
-later.  I use it only with GUI, so colors in terminal may look not very
-nice.
+later.  The themes are intended to be used with GUI (see
+[Class of terminals](#class-of-terminals)).
 
 ## History
 
@@ -73,6 +73,24 @@ file **in Emacs** to get an idea about the used color palette.
 There are 2 main ways for configuring the themes:
 - modifying palette (`alect-colors` variable);
 - overriding face specifications.
+
+### Class of terminals
+
+By default only graphical terminals are supported, i.e. if you enable a
+theme, you will see themed faces in GUI and default faces in text-only
+terminals.  So if you use `emacs --daemon`, you will not be disturbed by
+the ugly colors when you are in a non-graphical terminal.
+
+You can add support for other terminals by setting `alect-display-class`
+variable.  For example, if you want to enable alect-themes in 256-colors
+terminals, use the following:
+
+```lisp
+(setq alect-display-class '((class color) (min-colors 256)))
+```
+
+See `(info "(elisp) Defining Faces")` for how a class of terminals
+should be specified.
 
 ### Modifying palette
 
