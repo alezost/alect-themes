@@ -5,15 +5,23 @@ enough) **configurable** light and dark color themes for GNU Emacs 24 or
 later.  The themes are intended to be used with GUI (see
 [Class of terminals](#class-of-terminals)).
 
-## History
+## Table of Contents
 
-At first i had only a light theme – it was just a set of customized
-faces.  Then i realized that at night it's better for eyes to use a
-dark theme (it was derived from zenburn-theme initially, but then the
-colors were modified a lot).  The idea of creating two themes with
-different colors and the same code base came from solarized-theme.
-The code of solarized and zenburn themes was used hardly.  Many thanks
-to their authors.
+* [Installation](#installation)
+  * [Manual](#manual)
+  * [MELPA](#melpa)
+* [Usage](#usage)
+* [Configuration](#configuration)
+  * [Class of terminals](#class-of-terminals)
+  * [Modifying palette](#modifying-palette)
+  * [Overriding faces](#overriding-faces)
+  * [Alternative themes](#alternative-themes)
+  * [Other variables](#other-variables)
+  * [Emacs 24.3.1 and earlier](#emacs-2431-and-earlier)
+  * [Emacs bug in themed variables](#emacs-bug-in-themed-variables)
+* [Screenshots](#screenshots)
+* [History](#history)
+* [Feedback](#feedback)
 
 ## Installation
 
@@ -203,16 +211,14 @@ instead of the themed colored buttons (the right picture):
 <img src="http://i.imgur.com/66G9VvX.png" title="alect-light - Custom-mode (proper colors)"/></a>
 
 This happens because Emacs applies default face settings even for a
-themed face.  This behaviour is changed in new versions of Emacs (24.4
-and above).  Happily it can be easily fixed for earlier versions by
-redefining `face-spec-recalc` function (can be found on
-[Emacs git mirror](http://git.savannah.gnu.org/cgit/emacs.git/tree/lisp/faces.el)):
+themed face.  This behaviour is changed in new versions of Emacs: since
+24.4 (not released yet) you will always get pure themes without
+unintended face settings.  If you use a previous version of Emacs, you
+can try the following workaround to achieve the new behaviour:
 
 ```lisp
-(defun face-spec-recalc (face frame)
-  "Reset the face attributes of FACE on FRAME according to its specs.
-This applies the defface/custom spec first, then the custom theme specs,
-then the override spec."
+(defun face-spec-recalc-new (face frame)
+  "Improved version of `face-spec-recalc'."
   (while (get face 'face-alias)
     (setq face (get face 'face-alias)))
   (face-spec-reset-face face frame)
@@ -225,12 +231,26 @@ then the override spec."
 	  (face-spec-set-2 face frame (cadr spec)))
       (face-spec-set-2 face frame (face-default-spec face))))
   (face-spec-set-2 face frame (get face 'face-override-spec)))
+(defadvice face-spec-recalc (around new-recalc (face frame) activate)
+  "Use `face-spec-recalc-new' instead."
+  (face-spec-recalc-new face frame))
 ```
 
-If you put it into your `.emacs`, you will always get pure themes
-without unintended face settings.
+That version of `face-spec-recalc` (wrapped with advice) is one of the
+development variants from 24.3.50.1.  It works good except of one
+particular case: if you try to use that workaround and enable a theme in
+an unsupported (by the theme) terminal (e.g. alect-theme in a text
+terminal), your monitor may suddenly explode.  Currently
+[faces.el](http://git.savannah.gnu.org/cgit/emacs.git/tree/lisp/faces.el)
+is changed a lot (comparing to 24.3) and I don't know a better
+workaround.
 
-### Emacs bug
+*Summary:* `alect-themes` use inheriting a lot and because of the nature
+of faces in Emacs 24.3, **many** of them look ugly.  With Emacs 24.4 or
+with the above workaround (use it only with GUI), the themes look how
+they should.
+
+### Emacs bug in themed variables
 
 Emacs has a bug
 ([#16266](http://debbugs.gnu.org/cgi/bugreport.cgi?bug=16266)) that
@@ -317,6 +337,16 @@ alternative themes, configured to invert background (see
 <img src="http://i.imgur.com/ljO1Dlf.png" title="alect-light-alt (modified) - dired, elisp" width=320 height=240/></a>
 <a href="http://i.imgur.com/HNMr4qj.png">
 <img src="http://i.imgur.com/HNMr4qj.png" title="alect-dark-alt (modified) - dired, elisp" width=320 height=240/></a>
+
+## History
+
+At first i had only a light theme – it was just a set of customized
+faces.  Then i realized that at night it's better for eyes to use a
+dark theme (it was derived from zenburn-theme initially, but then the
+colors were modified a lot).  The idea of creating two themes with
+different colors and the same code base came from solarized-theme.
+The code of solarized and zenburn themes was used hardly.  Many thanks
+to their authors.
 
 ## Feedback
 
