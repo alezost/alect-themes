@@ -4,7 +4,7 @@
 
 ;; Author: Alex Kost <alezost@gmail.com>
 ;; Created: 10 Jul 2013
-;; Version: 0.3.8
+;; Version: 0.4
 ;; Package-Requires: ((emacs "24.0"))
 ;; URL: http://github.com/alezost/alect-themes
 ;; Keywords: color theme
@@ -25,8 +25,10 @@
 ;;; Commentary:
 
 ;; This package provides 4 highly customizable color themes (2 light and
-;; 2 dark) for GNU Emacs 24 or later.  These themes were intended to be
-;; used with a GUI.  Use those in terminal at your own risk :)
+;; 2 dark) for GNU Emacs 24 or later.  These themes are intended to be
+;; used with GUI, so only graphical terminals are supported by default.
+;; However you can "enable" the themes for other terminals with
+;; `alect-display-class' variable.
 
 ;; You can install the package from MELPA.  If you prefer the manual
 ;; installation, put these lines into your init-file:
@@ -56,7 +58,7 @@
 
 ;;; Code:
 
-(require 'cl-macs)  ; for cl-flet
+(require 'cl-macs)
 
 (defun alect-put-colors (color-name theme-names color-vals var)
   "Put theme colors into the variable VAR.
