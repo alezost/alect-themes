@@ -92,21 +92,69 @@ values should be in matching order)."
   "Options for alect color themes."
   :group 'faces)
 
+(defface alect-prompt
+  '((t nil))
+  "Auxiliary face for inheriting by some other faces.
+Used for various prompts like `minibuffer-prompt' or `eshell-prompt'."
+  :group 'alect)
+
+(defface alect-time
+  '((t nil))
+  "Auxiliary face for inheriting by some other faces.
+Used for date/time faces like `org-date' or `erc-timestamp-face'."
+  :group 'alect)
+
+(defface alect-selected-item
+  '((t nil))
+  "Auxiliary face for inheriting by some other faces.
+Used for selected items like `org-date-selected' or
+`gnus-summary-selected'."
+  :group 'alect)
+
+(defface alect-title
+  '((t nil))
+  "Auxiliary face for inheriting by some other faces.
+Used for titles without levels like `dired-header' or `magit-header'."
+  :group 'alect)
+
+(defmacro alect-define-color-level-face (n)
+  "Define face for color level N.
+Name of the defined face is `alect-color-level-N'."
+  `(defface ,(intern (format "alect-color-level-%s" n))
+     '((t nil))
+     "Auxiliary face for inheriting by some other faces."
+     :group 'alect))
+
+(let (i)
+  (cl-loop for i from 1 to 12
+           do (eval `(alect-define-color-level-face ,i))))
+
+(defmacro alect-define-title-face (n)
+  "Define title face for level N.
+Name of the defined face is `alect-title-N'."
+  `(defface ,(intern (format "alect-title-%s" n))
+     '((t nil))
+     ,(format "Auxiliary face for inheriting by some other faces.
+Used for titles with levels like `org-level-%s' or
+`markdown-header-face-%s'." n n)
+     :group 'alect))
+
+(let (i)
+  (cl-loop for i from 1 to 8
+           do (eval `(alect-define-title-face ,i))))
+
 (defcustom alect-header-height 1.13
   "Height of `header-line' face."
   :type 'number
   :group 'alect)
 
 (defcustom alect-single-title-height 1.13
-  "Height of `alect-title' face.
-Used for titles without levels like `dired-header' or `magit-header'."
+  "Height of `alect-title' face."
   :type 'number
   :group 'alect)
 
 (defcustom alect-multiple-titles-height 1.13
-  "Height of `alect-title-N' faces.
-Used for titles with levels like `org-level-N' or
-`markdown-header-face-N'."
+  "Height of `alect-title-N' faces."
   :type 'number
   :group 'alect)
 
