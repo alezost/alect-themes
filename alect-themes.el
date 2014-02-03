@@ -246,6 +246,20 @@ For the values of THEME-NAME and COLOR-NAME, see `alect-colors'."
   (cdr (assoc color-name
               (cdr (assoc theme-name alect-colors)))))
 
+(defcustom alect-display-class
+  '((type graphic))
+  "Class of terminals (DISPLAY) for which alect-themes are applied.
+For other terminals, faces stay unthemed.
+See Info node `(elisp) Defining Faces' for the possibilities for
+DISPLAY."
+  :type '(choice
+          (const :tag "Graphical terminals" ((type graphic)))
+          (const :tag "Terminals with at least 256 colors"
+                 ((class color) (min-colors 256)))
+          (const :tag "All terminals")
+          (sexp :tag "Other"))
+  :group 'alect)
+
 (defun alect-get-customization (theme &optional invert)
   "Return cons of settings for theme THEME.
 Car of the cons is a list for `custom-theme-set-faces' function.
@@ -253,981 +267,980 @@ Cdr of the cons is a list for `custom-theme-set-variables' function.
 THEME is a name of the color theme (symbol from `alect-colors').
 For INVERT, see `alect-get-color'."
   (cl-flet ((gc (col) (alect-get-color theme col invert)))
-    (cons
-     ;; FACES
-     `(;; basic colors
-       (default             ((t :foreground ,(gc 'fg+1)
-                                :background ,(gc 'bg-1))))
-       (cursor              ((t :background ,(gc 'cursor))))
-       (button              ((t :inherit link)))
-       (link                ((t :foreground ,(gc 'blue-1)
-                                :underline t :weight normal)))
-       (link-visited        ((t :foreground ,(gc 'blue+2)
-                                :underline t :weight normal)))
-       (match               ((t :background ,(gc 'green+1)
-                                :foreground ,(gc 'gray-2))))
-       (escape-glyph        ((t :foreground ,(gc 'yellow) :weight bold)))
-       (fringe              ((t :foreground ,(gc 'gray)
-                                :background ,(gc 'bg-2))))
-       (header-line         ((t :foreground ,(gc 'fg+2)
-                                :height ,alect-header-height
-                                :box (:line-width 1
-                                      :color ,(gc 'fg+2)
-                                      :style nil))))
-       (highlight           ((t :foreground ,(gc 'gray+2)
-                                :background ,(gc 'gray-2))))
-       (shadow              ((t :foreground ,(gc 'gray))))
-       (success             ((t :foreground ,(gc 'green) :weight bold)))
-       (warning             ((t :foreground ,(gc 'yellow-1) :weight normal)))
-       (region              ((t :background ,(gc 'bg+2))))
-       (menu                ((t :foreground ,(gc 'fg+1)
-                                :background ,(gc 'bg-1))))
-       (minibuffer-prompt   ((t :inherit alect-prompt)))
-       (secondary-selection ((t :background ,(gc 'bg+1))))
-       (trailing-whitespace ((t :background ,(gc 'red))))
-       (vertical-border     ((t :foreground ,(gc 'fg+1))))
-
-       ;; auxiliary faces for inheriting
-       (alect-prompt         ((t :foreground ,(gc 'magenta-1) :weight bold)))
-       (alect-time           ((t :foreground ,(gc 'cyan-2))))
-       (alect-selected-item  ((t :background ,(gc 'bg)
-                                 :box (:line-width 1
-                                       :color ,(gc 'fg+1)
-                                       :style nil))))
-       (alect-color-level-1  ((t :foreground ,(gc 'blue+1))))
-       (alect-color-level-2  ((t :foreground ,(gc 'green))))
-       (alect-color-level-3  ((t :foreground ,(gc 'red+1))))
-       (alect-color-level-4  ((t :foreground ,(gc 'yellow+2))))
-       (alect-color-level-5  ((t :foreground ,(gc 'cyan+1))))
-       (alect-color-level-6  ((t :foreground ,(gc 'blue-1))))
-       (alect-color-level-7  ((t :foreground ,(gc 'magenta-1))))
-       (alect-color-level-8  ((t :foreground ,(gc 'yellow))))
-       (alect-color-level-9  ((t :foreground ,(gc 'green-1))))
-       (alect-color-level-10 ((t :foreground ,(gc 'red-2))))
-       (alect-color-level-11 ((t :foreground ,(gc 'cyan-2))))
-       (alect-color-level-12 ((t :foreground ,(gc 'magenta+2))))
-
-       (alect-title          ((t :foreground ,(gc 'green+2) :weight bold
-                                 :height ,alect-single-title-height)))
-       (alect-title-1        ((t :inherit alect-color-level-1 :weight bold
-                                 :height ,alect-multiple-titles-height)))
-       (alect-title-2        ((t :inherit alect-color-level-2 :weight bold
-                                 :height ,alect-multiple-titles-height)))
-       (alect-title-3        ((t :inherit alect-color-level-3 :weight bold
-                                 :height ,alect-multiple-titles-height)))
-       (alect-title-4        ((t :inherit alect-color-level-4 :weight bold
-                                 :height ,alect-multiple-titles-height)))
-       (alect-title-5        ((t :inherit alect-color-level-5 :weight bold
-                                 :height ,alect-multiple-titles-height)))
-       (alect-title-6        ((t :inherit alect-color-level-6 :weight bold
-                                 :height ,alect-multiple-titles-height)))
-       (alect-title-7        ((t :inherit alect-color-level-7 :weight bold
-                                 :height ,alect-multiple-titles-height)))
-       (alect-title-8        ((t :inherit alect-color-level-8 :weight bold
-                                 :height ,alect-multiple-titles-height)))
-
-       ;; ace-jump
-       (ace-jump-face-background ((t :foreground ,(gc 'bg+2)
-                                     :background ,(gc 'bg-1)
-                                     :inverse-video nil)))
-       (ace-jump-face-foreground ((t :foreground ,(gc 'green+2)
-                                     :background ,(gc 'bg-1)
-                                     :inverse-video nil)))
-
-       ;; ack
-       (ack-separator  ((t :foreground ,(gc 'fg+1))))
-       (ack-file       ((t :foreground ,(gc 'blue))))
-       (ack-line       ((t :foreground ,(gc 'yellow))))
-       (ack-match      ((t :foreground ,(gc 'fg-2)
-                           :background ,(gc 'bg-2) :weight bold)))
-
-       ;; android mode
-       (android-mode-debug-face    ((t :foreground ,(gc 'green+1))))
-       (android-mode-error-face    ((t :foreground ,(gc 'fg-2) :weight bold)))
-       (android-mode-info-face     ((t :foreground ,(gc 'fg+1))))
-       (android-mode-verbose-face  ((t :foreground ,(gc 'green))))
-       (android-mode-warning-face  ((t :foreground ,(gc 'yellow))))
-
-       ;; auctex
-       (font-latex-bold     ((t :inherit bold)))
-       (font-latex-warning  ((t :inherit font-lock-warning-face)))
-       (font-latex-sedate   ((t :foreground ,(gc 'yellow) :weight bold )))
-       (font-latex-title-4  ((t :inherit variable-pitch :weight bold)))
-
-       ;; auto-complete
-       (ac-candidate-face       ((t :foreground ,(gc 'gray+2)
-                                    :background ,(gc 'bg+2))))
-       (ac-selection-face       ((t :foreground ,(gc 'bg-1)
-                                    :background ,(gc 'fg+1))))
-       (ac-completion-face      ((t :foreground ,(gc 'fg-2))))
-       (ac-candidate-mouse-face ((t :inherit highlight)))
-
-       ;; bm
-       (bm-face                   ((t :background ,(gc 'yellow-1)
-                                      :foreground ,(gc 'bg-1))))
-       (bm-fringe-face            ((t :background ,(gc 'yellow-1)
-                                      :foreground ,(gc 'bg-1))))
-       (bm-fringe-persistent-face ((t :background ,(gc 'green-1)
-                                      :foreground ,(gc 'bg-1))))
-       (bm-persistent-face        ((t :background ,(gc 'green-1)
-                                      :foreground ,(gc 'bg-1))))
-
-       ;; clojure-test-mode
-       (clojure-test-failure-face ((t :foreground ,(gc 'fg-2)
-                                      :weight bold :underline t)))
-       (clojure-test-error-face   ((t :foreground ,(gc 'red)
-                                      :weight bold :underline t)))
-       (clojure-test-success-face ((t :foreground ,(gc 'green+1)
-                                      :weight bold :underline t)))
-
-       ;; comint
-       (comint-highlight-prompt ((t :inherit alect-prompt)))
-       (comint-highlight-input  ((t :weight bold)))
-
-       ;; compilation
-       (compilation-column-face           ((t :foreground ,(gc 'yellow))))
-       (compilation-enter-directory-face  ((t :foreground ,(gc 'green))))
-       (compilation-error-face            ((t :foreground ,(gc 'red-1) :weight bold :underline t)))
-       (compilation-face                  ((t :foreground ,(gc 'fg+1))))
-       (compilation-info-face             ((t :foreground ,(gc 'blue))))
-       (compilation-info                  ((t :foreground ,(gc 'green-2) :underline t)))
-       (compilation-leave-directory-face  ((t :foreground ,(gc 'green))))
-       (compilation-line-face             ((t :foreground ,(gc 'yellow))))
-       (compilation-line-number           ((t :foreground ,(gc 'yellow))))
-       (compilation-message-face          ((t :foreground ,(gc 'blue))))
-       (compilation-warning-face          ((t :foreground ,(gc 'fg-2) :weight bold :underline t)))
-       (compilation-mode-line-exit        ((t :foreground ,(gc 'green+2) :weight bold)))
-       (compilation-mode-line-fail        ((t :foreground ,(gc 'red) :weight bold)))
-       (compilation-mode-line-run         ((t :foreground ,(gc 'yellow) :weight bold)))
-
-       ;; ctable
-       (ctbl:face-cell-select  ((t :background ,(gc 'blue)
-                                   :foreground ,(gc 'bg-1))))
-       (ctbl:face-continue-bar ((t :background ,(gc 'bg-2)
-                                   :foreground ,(gc 'bg-1))))
-       (ctbl:face-row-select   ((t :background ,(gc 'cyan)
-                                   :foreground ,(gc 'bg-1))))
-
-       ;; customization
-       (custom-button                  ((t :inherit custom-button-unraised
-                                           :box (:line-width 2
-                                                 :style released-button))))
-       (custom-button-pressed          ((t :inherit custom-button-unraised
-                                           :box (:line-width 2
-                                                 :style pressed-button))))
-       (custom-button-mouse            ((t :inherit highlight
-                                           :box (:line-width 2
-                                                 :style released-button))))
-       (custom-button-unraised         ((t :foreground ,(gc 'fg+2)
-                                           :background ,(gc 'bg+2))))
-       (custom-button-pressed-unraised ((t :inherit custom-button-unraised :underline t)))
-       (custom-documentation           ((t :inherit font-lock-doc-face)))
-       (custom-comment                 ((t :foreground ,(gc 'gray))))
-       (custom-tag                     ((t :foreground ,(gc 'blue+2))))
-       (custom-state                   ((t :foreground ,(gc 'green+1))))
-       (custom-link                    ((t :inherit link)))
-       (custom-group-subtitle          ((t :weight bold)))
-       (custom-group-tag               ((t :inherit alect-title-1)))
-       (custom-group-tag-1             ((t :inherit alect-title-2)))
-       (custom-face-tag                ((t :foreground ,(gc 'magenta+1) :weight bold)))
-       (custom-variable-tag            ((t :inherit font-lock-variable-name-face :weight bold)))
-       (custom-variable-button         ((t :weight bold :underline t)))
-       (custom-visibility              ((t :inherit link :height 0.8)))
-
-       ;; dictem
-       (dictem-reference-definition-face ((t :inherit link :underline nil)))
-       (dictem-database-description-face ((t :inherit alect-title)))
-       (dictem-reference-dbname-face     ((t :foreground ,(gc 'red+1))))
-       (dictem-reference-m1-face         ((t :foreground ,(gc 'cyan))))
-       (dictem-reference-m2-face         ((t :foreground ,(gc 'green))))
-
-       ;; diff
-       (diff-context           ((t :foreground ,(gc 'fg-1))))
-       (diff-added             ((t :foreground ,(gc 'green-1))))
-       (diff-changed           ((t :foreground ,(gc 'yellow-1))))
-       (diff-removed           ((t :foreground ,(gc 'red-1))))
-       (diff-indicator-added   ((t :inherit diff-added)))
-       (diff-indicator-changed ((t :inherit diff-changed)))
-       (diff-indicator-removed ((t :inherit diff-removed)))
-       (diff-refine-added      ((t :inherit diff-added :slant italic)))
-       (diff-refine-change     ((t :inherit diff-changed :slant italic)))
-       (diff-refine-removed    ((t :inherit diff-removed :slant italic)))
-       (diff-header            ((t :foreground ,(gc 'blue-2) :weight bold)))
-       (diff-hunk-header       ((t :inherit diff-header :foreground ,(gc 'green+2))))
-       (diff-file-header       ((t :inherit diff-header :foreground ,(gc 'cyan-1))))
-       (diff-function          ((t :inherit diff-header :foreground ,(gc 'blue))))
-       (diff-index             ((t :inherit diff-header :foreground ,(gc 'red-1))))
-       (diff-nonexistent       ((t :inherit diff-header :foreground ,(gc 'gray))))
-
-       ;; dired
-       (dired-directory  ((t :inherit font-lock-function-name-face)))
-       (dired-flagged    ((t :foreground ,(gc 'red))))
-       (dired-header     ((t :inherit alect-title)))
-       (dired-ignored    ((t :foreground ,(gc 'gray))))
-       (dired-mark       ((t :foreground ,(gc 'blue+1))))
-       (dired-marked     ((t :inherit warning)))
-       (dired-perm-write ((t :foreground ,(gc 'green-1))))
-       (dired-symlink    ((t :inherit font-lock-constant-face)))
-       (dired-warning    ((t :inherit font-lock-warning-face
-                             :background ,(gc 'bg-2))))
-
-       ;; egg
-       (egg-text-base        ((t :foreground ,(gc 'fg+1))))
-       (egg-help-header-1    ((t :foreground ,(gc 'cyan+1))))
-       (egg-help-header-2    ((t :foreground ,(gc 'cyan-1))))
-       (egg-branch           ((t :foreground ,(gc 'yellow))))
-       (egg-branch-mono      ((t :foreground ,(gc 'yellow+1))))
-       (egg-term             ((t :foreground ,(gc 'blue))))
-       (egg-diff-add         ((t :foreground ,(gc 'green-2))))
-       (egg-diff-del         ((t :foreground ,(gc 'red+1))))
-       (egg-diff-file-header ((t :foreground ,(gc 'yellow-2))))
-       (egg-section-title    ((t :foreground ,(gc 'red-1))))
-       (egg-stash-mono       ((t :foreground ,(gc 'green))))
-
-       ;; emms
-       (emms-playlist-track-face    ((t :inherit gnus-summary-normal-unread)))
-       (emms-playlist-selected-face ((t :inherit alect-selected-item)))
-       (emms-stream-name-face       ((t :foreground ,(gc 'blue+1))))
-       (emms-stream-url-face        ((t :inherit default)))
-
-       ;; erc
-       (erc-header-line          ((t :inherit header-line)))
-       (erc-bold-face            ((t :weight bold)))
-       (erc-underline-face       ((t :underline t)))
-       (erc-current-nick-face    ((t :foreground ,(gc 'blue) :weight bold)))
-       (erc-dangerous-host-face  ((t :inherit font-lock-warning-face)))
-       (erc-default-face         ((t :foreground ,(gc 'fg+1))))
-       (erc-direct-msg-face      ((t :inherit erc-default-face :foreground ,(gc 'red-2))))
-       (erc-action-face          ((t :inherit erc-bold-face)))
-       (erc-error-face           ((t :inherit font-lock-warning-face)))
-       (erc-fool-face            ((t :foreground ,(gc 'blue-2))))
-       (erc-highlight-face       ((t :inherit hover-highlight)))
-       (erc-input-face           ((t :background ,(gc 'bg+1))))
-       (erc-keyword-face         ((t :foreground ,(gc 'green+1))))
-       (erc-nick-default-face    ((t :foreground ,(gc 'blue+1))))
-       (erc-my-nick-face         ((t :foreground ,(gc 'red))))
-       (erc-nick-msg-face        ((t :foreground ,(gc 'cyan+2))))
-       (erc-notice-face          ((t :foreground ,(gc 'green))))
-       (erc-pal-face             ((t :foreground ,(gc 'magenta+2))))
-       (erc-prompt-face          ((t :inherit alect-prompt)))
-       (erc-timestamp-face       ((t :inherit alect-time)))
-
-       ;; epa
-       (epa-mark              ((t :foreground ,(gc 'blue+1))))
-       (epa-string            ((t :foreground ,(gc 'cyan+2))))
-       (epa-validity-disabled ((t :foreground ,(gc 'fg-2))))
-       (epa-validity-high     ((t :foreground ,(gc 'green-1))))
-       (epa-validity-medium   ((t :foreground ,(gc 'yellow-1))))
-       (epa-validity-low      ((t :foreground ,(gc 'red-1))))
-
-       ;; ert
-       (ert-test-result-expected    ((t :foreground ,(gc 'green-2)
-                                        :background ,(gc 'bg-1))))
-       (ert-test-result-unexpected  ((t :foreground ,(gc 'red)
-                                        :background ,(gc 'bg-1))))
-
-       ;; eshell
-       (eshell-prompt         ((t :inherit alect-prompt)))
-       (eshell-ls-archive     ((t :foreground ,(gc 'green))))
-       (eshell-ls-backup      ((t :inherit dired-ignored)))
-       (eshell-ls-clutter     ((t :inherit font-lock-comment-face)))
-       (eshell-ls-directory   ((t :inherit dired-directory)))
-       (eshell-ls-executable  ((t :foreground ,(gc 'yellow))))
-       (eshell-ls-unreadable  ((t :foreground ,(gc 'red-2))))
-       (eshell-ls-readonly    ((t :foreground ,(gc 'fg-2))))
-       (eshell-ls-missing     ((t :inherit dired-warning)))
-       (eshell-ls-product     ((t :inherit font-lock-doc-face)))
-       (eshell-ls-special     ((t :foreground ,(gc 'fg+1) :weight bold)))
-       (eshell-ls-symlink     ((t :inherit dired-symlink)))
-
-       ;; flycheck
-       (flycheck-error-face    ((t :foreground ,(gc 'red-1) :weight bold :underline t)))
-       (flycheck-warning-face  ((t :foreground ,(gc 'fg-2) :weight bold :underline t)))
-
-       ;; flymake
-       (flymake-errline        ((t :foreground ,(gc 'red-1) :weight bold :underline t)))
-       (flymake-warnline       ((t :foreground ,(gc 'fg-2) :weight bold :underline t)))
-
-       ;; flyspell
-       (flyspell-duplicate     ((t :foreground ,(gc 'fg-2) :weight bold :underline t)))
-       (flyspell-incorrect     ((t :foreground ,(gc 'red-1) :weight bold :underline t)))
-
-       ;; font lock
-       (font-lock-builtin-face           ((t :foreground ,(gc 'magenta-1))))
-       (font-lock-comment-face           ((t :foreground ,(gc 'green+1))))
-       (font-lock-comment-delimiter-face ((t :inherit font-lock-comment-face)))
-       (font-lock-constant-face          ((t :foreground ,(gc 'cyan-1))))
-       (font-lock-doc-face               ((t :foreground ,(gc 'fg-1) :slant italic)))
-       (font-lock-doc-string-face        ((t :foreground ,(gc 'cyan+2))))
-       (font-lock-function-name-face     ((t :foreground ,(gc 'blue-1))))
-       (font-lock-keyword-face           ((t :foreground ,(gc 'blue+1) :weight bold)))
-       (font-lock-negation-char-face     ((t :foreground ,(gc 'blue))))
-       (font-lock-preprocessor-face      ((t :foreground ,(gc 'green-1))))
-       (font-lock-string-face            ((t :foreground ,(gc 'red-2))))
-       (font-lock-type-face              ((t :foreground ,(gc 'magenta+2))))
-       (font-lock-variable-name-face     ((t :foreground ,(gc 'yellow+2))))
-       (font-lock-warning-face           ((t :foreground ,(gc 'red) :weight bold)))
-       (font-lock-regexp-grouping-backslash ((t :foreground ,(gc 'red+2))))
-       (font-lock-regexp-grouping-construct ((t :foreground ,(gc 'yellow-1))))
-
-       ;; git-commit
-       (git-commit-summary-face         ((t :weight bold)))
-       (git-commit-branch-face          ((t :inherit magit-branch)))
-       (git-commit-comment-file-face    ((t :inherit default)))
-       (git-commit-comment-heading-face ((t :inherit magit-header)))
-       (git-commit-comment-action-face  ((t :foreground ,(gc 'yellow+1))))
-
-       ;; git-gutter
-       (git-gutter:added       ((t :foreground ,(gc 'green) :weight bold :inverse-video t)))
-       (git-gutter:deleted     ((t :foreground ,(gc 'red) :weight bold :inverse-video t)))
-       (git-gutter:modified    ((t :foreground ,(gc 'magenta) :weight bold :inverse-video t)))
-       (git-gutter:unchanged   ((t :foreground ,(gc 'fg+1) :weight bold :inverse-video t)))
-       (git-gutter-fr:added    ((t :foreground ,(gc 'green)  :weight bold)))
-       (git-gutter-fr:deleted  ((t :foreground ,(gc 'red) :weight bold)))
-       (git-gutter-fr:modified ((t :foreground ,(gc 'magenta) :weight bold)))
-
-       ;; gnus
-       (gnus-group-news-1-empty      ((t :inherit alect-color-level-1)))
-       (gnus-group-news-2-empty      ((t :inherit alect-color-level-2)))
-       (gnus-group-news-3-empty      ((t :inherit alect-color-level-3)))
-       (gnus-group-news-4-empty      ((t :inherit alect-color-level-4)))
-       (gnus-group-news-5-empty      ((t :inherit alect-color-level-5)))
-       (gnus-group-news-6-empty      ((t :inherit alect-color-level-6)))
-       (gnus-group-news-low-empty    ((t :inherit alect-color-level-7)))
-       (gnus-group-news-1            ((t :inherit gnus-group-news-1-empty :weight bold)))
-       (gnus-group-news-2            ((t :inherit gnus-group-news-2-empty :weight bold)))
-       (gnus-group-news-3            ((t :inherit gnus-group-news-3-empty :weight bold)))
-       (gnus-group-news-4            ((t :inherit gnus-group-news-4-empty :weight bold)))
-       (gnus-group-news-5            ((t :inherit gnus-group-news-5-empty :weight bold)))
-       (gnus-group-news-6            ((t :inherit gnus-group-news-6-empty :weight bold)))
-       (gnus-group-news-low          ((t :inherit gnus-group-news-low-empty :weight bold)))
-       (gnus-group-mail-1-empty      ((t :inherit gnus-group-news-1-empty :slant italic)))
-       (gnus-group-mail-2-empty      ((t :inherit gnus-group-news-2-empty :slant italic)))
-       (gnus-group-mail-3-empty      ((t :inherit gnus-group-news-3-empty :slant italic)))
-       (gnus-group-mail-low-empty    ((t :inherit gnus-group-news-low-empty :slant italic)))
-       (gnus-group-mail-1            ((t :inherit gnus-group-news-1 :slant italic)))
-       (gnus-group-mail-2            ((t :inherit gnus-group-news-2 :slant italic)))
-       (gnus-group-mail-3            ((t :inherit gnus-group-news-3 :slant italic)))
-       (gnus-group-mail-low          ((t :inherit gnus-group-news-low :slant italic)))
-
-       (gnus-header-content          ((t :inherit message-header-other)))
-       (gnus-header-from             ((t :inherit message-header-from)))
-       (gnus-header-name             ((t :inherit message-header-name)))
-       (gnus-header-newsgroups       ((t :inherit message-header-newsgroups)))
-       (gnus-header-subject          ((t :inherit message-header-subject)))
-       (gnus-summary-cancelled       ((t :background ,(gc 'fg-1)
-                                         :foreground ,(gc 'bg-2))))
-       (gnus-summary-low-ancient     ((t :foreground ,(gc 'blue-2))))
-       (gnus-summary-low-read        ((t :foreground ,(gc 'green-2))))
-       (gnus-summary-low-ticked      ((t :foreground ,(gc 'red-2))))
-       (gnus-summary-low-unread      ((t :foreground ,(gc 'fg-1))))
-       (gnus-summary-normal-ancient  ((t :foreground ,(gc 'blue))))
-       (gnus-summary-normal-read     ((t :foreground ,(gc 'green))))
-       (gnus-summary-normal-ticked   ((t :foreground ,(gc 'red))))
-       (gnus-summary-normal-unread   ((t :foreground ,(gc 'fg+1))))
-       (gnus-summary-high-ancient    ((t :inherit gnus-summary-normal-ancient :weight bold)))
-       (gnus-summary-high-read       ((t :inherit gnus-summary-normal-read    :weight bold)))
-       (gnus-summary-high-ticked     ((t :inherit gnus-summary-normal-ticked  :weight bold)))
-       (gnus-summary-high-unread     ((t :inherit gnus-summary-normal-unread  :weight bold)))
-       (gnus-summary-selected        ((t :inherit alect-selected-item)))
-       (gnus-cite-1                  ((t :inherit alect-color-level-1)))
-       (gnus-cite-2                  ((t :inherit alect-color-level-2)))
-       (gnus-cite-3                  ((t :inherit alect-color-level-3)))
-       (gnus-cite-4                  ((t :inherit alect-color-level-4)))
-       (gnus-cite-5                  ((t :inherit alect-color-level-5)))
-       (gnus-cite-6                  ((t :inherit alect-color-level-6)))
-       (gnus-cite-7                  ((t :inherit alect-color-level-7)))
-       (gnus-cite-8                  ((t :inherit alect-color-level-8)))
-       (gnus-cite-9                  ((t :inherit alect-color-level-9)))
-       (gnus-cite-10                 ((t :inherit alect-color-level-10)))
-       (gnus-cite-11                 ((t :inherit alect-color-level-11)))
-       (gnus-signature               ((t :foreground ,(gc 'cyan+1))))
-       (gnus-x                       ((t :background ,(gc 'fg+1)
-                                         :foreground ,(gc 'bg-1))))
-       (gnus-server-agent            ((t :foreground ,(gc 'magenta+2))))
-       (gnus-server-closed           ((t :foreground ,(gc 'blue))))
-       (gnus-server-denied           ((t :inherit font-lock-warning-face)))
-       (gnus-server-offline          ((t :foreground ,(gc 'yellow-1))))
-       (gnus-server-opened           ((t :foreground ,(gc 'green))))
-
-       ;; grep
-       (grep-context-face  ((t :foreground ,(gc 'fg+1))))
-       (grep-error-face    ((t :foreground ,(gc 'red-1) :weight bold :underline t)))
-       (grep-hit-face      ((t :foreground ,(gc 'blue))))
-       (grep-match-face    ((t :foreground ,(gc 'fg-2) :weight bold)))
-
-       ;; guide-key
-       (guide-key/highlight-command-face ((t :foreground ,(gc 'blue))))
-       (guide-key/key-face ((t :foreground ,(gc 'green))))
-       (guide-key/prefix-command-face ((t :foreground ,(gc 'green+1))))
-
-       ;; helm
-       (helm-header           ((t :foreground ,(gc 'green)
-                                  :background ,(gc 'bg-1)
-                                  :underline nil
-                                  :box nil)))
-       (helm-source-header    ((t :foreground ,(gc 'yellow)
-                                  :background ,(gc 'bg-2)
-                                  :underline nil
-                                  :weight bold
-                                  :box (:line-width -1 :style released-button))))
-       (helm-selection        ((t :background ,(gc 'bg) :underline nil)))
-       (helm-selection-line   ((t :background ,(gc 'bg))))
-       (helm-visible-mark     ((t :foreground ,(gc 'bg-1) :background ,(gc 'yellow-2))))
-       (helm-candidate-number ((t :foreground ,(gc 'green-2) :background ,(gc 'bg-2))))
-       (helm-ff-directory     ((t :foreground ,(gc 'magenta))))
-
-       ;; hl-line-mode
-       (hl-line       ((t :background ,(gc 'bg))))
-
-       ;; info
-       (info-title-1     ((t :inherit alect-color-level-1 :height 1.5 :weight bold)))
-       (info-title-2     ((t :inherit alect-color-level-2 :height 1.4 :weight bold)))
-       (info-title-3     ((t :inherit alect-color-level-3 :height 1.3 :weight bold)))
-       (info-title-4     ((t :inherit alect-color-level-4 :height 1.2 :weight bold)))
-       (info-menu-header ((t :inherit alect-color-level-5 :height 1.1 :weight bold)))
-       (info-node        ((t :foreground ,(gc 'red+1))))
-       (info-menu-star   ((t :foreground ,(gc 'red))))
-
-       ;; ido-mode
-       (ido-first-match ((t :weight bold)))
-       (ido-only-match  ((t :inherit ido-first-match :foreground ,(gc 'fg+2))))
-       (ido-subdir      ((t :inherit dired-directory)))
-       (ido-virtual     ((t :foreground ,(gc 'red-2))))
-
-       ;; isearch
-       (isearch-fail         ((t :foreground ,(gc 'fg+1)
-                                 :background ,(gc 'red-2))))
-       (isearch              ((t :foreground ,(gc 'bg+1)
-                                 :background ,(gc 'fg+2))))
-       (lazy-highlight       ((t :foreground ,(gc 'bg-2)
-                                 :background ,(gc 'fg-2))))
-
-       ;; js2-mode
-       (js2-warning-face           ((t :foreground,(gc 'fg-2))))
-       (js2-error-face             ((t :foreground ,(gc 'red) :weight bold)))
-       (js2-jsdoc-tag-face         ((t :foreground ,(gc 'green-1))))
-       (js2-jsdoc-type-face        ((t :foreground ,(gc 'green+2))))
-       (js2-jsdoc-value-face       ((t :foreground ,(gc 'cyan-1))))
-       (js2-function-param-face    ((t :foreground ,(gc 'cyan-1))))
-       (js2-external-variable-face ((t :foreground ,(gc 'fg-2))))
-
-       ;; jabber-mode
-       (jabber-roster-user-away       ((t :foreground ,(gc 'green+2))))
-       (jabber-roster-user-online     ((t :foreground ,(gc 'blue-1))))
-       (jabber-roster-user-dnd        ((t :foreground ,(gc 'red+1))))
-       (jabber-rare-time-face         ((t :inherit alect-time)))
-       (jabber-chat-prompt-local      ((t :foreground ,(gc 'blue-1))))
-       (jabber-chat-prompt-foreign    ((t :foreground ,(gc 'red+1))))
-       (jabber-activity-face          ((t :foreground ,(gc 'red+1))))
-       (jabber-activity-personal-face ((t :foreground ,(gc 'blue+1))))
-       (jabber-title-small            ((t :height 1.1 :weight bold)))
-       (jabber-title-medium           ((t :height 1.2 :weight bold)))
-       (jabber-title-large            ((t :height 1.3 :weight bold)))
-
-       ;; linum-mode
-       (linum ((t :foreground ,(gc 'fg-2))))
-
-       ;; magit
-       (magit-item-highlight               ((t nil)))
-       (magit-header                       ((t :inherit alect-title)))
-       (magit-tag                          ((t :foreground ,(gc 'yellow-1) :weight bold)))
-       (magit-branch                       ((t :foreground ,(gc 'blue+1) :weight bold)))
-       (magit-log-date                     ((t :inherit alect-time)))
-       (magit-log-sha1                     ((t :foreground ,(gc 'yellow+2))))
-       (magit-log-author                   ((t :foreground ,(gc 'magenta-1))))
-       (magit-log-head-label-head          ((t :background ,(gc 'bg-2)
-                                               :foreground ,(gc 'fg+2)
-                                               :box (:line-width 2 :color ,(gc 'red)))))
-       (magit-log-head-label-default       ((t :box (:line-width 1 :color ,(gc 'fg+1)))))
-       (magit-log-head-label-local         ((t :inherit magit-log-head-label-default
-                                               :foreground ,(gc 'blue))))
-       (magit-log-head-label-remote        ((t :inherit magit-log-head-label-default
-                                               :foreground ,(gc 'green+1))))
-       (magit-log-head-label-tags          ((t :inherit magit-log-head-label-default
-                                               :foreground ,(gc 'yellow-1))))
-       (magit-log-head-label-wip           ((t :inherit magit-log-head-label-default
-                                               :foreground ,(gc 'red-1))))
-       (magit-log-head-label-patches       ((t :inherit magit-log-head-label-default
-                                               :foreground ,(gc 'cyan-1))))
-       (magit-log-reflog-label-other       ((t :inherit magit-log-head-label-default)))
-       (magit-log-reflog-label-checkout    ((t :inherit magit-branch)))
-       (magit-log-reflog-label-remote      ((t :inherit magit-log-head-label-remote)))
-       (magit-log-reflog-label-reset       ((t :foreground ,(gc 'red) :weight bold)))
-       (magit-log-reflog-label-rebase      ((t :foreground ,(gc 'yellow))))
-       (magit-log-reflog-label-cherry-pick ((t :foreground ,(gc 'cyan))))
-       (magit-log-reflog-label-commit      ((t :foreground ,(gc 'green-1))))
-       (magit-log-reflog-label-amend       ((t :foreground ,(gc 'magenta))))
-       (magit-log-reflog-label-merge       ((t :foreground ,(gc 'blue-2) :weight bold)))
-       (magit-cherry-unmatched             ((t :foreground ,(gc 'red+2))))
-       (magit-cherry-equivalent            ((t :foreground ,(gc 'cyan+2))))
-       (magit-process-ok                   ((t :foreground ,(gc 'green))))
-       (magit-process-ng                   ((t :foreground ,(gc 'red))))
-
-       ;; markdown mode
-       (markdown-header-face           ((t :inherit alect-title-1)))
-       (markdown-header-face-1         ((t :inherit alect-title-1)))
-       (markdown-header-face-2         ((t :inherit alect-title-2)))
-       (markdown-header-face-3         ((t :inherit alect-title-3)))
-       (markdown-header-face-4         ((t :inherit alect-title-4)))
-       (markdown-header-face-5         ((t :inherit alect-title-5)))
-       (markdown-header-face-6         ((t :inherit alect-title-6)))
-       (markdown-header-rule-face      ((t :inherit markdown-header-face :foreground ,(gc 'fg))))
-       (markdown-header-delimiter-face ((t :inherit markdown-header-face :foreground ,(gc 'fg+2))))
-       (markdown-footnote-face         ((t :foreground ,(gc 'blue+2))))
-       (markdown-inline-code-face      ((t :foreground ,(gc 'cyan+1))))
-       (markdown-comment-face          ((t :inherit font-lock-comment-face)))
-       (markdown-blockquote-face       ((t :inherit font-lock-doc-face)))
-       (markdown-bold-face             ((t :inherit bold)))
-       (markdown-italic-face           ((t :inherit italic)))
-       (markdown-missing-link-face     ((t :inherit font-lock-warning-face)))
-       (markdown-link-face             ((t :inherit link)))
-       (markdown-link-title-face       ((t :inherit font-lock-string-face)))
-       (markdown-url-face              ((t :foreground ,(gc 'green+2))))
-       (markdown-language-keyword-face ((t :foreground ,(gc 'magenta+2))))
-       (markdown-line-break-face       ((t :inherit underline)))
-       (markdown-list-face             ((t :foreground ,(gc 'yellow))))
-       (markdown-metadata-key-face     ((t :foreground ,(gc 'blue-2))))
-       (markdown-metadata-value-face   ((t :foreground ,(gc 'red-1))))
-       (markdown-pre-face              ((t :foreground ,(gc 'yellow+2))))
-       (markdown-reference-face        ((t :inherit link)))
-
-       ;; message-mode
-       (message-cited-text        ((t :inherit font-lock-comment-face)))
-       (message-separator         ((t :inherit font-lock-comment-face)))
-       (message-header-name       ((t :foreground ,(gc 'yellow+1) :weight bold)))
-       (message-header-other      ((t :foreground ,(gc 'fg))))
-       (message-header-to         ((t :foreground ,(gc 'blue))))
-       (message-header-from       ((t :foreground ,(gc 'red-1))))
-       (message-header-cc         ((t :foreground ,(gc 'blue-1))))
-       (message-header-newsgroups ((t :foreground ,(gc 'yellow+2))))
-       (message-header-subject    ((t :inherit alect-title)))
-       (message-header-xheader    ((t :foreground ,(gc 'green-1))))
-       (message-mml               ((t :foreground ,(gc 'cyan-2) :weight bold)))
-
-       ;; mew
-       (mew-face-header-subject    ((t :foreground ,(gc 'fg-2))))
-       (mew-face-header-from       ((t :foreground ,(gc 'yellow))))
-       (mew-face-header-date       ((t :inherit alect-time)))
-       (mew-face-header-to         ((t :foreground ,(gc 'red))))
-       (mew-face-header-key        ((t :foreground ,(gc 'green))))
-       (mew-face-header-private    ((t :foreground ,(gc 'green))))
-       (mew-face-header-important  ((t :foreground ,(gc 'blue))))
-       (mew-face-header-marginal   ((t :foreground ,(gc 'fg+1) :weight bold)))
-       (mew-face-header-warning    ((t :foreground ,(gc 'red))))
-       (mew-face-header-xmew       ((t :foreground ,(gc 'green))))
-       (mew-face-header-xmew-bad   ((t :foreground ,(gc 'red))))
-       (mew-face-body-url          ((t :foreground ,(gc 'fg-2))))
-       (mew-face-body-comment      ((t :foreground ,(gc 'fg+1) :slant italic)))
-       (mew-face-body-cite1        ((t :foreground ,(gc 'green))))
-       (mew-face-body-cite2        ((t :foreground ,(gc 'blue))))
-       (mew-face-body-cite3        ((t :foreground ,(gc 'fg-2))))
-       (mew-face-body-cite4        ((t :foreground ,(gc 'yellow))))
-       (mew-face-body-cite5        ((t :foreground ,(gc 'red))))
-       (mew-face-mark-review       ((t :foreground ,(gc 'blue))))
-       (mew-face-mark-escape       ((t :foreground ,(gc 'green))))
-       (mew-face-mark-delete       ((t :foreground ,(gc 'red))))
-       (mew-face-mark-unlink       ((t :foreground ,(gc 'yellow))))
-       (mew-face-mark-refile       ((t :foreground ,(gc 'green))))
-       (mew-face-mark-unread       ((t :foreground ,(gc 'yellow+2))))
-       (mew-face-eof-message       ((t :foreground ,(gc 'green))))
-       (mew-face-eof-part          ((t :foreground ,(gc 'yellow))))
-
-       ;; mic-paren
-       (paren-face-match    ((t :foreground ,(gc 'cyan)
-                                :background ,(gc 'bg-1)
-                                :weight bold)))
-       (paren-face-mismatch ((t :foreground ,(gc 'bg-1)
-                                :background ,(gc 'magenta)
-                                :weight bold)))
-       (paren-face-no-match ((t :foreground ,(gc 'bg-1)
-                                :background ,(gc 'red)
-                                :weight bold)))
-
-       ;; mingus
-       (mingus-directory-face ((t :foreground ,(gc 'blue))))
-       (mingus-pausing-face   ((t :foreground ,(gc 'magenta))))
-       (mingus-playing-face   ((t :foreground ,(gc 'cyan))))
-       (mingus-playlist-face  ((t :foreground ,(gc 'cyan) )))
-       (mingus-song-file-face ((t :foreground ,(gc 'yellow))))
-       (mingus-stopped-face   ((t :foreground ,(gc 'red))))
-
-       ;; i don't know what it is, but this face can often be met in mails
-       (mm-uu-extract ((t :background ,(gc 'bg)
-                          :foreground ,(gc 'fg+1))))
-
-       ;; mode-line
-       (mode-line-buffer-id  ((t :foreground ,(gc 'blue-1) :weight bold)))
-       (mode-line            ((t :foreground ,(gc 'fg+1)
-                                 :background ,(gc 'bg-2)
-                                 :box (:line-width 2
-                                       :style released-button))))
-       (mode-line-inactive   ((t :foreground ,(gc 'fg-2)
-                                 :background ,(gc 'bg-1)
-                                 :box (:line-width 2
-                                       :color ,(gc 'bg-2)
-                                       :style nil))))
-
-       ;; mu4e
-       (mu4e-cited-1-face ((t :foreground ,(gc 'blue)    :slant italic)))
-       (mu4e-cited-2-face ((t :foreground ,(gc 'green+2) :slant italic)))
-       (mu4e-cited-3-face ((t :foreground ,(gc 'cyan-2)  :slant italic)))
-       (mu4e-cited-4-face ((t :foreground ,(gc 'green)   :slant italic)))
-       (mu4e-cited-5-face ((t :foreground ,(gc 'cyan+1)  :slant italic)))
-       (mu4e-cited-6-face ((t :foreground ,(gc 'green-1) :slant italic)))
-       (mu4e-cited-7-face ((t :foreground ,(gc 'blue)    :slant italic)))
-       (mu4e-replied-face ((t :foreground ,(gc 'bg+2))))
-       (mu4e-trashed-face ((t :foreground ,(gc 'bg+2) :strike-through t)))
-
-       ;; mumamo
-       (mumamo-background-chunk-major    ((t :background nil)))
-       (mumamo-background-chunk-submode1 ((t :background ,(gc 'bg-2))))
-       (mumamo-background-chunk-submode2 ((t :background ,(gc 'bg+1))))
-       (mumamo-background-chunk-submode3 ((t :background ,(gc 'bg+2))))
-       (mumamo-background-chunk-submode4 ((t :background ,(gc 'bg))))
-
-       ;; nav
-       (nav-face-heading     ((t :foreground ,(gc 'yellow))))
-       (nav-face-button-num  ((t :foreground ,(gc 'cyan))))
-       (nav-face-dir         ((t :foreground ,(gc 'green))))
-       (nav-face-hdir        ((t :foreground ,(gc 'red))))
-       (nav-face-file        ((t :foreground ,(gc 'fg+1))))
-       (nav-face-hfile       ((t :foreground ,(gc 'red-2))))
-
-       ;; nethack-el
-       (nethack-dark-gray-face          ((t :foreground ,(gc 'fg-1))))
-       (nethack-message-highlight-face  ((t :background ,(gc 'bg)
-                                            :foreground ,(gc 'red+2))))
-       (nethack-yellow-face             ((t :foreground ,(gc 'yellow))))
-
-       ;; newsticker
-       (newsticker-date-face                ((t :inherit alect-time)))
-       (newsticker-default-face             ((t :foreground ,(gc 'fg+1))))
-       (newsticker-enclosure-face           ((t :foreground ,(gc 'cyan-1))))
-       (newsticker-extra-face               ((t :foreground ,(gc 'bg+1) :height 0.8)))
-       (newsticker-feed-face                ((t :foreground ,(gc 'fg+1))))
-       (newsticker-immortal-item-face       ((t :foreground ,(gc 'green))))
-       (newsticker-new-item-face            ((t :foreground ,(gc 'blue))))
-       (newsticker-obsolete-item-face       ((t :foreground ,(gc 'red))))
-       (newsticker-old-item-face            ((t :foreground ,(gc 'bg+2))))
-       (newsticker-statistics-face          ((t :foreground ,(gc 'fg+1))))
-       (newsticker-treeview-face            ((t :foreground ,(gc 'fg+1))))
-       (newsticker-treeview-immortal-face   ((t :foreground ,(gc 'green))))
-       (newsticker-treeview-listwindow-face ((t :foreground ,(gc 'fg+1))))
-       (newsticker-treeview-new-face        ((t :foreground ,(gc 'blue) :weight bold)))
-       (newsticker-treeview-obsolete-face   ((t :foreground ,(gc 'red))))
-       (newsticker-treeview-old-face        ((t :foreground ,(gc 'bg+2))))
-       (newsticker-treeview-selection-face  ((t :foreground ,(gc 'yellow))))
-
-       ;; org-mode
-       (org-agenda-date           ((t :inherit alect-time)))
-       (org-agenda-date-today     ((t :inherit alect-selected-item
-                                      :foreground ,(gc 'cyan-2))))
-       (org-agenda-structure      ((t :inherit alect-title)))
-       (org-archived              ((t :foreground ,(gc 'fg+1) :weight bold)))
-       (org-checkbox              ((t :background ,(gc 'bg+1)
-                                      :foreground ,(gc 'gray-2)
-                                      :box (:line-width 1 :style released-button))))
-       (org-date                  ((t :inherit alect-time)))
-       (org-date-selected         ((t :inherit alect-selected-item)))
-       (org-deadline-announce     ((t :foreground ,(gc 'red-1))))
-       (org-done                  ((t :foreground ,(gc 'cyan-1) :weight bold)))
-       (org-formula               ((t :foreground ,(gc 'yellow-2))))
-       (org-headline-done         ((t :foreground ,(gc 'cyan-1))))
-       (org-hide                  ((t :foreground ,(gc 'bg-2))))
-       (org-level-1               ((t :inherit alect-title-1)))
-       (org-level-2               ((t :inherit alect-title-2)))
-       (org-level-3               ((t :inherit alect-title-3)))
-       (org-level-4               ((t :inherit alect-title-4)))
-       (org-level-5               ((t :inherit alect-title-5)))
-       (org-level-6               ((t :inherit alect-title-6)))
-       (org-level-7               ((t :inherit alect-title-7)))
-       (org-level-8               ((t :inherit alect-title-8)))
-       (org-link                  ((t :inherit link)))
-       (org-scheduled             ((t :foreground ,(gc 'green-2))))
-       (org-scheduled-previously  ((t :foreground ,(gc 'red-2))))
-       (org-scheduled-today       ((t :foreground ,(gc 'blue+1))))
-       (org-special-keyword       ((t :inherit font-lock-doc-face)))
-       (org-table                 ((t :foreground ,(gc 'fg-1))))
-       (org-tag                   ((t :slant italic)))
-       (org-time-grid             ((t :foreground ,(gc 'fg-2))))
-       (org-todo                  ((t :foreground ,(gc 'red) :weight bold)))
-       (org-upcoming-deadline     ((t :inherit font-lock-keyword-face)))
-       (org-warning               ((t :foreground ,(gc 'red) :weight bold :underline nil)))
-       (org-column                ((t :background ,(gc 'bg-2))))
-       (org-column-title          ((t :background ,(gc 'bg-2) :underline t :weight bold)))
-
-       ;; outline
-       (outline-1 ((t :inherit alect-title-1)))
-       (outline-2 ((t :inherit alect-title-2)))
-       (outline-3 ((t :inherit alect-title-3)))
-       (outline-4 ((t :inherit alect-title-4)))
-       (outline-5 ((t :inherit alect-title-5)))
-       (outline-6 ((t :inherit alect-title-6)))
-       (outline-7 ((t :inherit alect-title-7)))
-       (outline-8 ((t :inherit alect-title-8)))
-
-       ;; popup
-       (popup-tip-face                    ((t :foreground ,(gc 'gray+2)
-                                              :background ,(gc 'yellow-2))))
-       (popup-scroll-bar-foreground-face  ((t :background ,(gc 'fg-2))))
-       (popup-scroll-bar-background-face  ((t :background ,(gc 'bg-2))))
-       (popup-isearch-match               ((t :foreground ,(gc 'fg+1)
-                                              :background ,(gc 'bg-1) )))
-
-       ;; rainbow-delimiters
-       (rainbow-delimiters-depth-1-face   ((t :foreground ,(gc 'fg+1))))
-       (rainbow-delimiters-depth-2-face   ((t :foreground ,(gc 'green+2))))
-       (rainbow-delimiters-depth-3-face   ((t :foreground ,(gc 'yellow-2))))
-       (rainbow-delimiters-depth-4-face   ((t :foreground ,(gc 'cyan))))
-       (rainbow-delimiters-depth-5-face   ((t :foreground ,(gc 'green-1))))
-       (rainbow-delimiters-depth-6-face   ((t :foreground ,(gc 'blue+1))))
-       (rainbow-delimiters-depth-7-face   ((t :foreground ,(gc 'yellow-1))))
-       (rainbow-delimiters-depth-8-face   ((t :foreground ,(gc 'green+1))))
-       (rainbow-delimiters-depth-9-face   ((t :foreground ,(gc 'cyan-2))))
-       (rainbow-delimiters-depth-10-face  ((t :foreground ,(gc 'fg-2))))
-       (rainbow-delimiters-depth-11-face  ((t :foreground ,(gc 'green))))
-       (rainbow-delimiters-depth-12-face  ((t :foreground ,(gc 'cyan+2))))
-
-       ;; rcirc
-       (rcirc-my-nick                   ((t :foreground ,(gc 'blue))))
-       (rcirc-other-nick                ((t :foreground ,(gc 'fg-2))))
-       (rcirc-bright-nick               ((t :foreground ,(gc 'blue+1))))
-       (rcirc-dim-nick                  ((t :foreground ,(gc 'cyan-2))))
-       (rcirc-server                    ((t :foreground ,(gc 'green))))
-       (rcirc-server-prefix             ((t :foreground ,(gc 'green+1))))
-       (rcirc-timestamp                 ((t :inherit alect-time)))
-       (rcirc-nick-in-message           ((t :foreground ,(gc 'yellow))))
-       (rcirc-nick-in-message-full-line ((t :weight bold)))
-       (rcirc-prompt                    ((t :inherit alect-prompt)))
-       (rcirc-track-nick                ((t :inverse-video t)))
-       (rcirc-track-keyword             ((t :weight bold)))
-       (rcirc-url                       ((t :weight bold)))
-       (rcirc-keyword                   ((t :foreground ,(gc 'yellow) :weight bold)))
-
-       ;; rpm-mode
-       (rpm-spec-dir-face           ((t :foreground ,(gc 'green))))
-       (rpm-spec-doc-face           ((t :foreground ,(gc 'green))))
-       (rpm-spec-ghost-face         ((t :foreground ,(gc 'red))))
-       (rpm-spec-macro-face         ((t :foreground ,(gc 'yellow))))
-       (rpm-spec-obsolete-tag-face  ((t :foreground ,(gc 'red))))
-       (rpm-spec-package-face       ((t :foreground ,(gc 'red))))
-       (rpm-spec-section-face       ((t :foreground ,(gc 'yellow))))
-       (rpm-spec-tag-face           ((t :foreground ,(gc 'blue))))
-       (rpm-spec-var-face           ((t :foreground ,(gc 'red))))
-
-       ;; rst-mode
-       (rst-level-1-face ((t :inherit alect-color-level-1)))
-       (rst-level-2-face ((t :inherit alect-color-level-2)))
-       (rst-level-3-face ((t :inherit alect-color-level-3)))
-       (rst-level-4-face ((t :inherit alect-color-level-4)))
-       (rst-level-5-face ((t :inherit alect-color-level-5)))
-       (rst-level-6-face ((t :inherit alect-color-level-6)))
-
-       ;; sauron
-       (sauron-header-face     ((t nil)))
-       (sauron-timestamp-face  ((t :inherit alect-time)))
-       (sauron-message-face    ((t :inherit font-lock-doc-face)))
-       (sauron-origin-face     ((t :foreground ,(gc 'blue+1))))
-       (sauron-priority-face   ((t :foreground ,(gc 'yellow+2))))
-       (sauron-highlight1-face ((t :foreground ,(gc 'green))))
-       (sauron-highlight2-face ((t :foreground ,(gc 'red-1))))
-       (sauron-highlight3-face ((t :foreground ,(gc 'magenta))))
-
-       ;; shell-script
-       (sh-heredoc     ((t :inherit font-lock-doc-face)))
-       (sh-quoted-exec ((t :foreground ,(gc 'cyan))))
-
-       ;; show-paren
-       (show-paren-mismatch  ((t :foreground ,(gc 'gray-2)
-                                 :background ,(gc 'red))))
-       (show-paren-match     ((t :foreground ,(gc 'gray-2)
-                                 :background ,(gc 'green+1))))
-
-       ;; SLIME
-       (slime-error-face                 ((t :inherit font-lock-warning-face)))
-       (slime-repl-input-face            ((t :inherit comint-highlight-input)))
-       (slime-repl-output-face           ((t :foreground ,(gc 'green-1))))
-       (slime-repl-inputed-output-face   ((t :foreground ,(gc 'red))))
-       (slime-repl-output-mouseover-face ((t :inherit highlight)))
-       (slime-repl-prompt-face           ((t :inherit alect-prompt)))
-       (slime-repl-result-face           ((t :foreground ,(gc 'blue+2))))
-
-       ;; sml-mode-line
-       (sml-modeline-end-face ((t :inherit default :width condensed)))
-
-       ;; sunrise-commander
-       (sr-active-path-face       ((t :inherit dired-header)))
-       (sr-passive-path-face      ((t :inherit dired-header
-                                      :foreground ,(gc 'fg-2))))
-       (sr-directory-face         ((t :inherit dired-directory)))
-       (sr-marked-file-face       ((t :inherit dired-marked)))
-       (sr-marked-dir-face        ((t :inherit sr-alt-marked-file-face :weight bold)))
-       (sr-alt-marked-file-face   ((t :inherit sr-marked-file-face :slant italic)))
-       (sr-alt-marked-dir-face    ((t :inherit sr-marked-dir-face :slant italic)))
-       (sr-symlink-face           ((t :inherit dired-symlink)))
-       (sr-symlink-directory-face ((t :inherit sr-symlink-face :weight bold)))
-       (sr-broken-link-face       ((t :inherit dired-warning)))
-       (sr-highlight-path-face    ((t :inherit highlight)))
-       (sr-editing-path-face      ((t :foreground ,(gc 'bg-1)
-                                      :background ,(gc 'blue-1))))
-       (sr-clex-hotchar-face      ((t :foreground ,(gc 'red))))
-       (sr-encrypted-face         ((t :foreground ,(gc 'yellow))))
-       (sr-compressed-face        ((t :foreground ,(gc 'magenta-1))))
-       (sr-packaged-face          ((t :foreground ,(gc 'magenta+1))))
-       (sr-log-face               ((t :foreground ,(gc 'green-1))))
-       (sr-xml-face               ((t :foreground ,(gc 'green+2))))
-       (sr-html-face              ((t :foreground ,(gc 'cyan+2))))
-
-       ;; syslog-mode
-       (syslog-error ((t :inherit font-lock-warning-face)))
-       (syslog-warn  ((t :inherit warning)))
-       (syslog-info  ((t :foreground ,(gc 'blue-2))))
-       (syslog-debug ((t :foreground ,(gc 'magenta-1))))
-       (syslog-hour  ((t :foreground ,(gc 'blue+1))))
-       (syslog-su    ((t :foreground ,(gc 'cyan))))
-       (syslog-ip    ((t :foreground ,(gc 'yellow+1) :underline t)))
-
-       ;; tabbar
-       (tabbar-button     ((t :foreground ,(gc 'fg+1)
-                              :background ,(gc 'bg-1))))
-       (tabbar-selected   ((t :foreground ,(gc 'fg+1)
-                              :background ,(gc 'bg-1)
-                              :box (:line-width -1 :style pressed-button))))
-       (tabbar-unselected ((t :foreground ,(gc 'fg+1)
-                              :background ,(gc 'bg)
-                              :box (:line-width -1 :style released-button))))
-
-       ;; term
-       (term-color-black       ((t :foreground ,(gc 'bg-1)
+    (let ((c alect-display-class))
+      (cons
+       ;; FACES
+       `( ;; basic colors
+         (default             ((,c :foreground ,(gc 'fg+1)
+                                   :background ,(gc 'bg-1))))
+         (cursor              ((,c :background ,(gc 'cursor))))
+         (button              ((,c :inherit link)))
+         (link                ((,c :foreground ,(gc 'blue-1)
+                                   :underline t :weight normal)))
+         (link-visited        ((,c :foreground ,(gc 'blue+2)
+                                   :underline t :weight normal)))
+         (match               ((,c :background ,(gc 'green+1)
+                                   :foreground ,(gc 'gray-2))))
+         (escape-glyph        ((,c :foreground ,(gc 'yellow) :weight bold)))
+         (fringe              ((,c :foreground ,(gc 'gray)
                                    :background ,(gc 'bg-2))))
-       (term-color-red         ((t :foreground ,(gc 'yellow+2)
-                                   :background ,(gc 'red-2))))
-       (term-color-green       ((t :foreground ,(gc 'green)
-                                   :background ,(gc 'green+2))))
-       (term-color-yellow      ((t :foreground ,(gc 'fg-2)
-                                   :background ,(gc 'yellow))))
-       (term-color-blue        ((t :foreground ,(gc 'blue-1)
-                                   :background ,(gc 'cyan+1))))
-       (term-color-magenta     ((t :foreground ,(gc 'magenta)
-                                   :background ,(gc 'red))))
-       (term-color-cyan        ((t :foreground ,(gc 'cyan)
-                                   :background ,(gc 'blue))))
-       (term-color-white       ((t :foreground ,(gc 'fg+1)
-                                   :background ,(gc 'bg+2))))
-       (term-default-fg-color  ((t :inherit term-color-white)))
-       (term-default-bg-color  ((t :inherit term-color-black)))
+         (header-line         ((,c :foreground ,(gc 'fg+2)
+                                   :height ,alect-header-height
+                                   :box (:line-width 1
+                                         :color ,(gc 'fg+2)
+                                         :style nil))))
+         (highlight           ((,c :foreground ,(gc 'gray+2)
+                                   :background ,(gc 'gray-2))))
+         (shadow              ((,c :foreground ,(gc 'gray))))
+         (success             ((,c :foreground ,(gc 'green) :weight bold)))
+         (warning             ((,c :foreground ,(gc 'yellow-1) :weight normal)))
+         (region              ((,c :background ,(gc 'bg+2))))
+         (menu                ((,c :foreground ,(gc 'fg+1)
+                                   :background ,(gc 'bg-1))))
+         (minibuffer-prompt   ((,c :inherit alect-prompt)))
+         (secondary-selection ((,c :background ,(gc 'bg+1))))
+         (trailing-whitespace ((,c :background ,(gc 'red))))
+         (vertical-border     ((,c :foreground ,(gc 'fg+1))))
 
-       ;; volatile-highlights
-       (vhl/default-face ((t :background ,(gc 'bg-2))))
+         ;; auxiliary faces for inheriting
+         (alect-prompt         ((,c :foreground ,(gc 'magenta-1) :weight bold)))
+         (alect-time           ((,c :foreground ,(gc 'cyan-2))))
+         (alect-selected-item  ((,c :background ,(gc 'bg)
+                                    :box (:line-width 1
+                                          :color ,(gc 'fg+1)
+                                          :style nil))))
+         (alect-color-level-1  ((,c :foreground ,(gc 'blue+1))))
+         (alect-color-level-2  ((,c :foreground ,(gc 'green))))
+         (alect-color-level-3  ((,c :foreground ,(gc 'red+1))))
+         (alect-color-level-4  ((,c :foreground ,(gc 'yellow+2))))
+         (alect-color-level-5  ((,c :foreground ,(gc 'cyan+1))))
+         (alect-color-level-6  ((,c :foreground ,(gc 'blue-1))))
+         (alect-color-level-7  ((,c :foreground ,(gc 'magenta-1))))
+         (alect-color-level-8  ((,c :foreground ,(gc 'yellow))))
+         (alect-color-level-9  ((,c :foreground ,(gc 'green-1))))
+         (alect-color-level-10 ((,c :foreground ,(gc 'red-2))))
+         (alect-color-level-11 ((,c :foreground ,(gc 'cyan-2))))
+         (alect-color-level-12 ((,c :foreground ,(gc 'magenta+2))))
 
-       ;; emacs-w3m
-       (w3m-anchor                       ((t :inherit link)))
-       (w3m-arrived-anchor               ((t :inherit link-visited)))
-       (w3m-form                         ((t :foreground ,(gc 'red-1) :underline t)))
-       (w3m-form-button                  ((t :inherit custom-button)))
-       (w3m-form-button-pressed          ((t :inherit custom-button-pressed)))
-       (w3m-form-button-mouse            ((t :inherit custom-button-mouse)))
-       (w3m-tab-background               ((t :inherit default)))
-       (w3m-tab-selected                 ((t :inherit custom-button
-                                             :foreground ,(gc 'fg+2))))
-       (w3m-tab-selected-retrieving      ((t :inherit custom-button
-                                             :foreground ,(gc 'red))))
-       (w3m-tab-selected-background      ((t :background ,(gc 'bg))))
-       (w3m-tab-unselected               ((t :inherit custom-button
-                                             :foreground ,(gc 'fg-1))))
-       (w3m-tab-unselected-retrieving    ((t :inherit custom-button
-                                             :foreground ,(gc 'red+2))))
-       (w3m-tab-unselected-unseen        ((t :inherit custom-button
-                                             :backround ,(gc 'gray))))
-       (w3m-tab-mouse                    ((t :inherit custom-button-mouse)))
-       (w3m-header-line-location-title   ((t :inherit header-line)))
-       (w3m-header-line-location-content ((t :foreground ,(gc 'blue-1)
-                                             :inherit header-line)))
-       (w3m-history-current-url          ((t :inherit alect-selected-item)))
-       (w3m-image-anchor                 ((t :background ,(gc 'bg+1))))
+         (alect-title          ((,c :foreground ,(gc 'green+2) :weight bold
+                                    :height ,alect-single-title-height)))
+         (alect-title-1        ((,c :inherit alect-color-level-1 :weight bold
+                                    :height ,alect-multiple-titles-height)))
+         (alect-title-2        ((,c :inherit alect-color-level-2 :weight bold
+                                    :height ,alect-multiple-titles-height)))
+         (alect-title-3        ((,c :inherit alect-color-level-3 :weight bold
+                                    :height ,alect-multiple-titles-height)))
+         (alect-title-4        ((,c :inherit alect-color-level-4 :weight bold
+                                    :height ,alect-multiple-titles-height)))
+         (alect-title-5        ((,c :inherit alect-color-level-5 :weight bold
+                                    :height ,alect-multiple-titles-height)))
+         (alect-title-6        ((,c :inherit alect-color-level-6 :weight bold
+                                    :height ,alect-multiple-titles-height)))
+         (alect-title-7        ((,c :inherit alect-color-level-7 :weight bold
+                                    :height ,alect-multiple-titles-height)))
+         (alect-title-8        ((,c :inherit alect-color-level-8 :weight bold
+                                    :height ,alect-multiple-titles-height)))
 
-       ;; wanderlust
-       (wl-highlight-folder-few-face                     ((t :foreground ,(gc 'yellow+2))))
-       (wl-highlight-folder-many-face                    ((t :foreground ,(gc 'red-1))))
-       (wl-highlight-folder-path-face                    ((t :foreground ,(gc 'fg-2))))
-       (wl-highlight-folder-unread-face                  ((t :foreground ,(gc 'blue))))
-       (wl-highlight-folder-zero-face                    ((t :foreground ,(gc 'fg+1))))
-       (wl-highlight-folder-unknown-face                 ((t :foreground ,(gc 'blue))))
-       (wl-highlight-message-citation-header             ((t :foreground ,(gc 'red-1))))
-       (wl-highlight-message-cited-text-1                ((t :foreground ,(gc 'red))))
-       (wl-highlight-message-cited-text-2                ((t :foreground ,(gc 'green+2))))
-       (wl-highlight-message-cited-text-3                ((t :foreground ,(gc 'blue))))
-       (wl-highlight-message-cited-text-4                ((t :foreground ,(gc 'blue+1))))
-       (wl-highlight-message-header-contents-face        ((t :foreground ,(gc 'green))))
-       (wl-highlight-message-headers-face                ((t :foreground ,(gc 'red+1))))
-       (wl-highlight-message-important-header-contents   ((t :foreground ,(gc 'green+2))))
-       (wl-highlight-message-header-contents             ((t :foreground ,(gc 'green+1))))
-       (wl-highlight-message-important-header-contents2  ((t :foreground ,(gc 'green+2))))
-       (wl-highlight-message-signature                   ((t :foreground ,(gc 'green))))
-       (wl-highlight-message-unimportant-header-contents ((t :foreground ,(gc 'fg+1))))
-       (wl-highlight-summary-answered-face               ((t :foreground ,(gc 'blue))))
-       (wl-highlight-summary-disposed-face               ((t :foreground ,(gc 'fg+1)
-                                                             :slant italic)))
-       (wl-highlight-summary-new-face                    ((t :foreground ,(gc 'blue))))
-       (wl-highlight-summary-normal-face                 ((t :foreground ,(gc 'fg+1))))
-       (wl-highlight-summary-thread-top-face             ((t :foreground ,(gc 'yellow))))
-       (wl-highlight-thread-indent-face                  ((t :foreground ,(gc 'magenta))))
-       (wl-highlight-summary-refiled-face                ((t :foreground ,(gc 'fg+1))))
-       (wl-highlight-summary-displaying-face             ((t :underline t :weight bold)))
+         ;; ace-jump
+         (ace-jump-face-background ((,c :foreground ,(gc 'bg+2)
+                                        :background ,(gc 'bg-1)
+                                        :inverse-video nil)))
+         (ace-jump-face-foreground ((,c :foreground ,(gc 'green+2)
+                                        :background ,(gc 'bg-1)
+                                        :inverse-video nil)))
 
-       ;; which-func-mode
-       (which-func ((t :foreground ,(gc 'green-2))))
+         ;; ack
+         (ack-separator  ((,c :foreground ,(gc 'fg+1))))
+         (ack-file       ((,c :foreground ,(gc 'blue))))
+         (ack-line       ((,c :foreground ,(gc 'yellow))))
+         (ack-match      ((,c :foreground ,(gc 'fg-2)
+                              :background ,(gc 'bg-2) :weight bold)))
 
-       ;; whitespace-mode
-       (whitespace-space            ((t :background ,(gc 'bg)
-                                        :foreground ,(gc 'blue-2))))
-       (whitespace-hspace           ((t :background ,(gc 'bg)
-                                        :foreground ,(gc 'gray))))
-       (whitespace-tab              ((t :background ,(gc 'fg-2)
-                                        :foreground ,(gc 'blue-2))))
-       (whitespace-newline          ((t :foreground ,(gc 'blue-2))))
-       (whitespace-trailing         ((t :background ,(gc 'red))))
-       (whitespace-line             ((t :background ,(gc 'gray)
-                                        :foreground ,(gc 'gray-2))))
-       (whitespace-space-before-tab ((t :background ,(gc 'fg-2)
-                                        :foreground ,(gc 'fg-2))))
-       (whitespace-indentation      ((t :background ,(gc 'yellow-2)
-                                        :foreground ,(gc 'red-2))))
-       (whitespace-empty            ((t :background ,(gc 'yellow))))
-       (whitespace-space-after-tab  ((t :background ,(gc 'yellow-2)
-                                        :foreground ,(gc 'red-2))))
+         ;; android mode
+         (android-mode-debug-face    ((,c :foreground ,(gc 'green+1))))
+         (android-mode-error-face    ((,c :foreground ,(gc 'fg-2) :weight bold)))
+         (android-mode-info-face     ((,c :foreground ,(gc 'fg+1))))
+         (android-mode-verbose-face  ((,c :foreground ,(gc 'green))))
+         (android-mode-warning-face  ((,c :foreground ,(gc 'yellow))))
 
-       ;; widget
-       (widget-field             ((t :background ,(gc 'bg)
-                                     :box (:line-width -1
-                                           :color ,(gc 'fg-2)
-                                           :style nil))))
-       (widget-button            ((t :foreground ,(gc 'blue-1) :weight bold)))
-       (widget-button-pressed    ((t :foreground ,(gc 'blue+2) :inherit widget-button)))
-       (widget-documentation     ((t :foreground ,(gc 'green-1))))
-       (widget-inactive          ((t :inherit shadow)))
-       (widget-single-line-field ((t :foreground ,(gc 'fg)
-                                     :inherit widget-field)))
+         ;; auctex
+         (font-latex-bold     ((,c :inherit bold)))
+         (font-latex-warning  ((,c :inherit font-lock-warning-face)))
+         (font-latex-sedate   ((,c :foreground ,(gc 'yellow) :weight bold )))
+         (font-latex-title-4  ((,c :inherit variable-pitch :weight bold)))
 
-       ;; yascroll
-       (yascroll:thumb-text-area ((t :background ,(gc 'bg-2))))
-       (yascroll:thumb-fringe    ((t :background ,(gc 'bg-2)
-                                     :foreground ,(gc 'fg-2)))))
-     ;; VARIABLES
-     `((ansi-color-names-vector
-        [,(gc 'bg-1)
-         ,(gc 'red)
-         ,(gc 'green)
-         ,(gc 'yellow)
-         ,(gc 'blue)
-         ,(gc 'magenta)
-         ,(gc 'cyan)
-         ,(gc 'fg+1)])
+         ;; auto-complete
+         (ac-candidate-face       ((,c :foreground ,(gc 'gray+2)
+                                       :background ,(gc 'bg+2))))
+         (ac-selection-face       ((,c :foreground ,(gc 'bg-1)
+                                       :background ,(gc 'fg+1))))
+         (ac-completion-face      ((,c :foreground ,(gc 'fg-2))))
+         (ac-candidate-mouse-face ((,c :inherit highlight)))
 
-       ;; emms icon at mode line (is taken from emms source)
-       (emms-mode-line-icon-image-cache
-        '(image :type xpm :ascent center :data ,(concat "/* XPM */
+         ;; bm
+         (bm-face                   ((,c :background ,(gc 'yellow-1)
+                                         :foreground ,(gc 'bg-1))))
+         (bm-fringe-face            ((,c :background ,(gc 'yellow-1)
+                                         :foreground ,(gc 'bg-1))))
+         (bm-fringe-persistent-face ((,c :background ,(gc 'green-1)
+                                         :foreground ,(gc 'bg-1))))
+         (bm-persistent-face        ((,c :background ,(gc 'green-1)
+                                         :foreground ,(gc 'bg-1))))
+
+         ;; clojure-test-mode
+         (clojure-test-failure-face ((,c :foreground ,(gc 'fg-2)
+                                         :weight bold :underline t)))
+         (clojure-test-error-face   ((,c :foreground ,(gc 'red)
+                                         :weight bold :underline t)))
+         (clojure-test-success-face ((,c :foreground ,(gc 'green+1)
+                                         :weight bold :underline t)))
+
+         ;; comint
+         (comint-highlight-prompt ((,c :inherit alect-prompt)))
+         (comint-highlight-input  ((,c :weight bold)))
+
+         ;; compilation
+         (compilation-column-face           ((,c :foreground ,(gc 'yellow))))
+         (compilation-enter-directory-face  ((,c :foreground ,(gc 'green))))
+         (compilation-error-face            ((,c :foreground ,(gc 'red-1) :weight bold :underline t)))
+         (compilation-face                  ((,c :foreground ,(gc 'fg+1))))
+         (compilation-info-face             ((,c :foreground ,(gc 'blue))))
+         (compilation-info                  ((,c :foreground ,(gc 'green-2) :underline t)))
+         (compilation-leave-directory-face  ((,c :foreground ,(gc 'green))))
+         (compilation-line-face             ((,c :foreground ,(gc 'yellow))))
+         (compilation-line-number           ((,c :foreground ,(gc 'yellow))))
+         (compilation-message-face          ((,c :foreground ,(gc 'blue))))
+         (compilation-warning-face          ((,c :foreground ,(gc 'fg-2) :weight bold :underline t)))
+         (compilation-mode-line-exit        ((,c :foreground ,(gc 'green+2) :weight bold)))
+         (compilation-mode-line-fail        ((,c :foreground ,(gc 'red) :weight bold)))
+         (compilation-mode-line-run         ((,c :foreground ,(gc 'yellow) :weight bold)))
+
+         ;; ctable
+         (ctbl:face-cell-select  ((,c :background ,(gc 'blue)
+                                      :foreground ,(gc 'bg-1))))
+         (ctbl:face-continue-bar ((,c :background ,(gc 'bg-2)
+                                      :foreground ,(gc 'bg-1))))
+         (ctbl:face-row-select   ((,c :background ,(gc 'cyan)
+                                      :foreground ,(gc 'bg-1))))
+
+         ;; customization
+         (custom-button                  ((,c :inherit custom-button-unraised
+                                              :box (:line-width 2
+                                                    :style released-button))))
+         (custom-button-pressed          ((,c :inherit custom-button-unraised
+                                              :box (:line-width 2
+                                                    :style pressed-button))))
+         (custom-button-mouse            ((,c :inherit highlight
+                                              :box (:line-width 2
+                                                    :style released-button))))
+         (custom-button-unraised         ((,c :foreground ,(gc 'fg+2)
+                                              :background ,(gc 'bg+2))))
+         (custom-button-pressed-unraised ((,c :inherit custom-button-unraised :underline t)))
+         (custom-documentation           ((,c :inherit font-lock-doc-face)))
+         (custom-comment                 ((,c :foreground ,(gc 'gray))))
+         (custom-tag                     ((,c :foreground ,(gc 'blue+2))))
+         (custom-state                   ((,c :foreground ,(gc 'green+1))))
+         (custom-link                    ((,c :inherit link)))
+         (custom-group-subtitle          ((,c :weight bold)))
+         (custom-group-tag               ((,c :inherit alect-title-1)))
+         (custom-group-tag-1             ((,c :inherit alect-title-2)))
+         (custom-face-tag                ((,c :foreground ,(gc 'magenta+1) :weight bold)))
+         (custom-variable-tag            ((,c :inherit font-lock-variable-name-face :weight bold)))
+         (custom-variable-button         ((,c :weight bold :underline t)))
+         (custom-visibility              ((,c :inherit link :height 0.8)))
+
+         ;; dictem
+         (dictem-reference-definition-face ((,c :inherit link :underline nil)))
+         (dictem-database-description-face ((,c :inherit alect-title)))
+         (dictem-reference-dbname-face     ((,c :foreground ,(gc 'red+1))))
+         (dictem-reference-m1-face         ((,c :foreground ,(gc 'cyan))))
+         (dictem-reference-m2-face         ((,c :foreground ,(gc 'green))))
+
+         ;; diff
+         (diff-context           ((,c :foreground ,(gc 'fg-1))))
+         (diff-added             ((,c :foreground ,(gc 'green-1))))
+         (diff-changed           ((,c :foreground ,(gc 'yellow-1))))
+         (diff-removed           ((,c :foreground ,(gc 'red-1))))
+         (diff-indicator-added   ((,c :inherit diff-added)))
+         (diff-indicator-changed ((,c :inherit diff-changed)))
+         (diff-indicator-removed ((,c :inherit diff-removed)))
+         (diff-refine-added      ((,c :inherit diff-added :slant italic)))
+         (diff-refine-change     ((,c :inherit diff-changed :slant italic)))
+         (diff-refine-removed    ((,c :inherit diff-removed :slant italic)))
+         (diff-header            ((,c :foreground ,(gc 'blue-2) :weight bold)))
+         (diff-hunk-header       ((,c :inherit diff-header :foreground ,(gc 'green+2))))
+         (diff-file-header       ((,c :inherit diff-header :foreground ,(gc 'cyan-1))))
+         (diff-function          ((,c :inherit diff-header :foreground ,(gc 'blue))))
+         (diff-index             ((,c :inherit diff-header :foreground ,(gc 'red-1))))
+         (diff-nonexistent       ((,c :inherit diff-header :foreground ,(gc 'gray))))
+
+         ;; dired
+         (dired-directory  ((,c :inherit font-lock-function-name-face)))
+         (dired-flagged    ((,c :foreground ,(gc 'red))))
+         (dired-header     ((,c :inherit alect-title)))
+         (dired-ignored    ((,c :foreground ,(gc 'gray))))
+         (dired-mark       ((,c :foreground ,(gc 'blue+1))))
+         (dired-marked     ((,c :inherit warning)))
+         (dired-perm-write ((,c :foreground ,(gc 'green-1))))
+         (dired-symlink    ((,c :inherit font-lock-constant-face)))
+         (dired-warning    ((,c :inherit font-lock-warning-face
+                                :background ,(gc 'bg-2))))
+
+         ;; egg
+         (egg-text-base        ((,c :foreground ,(gc 'fg+1))))
+         (egg-help-header-1    ((,c :foreground ,(gc 'cyan+1))))
+         (egg-help-header-2    ((,c :foreground ,(gc 'cyan-1))))
+         (egg-branch           ((,c :foreground ,(gc 'yellow))))
+         (egg-branch-mono      ((,c :foreground ,(gc 'yellow+1))))
+         (egg-term             ((,c :foreground ,(gc 'blue))))
+         (egg-diff-add         ((,c :foreground ,(gc 'green-2))))
+         (egg-diff-del         ((,c :foreground ,(gc 'red+1))))
+         (egg-diff-file-header ((,c :foreground ,(gc 'yellow-2))))
+         (egg-section-title    ((,c :foreground ,(gc 'red-1))))
+         (egg-stash-mono       ((,c :foreground ,(gc 'green))))
+
+         ;; emms
+         (emms-playlist-track-face    ((,c :inherit gnus-summary-normal-unread)))
+         (emms-playlist-selected-face ((,c :inherit alect-selected-item)))
+         (emms-stream-name-face       ((,c :foreground ,(gc 'blue+1))))
+         (emms-stream-url-face        ((,c :inherit default)))
+
+         ;; erc
+         (erc-header-line          ((,c :inherit header-line)))
+         (erc-bold-face            ((,c :weight bold)))
+         (erc-underline-face       ((,c :underline t)))
+         (erc-current-nick-face    ((,c :foreground ,(gc 'blue) :weight bold)))
+         (erc-dangerous-host-face  ((,c :inherit font-lock-warning-face)))
+         (erc-default-face         ((,c :foreground ,(gc 'fg+1))))
+         (erc-direct-msg-face      ((,c :inherit erc-default-face :foreground ,(gc 'red-2))))
+         (erc-action-face          ((,c :inherit erc-bold-face)))
+         (erc-error-face           ((,c :inherit font-lock-warning-face)))
+         (erc-fool-face            ((,c :foreground ,(gc 'blue-2))))
+         (erc-highlight-face       ((,c :inherit hover-highlight)))
+         (erc-input-face           ((,c :background ,(gc 'bg+1))))
+         (erc-keyword-face         ((,c :foreground ,(gc 'green+1))))
+         (erc-nick-default-face    ((,c :foreground ,(gc 'blue+1))))
+         (erc-my-nick-face         ((,c :foreground ,(gc 'red))))
+         (erc-nick-msg-face        ((,c :foreground ,(gc 'cyan+2))))
+         (erc-notice-face          ((,c :foreground ,(gc 'green))))
+         (erc-pal-face             ((,c :foreground ,(gc 'magenta+2))))
+         (erc-prompt-face          ((,c :inherit alect-prompt)))
+         (erc-timestamp-face       ((,c :inherit alect-time)))
+
+         ;; epa
+         (epa-mark              ((,c :foreground ,(gc 'blue+1))))
+         (epa-string            ((,c :foreground ,(gc 'cyan+2))))
+         (epa-validity-disabled ((,c :foreground ,(gc 'fg-2))))
+         (epa-validity-high     ((,c :foreground ,(gc 'green-1))))
+         (epa-validity-medium   ((,c :foreground ,(gc 'yellow-1))))
+         (epa-validity-low      ((,c :foreground ,(gc 'red-1))))
+
+         ;; ert
+         (ert-test-result-expected    ((,c :foreground ,(gc 'green-2)
+                                           :background ,(gc 'bg-1))))
+         (ert-test-result-unexpected  ((,c :foreground ,(gc 'red)
+                                           :background ,(gc 'bg-1))))
+
+         ;; eshell
+         (eshell-prompt         ((,c :inherit alect-prompt)))
+         (eshell-ls-archive     ((,c :foreground ,(gc 'green))))
+         (eshell-ls-backup      ((,c :inherit dired-ignored)))
+         (eshell-ls-clutter     ((,c :inherit font-lock-comment-face)))
+         (eshell-ls-directory   ((,c :inherit dired-directory)))
+         (eshell-ls-executable  ((,c :foreground ,(gc 'yellow))))
+         (eshell-ls-unreadable  ((,c :foreground ,(gc 'red-2))))
+         (eshell-ls-readonly    ((,c :foreground ,(gc 'fg-2))))
+         (eshell-ls-missing     ((,c :inherit dired-warning)))
+         (eshell-ls-product     ((,c :inherit font-lock-doc-face)))
+         (eshell-ls-special     ((,c :foreground ,(gc 'fg+1) :weight bold)))
+         (eshell-ls-symlink     ((,c :inherit dired-symlink)))
+
+         ;; flycheck
+         (flycheck-error-face    ((,c :foreground ,(gc 'red-1) :weight bold :underline t)))
+         (flycheck-warning-face  ((,c :foreground ,(gc 'fg-2) :weight bold :underline t)))
+
+         ;; flymake
+         (flymake-errline        ((,c :foreground ,(gc 'red-1) :weight bold :underline t)))
+         (flymake-warnline       ((,c :foreground ,(gc 'fg-2) :weight bold :underline t)))
+
+         ;; flyspell
+         (flyspell-duplicate     ((,c :foreground ,(gc 'fg-2) :weight bold :underline t)))
+         (flyspell-incorrect     ((,c :foreground ,(gc 'red-1) :weight bold :underline t)))
+
+         ;; font lock
+         (font-lock-builtin-face           ((,c :foreground ,(gc 'magenta-1))))
+         (font-lock-comment-face           ((,c :foreground ,(gc 'green+1))))
+         (font-lock-comment-delimiter-face ((,c :inherit font-lock-comment-face)))
+         (font-lock-constant-face          ((,c :foreground ,(gc 'cyan-1))))
+         (font-lock-doc-face               ((,c :foreground ,(gc 'fg-1) :slant italic)))
+         (font-lock-doc-string-face        ((,c :foreground ,(gc 'cyan+2))))
+         (font-lock-function-name-face     ((,c :foreground ,(gc 'blue-1))))
+         (font-lock-keyword-face           ((,c :foreground ,(gc 'blue+1) :weight bold)))
+         (font-lock-negation-char-face     ((,c :foreground ,(gc 'blue))))
+         (font-lock-preprocessor-face      ((,c :foreground ,(gc 'green-1))))
+         (font-lock-string-face            ((,c :foreground ,(gc 'red-2))))
+         (font-lock-type-face              ((,c :foreground ,(gc 'magenta+2))))
+         (font-lock-variable-name-face     ((,c :foreground ,(gc 'yellow+2))))
+         (font-lock-warning-face           ((,c :foreground ,(gc 'red) :weight bold)))
+         (font-lock-regexp-grouping-backslash ((,c :foreground ,(gc 'red+2))))
+         (font-lock-regexp-grouping-construct ((,c :foreground ,(gc 'yellow-1))))
+
+         ;; git-commit
+         (git-commit-summary-face         ((,c :weight bold)))
+         (git-commit-branch-face          ((,c :inherit magit-branch)))
+         (git-commit-comment-file-face    ((,c :inherit default)))
+         (git-commit-comment-heading-face ((,c :inherit magit-header)))
+         (git-commit-comment-action-face  ((,c :foreground ,(gc 'yellow+1))))
+
+         ;; git-gutter
+         (git-gutter:added       ((,c :foreground ,(gc 'green) :weight bold :inverse-video t)))
+         (git-gutter:deleted     ((,c :foreground ,(gc 'red) :weight bold :inverse-video t)))
+         (git-gutter:modified    ((,c :foreground ,(gc 'magenta) :weight bold :inverse-video t)))
+         (git-gutter:unchanged   ((,c :foreground ,(gc 'fg+1) :weight bold :inverse-video t)))
+         (git-gutter-fr:added    ((,c :foreground ,(gc 'green)  :weight bold)))
+         (git-gutter-fr:deleted  ((,c :foreground ,(gc 'red) :weight bold)))
+         (git-gutter-fr:modified ((,c :foreground ,(gc 'magenta) :weight bold)))
+
+         ;; gnus
+         (gnus-group-news-1-empty      ((,c :inherit alect-color-level-1)))
+         (gnus-group-news-2-empty      ((,c :inherit alect-color-level-2)))
+         (gnus-group-news-3-empty      ((,c :inherit alect-color-level-3)))
+         (gnus-group-news-4-empty      ((,c :inherit alect-color-level-4)))
+         (gnus-group-news-5-empty      ((,c :inherit alect-color-level-5)))
+         (gnus-group-news-6-empty      ((,c :inherit alect-color-level-6)))
+         (gnus-group-news-low-empty    ((,c :inherit alect-color-level-7)))
+         (gnus-group-news-1            ((,c :inherit gnus-group-news-1-empty :weight bold)))
+         (gnus-group-news-2            ((,c :inherit gnus-group-news-2-empty :weight bold)))
+         (gnus-group-news-3            ((,c :inherit gnus-group-news-3-empty :weight bold)))
+         (gnus-group-news-4            ((,c :inherit gnus-group-news-4-empty :weight bold)))
+         (gnus-group-news-5            ((,c :inherit gnus-group-news-5-empty :weight bold)))
+         (gnus-group-news-6            ((,c :inherit gnus-group-news-6-empty :weight bold)))
+         (gnus-group-news-low          ((,c :inherit gnus-group-news-low-empty :weight bold)))
+         (gnus-group-mail-1-empty      ((,c :inherit gnus-group-news-1-empty :slant italic)))
+         (gnus-group-mail-2-empty      ((,c :inherit gnus-group-news-2-empty :slant italic)))
+         (gnus-group-mail-3-empty      ((,c :inherit gnus-group-news-3-empty :slant italic)))
+         (gnus-group-mail-low-empty    ((,c :inherit gnus-group-news-low-empty :slant italic)))
+         (gnus-group-mail-1            ((,c :inherit gnus-group-news-1 :slant italic)))
+         (gnus-group-mail-2            ((,c :inherit gnus-group-news-2 :slant italic)))
+         (gnus-group-mail-3            ((,c :inherit gnus-group-news-3 :slant italic)))
+         (gnus-group-mail-low          ((,c :inherit gnus-group-news-low :slant italic)))
+
+         (gnus-header-content          ((,c :inherit message-header-other)))
+         (gnus-header-from             ((,c :inherit message-header-from)))
+         (gnus-header-name             ((,c :inherit message-header-name)))
+         (gnus-header-newsgroups       ((,c :inherit message-header-newsgroups)))
+         (gnus-header-subject          ((,c :inherit message-header-subject)))
+         (gnus-summary-cancelled       ((,c :background ,(gc 'fg-1)
+                                            :foreground ,(gc 'bg-2))))
+         (gnus-summary-low-ancient     ((,c :foreground ,(gc 'blue-2))))
+         (gnus-summary-low-read        ((,c :foreground ,(gc 'green-2))))
+         (gnus-summary-low-ticked      ((,c :foreground ,(gc 'red-2))))
+         (gnus-summary-low-unread      ((,c :foreground ,(gc 'fg-1))))
+         (gnus-summary-normal-ancient  ((,c :foreground ,(gc 'blue))))
+         (gnus-summary-normal-read     ((,c :foreground ,(gc 'green))))
+         (gnus-summary-normal-ticked   ((,c :foreground ,(gc 'red))))
+         (gnus-summary-normal-unread   ((,c :foreground ,(gc 'fg+1))))
+         (gnus-summary-high-ancient    ((,c :inherit gnus-summary-normal-ancient :weight bold)))
+         (gnus-summary-high-read       ((,c :inherit gnus-summary-normal-read    :weight bold)))
+         (gnus-summary-high-ticked     ((,c :inherit gnus-summary-normal-ticked  :weight bold)))
+         (gnus-summary-high-unread     ((,c :inherit gnus-summary-normal-unread  :weight bold)))
+         (gnus-summary-selected        ((,c :inherit alect-selected-item)))
+         (gnus-cite-1                  ((,c :inherit alect-color-level-1)))
+         (gnus-cite-2                  ((,c :inherit alect-color-level-2)))
+         (gnus-cite-3                  ((,c :inherit alect-color-level-3)))
+         (gnus-cite-4                  ((,c :inherit alect-color-level-4)))
+         (gnus-cite-5                  ((,c :inherit alect-color-level-5)))
+         (gnus-cite-6                  ((,c :inherit alect-color-level-6)))
+         (gnus-cite-7                  ((,c :inherit alect-color-level-7)))
+         (gnus-cite-8                  ((,c :inherit alect-color-level-8)))
+         (gnus-cite-9                  ((,c :inherit alect-color-level-9)))
+         (gnus-cite-10                 ((,c :inherit alect-color-level-10)))
+         (gnus-cite-11                 ((,c :inherit alect-color-level-11)))
+         (gnus-signature               ((,c :foreground ,(gc 'cyan+1))))
+         (gnus-x                       ((,c :background ,(gc 'fg+1)
+                                            :foreground ,(gc 'bg-1))))
+         (gnus-server-agent            ((,c :foreground ,(gc 'magenta+2))))
+         (gnus-server-closed           ((,c :foreground ,(gc 'blue))))
+         (gnus-server-denied           ((,c :inherit font-lock-warning-face)))
+         (gnus-server-offline          ((,c :foreground ,(gc 'yellow-1))))
+         (gnus-server-opened           ((,c :foreground ,(gc 'green))))
+
+         ;; grep
+         (grep-context-face  ((,c :foreground ,(gc 'fg+1))))
+         (grep-error-face    ((,c :foreground ,(gc 'red-1) :weight bold :underline t)))
+         (grep-hit-face      ((,c :foreground ,(gc 'blue))))
+         (grep-match-face    ((,c :foreground ,(gc 'fg-2) :weight bold)))
+
+         ;; guide-key
+         (guide-key/highlight-command-face ((,c :foreground ,(gc 'blue))))
+         (guide-key/key-face ((,c :foreground ,(gc 'green))))
+         (guide-key/prefix-command-face ((,c :foreground ,(gc 'green+1))))
+
+         ;; helm
+         (helm-header           ((,c :foreground ,(gc 'green)
+                                     :background ,(gc 'bg-1)
+                                     :underline nil
+                                     :box nil)))
+         (helm-source-header    ((,c :foreground ,(gc 'yellow)
+                                     :background ,(gc 'bg-2)
+                                     :underline nil
+                                     :weight bold
+                                     :box (:line-width -1 :style released-button))))
+         (helm-selection        ((,c :background ,(gc 'bg) :underline nil)))
+         (helm-selection-line   ((,c :background ,(gc 'bg))))
+         (helm-visible-mark     ((,c :foreground ,(gc 'bg-1) :background ,(gc 'yellow-2))))
+         (helm-candidate-number ((,c :foreground ,(gc 'green-2) :background ,(gc 'bg-2))))
+         (helm-ff-directory     ((,c :foreground ,(gc 'magenta))))
+
+         ;; hl-line-mode
+         (hl-line       ((,c :background ,(gc 'bg))))
+
+         ;; info
+         (info-title-1     ((,c :inherit alect-color-level-1 :height 1.5 :weight bold)))
+         (info-title-2     ((,c :inherit alect-color-level-2 :height 1.4 :weight bold)))
+         (info-title-3     ((,c :inherit alect-color-level-3 :height 1.3 :weight bold)))
+         (info-title-4     ((,c :inherit alect-color-level-4 :height 1.2 :weight bold)))
+         (info-menu-header ((,c :inherit alect-color-level-5 :height 1.1 :weight bold)))
+         (info-node        ((,c :foreground ,(gc 'red+1))))
+         (info-menu-star   ((,c :foreground ,(gc 'red))))
+
+         ;; ido-mode
+         (ido-first-match ((,c :weight bold)))
+         (ido-only-match  ((,c :inherit ido-first-match :foreground ,(gc 'fg+2))))
+         (ido-subdir      ((,c :inherit dired-directory)))
+         (ido-virtual     ((,c :foreground ,(gc 'red-2))))
+
+         ;; isearch
+         (isearch-fail         ((,c :foreground ,(gc 'fg+1)
+                                    :background ,(gc 'red-2))))
+         (isearch              ((,c :foreground ,(gc 'bg+1)
+                                    :background ,(gc 'fg+2))))
+         (lazy-highlight       ((,c :foreground ,(gc 'bg-2)
+                                    :background ,(gc 'fg-2))))
+
+         ;; js2-mode
+         (js2-warning-face           ((,c :foreground,(gc 'fg-2))))
+         (js2-error-face             ((,c :foreground ,(gc 'red) :weight bold)))
+         (js2-jsdoc-tag-face         ((,c :foreground ,(gc 'green-1))))
+         (js2-jsdoc-type-face        ((,c :foreground ,(gc 'green+2))))
+         (js2-jsdoc-value-face       ((,c :foreground ,(gc 'cyan-1))))
+         (js2-function-param-face    ((,c :foreground ,(gc 'cyan-1))))
+         (js2-external-variable-face ((,c :foreground ,(gc 'fg-2))))
+
+         ;; jabber-mode
+         (jabber-roster-user-away       ((,c :foreground ,(gc 'green+2))))
+         (jabber-roster-user-online     ((,c :foreground ,(gc 'blue-1))))
+         (jabber-roster-user-dnd        ((,c :foreground ,(gc 'red+1))))
+         (jabber-rare-time-face         ((,c :inherit alect-time)))
+         (jabber-chat-prompt-local      ((,c :foreground ,(gc 'blue-1))))
+         (jabber-chat-prompt-foreign    ((,c :foreground ,(gc 'red+1))))
+         (jabber-activity-face          ((,c :foreground ,(gc 'red+1))))
+         (jabber-activity-personal-face ((,c :foreground ,(gc 'blue+1))))
+         (jabber-title-small            ((,c :height 1.1 :weight bold)))
+         (jabber-title-medium           ((,c :height 1.2 :weight bold)))
+         (jabber-title-large            ((,c :height 1.3 :weight bold)))
+
+         ;; linum-mode
+         (linum ((,c :foreground ,(gc 'fg-2))))
+
+         ;; magit
+         (magit-header                       ((,c :inherit alect-title)))
+         (magit-tag                          ((,c :foreground ,(gc 'yellow-1) :weight bold)))
+         (magit-branch                       ((,c :foreground ,(gc 'blue+1) :weight bold)))
+         (magit-log-date                     ((,c :inherit alect-time)))
+         (magit-log-sha1                     ((,c :foreground ,(gc 'yellow+2))))
+         (magit-log-author                   ((,c :foreground ,(gc 'magenta-1))))
+         (magit-log-head-label-head          ((,c :background ,(gc 'bg-2)
+                                                  :foreground ,(gc 'fg+2)
+                                                  :box (:line-width 2 :color ,(gc 'red)))))
+         (magit-log-head-label-default       ((,c :box (:line-width 1 :color ,(gc 'fg+1)))))
+         (magit-log-head-label-local         ((,c :inherit magit-log-head-label-default
+                                                  :foreground ,(gc 'blue))))
+         (magit-log-head-label-remote        ((,c :inherit magit-log-head-label-default
+                                                  :foreground ,(gc 'green+1))))
+         (magit-log-head-label-tags          ((,c :inherit magit-log-head-label-default
+                                                  :foreground ,(gc 'yellow-1))))
+         (magit-log-head-label-wip           ((,c :inherit magit-log-head-label-default
+                                                  :foreground ,(gc 'red-1))))
+         (magit-log-head-label-patches       ((,c :inherit magit-log-head-label-default
+                                                  :foreground ,(gc 'cyan-1))))
+         (magit-log-reflog-label-other       ((,c :inherit magit-log-head-label-default)))
+         (magit-log-reflog-label-checkout    ((,c :inherit magit-branch)))
+         (magit-log-reflog-label-remote      ((,c :inherit magit-log-head-label-remote)))
+         (magit-log-reflog-label-reset       ((,c :foreground ,(gc 'red) :weight bold)))
+         (magit-log-reflog-label-rebase      ((,c :foreground ,(gc 'yellow))))
+         (magit-log-reflog-label-cherry-pick ((,c :foreground ,(gc 'cyan))))
+         (magit-log-reflog-label-commit      ((,c :foreground ,(gc 'green-1))))
+         (magit-log-reflog-label-amend       ((,c :foreground ,(gc 'magenta))))
+         (magit-log-reflog-label-merge       ((,c :foreground ,(gc 'blue-2) :weight bold)))
+         (magit-cherry-unmatched             ((,c :foreground ,(gc 'red+2))))
+         (magit-cherry-equivalent            ((,c :foreground ,(gc 'cyan+2))))
+         (magit-process-ok                   ((,c :foreground ,(gc 'green))))
+         (magit-process-ng                   ((,c :foreground ,(gc 'red))))
+
+         ;; markdown mode
+         (markdown-header-face           ((,c :inherit alect-title-1)))
+         (markdown-header-face-1         ((,c :inherit alect-title-1)))
+         (markdown-header-face-2         ((,c :inherit alect-title-2)))
+         (markdown-header-face-3         ((,c :inherit alect-title-3)))
+         (markdown-header-face-4         ((,c :inherit alect-title-4)))
+         (markdown-header-face-5         ((,c :inherit alect-title-5)))
+         (markdown-header-face-6         ((,c :inherit alect-title-6)))
+         (markdown-header-rule-face      ((,c :inherit markdown-header-face :foreground ,(gc 'fg))))
+         (markdown-header-delimiter-face ((,c :inherit markdown-header-face :foreground ,(gc 'fg+2))))
+         (markdown-footnote-face         ((,c :foreground ,(gc 'blue+2))))
+         (markdown-inline-code-face      ((,c :foreground ,(gc 'cyan+1))))
+         (markdown-comment-face          ((,c :inherit font-lock-comment-face)))
+         (markdown-blockquote-face       ((,c :inherit font-lock-doc-face)))
+         (markdown-bold-face             ((,c :inherit bold)))
+         (markdown-italic-face           ((,c :inherit italic)))
+         (markdown-missing-link-face     ((,c :inherit font-lock-warning-face)))
+         (markdown-link-face             ((,c :inherit link)))
+         (markdown-link-title-face       ((,c :inherit font-lock-string-face)))
+         (markdown-url-face              ((,c :foreground ,(gc 'green+2))))
+         (markdown-language-keyword-face ((,c :foreground ,(gc 'magenta+2))))
+         (markdown-line-break-face       ((,c :inherit underline)))
+         (markdown-list-face             ((,c :foreground ,(gc 'yellow))))
+         (markdown-metadata-key-face     ((,c :foreground ,(gc 'blue-2))))
+         (markdown-metadata-value-face   ((,c :foreground ,(gc 'red-1))))
+         (markdown-pre-face              ((,c :foreground ,(gc 'yellow+2))))
+         (markdown-reference-face        ((,c :inherit link)))
+
+         ;; message-mode
+         (message-cited-text        ((,c :inherit font-lock-comment-face)))
+         (message-separator         ((,c :inherit font-lock-comment-face)))
+         (message-header-name       ((,c :foreground ,(gc 'yellow+1) :weight bold)))
+         (message-header-other      ((,c :foreground ,(gc 'fg))))
+         (message-header-to         ((,c :foreground ,(gc 'blue))))
+         (message-header-from       ((,c :foreground ,(gc 'red-1))))
+         (message-header-cc         ((,c :foreground ,(gc 'blue-1))))
+         (message-header-newsgroups ((,c :foreground ,(gc 'yellow+2))))
+         (message-header-subject    ((,c :inherit alect-title)))
+         (message-header-xheader    ((,c :foreground ,(gc 'green-1))))
+         (message-mml               ((,c :foreground ,(gc 'cyan-2) :weight bold)))
+
+         ;; mew
+         (mew-face-header-subject    ((,c :foreground ,(gc 'fg-2))))
+         (mew-face-header-from       ((,c :foreground ,(gc 'yellow))))
+         (mew-face-header-date       ((,c :inherit alect-time)))
+         (mew-face-header-to         ((,c :foreground ,(gc 'red))))
+         (mew-face-header-key        ((,c :foreground ,(gc 'green))))
+         (mew-face-header-private    ((,c :foreground ,(gc 'green))))
+         (mew-face-header-important  ((,c :foreground ,(gc 'blue))))
+         (mew-face-header-marginal   ((,c :foreground ,(gc 'fg+1) :weight bold)))
+         (mew-face-header-warning    ((,c :foreground ,(gc 'red))))
+         (mew-face-header-xmew       ((,c :foreground ,(gc 'green))))
+         (mew-face-header-xmew-bad   ((,c :foreground ,(gc 'red))))
+         (mew-face-body-url          ((,c :foreground ,(gc 'fg-2))))
+         (mew-face-body-comment      ((,c :foreground ,(gc 'fg+1) :slant italic)))
+         (mew-face-body-cite1        ((,c :foreground ,(gc 'green))))
+         (mew-face-body-cite2        ((,c :foreground ,(gc 'blue))))
+         (mew-face-body-cite3        ((,c :foreground ,(gc 'fg-2))))
+         (mew-face-body-cite4        ((,c :foreground ,(gc 'yellow))))
+         (mew-face-body-cite5        ((,c :foreground ,(gc 'red))))
+         (mew-face-mark-review       ((,c :foreground ,(gc 'blue))))
+         (mew-face-mark-escape       ((,c :foreground ,(gc 'green))))
+         (mew-face-mark-delete       ((,c :foreground ,(gc 'red))))
+         (mew-face-mark-unlink       ((,c :foreground ,(gc 'yellow))))
+         (mew-face-mark-refile       ((,c :foreground ,(gc 'green))))
+         (mew-face-mark-unread       ((,c :foreground ,(gc 'yellow+2))))
+         (mew-face-eof-message       ((,c :foreground ,(gc 'green))))
+         (mew-face-eof-part          ((,c :foreground ,(gc 'yellow))))
+
+         ;; mic-paren
+         (paren-face-match    ((,c :foreground ,(gc 'cyan)
+                                   :background ,(gc 'bg-1)
+                                   :weight bold)))
+         (paren-face-mismatch ((,c :foreground ,(gc 'bg-1)
+                                   :background ,(gc 'magenta)
+                                   :weight bold)))
+         (paren-face-no-match ((,c :foreground ,(gc 'bg-1)
+                                   :background ,(gc 'red)
+                                   :weight bold)))
+
+         ;; mingus
+         (mingus-directory-face ((,c :foreground ,(gc 'blue))))
+         (mingus-pausing-face   ((,c :foreground ,(gc 'magenta))))
+         (mingus-playing-face   ((,c :foreground ,(gc 'cyan))))
+         (mingus-playlist-face  ((,c :foreground ,(gc 'cyan) )))
+         (mingus-song-file-face ((,c :foreground ,(gc 'yellow))))
+         (mingus-stopped-face   ((,c :foreground ,(gc 'red))))
+
+         ;; i don't know what it is, but this face can often be met in mails
+         (mm-uu-extract ((,c :background ,(gc 'bg)
+                             :foreground ,(gc 'fg+1))))
+
+         ;; mode-line
+         (mode-line-buffer-id  ((,c :foreground ,(gc 'blue-1) :weight bold)))
+         (mode-line            ((,c :foreground ,(gc 'fg+1)
+                                    :background ,(gc 'bg-2)
+                                    :box (:line-width 2
+                                          :style released-button))))
+         (mode-line-inactive   ((,c :foreground ,(gc 'fg-2)
+                                    :background ,(gc 'bg-1)
+                                    :box (:line-width 2
+                                          :color ,(gc 'bg-2)
+                                          :style nil))))
+
+         ;; mu4e
+         (mu4e-cited-1-face ((,c :foreground ,(gc 'blue)    :slant italic)))
+         (mu4e-cited-2-face ((,c :foreground ,(gc 'green+2) :slant italic)))
+         (mu4e-cited-3-face ((,c :foreground ,(gc 'cyan-2)  :slant italic)))
+         (mu4e-cited-4-face ((,c :foreground ,(gc 'green)   :slant italic)))
+         (mu4e-cited-5-face ((,c :foreground ,(gc 'cyan+1)  :slant italic)))
+         (mu4e-cited-6-face ((,c :foreground ,(gc 'green-1) :slant italic)))
+         (mu4e-cited-7-face ((,c :foreground ,(gc 'blue)    :slant italic)))
+         (mu4e-replied-face ((,c :foreground ,(gc 'bg+2))))
+         (mu4e-trashed-face ((,c :foreground ,(gc 'bg+2) :strike-through t)))
+
+         ;; mumamo
+         (mumamo-background-chunk-major    ((,c :background nil)))
+         (mumamo-background-chunk-submode1 ((,c :background ,(gc 'bg-2))))
+         (mumamo-background-chunk-submode2 ((,c :background ,(gc 'bg+1))))
+         (mumamo-background-chunk-submode3 ((,c :background ,(gc 'bg+2))))
+         (mumamo-background-chunk-submode4 ((,c :background ,(gc 'bg))))
+
+         ;; nav
+         (nav-face-heading     ((,c :foreground ,(gc 'yellow))))
+         (nav-face-button-num  ((,c :foreground ,(gc 'cyan))))
+         (nav-face-dir         ((,c :foreground ,(gc 'green))))
+         (nav-face-hdir        ((,c :foreground ,(gc 'red))))
+         (nav-face-file        ((,c :foreground ,(gc 'fg+1))))
+         (nav-face-hfile       ((,c :foreground ,(gc 'red-2))))
+
+         ;; nethack-el
+         (nethack-dark-gray-face          ((,c :foreground ,(gc 'fg-1))))
+         (nethack-message-highlight-face  ((,c :background ,(gc 'bg)
+                                               :foreground ,(gc 'red+2))))
+         (nethack-yellow-face             ((,c :foreground ,(gc 'yellow))))
+
+         ;; newsticker
+         (newsticker-date-face                ((,c :inherit alect-time)))
+         (newsticker-default-face             ((,c :foreground ,(gc 'fg+1))))
+         (newsticker-enclosure-face           ((,c :foreground ,(gc 'cyan-1))))
+         (newsticker-extra-face               ((,c :foreground ,(gc 'bg+1) :height 0.8)))
+         (newsticker-feed-face                ((,c :foreground ,(gc 'fg+1))))
+         (newsticker-immortal-item-face       ((,c :foreground ,(gc 'green))))
+         (newsticker-new-item-face            ((,c :foreground ,(gc 'blue))))
+         (newsticker-obsolete-item-face       ((,c :foreground ,(gc 'red))))
+         (newsticker-old-item-face            ((,c :foreground ,(gc 'bg+2))))
+         (newsticker-statistics-face          ((,c :foreground ,(gc 'fg+1))))
+         (newsticker-treeview-face            ((,c :foreground ,(gc 'fg+1))))
+         (newsticker-treeview-immortal-face   ((,c :foreground ,(gc 'green))))
+         (newsticker-treeview-listwindow-face ((,c :foreground ,(gc 'fg+1))))
+         (newsticker-treeview-new-face        ((,c :foreground ,(gc 'blue) :weight bold)))
+         (newsticker-treeview-obsolete-face   ((,c :foreground ,(gc 'red))))
+         (newsticker-treeview-old-face        ((,c :foreground ,(gc 'bg+2))))
+         (newsticker-treeview-selection-face  ((,c :foreground ,(gc 'yellow))))
+
+         ;; org-mode
+         (org-agenda-date           ((,c :inherit alect-time)))
+         (org-agenda-date-today     ((,c :inherit alect-selected-item
+                                         :foreground ,(gc 'cyan-2))))
+         (org-agenda-structure      ((,c :inherit alect-title)))
+         (org-archived              ((,c :foreground ,(gc 'fg+1) :weight bold)))
+         (org-checkbox              ((,c :background ,(gc 'bg+1)
+                                         :foreground ,(gc 'gray-2)
+                                         :box (:line-width 1 :style released-button))))
+         (org-date                  ((,c :inherit alect-time)))
+         (org-date-selected         ((,c :inherit alect-selected-item)))
+         (org-deadline-announce     ((,c :foreground ,(gc 'red-1))))
+         (org-done                  ((,c :foreground ,(gc 'cyan-1) :weight bold)))
+         (org-formula               ((,c :foreground ,(gc 'yellow-2))))
+         (org-headline-done         ((,c :foreground ,(gc 'cyan-1))))
+         (org-hide                  ((,c :foreground ,(gc 'bg-2))))
+         (org-level-1               ((,c :inherit alect-title-1)))
+         (org-level-2               ((,c :inherit alect-title-2)))
+         (org-level-3               ((,c :inherit alect-title-3)))
+         (org-level-4               ((,c :inherit alect-title-4)))
+         (org-level-5               ((,c :inherit alect-title-5)))
+         (org-level-6               ((,c :inherit alect-title-6)))
+         (org-level-7               ((,c :inherit alect-title-7)))
+         (org-level-8               ((,c :inherit alect-title-8)))
+         (org-link                  ((,c :inherit link)))
+         (org-scheduled             ((,c :foreground ,(gc 'green-2))))
+         (org-scheduled-previously  ((,c :foreground ,(gc 'red-2))))
+         (org-scheduled-today       ((,c :foreground ,(gc 'blue+1))))
+         (org-special-keyword       ((,c :inherit font-lock-doc-face)))
+         (org-table                 ((,c :foreground ,(gc 'fg-1))))
+         (org-tag                   ((,c :slant italic)))
+         (org-time-grid             ((,c :foreground ,(gc 'fg-2))))
+         (org-todo                  ((,c :foreground ,(gc 'red) :weight bold)))
+         (org-upcoming-deadline     ((,c :inherit font-lock-keyword-face)))
+         (org-warning               ((,c :foreground ,(gc 'red) :weight bold :underline nil)))
+         (org-column                ((,c :background ,(gc 'bg-2))))
+         (org-column-title          ((,c :background ,(gc 'bg-2) :underline t :weight bold)))
+
+         ;; outline
+         (outline-1 ((,c :inherit alect-title-1)))
+         (outline-2 ((,c :inherit alect-title-2)))
+         (outline-3 ((,c :inherit alect-title-3)))
+         (outline-4 ((,c :inherit alect-title-4)))
+         (outline-5 ((,c :inherit alect-title-5)))
+         (outline-6 ((,c :inherit alect-title-6)))
+         (outline-7 ((,c :inherit alect-title-7)))
+         (outline-8 ((,c :inherit alect-title-8)))
+
+         ;; popup
+         (popup-tip-face                    ((,c :foreground ,(gc 'gray+2)
+                                                 :background ,(gc 'yellow-2))))
+         (popup-scroll-bar-foreground-face  ((,c :background ,(gc 'fg-2))))
+         (popup-scroll-bar-background-face  ((,c :background ,(gc 'bg-2))))
+         (popup-isearch-match               ((,c :foreground ,(gc 'fg+1)
+                                                 :background ,(gc 'bg-1) )))
+
+         ;; rainbow-delimiters
+         (rainbow-delimiters-depth-1-face   ((,c :foreground ,(gc 'fg+1))))
+         (rainbow-delimiters-depth-2-face   ((,c :foreground ,(gc 'green+2))))
+         (rainbow-delimiters-depth-3-face   ((,c :foreground ,(gc 'yellow-2))))
+         (rainbow-delimiters-depth-4-face   ((,c :foreground ,(gc 'cyan))))
+         (rainbow-delimiters-depth-5-face   ((,c :foreground ,(gc 'green-1))))
+         (rainbow-delimiters-depth-6-face   ((,c :foreground ,(gc 'blue+1))))
+         (rainbow-delimiters-depth-7-face   ((,c :foreground ,(gc 'yellow-1))))
+         (rainbow-delimiters-depth-8-face   ((,c :foreground ,(gc 'green+1))))
+         (rainbow-delimiters-depth-9-face   ((,c :foreground ,(gc 'cyan-2))))
+         (rainbow-delimiters-depth-10-face  ((,c :foreground ,(gc 'fg-2))))
+         (rainbow-delimiters-depth-11-face  ((,c :foreground ,(gc 'green))))
+         (rainbow-delimiters-depth-12-face  ((,c :foreground ,(gc 'cyan+2))))
+
+         ;; rcirc
+         (rcirc-my-nick                   ((,c :foreground ,(gc 'blue))))
+         (rcirc-other-nick                ((,c :foreground ,(gc 'fg-2))))
+         (rcirc-bright-nick               ((,c :foreground ,(gc 'blue+1))))
+         (rcirc-dim-nick                  ((,c :foreground ,(gc 'cyan-2))))
+         (rcirc-server                    ((,c :foreground ,(gc 'green))))
+         (rcirc-server-prefix             ((,c :foreground ,(gc 'green+1))))
+         (rcirc-timestamp                 ((,c :inherit alect-time)))
+         (rcirc-nick-in-message           ((,c :foreground ,(gc 'yellow))))
+         (rcirc-nick-in-message-full-line ((,c :weight bold)))
+         (rcirc-prompt                    ((,c :inherit alect-prompt)))
+         (rcirc-track-nick                ((,c :inverse-video t)))
+         (rcirc-track-keyword             ((,c :weight bold)))
+         (rcirc-url                       ((,c :weight bold)))
+         (rcirc-keyword                   ((,c :foreground ,(gc 'yellow) :weight bold)))
+
+         ;; rpm-mode
+         (rpm-spec-dir-face           ((,c :foreground ,(gc 'green))))
+         (rpm-spec-doc-face           ((,c :foreground ,(gc 'green))))
+         (rpm-spec-ghost-face         ((,c :foreground ,(gc 'red))))
+         (rpm-spec-macro-face         ((,c :foreground ,(gc 'yellow))))
+         (rpm-spec-obsolete-tag-face  ((,c :foreground ,(gc 'red))))
+         (rpm-spec-package-face       ((,c :foreground ,(gc 'red))))
+         (rpm-spec-section-face       ((,c :foreground ,(gc 'yellow))))
+         (rpm-spec-tag-face           ((,c :foreground ,(gc 'blue))))
+         (rpm-spec-var-face           ((,c :foreground ,(gc 'red))))
+
+         ;; rst-mode
+         (rst-level-1-face ((,c :inherit alect-color-level-1)))
+         (rst-level-2-face ((,c :inherit alect-color-level-2)))
+         (rst-level-3-face ((,c :inherit alect-color-level-3)))
+         (rst-level-4-face ((,c :inherit alect-color-level-4)))
+         (rst-level-5-face ((,c :inherit alect-color-level-5)))
+         (rst-level-6-face ((,c :inherit alect-color-level-6)))
+
+         ;; sauron
+         (sauron-timestamp-face  ((,c :inherit alect-time)))
+         (sauron-message-face    ((,c :inherit font-lock-doc-face)))
+         (sauron-origin-face     ((,c :foreground ,(gc 'blue+1))))
+         (sauron-priority-face   ((,c :foreground ,(gc 'yellow+2))))
+         (sauron-highlight1-face ((,c :foreground ,(gc 'green))))
+         (sauron-highlight2-face ((,c :foreground ,(gc 'red-1))))
+         (sauron-highlight3-face ((,c :foreground ,(gc 'magenta))))
+
+         ;; shell-script
+         (sh-heredoc     ((,c :inherit font-lock-doc-face)))
+         (sh-quoted-exec ((,c :foreground ,(gc 'cyan))))
+
+         ;; show-paren
+         (show-paren-mismatch  ((,c :foreground ,(gc 'gray-2)
+                                    :background ,(gc 'red))))
+         (show-paren-match     ((,c :foreground ,(gc 'gray-2)
+                                    :background ,(gc 'green+1))))
+
+         ;; SLIME
+         (slime-error-face                 ((,c :inherit font-lock-warning-face)))
+         (slime-repl-input-face            ((,c :inherit comint-highlight-input)))
+         (slime-repl-output-face           ((,c :foreground ,(gc 'green-1))))
+         (slime-repl-inputed-output-face   ((,c :foreground ,(gc 'red))))
+         (slime-repl-output-mouseover-face ((,c :inherit highlight)))
+         (slime-repl-prompt-face           ((,c :inherit alect-prompt)))
+         (slime-repl-result-face           ((,c :foreground ,(gc 'blue+2))))
+
+         ;; sml-mode-line
+         (sml-modeline-end-face ((,c :inherit default :width condensed)))
+
+         ;; sunrise-commander
+         (sr-active-path-face       ((,c :inherit dired-header)))
+         (sr-passive-path-face      ((,c :inherit dired-header
+                                         :foreground ,(gc 'fg-2))))
+         (sr-directory-face         ((,c :inherit dired-directory)))
+         (sr-marked-file-face       ((,c :inherit dired-marked)))
+         (sr-marked-dir-face        ((,c :inherit sr-alt-marked-file-face :weight bold)))
+         (sr-alt-marked-file-face   ((,c :inherit sr-marked-file-face :slant italic)))
+         (sr-alt-marked-dir-face    ((,c :inherit sr-marked-dir-face :slant italic)))
+         (sr-symlink-face           ((,c :inherit dired-symlink)))
+         (sr-symlink-directory-face ((,c :inherit sr-symlink-face :weight bold)))
+         (sr-broken-link-face       ((,c :inherit dired-warning)))
+         (sr-highlight-path-face    ((,c :inherit highlight)))
+         (sr-editing-path-face      ((,c :foreground ,(gc 'bg-1)
+                                         :background ,(gc 'blue-1))))
+         (sr-clex-hotchar-face      ((,c :foreground ,(gc 'red))))
+         (sr-encrypted-face         ((,c :foreground ,(gc 'yellow))))
+         (sr-compressed-face        ((,c :foreground ,(gc 'magenta-1))))
+         (sr-packaged-face          ((,c :foreground ,(gc 'magenta+1))))
+         (sr-log-face               ((,c :foreground ,(gc 'green-1))))
+         (sr-xml-face               ((,c :foreground ,(gc 'green+2))))
+         (sr-html-face              ((,c :foreground ,(gc 'cyan+2))))
+
+         ;; syslog-mode
+         (syslog-error ((,c :inherit font-lock-warning-face)))
+         (syslog-warn  ((,c :inherit warning)))
+         (syslog-info  ((,c :foreground ,(gc 'blue-2))))
+         (syslog-debug ((,c :foreground ,(gc 'magenta-1))))
+         (syslog-hour  ((,c :foreground ,(gc 'blue+1))))
+         (syslog-su    ((,c :foreground ,(gc 'cyan))))
+         (syslog-ip    ((,c :foreground ,(gc 'yellow+1) :underline t)))
+
+         ;; tabbar
+         (tabbar-button     ((,c :foreground ,(gc 'fg+1)
+                                 :background ,(gc 'bg-1))))
+         (tabbar-selected   ((,c :foreground ,(gc 'fg+1)
+                                 :background ,(gc 'bg-1)
+                                 :box (:line-width -1 :style pressed-button))))
+         (tabbar-unselected ((,c :foreground ,(gc 'fg+1)
+                                 :background ,(gc 'bg)
+                                 :box (:line-width -1 :style released-button))))
+
+         ;; term
+         (term-color-black       ((,c :foreground ,(gc 'bg-1)
+                                      :background ,(gc 'bg-2))))
+         (term-color-red         ((,c :foreground ,(gc 'yellow+2)
+                                      :background ,(gc 'red-2))))
+         (term-color-green       ((,c :foreground ,(gc 'green)
+                                      :background ,(gc 'green+2))))
+         (term-color-yellow      ((,c :foreground ,(gc 'fg-2)
+                                      :background ,(gc 'yellow))))
+         (term-color-blue        ((,c :foreground ,(gc 'blue-1)
+                                      :background ,(gc 'cyan+1))))
+         (term-color-magenta     ((,c :foreground ,(gc 'magenta)
+                                      :background ,(gc 'red))))
+         (term-color-cyan        ((,c :foreground ,(gc 'cyan)
+                                      :background ,(gc 'blue))))
+         (term-color-white       ((,c :foreground ,(gc 'fg+1)
+                                      :background ,(gc 'bg+2))))
+         (term-default-fg-color  ((,c :inherit term-color-white)))
+         (term-default-bg-color  ((,c :inherit term-color-black)))
+
+         ;; volatile-highlights
+         (vhl/default-face ((,c :background ,(gc 'bg-2))))
+
+         ;; emacs-w3m
+         (w3m-anchor                       ((,c :inherit link)))
+         (w3m-arrived-anchor               ((,c :inherit link-visited)))
+         (w3m-form                         ((,c :foreground ,(gc 'red-1) :underline t)))
+         (w3m-form-button                  ((,c :inherit custom-button)))
+         (w3m-form-button-pressed          ((,c :inherit custom-button-pressed)))
+         (w3m-form-button-mouse            ((,c :inherit custom-button-mouse)))
+         (w3m-tab-background               ((,c :inherit default)))
+         (w3m-tab-selected                 ((,c :inherit custom-button
+                                                :foreground ,(gc 'fg+2))))
+         (w3m-tab-selected-retrieving      ((,c :inherit custom-button
+                                                :foreground ,(gc 'red))))
+         (w3m-tab-selected-background      ((,c :background ,(gc 'bg))))
+         (w3m-tab-unselected               ((,c :inherit custom-button
+                                                :foreground ,(gc 'fg-1))))
+         (w3m-tab-unselected-retrieving    ((,c :inherit custom-button
+                                                :foreground ,(gc 'red+2))))
+         (w3m-tab-unselected-unseen        ((,c :inherit custom-button
+                                                :backround ,(gc 'gray))))
+         (w3m-tab-mouse                    ((,c :inherit custom-button-mouse)))
+         (w3m-header-line-location-title   ((,c :inherit header-line)))
+         (w3m-header-line-location-content ((,c :foreground ,(gc 'blue-1)
+                                                :inherit header-line)))
+         (w3m-history-current-url          ((,c :inherit alect-selected-item)))
+         (w3m-image-anchor                 ((,c :background ,(gc 'bg+1))))
+
+         ;; wanderlust
+         (wl-highlight-folder-few-face                     ((,c :foreground ,(gc 'yellow+2))))
+         (wl-highlight-folder-many-face                    ((,c :foreground ,(gc 'red-1))))
+         (wl-highlight-folder-path-face                    ((,c :foreground ,(gc 'fg-2))))
+         (wl-highlight-folder-unread-face                  ((,c :foreground ,(gc 'blue))))
+         (wl-highlight-folder-zero-face                    ((,c :foreground ,(gc 'fg+1))))
+         (wl-highlight-folder-unknown-face                 ((,c :foreground ,(gc 'blue))))
+         (wl-highlight-message-citation-header             ((,c :foreground ,(gc 'red-1))))
+         (wl-highlight-message-cited-text-1                ((,c :foreground ,(gc 'red))))
+         (wl-highlight-message-cited-text-2                ((,c :foreground ,(gc 'green+2))))
+         (wl-highlight-message-cited-text-3                ((,c :foreground ,(gc 'blue))))
+         (wl-highlight-message-cited-text-4                ((,c :foreground ,(gc 'blue+1))))
+         (wl-highlight-message-header-contents-face        ((,c :foreground ,(gc 'green))))
+         (wl-highlight-message-headers-face                ((,c :foreground ,(gc 'red+1))))
+         (wl-highlight-message-important-header-contents   ((,c :foreground ,(gc 'green+2))))
+         (wl-highlight-message-header-contents             ((,c :foreground ,(gc 'green+1))))
+         (wl-highlight-message-important-header-contents2  ((,c :foreground ,(gc 'green+2))))
+         (wl-highlight-message-signature                   ((,c :foreground ,(gc 'green))))
+         (wl-highlight-message-unimportant-header-contents ((,c :foreground ,(gc 'fg+1))))
+         (wl-highlight-summary-answered-face               ((,c :foreground ,(gc 'blue))))
+         (wl-highlight-summary-disposed-face               ((,c :foreground ,(gc 'fg+1)
+                                                                :slant italic)))
+         (wl-highlight-summary-new-face                    ((,c :foreground ,(gc 'blue))))
+         (wl-highlight-summary-normal-face                 ((,c :foreground ,(gc 'fg+1))))
+         (wl-highlight-summary-thread-top-face             ((,c :foreground ,(gc 'yellow))))
+         (wl-highlight-thread-indent-face                  ((,c :foreground ,(gc 'magenta))))
+         (wl-highlight-summary-refiled-face                ((,c :foreground ,(gc 'fg+1))))
+         (wl-highlight-summary-displaying-face             ((,c :underline t :weight bold)))
+
+         ;; which-func-mode
+         (which-func ((,c :foreground ,(gc 'green-2))))
+
+         ;; whitespace-mode
+         (whitespace-space            ((,c :background ,(gc 'bg)
+                                           :foreground ,(gc 'blue-2))))
+         (whitespace-hspace           ((,c :background ,(gc 'bg)
+                                           :foreground ,(gc 'gray))))
+         (whitespace-tab              ((,c :background ,(gc 'fg-2)
+                                           :foreground ,(gc 'blue-2))))
+         (whitespace-newline          ((,c :foreground ,(gc 'blue-2))))
+         (whitespace-trailing         ((,c :background ,(gc 'red))))
+         (whitespace-line             ((,c :background ,(gc 'gray)
+                                           :foreground ,(gc 'gray-2))))
+         (whitespace-space-before-tab ((,c :background ,(gc 'fg-2)
+                                           :foreground ,(gc 'fg-2))))
+         (whitespace-indentation      ((,c :background ,(gc 'yellow-2)
+                                           :foreground ,(gc 'red-2))))
+         (whitespace-empty            ((,c :background ,(gc 'yellow))))
+         (whitespace-space-after-tab  ((,c :background ,(gc 'yellow-2)
+                                           :foreground ,(gc 'red-2))))
+
+         ;; widget
+         (widget-field             ((,c :background ,(gc 'bg)
+                                        :box (:line-width -1
+                                              :color ,(gc 'fg-2)
+                                              :style nil))))
+         (widget-button            ((,c :foreground ,(gc 'blue-1) :weight bold)))
+         (widget-button-pressed    ((,c :foreground ,(gc 'blue+2) :inherit widget-button)))
+         (widget-documentation     ((,c :foreground ,(gc 'green-1))))
+         (widget-inactive          ((,c :inherit shadow)))
+         (widget-single-line-field ((,c :foreground ,(gc 'fg)
+                                        :inherit widget-field)))
+
+         ;; yascroll
+         (yascroll:thumb-text-area ((,c :background ,(gc 'bg-2))))
+         (yascroll:thumb-fringe    ((,c :background ,(gc 'bg-2)
+                                        :foreground ,(gc 'fg-2)))))
+       ;; VARIABLES
+       `((ansi-color-names-vector
+          [,(gc 'bg-1)
+           ,(gc 'red)
+           ,(gc 'green)
+           ,(gc 'yellow)
+           ,(gc 'blue)
+           ,(gc 'magenta)
+           ,(gc 'cyan)
+           ,(gc 'fg+1)])
+
+         ;; emms icon at mode line (is taken from emms source)
+         (emms-mode-line-icon-image-cache
+          '(image :type xpm :ascent center :data ,(concat "/* XPM */
 static char *note[] = {
 /* width height num_colors chars_per_pixel */
 \"    10   11        2            1\",
@@ -1246,11 +1259,11 @@ static char *note[] = {
 \"#######...\",
 \"######....\",
 \"#######..#\" };"))
-        t)
+          t)
 
-       ;; gnus icon at mode line (is taken from gnus source)
-       (gnus-mode-line-image-cache
-        '(image :type xpm :ascent center :data ,(concat "/* XPM */
+         ;; gnus icon at mode line (is taken from gnus source)
+         (gnus-mode-line-image-cache
+          '(image :type xpm :ascent center :data ,(concat "/* XPM */
 static char *gnus-pointer[] = {
 /* width height num_colors chars_per_pixel */
 \"    18    13        2            1\",
@@ -1271,37 +1284,37 @@ static char *gnus-pointer[] = {
 \"###....####.######\",
 \"###..######.######\",
 \"###########.######\" };"))
-        t)
+          t)
 
-       ;; gnus startup logo
-       (gnus-logo-colors '(,(gc 'cyan+1) ,(gc 'gray-1)) t)
+         ;; gnus startup logo
+         (gnus-logo-colors '(,(gc 'cyan+1) ,(gc 'gray-1)) t)
 
-       ;; fill-column-indicator
-       (fci-rule-color ,(gc 'bg-2))
+         ;; fill-column-indicator
+         (fci-rule-color ,(gc 'bg-2))
 
-       ;; vc-annotate
-       (vc-annotate-color-map
-        '(( 20 . ,(gc 'red-1))
-          ( 40 . ,(gc 'red))
-          ( 60 . ,(gc 'yellow-2))
-          ( 80 . ,(gc 'yellow-1))
-          (100 . ,(gc 'yellow))
-          (120 . ,(gc 'yellow+1))
-          (140 . ,(gc 'green-1))
-          (160 . ,(gc 'green-2))
-          (180 . ,(gc 'green))
-          (200 . ,(gc 'green+1))
-          (220 . ,(gc 'green+2))
-          (240 . ,(gc 'cyan-1))
-          (260 . ,(gc 'cyan))
-          (280 . ,(gc 'cyan-2))
-          (300 . ,(gc 'blue-1))
-          (320 . ,(gc 'blue))
-          (340 . ,(gc 'blue+1))
-          (360 . ,(gc 'magenta))))
-       (vc-annotate-very-old-color ,(gc 'magenta))
-       (vc-annotate-background ,(gc 'bg-2))
-       ))))
+         ;; vc-annotate
+         (vc-annotate-color-map
+          '(( 20 . ,(gc 'red-1))
+            ( 40 . ,(gc 'red))
+            ( 60 . ,(gc 'yellow-2))
+            ( 80 . ,(gc 'yellow-1))
+            (100 . ,(gc 'yellow))
+            (120 . ,(gc 'yellow+1))
+            (140 . ,(gc 'green-1))
+            (160 . ,(gc 'green-2))
+            (180 . ,(gc 'green))
+            (200 . ,(gc 'green+1))
+            (220 . ,(gc 'green+2))
+            (240 . ,(gc 'cyan-1))
+            (260 . ,(gc 'cyan))
+            (280 . ,(gc 'cyan-2))
+            (300 . ,(gc 'blue-1))
+            (320 . ,(gc 'blue))
+            (340 . ,(gc 'blue+1))
+            (360 . ,(gc 'magenta))))
+         (vc-annotate-very-old-color ,(gc 'magenta))
+         (vc-annotate-background ,(gc 'bg-2))
+         )))))
 
 (defun alect-substitute-color (theme-name plist prop)
   "Substitute color name for property PROP in property list PLIST.
