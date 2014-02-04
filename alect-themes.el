@@ -63,7 +63,7 @@
 (defun alect-put-colors (color-name theme-names color-vals var)
   "Put theme colors into the variable VAR.
 
-THEME-NAMES is a list of symbols. Theme names should already
+THEME-NAMES is a list of symbols.  Theme names should already
 exist in the variable.
 
 COLOR-VALS is a list of colors for the specified theme (theme
