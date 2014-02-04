@@ -742,6 +742,9 @@ For INVERT, see `alect-get-color'."
          (helm-candidate-number ((,c :foreground ,(gc 'green-2) :background ,(gc 'bg-2))))
          (helm-ff-directory     ((,c :foreground ,(gc 'magenta))))
 
+         ;; help
+         (help-argument-name ((,c :inherit font-lock-variable-name-face)))
+
          ;; hl-line-mode
          (hl-line       ((,c :background ,(gc 'bg))))
 
