@@ -413,6 +413,10 @@ For INVERT, see `alect-get-color'."
          (android-mode-verbose-face  ((,c :foreground ,(gc 'green))))
          (android-mode-warning-face  ((,c :foreground ,(gc 'yellow))))
 
+         ;; apropos
+         (apropos-keybinding      ((,c :foreground ,(gc 'yellow))))
+         (apropos-symbol          ((,c :foreground ,(gc 'green+1) :weight bold)))
+
          ;; auctex
          (font-latex-bold     ((,c :inherit bold)))
          (font-latex-warning  ((,c :inherit font-lock-warning-face)))
