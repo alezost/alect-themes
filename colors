@@ -25,7 +25,7 @@ magenta <x-color><param>#dc63dc</param><x-bg-color><param>#ded6c5</param>#dc63dc
 
 DARK    -2      -1      0       +1      +2
 
-bg      <x-color><param>#d5d2be</param><x-bg-color><param>#2b2b2b</param>#2b2b2b</x-bg-color><x-bg-color><param>#3f3f3f</param> #3f3f3f </x-bg-color><x-bg-color><param>#4f4f4f</param>#4f4f4f</x-bg-color><x-bg-color><param>#3f3f3f</param> </x-bg-color><x-bg-color><param>#5f5f5f</param>#5f5f5f</x-bg-color><x-bg-color><param>#3f3f3f</param> </x-bg-color><x-bg-color><param>#6f6f6f</param>#6f6f6f</x-bg-color></x-color>
+bg      <x-color><param>#d5d2be</param><x-bg-color><param>#222222</param>#222222</x-bg-color><x-bg-color><param>#3f3f3f</param> #3f3f3f </x-bg-color><x-bg-color><param>#4f4f4f</param>#4f4f4f</x-bg-color><x-bg-color><param>#3f3f3f</param> </x-bg-color><x-bg-color><param>#5f5f5f</param>#5f5f5f</x-bg-color><x-bg-color><param>#3f3f3f</param> </x-bg-color><x-bg-color><param>#6f6f6f</param>#6f6f6f</x-bg-color></x-color>
 
 fg      <x-color><param>#8c826d</param><x-bg-color><param>#3f3f3f</param>#8c826d</x-bg-color></x-color><x-bg-color><param>#3f3f3f</param> <x-color><param>#d0bf8f</param>#d0bf8f</x-color> <x-color><param>#f0dfaf</param>#f0dfaf</x-color> <x-color><param>#d5d2be</param>#d5d2be</x-color> <x-color><param>#f6f0e1</param>#f6f0e1</x-color></x-bg-color>
 
