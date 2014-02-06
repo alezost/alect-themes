@@ -1,8 +1,8 @@
 ## About
 
 Alect is a package that provides (rather low contrast but colourful
-enough) **configurable** light and dark color themes for GNU Emacs 24 or
-later.  The themes are intended to be used with GUI (see
+enough) **configurable** light, dark and black color themes for GNU
+Emacs 24 or later.  The themes are intended to be used with GUI (see
 [Class of terminals](#class-of-terminals)).
 
 ## Table of Contents
@@ -68,7 +68,7 @@ To load a theme on Emacs start, add this to your init file:
 ```
 
 *Note:* For quick switching between themes (with unloading the previous
-one), I use `utl-load-theme` function from
+one), I use `utl-load-theme` function from my
 [emacs-utils](https://github.com/alezost/emacs-utils/blob/master/utl-color.el).
 
 ## Configuration
@@ -107,9 +107,9 @@ variable by customizing it or by using `alect-generate-colors` function
 (see how the variable is defined in the code).
 
 However those methods redefine the whole variable, so if the palette
-will be changed in future (it happens sometimes) or a new theme will
-be added (it's planned), you may not notice that.  So you can use
-another approach if you want to modify only some colors.
+will be changed in future (it happens sometimes) or a new theme will be
+added, you may not notice that.  So you can use another approach if you
+want to modify only some colors.
 
 Let's say, you don't like `cyan-2` color for the light theme as it's too
 light and `bg-1` color for the dark theme as you prefer black color for
@@ -293,14 +293,14 @@ You can see the following and other screenshots in
 
 ### Org, markdown
 
-**Themes:** *alect-light*, *alect-dark*
+**Themes:** *alect-light*, *alect-black*
 
 **Font:** *DejaVu Sans Mono-12*
 
-<a href="http://i.imgur.com/B1Pl5kX.png">
-<img src="http://i.imgur.com/B1Pl5kX.png" title="alect-light - org, markdown" width=320 height=240/></a>
-<a href="http://i.imgur.com/Tck5Aj2.png">
-<img src="http://i.imgur.com/Tck5Aj2.png" title="alect-dark - org, markdown" width=320 height=240/></a>
+<a href="http://i.imgur.com/QoKlSxn.png">
+<img src="http://i.imgur.com/QoKlSxn.png" title="alect-light - org, markdown" width=320 height=240/></a>
+<a href="http://i.imgur.com/Ufx12Nm.png">
+<img src="http://i.imgur.com/Ufx12Nm.png" title="alect-black - org, markdown" width=320 height=240/></a>
 
 ### Magit
 
@@ -341,8 +341,8 @@ alternative themes, configured to invert background (see
 
 ## History
 
-At first i had only a light theme – it was just a set of customized
-faces.  Then i realized that at night it's better for eyes to use a
+At first I had only a light theme – it was just a set of customized
+faces.  Then I realized that at night it's better for eyes to use a
 dark theme (it was derived from zenburn-theme initially, but then the
 colors were modified a lot).  The idea of creating two themes with
 different colors and the same code base came from solarized-theme.
