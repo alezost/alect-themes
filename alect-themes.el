@@ -1,10 +1,10 @@
-;;; alect-themes.el --- 4 configurable color themes for Emacs
+;;; alect-themes.el --- Configurable color themes for Emacs 24 or later
 
 ;; Copyright (C) 2013-2014 Alex Kost
 
 ;; Author: Alex Kost <alezost@gmail.com>
 ;; Created: 10 Jul 2013
-;; Version: 0.4.1
+;; Version: 0.5
 ;; Package-Requires: ((emacs "24.0"))
 ;; URL: http://github.com/alezost/alect-themes
 ;; Keywords: color theme
@@ -24,11 +24,11 @@
 
 ;;; Commentary:
 
-;; This package provides 4 highly customizable color themes (2 light and
-;; 2 dark) for GNU Emacs 24 or later.  These themes are intended to be
-;; used with GUI, so only graphical terminals are supported by default.
-;; However you can "enable" the themes for other terminals with
-;; `alect-display-class' variable.
+;; This package provides 6 highly customizable color themes (light, dark
+;; and black) for GNU Emacs 24 or later.  These themes are intended to
+;; be used with GUI, so only graphical terminals are supported by
+;; default.  However you can "enable" the themes for other terminals
+;; with `alect-display-class' variable.
 
 ;; You can install the package from MELPA.  If you prefer the manual
 ;; installation, put these lines into your init-file:
