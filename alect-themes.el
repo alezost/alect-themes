@@ -1000,6 +1000,11 @@ For INVERT, see `alect-get-color'."
                                          :foreground ,(gc 'cyan-2))))
          (org-agenda-structure      ((,c :inherit alect-title)))
          (org-archived              ((,c :foreground ,(gc 'fg+1) :weight bold)))
+         (org-block                 ((,c :background ,(gc 'bg))))
+         (org-block-background      ((,c :background ,(gc 'bg))))
+         (org-block-begin-line      ((,c :inherit org-meta-line
+                                         :background ,(gc 'bg+1))))
+         (org-block-end-line        ((,c :inherit org-block-begin-line)))
          (org-checkbox              ((,c :background ,(gc 'bg+1)
                                          :foreground ,(gc 'gray-2)
                                          :box (:line-width 1 :style released-button))))
