@@ -423,6 +423,16 @@ For INVERT, see `alect-get-color'."
          (font-latex-sedate   ((,c :foreground ,(gc 'yellow) :weight bold )))
          (font-latex-title-4  ((,c :inherit variable-pitch :weight bold)))
 
+         ;; aurel
+         (aurel-info-id           ((,c :foreground ,(gc 'fg+2))))
+         (aurel-info-name         ((,c :inherit alect-title)))
+         (aurel-info-maintainer   ((,c :inherit button
+                                       :foreground ,(gc 'magenta-1))))
+         (aurel-info-date         ((,c :inherit alect-time)))
+         (aurel-info-license      ((,c :foreground ,(gc 'yellow+1))))
+         (aurel-info-version      ((,c :foreground ,(gc 'blue-2))))
+         (aurel-info-category     ((,c :foreground ,(gc 'green-1))))
+
          ;; auto-complete
          (ac-candidate-face       ((,c :foreground ,(gc 'gray+2)
                                        :background ,(gc 'bg+2))))
