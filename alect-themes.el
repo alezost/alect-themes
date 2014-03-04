@@ -426,12 +426,18 @@ For INVERT, see `alect-get-color'."
          ;; aurel
          (aurel-info-id           ((,c :foreground ,(gc 'fg+2))))
          (aurel-info-name         ((,c :inherit alect-title)))
-         (aurel-info-maintainer   ((,c :inherit button
-                                       :foreground ,(gc 'magenta-1))))
+         (aurel-info-maintainer   ((,c :foreground ,(gc 'magenta-1)
+                                       :weight bold)))
          (aurel-info-date         ((,c :inherit alect-time)))
-         (aurel-info-license      ((,c :foreground ,(gc 'yellow+1))))
-         (aurel-info-version      ((,c :foreground ,(gc 'blue-2))))
+         (aurel-info-license      ((,c :foreground ,(gc 'yellow))))
+         (aurel-info-version      ((,c :foreground ,(gc 'yellow+2))))
          (aurel-info-category     ((,c :foreground ,(gc 'green-1))))
+         (aurel-info-size         ((,c :foreground ,(gc 'red-1))))
+         (aurel-info-provides     ((,c :foreground ,(gc 'green+2))))
+         (aurel-info-depends      ((,c :foreground ,(gc 'fg))))
+         (aurel-info-depends-opt  ((,c :foreground ,(gc 'fg-2))))
+         (aurel-info-required     ((,c :foreground ,(gc 'fg))))
+         (aurel-info-optional-for ((,c :foreground ,(gc 'fg-2))))
 
          ;; auto-complete
          (ac-candidate-face       ((,c :foreground ,(gc 'gray+2)
