@@ -438,6 +438,7 @@ For INVERT, see `alect-get-color'."
          (aurel-info-depends-opt  ((,c :foreground ,(gc 'fg-2))))
          (aurel-info-required     ((,c :foreground ,(gc 'fg))))
          (aurel-info-optional-for ((,c :foreground ,(gc 'fg-2))))
+         (aurel-info-voted        ((,c :foreground ,(gc 'green) :weight bold)))
 
          ;; auto-complete
          (ac-candidate-face       ((,c :foreground ,(gc 'gray+2)
