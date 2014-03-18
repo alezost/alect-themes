@@ -14,6 +14,7 @@ Emacs 24 or later.  The themes are intended to be used with GUI (see
 * [Configuration](#configuration)
   * [Class of terminals](#class-of-terminals)
   * [Modifying palette](#modifying-palette)
+  * [Ignoring faces and variables](#ignoring-faces-and-variables)
   * [Overriding faces](#overriding-faces)
   * [Alternative themes](#alternative-themes)
   * [Other variables](#other-variables)
@@ -78,9 +79,11 @@ You can find the names and values of all colors used by alect-themes in
 [colors](https://github.com/alezost/alect-themes/blob/master/colors)
 file **in Emacs** to get an idea about the used color palette.
 
-There are 2 main ways for configuring the themes:
+There are several ways for configuring the themes:
 - modifying palette (`alect-colors` variable);
-- overriding face specifications.
+- ignoring faces and variables;
+- overriding face specifications;
+- configuring other alect variables.
 
 ### Class of terminals
 
@@ -126,6 +129,27 @@ the background.  You can change those colors by putting this into your
 The function `alect-set-color` is just a convenient way for modifying
 `alect-colors` variable, so if you are playing with it, don't forget to
 reload an alect-theme for the changes to take effect.
+
+### Ignoring faces and variables
+
+By default along with a lot of faces, an `alect-theme` customizes
+several variables that contain color information,
+e.g. `ansi-color-names-vector` (see also
+[Emacs bug in themed variables](#emacs-bug-in-themed-variables)).  You
+can disable theming of faces and variables with `alect-ignored-faces`
+and `alect-ignored-variables` variables.
+
+For example, if you prefer the default appearance of the titles in
+`Info-mode` and of the minibuffer prompt, and if you want to disable
+modifying the variables at all, use the following:
+
+```lisp
+(setq alect-ignored-variables t
+      alect-ignored-faces
+      '(minibuffer-prompt
+        info-title-1 info-title-2
+        info-title-3 info-title-4))
+```
 
 ### Overriding faces
 
