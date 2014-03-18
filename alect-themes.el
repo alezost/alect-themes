@@ -1484,6 +1484,52 @@ This function is destructive: ORIGINAL list may not stay the same."
         overriding)
   original)
 
+(defcustom alect-ignored-faces nil
+  "List of faces that will not be themed.
+
+If nil, an alect theme will change all faces it can.
+
+See Info node `(elisp) Custom Themes' for information about how a
+theme customizes faces and variables."
+  :type '(choice
+          (const :tag "Theme (change) all intended faces" nil)
+          (repeat :tag "Choose ignored faces" face))
+  :group 'alect)
+
+(defcustom alect-ignored-variables nil
+  "List of variables that will not be themed.
+
+If nil, an alect theme will change some variables.
+If t, none of the variables will be modified, only faces are
+themed.
+
+See Info node `(elisp) Custom Themes' for information about how a
+theme customizes faces and variables."
+  :type `(choice
+          (const :tag "Theme (change) all intended variables" nil)
+          (const :tag "Ignore all (do not change any variable)" t)
+          (repeat :tag "Choose ignored variables"
+                  (radio
+                   ,@(mapcar (lambda (var-def)
+                               (list 'variable-item (car var-def)))
+                             (cdr (alect-get-customization nil))))))
+  :group 'alect)
+
+(defun alect-delete-objects (original ignored)
+  "Delete IGNORED objects from ORIGINAL list.
+
+Delete all objects from ORIGINAL list whose car is an object from
+IGNORED list and return result.
+
+If IGNORED is nil, return ORIGINAL.  If IGNORED is t, return nil.
+
+This function is destructive to ORIGINAL."
+  (cond
+   ((null ignored) original)
+   ((eq t ignored) nil)
+   (t (cl-delete-if (lambda (elt) (memq (car elt) ignored))
+                    original))))
+
 (defmacro alect-create-theme (theme &optional invert)
   "Define and provide a color theme THEME.
 For INVERT, see `alect-get-color'."
@@ -1492,10 +1538,12 @@ For INVERT, see `alect-get-color'."
                                       (and invert "-alt"))))
          (theme-vals  (alect-get-customization theme invert))
          (theme-faces (alect-override-faces
-                       (car theme-vals)
+                       (alect-delete-objects
+                        (car theme-vals) alect-ignored-faces)
                        (alect-substitute-colors-in-faces
                         theme (copy-tree alect-overriding-faces))))
-         (theme-vars  (cdr theme-vals)))
+         (theme-vars  (alect-delete-objects
+                       (cdr theme-vals) alect-ignored-variables)))
 
     `(progn
        (deftheme ,theme-name ,(format "The %s color theme."
