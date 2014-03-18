@@ -856,6 +856,9 @@ For INVERT, see `alect-get-color'."
          (magit-process-ok                   ((,c :foreground ,(gc 'green))))
          (magit-process-ng                   ((,c :foreground ,(gc 'red))))
 
+         ;; man
+         (Man-overstrike ((,c :foreground ,(gc 'cyan+1) :weight bold)))
+
          ;; markdown mode
          (markdown-header-face           ((,c :inherit alect-title-1)))
          (markdown-header-face-1         ((,c :inherit alect-title-1)))
