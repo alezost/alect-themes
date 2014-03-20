@@ -745,6 +745,7 @@ For INVERT, see `alect-get-color'."
          ;; google-translate
          (google-translate-text-face        ((,c :foreground ,(gc 'blue+2))))
          (google-translate-translation-face ((,c :foreground ,(gc 'green+1))))
+         (google-translate-suggestion-label-face ((,c :foreground ,(gc 'red))))
 
          ;; grep
          (grep-context-face  ((,c :foreground ,(gc 'fg+1))))
