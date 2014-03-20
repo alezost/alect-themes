@@ -1128,12 +1128,15 @@ For INVERT, see `alect-get-color'."
          (rpm-spec-var-face           ((,c :foreground ,(gc 'red))))
 
          ;; rst-mode
-         (rst-level-1-face ((,c :inherit alect-color-level-1)))
-         (rst-level-2-face ((,c :inherit alect-color-level-2)))
-         (rst-level-3-face ((,c :inherit alect-color-level-3)))
-         (rst-level-4-face ((,c :inherit alect-color-level-4)))
-         (rst-level-5-face ((,c :inherit alect-color-level-5)))
-         (rst-level-6-face ((,c :inherit alect-color-level-6)))
+         (rst-level-1   ((,c :inherit alect-title-1)))
+         (rst-level-2   ((,c :inherit alect-title-2)))
+         (rst-level-3   ((,c :inherit alect-title-3)))
+         (rst-level-4   ((,c :inherit alect-title-4)))
+         (rst-level-5   ((,c :inherit alect-title-5)))
+         (rst-level-6   ((,c :inherit alect-title-6)))
+         (rst-reference ((,c :inherit link)))
+         (rst-adornment ((,c :foreground ,(gc 'fg+2))))
+         (rst-literal   ((,c :foreground ,(gc 'cyan+1))))
 
          ;; sauron
          (sauron-timestamp-face  ((,c :inherit alect-time)))
