@@ -4,9 +4,9 @@
 
 ;; Author: Alex Kost <alezost@gmail.com>
 ;; Created: 10 Jul 2013
-;; Version: 0.6
+;; Version: 0.6.1
 ;; Package-Requires: ((emacs "24.0"))
-;; URL: http://github.com/alezost/alect-themes
+;; URL: https://github.com/alezost/alect-themes
 ;; Keywords: color theme
 
 ;; This program is free software; you can redistribute it and/or modify
@@ -59,7 +59,7 @@
 ;;    `alect-inverted-color-regexp' variable.
 
 ;; For full description and some screenshots, see
-;; <http://github.com/alezost/alect-themes>.
+;; <https://github.com/alezost/alect-themes>.
 ;; All screenshots can be found at <http://imgur.com/a/eBx96>.
 
 ;;; Code:
