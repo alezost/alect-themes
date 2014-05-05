@@ -6,7 +6,7 @@ Colors used in alect-themes
 
 LIGHT   -2      -1      0       +1      +2
 
-bg      <x-color><param>#262626</param><x-bg-color><param>#f6f0e1</param>#f6f0e1</x-bg-color><x-bg-color><param>#ded6c5</param> #ded6c5 </x-bg-color><x-bg-color><param>#d9ceb2</param>#d9ceb2</x-bg-color><x-bg-color><param>#ded6c5</param> </x-bg-color><x-bg-color><param>#d7c89b</param>#d7c89b</x-bg-color><x-bg-color><param>#ded6c5</param> </x-bg-color><x-bg-color><param>#ccc1a0</param>#ccc1a0</x-bg-color></x-color>
+bg      <x-color><param>#262626</param><x-bg-color><param>#f6f0e1</param>#f6f0e1</x-bg-color><x-bg-color><param>#ded6c5</param> #ded6c5 </x-bg-color><x-bg-color><param>#d9ceb2</param>#d9ceb2</x-bg-color><x-bg-color><param>#ded6c5</param> </x-bg-color><x-bg-color><param>#d3c7a0</param>#d3c7a0</x-bg-color><x-bg-color><param>#ded6c5</param> </x-bg-color><x-bg-color><param>#ccc1a0</param>#ccc1a0</x-bg-color></x-color>
 
 fg      <x-color><param>#6c6c6c</param><x-bg-color><param>#ded6c5</param>#6c6c6c</x-bg-color></x-color><x-bg-color><param>#ded6c5</param> <x-color><param>#505050</param>#505050</x-color> <x-color><param>#3f3f3f</param>#3f3f3f</x-color> <x-color><param>#262626</param>#262626</x-color> <x-color><param>#101010</param>#101010</x-color></x-bg-color>
 
@@ -44,7 +44,7 @@ magenta <x-color><param>#ebabde</param><x-bg-color><param>#3f3f3f</param>#ebabde
 
 BLACK   -2      -1      0       +1      +2
 
-bg      <x-color><param>#b2af95</param><x-bg-color><param>#383838</param>#383838</x-bg-color><x-bg-color><param>#000000</param> #000000 </x-bg-color><x-bg-color><param>#202020</param>#202020</x-bg-color><x-bg-color><param>#000000</param> </x-bg-color><x-bg-color><param>#303030</param>#303030</x-bg-color><x-bg-color><param>#000000</param> </x-bg-color><x-bg-color><param>#424242</param>#424242</x-bg-color></x-color>
+bg      <x-color><param>#b2af95</param><x-bg-color><param>#404040</param>#404040</x-bg-color><x-bg-color><param>#000000</param> #000000 </x-bg-color><x-bg-color><param>#202020</param>#202020</x-bg-color><x-bg-color><param>#000000</param> </x-bg-color><x-bg-color><param>#303030</param>#303030</x-bg-color><x-bg-color><param>#000000</param> </x-bg-color><x-bg-color><param>#454545</param>#454545</x-bg-color></x-color>
 
 fg      <x-color><param>#8b806c</param><x-bg-color><param>#000000</param>#8b806c</x-bg-color></x-color><x-bg-color><param>#000000</param> <x-color><param>#ab9861</param>#ab9861</x-color> <x-color><param>#c4ad63</param>#c4ad63</x-color> <x-color><param>#b2af95</param>#b2af95</x-color> <x-color><param>#d6cbae</param>#d6cbae</x-color></x-bg-color>
 
