@@ -476,6 +476,23 @@ For INVERT, see `alect-get-color'."
          (comint-highlight-prompt ((,c :inherit alect-prompt)))
          (comint-highlight-input  ((,c :weight bold)))
 
+         ;; company
+         (company-tooltip                   ((,c :foreground ,(gc 'fg-1)
+                                                 :background ,(gc 'bg+1))))
+         (company-tooltip-selection         ((,c :foreground ,(gc 'fg-1)
+                                                 :background ,(gc 'bg-2))))
+         (company-tooltip-mouse             ((,c :inherit highlight)))
+         (company-tooltip-annotation        ((,c :inherit company-tooltip
+                                                 :foreground ,(gc 'blue))))
+         (company-tooltip-common            ((,c :inherit company-tooltip
+                                                 :foreground ,(gc 'fg+1))))
+         (company-tooltip-common-selection  ((,c :inherit company-tooltip-selection
+                                                 :foreground ,(gc 'fg+1))))
+         (company-preview                   ((,c :foreground ,(gc 'fg-1))))
+         (company-preview-common            ((,c :inherit company-preview :underline t)))
+         (company-scrollbar-fg              ((,c :background ,(gc 'gray+1))))
+         (company-scrollbar-bg              ((,c :background ,(gc 'gray))))
+
          ;; compilation
          (compilation-column-face           ((,c :foreground ,(gc 'yellow))))
          (compilation-enter-directory-face  ((,c :foreground ,(gc 'green))))
