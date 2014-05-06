@@ -122,7 +122,8 @@ Used for selected items like `org-date-selected' or
 (defface alect-title
   '((t nil))
   "Auxiliary face for inheriting by some other faces.
-Used for titles without levels like `dired-header' or `magit-header'."
+Used for titles without levels like `dired-header' or
+`magit-section-title'."
   :group 'alect)
 
 (defmacro alect-define-color-level-face (n)
@@ -683,7 +684,7 @@ For INVERT, see `alect-get-color'."
          (git-commit-summary-face         ((,c :weight bold)))
          (git-commit-branch-face          ((,c :inherit magit-branch)))
          (git-commit-comment-file-face    ((,c :inherit default)))
-         (git-commit-comment-heading-face ((,c :inherit magit-header)))
+         (git-commit-comment-heading-face ((,c :inherit alect-title)))
          (git-commit-comment-action-face  ((,c :foreground ,(gc 'yellow+1))))
 
          ;; git-gutter
@@ -846,7 +847,8 @@ For INVERT, see `alect-get-color'."
          (linum ((,c :foreground ,(gc 'fg-2))))
 
          ;; magit
-         (magit-header                       ((,c :inherit alect-title)))
+         (magit-header                       ((,c :inherit alect-title)))  ; delete this face (obsolete since 3 Apr 2014)
+         (magit-section-title                ((,c :inherit alect-title)))
          (magit-tag                          ((,c :foreground ,(gc 'yellow-1) :weight bold)))
          (magit-branch                       ((,c :foreground ,(gc 'blue+1) :weight bold)))
          (magit-log-date                     ((,c :inherit alect-time)))
@@ -877,8 +879,10 @@ For INVERT, see `alect-get-color'."
          (magit-log-reflog-label-merge       ((,c :foreground ,(gc 'blue-2) :weight bold)))
          (magit-cherry-unmatched             ((,c :foreground ,(gc 'red+2))))
          (magit-cherry-equivalent            ((,c :foreground ,(gc 'cyan+2))))
-         (magit-process-ok                   ((,c :foreground ,(gc 'green))))
-         (magit-process-ng                   ((,c :foreground ,(gc 'red))))
+         (magit-process-ok                   ((,c :inherit magit-section-title
+                                                  :foreground ,(gc 'green))))
+         (magit-process-ng                   ((,c :inherit magit-section-title
+                                                  :foreground ,(gc 'red))))
 
          ;; man
          (Man-overstrike ((,c :foreground ,(gc 'cyan+1) :weight bold)))
