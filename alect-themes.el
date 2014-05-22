@@ -761,9 +761,13 @@ For INVERT, see `alect-get-color'."
          (gnus-server-opened           ((,c :foreground ,(gc 'green))))
 
          ;; google-translate
-         (google-translate-text-face        ((,c :foreground ,(gc 'blue+2))))
-         (google-translate-translation-face ((,c :foreground ,(gc 'green+1))))
+         (google-translate-text-face             ((,c :foreground ,(gc 'blue+2))))
+         (google-translate-translation-face      ((,c :foreground ,(gc 'green+1))))
+         (google-translate-phonetic-face         ((,c :foreground ,(gc 'gray))))
          (google-translate-suggestion-label-face ((,c :foreground ,(gc 'red))))
+         (google-translate-suggestion-face       ((,c :inherit button)))
+         (google-translate-listen-button-face    ((,c :inherit button
+                                                      :foreground ,(gc 'magenta))))
 
          ;; grep
          (grep-context-face  ((,c :foreground ,(gc 'fg+1))))
