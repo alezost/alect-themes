@@ -818,7 +818,7 @@ For INVERT, see `alect-get-color'."
          (isearch              ((,c :foreground ,(gc 'bg+1)
                                     :background ,(gc 'fg+2))))
          (lazy-highlight       ((,c :foreground ,(gc 'bg-2)
-                                    :background ,(gc 'fg-2))))
+                                    :background ,(gc 'gray))))
 
          ;; js2-mode
          (js2-warning-face           ((,c :foreground,(gc 'fg-2))))
