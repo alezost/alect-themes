@@ -496,20 +496,14 @@ For INVERT, see `alect-get-color'."
          (company-scrollbar-bg              ((,c :background ,(gc 'gray))))
 
          ;; compilation
-         (compilation-column-face           ((,c :foreground ,(gc 'yellow))))
-         (compilation-enter-directory-face  ((,c :foreground ,(gc 'green))))
-         (compilation-error-face            ((,c :foreground ,(gc 'red-1) :weight bold :underline t)))
-         (compilation-face                  ((,c :foreground ,(gc 'fg+1))))
-         (compilation-info-face             ((,c :foreground ,(gc 'blue))))
-         (compilation-info                  ((,c :foreground ,(gc 'green-2) :underline t)))
-         (compilation-leave-directory-face  ((,c :foreground ,(gc 'green))))
-         (compilation-line-face             ((,c :foreground ,(gc 'yellow))))
+         (compilation-info                  ((,c :foreground ,(gc 'green-2))))
+         (compilation-warning               ((,c :inherit warning)))
+         (compilation-error                 ((,c :inherit error)))
          (compilation-line-number           ((,c :foreground ,(gc 'yellow))))
-         (compilation-message-face          ((,c :foreground ,(gc 'blue))))
-         (compilation-warning-face          ((,c :foreground ,(gc 'fg-2) :weight bold :underline t)))
-         (compilation-mode-line-exit        ((,c :foreground ,(gc 'green+2) :weight bold)))
-         (compilation-mode-line-fail        ((,c :foreground ,(gc 'red) :weight bold)))
-         (compilation-mode-line-run         ((,c :foreground ,(gc 'yellow) :weight bold)))
+         (compilation-column-number         ((,c :foreground ,(gc 'yellow+2))))
+         (compilation-mode-line-run         ((,c :foreground ,(gc 'blue))))
+         (compilation-mode-line-exit        ((,c :inherit success)))
+         (compilation-mode-line-fail        ((,c :inherit compilation-error)))
 
          ;; ctable
          (ctbl:face-cell-select  ((,c :background ,(gc 'blue)
