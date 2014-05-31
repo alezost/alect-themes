@@ -364,7 +364,7 @@ For INVERT, see `alect-get-color'."
          (alect-prompt         ((,c :foreground ,(gc 'magenta-1) :weight bold)))
          (alect-time           ((,c :foreground ,(gc 'cyan-2))))
          (alect-selected-item  ((,c :background ,(gc 'bg)
-                                    :box (:line-width 1
+                                    :box (:line-width -1
                                           :color ,(gc 'fg+1)
                                           :style nil))))
          (alect-color-level-1  ((,c :foreground ,(gc 'blue+1))))
