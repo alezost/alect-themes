@@ -675,8 +675,10 @@ For INVERT, see `alect-get-color'."
          (flymake-warnline       ((,c :foreground ,(gc 'fg-2) :weight bold :underline t)))
 
          ;; flyspell
-         (flyspell-duplicate     ((,c :foreground ,(gc 'fg-2) :weight bold :underline t)))
-         (flyspell-incorrect     ((,c :foreground ,(gc 'red-1) :weight bold :underline t)))
+         (flyspell-duplicate     ((,c :foreground ,(gc 'gray)
+                                      :underline (:color ,(gc 'fg+2)))))
+         (flyspell-incorrect     ((,c :inherit flyspell-duplicate
+                                      :foreground ,(gc 'red+1))))
 
          ;; font lock
          (font-lock-builtin-face           ((,c :foreground ,(gc 'magenta-1))))
