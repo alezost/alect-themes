@@ -770,12 +770,6 @@ For INVERT, see `alect-get-color'."
          (google-translate-listen-button-face    ((,c :inherit button
                                                       :foreground ,(gc 'magenta))))
 
-         ;; grep
-         (grep-context-face  ((,c :foreground ,(gc 'fg+1))))
-         (grep-error-face    ((,c :foreground ,(gc 'red-1) :weight bold :underline t)))
-         (grep-hit-face      ((,c :foreground ,(gc 'blue))))
-         (grep-match-face    ((,c :foreground ,(gc 'fg-2) :weight bold)))
-
          ;; guide-key
          (guide-key/highlight-command-face ((,c :foreground ,(gc 'blue))))
          (guide-key/key-face ((,c :foreground ,(gc 'green))))
