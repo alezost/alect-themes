@@ -350,7 +350,8 @@ For INVERT, see `alect-get-color'."
                                    :background ,(gc 'gray-2))))
          (shadow              ((,c :foreground ,(gc 'gray))))
          (success             ((,c :foreground ,(gc 'green) :weight bold)))
-         (warning             ((,c :foreground ,(gc 'yellow-1) :weight normal)))
+         (error               ((,c :foreground ,(gc 'red) :weight bold)))
+         (warning             ((,c :foreground ,(gc 'yellow-1))))
          (region              ((,c :background ,(gc 'bg+2))))
          (menu                ((,c :foreground ,(gc 'fg+1)
                                    :background ,(gc 'bg-1))))
@@ -609,7 +610,7 @@ For INVERT, see `alect-get-color'."
          (erc-default-face         ((,c :foreground ,(gc 'fg+1))))
          (erc-direct-msg-face      ((,c :inherit erc-default-face :foreground ,(gc 'red-2))))
          (erc-action-face          ((,c :inherit erc-bold-face)))
-         (erc-error-face           ((,c :inherit font-lock-warning-face)))
+         (erc-error-face           ((,c :inherit error)))
          (erc-fool-face            ((,c :foreground ,(gc 'blue-2))))
          (erc-highlight-face       ((,c :inherit hover-highlight)))
          (erc-input-face           ((,c :background ,(gc 'bg+1))))
@@ -827,7 +828,7 @@ For INVERT, see `alect-get-color'."
 
          ;; js2-mode
          (js2-warning-face           ((,c :foreground,(gc 'fg-2))))
-         (js2-error-face             ((,c :foreground ,(gc 'red) :weight bold)))
+         (js2-error-face             ((,c :inherit error)))
          (js2-jsdoc-tag-face         ((,c :foreground ,(gc 'green-1))))
          (js2-jsdoc-type-face        ((,c :foreground ,(gc 'green+2))))
          (js2-jsdoc-value-face       ((,c :foreground ,(gc 'cyan-1))))
@@ -1183,7 +1184,7 @@ For INVERT, see `alect-get-color'."
                                     :background ,(gc 'green+1))))
 
          ;; SLIME
-         (slime-error-face                 ((,c :inherit font-lock-warning-face)))
+         (slime-error-face                 ((,c :inherit error)))
          (slime-repl-input-face            ((,c :inherit comint-highlight-input)))
          (slime-repl-output-face           ((,c :foreground ,(gc 'green-1))))
          (slime-repl-inputed-output-face   ((,c :foreground ,(gc 'red))))
@@ -1218,7 +1219,7 @@ For INVERT, see `alect-get-color'."
          (sr-html-face              ((,c :foreground ,(gc 'cyan+2))))
 
          ;; syslog-mode
-         (syslog-error ((,c :inherit font-lock-warning-face)))
+         (syslog-error ((,c :inherit error)))
          (syslog-warn  ((,c :inherit warning)))
          (syslog-info  ((,c :foreground ,(gc 'blue-2))))
          (syslog-debug ((,c :foreground ,(gc 'magenta-1))))
