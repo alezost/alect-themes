@@ -126,6 +126,26 @@ Used for titles without levels like `dired-header' or
 `magit-section-title'."
   :group 'alect)
 
+(defface alect-button
+  '((t nil))
+  "Auxiliary face for inheriting by some other faces.
+Used for buttons like `custom-button' or `w3m-form-button'."
+  :group 'alect)
+
+(defface alect-button-pressed
+  '((t nil))
+  "Auxiliary face for inheriting by some other faces.
+Used for buttons like `custom-button-pressed' or
+`w3m-form-button-pressed'."
+  :group 'alect)
+
+(defface alect-button-mouse
+  '((t nil))
+  "Auxiliary face for inheriting by some other faces.
+Used for buttons like `custom-button-mouse' or
+`w3m-form-button-mouse'."
+  :group 'alect)
+
 (defmacro alect-define-color-level-face (n)
   "Define face for color level N.
 Name of the defined face is `alect-color-level-N'."
@@ -399,6 +419,14 @@ For INVERT, see `alect-get-color'."
          (alect-title-8        ((,c :inherit alect-color-level-8 :weight bold
                                     :height ,alect-multiple-titles-height)))
 
+         (alect-button         ((,c :foreground ,(gc 'fg+2)
+                                    :background ,(gc 'bg+2)
+                                    :box (:line-width 2 :style released-button))))
+         (alect-button-pressed ((,c :inherit alect-button
+                                    :box (:line-width 2 :style pressed-button))))
+         (alect-button-mouse   ((,c :inherit highlight
+                                    :box (:line-width 2 :style released-button))))
+
          ;; ace-jump
          (ace-jump-face-background ((,c :foreground ,(gc 'bg+2)
                                         :background ,(gc 'bg-1)
@@ -514,17 +542,10 @@ For INVERT, see `alect-get-color'."
                                       :foreground ,(gc 'bg-1))))
 
          ;; customization
-         (custom-button                  ((,c :inherit custom-button-unraised
-                                              :box (:line-width 2
-                                                    :style released-button))))
-         (custom-button-pressed          ((,c :inherit custom-button-unraised
-                                              :box (:line-width 2
-                                                    :style pressed-button))))
-         (custom-button-mouse            ((,c :inherit highlight
-                                              :box (:line-width 2
-                                                    :style released-button))))
-         (custom-button-unraised         ((,c :foreground ,(gc 'fg+2)
-                                              :background ,(gc 'bg+2))))
+         (custom-button                  ((,c :inherit alect-button)))
+         (custom-button-pressed          ((,c :inherit alect-button-unraised)))
+         (custom-button-mouse            ((,c :inherit alect-button-mouse)))
+         (custom-button-unraised         ((,c :inherit alect-button :box nil)))
          (custom-button-pressed-unraised ((,c :inherit custom-button-unraised :underline t)))
          (custom-documentation           ((,c :inherit font-lock-doc-face)))
          (custom-comment                 ((,c :foreground ,(gc 'gray))))
@@ -1252,22 +1273,22 @@ For INVERT, see `alect-get-color'."
          (w3m-anchor                       ((,c :inherit link)))
          (w3m-arrived-anchor               ((,c :inherit link-visited)))
          (w3m-form                         ((,c :foreground ,(gc 'red-1) :underline t)))
-         (w3m-form-button                  ((,c :inherit custom-button)))
-         (w3m-form-button-pressed          ((,c :inherit custom-button-pressed)))
-         (w3m-form-button-mouse            ((,c :inherit custom-button-mouse)))
+         (w3m-form-button                  ((,c :inherit alect-button)))
+         (w3m-form-button-pressed          ((,c :inherit alect-button-pressed)))
+         (w3m-form-button-mouse            ((,c :inherit alect-button-mouse)))
          (w3m-tab-background               ((,c :inherit default)))
-         (w3m-tab-selected                 ((,c :inherit custom-button
+         (w3m-tab-selected                 ((,c :inherit alect-button
                                                 :foreground ,(gc 'fg+2))))
-         (w3m-tab-selected-retrieving      ((,c :inherit custom-button
+         (w3m-tab-selected-retrieving      ((,c :inherit alect-button
                                                 :foreground ,(gc 'red))))
          (w3m-tab-selected-background      ((,c :background ,(gc 'bg))))
-         (w3m-tab-unselected               ((,c :inherit custom-button
+         (w3m-tab-unselected               ((,c :inherit alect-button
                                                 :foreground ,(gc 'fg-1))))
-         (w3m-tab-unselected-retrieving    ((,c :inherit custom-button
+         (w3m-tab-unselected-retrieving    ((,c :inherit alect-button
                                                 :foreground ,(gc 'red+2))))
-         (w3m-tab-unselected-unseen        ((,c :inherit custom-button
+         (w3m-tab-unselected-unseen        ((,c :inherit alect-button
                                                 :backround ,(gc 'gray))))
-         (w3m-tab-mouse                    ((,c :inherit custom-button-mouse)))
+         (w3m-tab-mouse                    ((,c :inherit alect-button-mouse)))
          (w3m-header-line-location-title   ((,c :inherit header-line)))
          (w3m-header-line-location-content ((,c :foreground ,(gc 'blue-1)
                                                 :inherit header-line)))
