@@ -496,6 +496,13 @@ For INVERT, see `alect-get-color'."
          (bm-persistent-face        ((,c :background ,(gc 'green-1)
                                          :foreground ,(gc 'bg-1))))
 
+         ;; calendar, diary
+         (calendar-today    ((,c :box (:line-width -1 :color ,(gc 'red) :style nil))))
+         (diary             ((,c :foreground ,(gc 'green+2) :weight bold)))
+         (diary-anniversary ((,c :foreground ,(gc 'red))))
+         (diary-time        ((,c :inherit alect-time)))
+         (holiday           ((,c :background ,(gc 'bg+2))))
+
          ;; clojure-test-mode
          (clojure-test-failure-face ((,c :foreground ,(gc 'fg-2)
                                          :weight bold :underline t)))
@@ -1427,6 +1434,9 @@ static char *gnus-pointer[] = {
 
          ;; gnus startup logo
          (gnus-logo-colors '(,(gc 'cyan+1) ,(gc 'gray-1)) t)
+
+         ;; diary events in calendar
+         (diary-entry-marker 'font-lock-variable-name-face t)
 
          ;; fill-column-indicator
          (fci-rule-color ,(gc 'bg-2))
