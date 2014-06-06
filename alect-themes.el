@@ -552,7 +552,7 @@ For INVERT, see `alect-get-color'."
 
          ;; customization
          (custom-button                  ((,c :inherit alect-button)))
-         (custom-button-pressed          ((,c :inherit alect-button-unraised)))
+         (custom-button-pressed          ((,c :inherit alect-button-pressed)))
          (custom-button-mouse            ((,c :inherit alect-button-mouse)))
          (custom-button-unraised         ((,c :inherit alect-button :box nil)))
          (custom-button-pressed-unraised ((,c :inherit custom-button-unraised :underline t)))
