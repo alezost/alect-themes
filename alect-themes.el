@@ -793,8 +793,7 @@ For INVERT, see `alect-get-color'."
          (google-translate-phonetic-face         ((,c :foreground ,(gc 'gray))))
          (google-translate-suggestion-label-face ((,c :foreground ,(gc 'red))))
          (google-translate-suggestion-face       ((,c :inherit button)))
-         (google-translate-listen-button-face    ((,c :inherit button
-                                                      :foreground ,(gc 'magenta))))
+         (google-translate-listen-button-face    ((,c :inherit alect-button)))
 
          ;; guide-key
          (guide-key/highlight-command-face ((,c :foreground ,(gc 'blue))))
@@ -1362,8 +1361,8 @@ For INVERT, see `alect-get-color'."
                                         :box (:line-width -1
                                               :color ,(gc 'fg-2)
                                               :style nil))))
-         (widget-button            ((,c :foreground ,(gc 'blue-1) :weight bold)))
-         (widget-button-pressed    ((,c :foreground ,(gc 'blue+2) :inherit widget-button)))
+         (widget-button            ((,c :inherit alect-button)))
+         (widget-button-pressed    ((,c :inherit alect-button-pressed)))
          (widget-documentation     ((,c :foreground ,(gc 'green-1))))
          (widget-inactive          ((,c :inherit shadow)))
          (widget-single-line-field ((,c :foreground ,(gc 'fg)
