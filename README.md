@@ -221,6 +221,18 @@ alect-theme):
 in Custom buffer (`M-x customize-face RET <any-face>`) to see how
 integers and floats are treated.
 
+There are other settings that may affect a visual appearance.  For
+example GNUS uses widgets in article buffers.  And `widget-button` face
+looks like a real button in `alect-themes`.  I find such buttons not
+very attractive in articles but I also don't want to modify
+`widget-button` face, so I use the following to get rid of button faces
+only in GNUS articles:
+
+```lisp
+(add-hook 'gnus-article-mode-hook
+          (lambda () (setq-local widget-button-face nil)))
+```
+
 ### Emacs 24.3.1 and earlier
 
 While using **any** theme (not only from this package), you may meet
