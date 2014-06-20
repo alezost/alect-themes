@@ -30,7 +30,7 @@ Emacs 24 or later.  The themes are intended to be used with GUI (see
 
 Add this to your init file (`~/.emacs.d/init.el` or `~/.emacs`):
 
-```lisp
+```elisp
 (add-to-list 'load-path              "/path/to/alect-themes")
 (add-to-list 'custom-theme-load-path "/path/to/alect-themes")
 ```
@@ -47,7 +47,7 @@ loading a theme will fail because the path to a theme is not known
 yet.  That's why you need to initialize the package system before
 loading the theme:
 
-```lisp
+```elisp
 (setq package-enable-at-startup nil)
 (package-initialize)
 ...
@@ -64,7 +64,7 @@ To activate a theme interactively use `customize-themes` or `load-theme`:
 
 To load a theme on Emacs start, add this to your init file:
 
-```lisp
+```elisp
 (load-theme 'alect-light t)
 ```
 
@@ -96,7 +96,7 @@ You can add support for other terminals by setting `alect-display-class`
 variable.  For example, if you want to enable alect-themes in 256-colors
 terminals, use the following:
 
-```lisp
+```elisp
 (setq alect-display-class '((class color) (min-colors 256)))
 ```
 
@@ -119,7 +119,7 @@ light and `bg-1` color for the dark theme as you prefer black color for
 the background.  You can change those colors by putting this into your
 `.emacs` (before loading an alect-theme if you use it on Emacs start):
 
-```lisp
+```elisp
 (eval-after-load 'alect-themes
   '(progn
      (alect-set-color 'light 'cyan-2 "#00a8a8")
@@ -143,7 +143,7 @@ For example, if you prefer the default appearance of the titles in
 `Info-mode` and of the minibuffer prompt, and if you want to disable
 modifying the variables at all, use the following:
 
-```lisp
+```elisp
 (setq alect-ignored-variables t
       alect-ignored-faces
       '(minibuffer-prompt
@@ -163,7 +163,7 @@ Let's say, you want green strings, gray comments, more distinguishable
 mode-line, and of course you don't like those pink (`magenta-1`) prompts
 everywhere (minibuffer, comint, ...).  Just set that variable like this:
 
-```lisp
+```elisp
 (setq
  alect-overriding-faces
  '((alect-prompt           ((t :foreground blue :weight bold)))
@@ -195,7 +195,7 @@ There is an additional way of configuring alternative themes: with
 this variable and `alect-get-color` function).  For example, you may set
 this variable to invert background colors:
 
-```lisp
+```elisp
 (setq alect-inverted-color-regexp "^\\(bg\\)\\([-+]\\)\\([012]\\)$")
 ```
 
@@ -213,7 +213,7 @@ For example, if you want to have a normal height for `org` and
 `markdown` titles, use this (put it in `.emacs` before loading an
 alect-theme):
 
-```lisp
+```elisp
 (setq alect-multiple-titles-height 1.0)
 ```
 
@@ -228,7 +228,7 @@ very attractive in articles but I also don't want to modify
 `widget-button` face, so I use the following to get rid of button faces
 only in GNUS articles:
 
-```lisp
+```elisp
 (add-hook 'gnus-article-mode-hook
           (lambda () (setq-local widget-button-face nil)))
 ```
@@ -252,7 +252,7 @@ themed face.  This behaviour is changed in new versions of Emacs: since
 unintended face settings.  If you use a previous version of Emacs, you
 can try the following workaround to achieve the new behaviour:
 
-```lisp
+```elisp
 (defun face-spec-recalc-new (face frame)
   "Improved version of `face-spec-recalc'."
   (while (get face 'face-alias)
@@ -303,9 +303,10 @@ are themed: `emms-mode-line-icon-image-cache`,
 `gnus-mode-line-image-cache` and `gnus-logo-colors`.
 
 You can use this workaround to avoid the bug:
-```lisp
+
+```elisp
 (defadvice custom-theme-set-variables
-  (around fix-inhibit-bug activate)
+    (around fix-inhibit-bug activate)
   "Allow setting of undefined variables in themes."
   (let (custom--inhibit-theme-enable)
     ad-do-it))
