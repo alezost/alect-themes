@@ -381,6 +381,9 @@ For INVERT, see `alect-get-color'."
          (secondary-selection ((,c :background ,(gc 'bg+1))))
          (trailing-whitespace ((,c :background ,(gc 'red))))
          (vertical-border     ((,c :foreground ,(gc 'fg+1))))
+         (window-divider      ((,c :foreground ,(gc 'green+2))))
+         (window-divider-first-pixel ((,c :foreground ,(gc 'green+1))))
+         (window-divider-last-pixel  ((,c :inherit window-divider-first-pixel)))
 
          ;; auxiliary faces for inheriting
          (alect-prompt         ((,c :foreground ,(gc 'magenta-1) :weight bold)))
