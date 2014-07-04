@@ -830,6 +830,7 @@ For INVERT, see `alect-get-color'."
          (info-menu-header ((,c :inherit alect-color-level-5 :height 1.1 :weight bold)))
          (info-node        ((,c :foreground ,(gc 'red+1))))
          (info-menu-star   ((,c :foreground ,(gc 'red))))
+         (Info-quoted      ((,c :foreground ,(gc 'fg+2) :weight bold)))
 
          ;; ido-mode
          (ido-first-match ((,c :weight bold)))
