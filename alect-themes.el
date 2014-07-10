@@ -698,7 +698,6 @@ For INVERT, see `alect-get-color'."
          (font-lock-comment-delimiter-face ((,c :inherit font-lock-comment-face)))
          (font-lock-constant-face          ((,c :foreground ,(gc 'cyan-1))))
          (font-lock-doc-face               ((,c :foreground ,(gc 'fg-1) :slant italic)))
-         (font-lock-doc-string-face        ((,c :foreground ,(gc 'cyan+2))))
          (font-lock-function-name-face     ((,c :foreground ,(gc 'blue-1))))
          (font-lock-keyword-face           ((,c :foreground ,(gc 'blue+1) :weight bold)))
          (font-lock-negation-char-face     ((,c :foreground ,(gc 'blue))))
