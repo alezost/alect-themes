@@ -803,20 +803,29 @@ For INVERT, see `alect-get-color'."
          (guide-key/prefix-command-face ((,c :foreground ,(gc 'green+1))))
 
          ;; helm
-         (helm-header           ((,c :foreground ,(gc 'green)
-                                     :background ,(gc 'bg-1)
-                                     :underline nil
-                                     :box nil)))
-         (helm-source-header    ((,c :foreground ,(gc 'yellow)
-                                     :background ,(gc 'bg-2)
-                                     :underline nil
-                                     :weight bold
-                                     :box (:line-width -1 :style released-button))))
-         (helm-selection        ((,c :background ,(gc 'bg) :underline nil)))
-         (helm-selection-line   ((,c :background ,(gc 'bg))))
-         (helm-visible-mark     ((,c :foreground ,(gc 'bg-1) :background ,(gc 'yellow-2))))
-         (helm-candidate-number ((,c :foreground ,(gc 'green-2) :background ,(gc 'bg-2))))
-         (helm-ff-directory     ((,c :foreground ,(gc 'magenta))))
+         (helm-header             ((,c :inherit header-line)))
+         (helm-source-header      ((,c :inherit alect-title)))
+         (helm-separator          ((,c :foreground ,(gc 'blue+2))))
+         (helm-M-x-key            ((,c :foreground ,(gc 'yellow))))
+         (helm-selection          ((,c :background ,(gc 'bg))))
+         (helm-selection-line     ((,c :background ,(gc 'bg))))
+         (helm-visible-mark       ((,c :foreground ,(gc 'yellow-1))))
+         (helm-candidate-number   ((,c :background ,(gc 'bg-2)
+                                       :foreground ,(gc 'green-2))))
+         (helm-ff-file            ((,c)))
+         (helm-ff-executable      ((,c :foreground ,(gc 'green-1))))
+         (helm-ff-directory       ((,c :inherit dired-directory)))
+         (helm-ff-symlink         ((,c :inherit dired-symlink)))
+         (helm-ff-invalid-symlink ((,c :inherit dired-warning)))
+         (helm-ff-prefix          ((,c :background ,(gc 'bg)
+                                       :foreground ,(gc 'red+1))))
+         (helm-buffer-directory   ((,c :inherit helm-ff-directory)))
+         (helm-buffer-saved-out   ((,c :background ,(gc 'bg-2)
+                                       :foreground ,(gc 'red))))
+         (helm-buffer-not-saved   ((,c :foreground ,(gc 'red-2))))
+         (helm-buffer-process     ((,c :foreground ,(gc 'green+1))))
+         (helm-buffer-size        ((,c :foreground ,(gc 'cyan))))
+         (helm-grep-file          ((,c :inherit compilation-info)))
 
          ;; help
          (help-argument-name ((,c :inherit font-lock-variable-name-face)))
