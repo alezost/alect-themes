@@ -609,6 +609,14 @@ For INVERT, see `alect-get-color'."
          (dired-warning    ((,c :inherit font-lock-warning-face
                                 :background ,(gc 'bg-2))))
 
+         ;; ediff
+         (ediff-even-diff-A ((,c :background ,(gc 'bg))))
+         (ediff-odd-diff-A  ((,c :background ,(gc 'bg+1))))
+         (ediff-even-diff-B ((,c :inherit ediff-even-diff-A)))
+         (ediff-odd-diff-B  ((,c :inherit ediff-odd-diff-A)))
+         (ediff-even-diff-C ((,c :inherit ediff-even-diff-A)))
+         (ediff-odd-diff-C  ((,c :inherit ediff-odd-diff-A)))
+
          ;; egg
          (egg-text-base        ((,c :foreground ,(gc 'fg+1))))
          (egg-help-header-1    ((,c :foreground ,(gc 'cyan+1))))
