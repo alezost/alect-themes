@@ -717,6 +717,15 @@ For INVERT, see `alect-get-color'."
          (font-lock-regexp-grouping-backslash ((,c :foreground ,(gc 'red+2))))
          (font-lock-regexp-grouping-construct ((,c :foreground ,(gc 'yellow-1))))
 
+         ;; geiser
+         (geiser-font-lock-doc-title          ((,c :inherit bold)))
+         (geiser-font-lock-doc-link           ((,c :inherit link)))
+         (geiser-font-lock-doc-button         ((,c :inherit button)))
+         (geiser-font-lock-xref-header        ((,c :inherit bold)))
+         (geiser-font-lock-xref-link          ((,c :inherit link)))
+         (geiser-font-lock-error-link         ((,c :inherit (error link))))
+         (geiser-font-lock-autodoc-identifier ((,c :inherit font-lock-keyword-face)))
+
          ;; git-commit
          (git-commit-summary-face         ((,c :weight bold)))
          (git-commit-branch-face          ((,c :inherit magit-branch)))
