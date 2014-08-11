@@ -819,6 +819,27 @@ For INVERT, see `alect-get-color'."
          (guide-key/key-face ((,c :foreground ,(gc 'green))))
          (guide-key/prefix-command-face ((,c :foreground ,(gc 'green+1))))
 
+         ;; guix
+         (guix-info-param-title                 ((,c :foreground ,(gc 'yellow+1))))
+         (guix-info-time                        ((,c :inherit alect-time)))
+         (guix-info-action-button               ((,c :inherit alect-button)))
+         (guix-info-action-button-mouse         ((,c :inherit alect-button-mouse)))
+         (guix-info-url                         ((,c :inherit link)))
+         (guix-info-file-path                   ((,c :foreground ,(gc 'green+1) :underline t)))
+         (guix-package-info-name                ((,c :inherit alect-title)))
+         (guix-package-info-version             ((,c :foreground ,(gc 'blue-2))))
+         (guix-package-info-synopsis            ((,c)))
+         (guix-package-info-license             ((,c :foreground ,(gc 'red-1))))
+         (guix-package-info-location            ((,c :inherit guix-info-file-path)))
+         (guix-package-info-uninstalled-outputs ((,c :foreground ,(gc 'fg+2) :weight bold
+                                                     :box (:line-width 1 :color ,(gc 'bg+2)))))
+         (guix-package-info-installed-outputs   ((,c :foreground ,(gc 'green-1) :weight bold
+                                                     :box (:line-width 1 :color ,(gc 'fg+2)))))
+         (guix-package-info-inputs              ((,c :foreground ,(gc 'fg) :weight bold)))
+         (guix-package-info-native-inputs       ((,c :foreground ,(gc 'fg-1) :weight bold)))
+         (guix-package-info-propagated-inputs   ((,c :foreground ,(gc 'fg) :weight bold)))
+         (guix-generation-info-number           ((,c :inherit alect-title)))
+
          ;; helm
          (helm-header             ((,c :inherit header-line)))
          (helm-source-header      ((,c :inherit alect-title)))
