@@ -351,11 +351,12 @@ For INVERT, see `alect-get-color'."
          (default             ((,c :foreground ,(gc 'fg+1)
                                    :background ,(gc 'bg-1))))
          (cursor              ((,c :background ,(gc 'cursor))))
-         (button              ((,c :inherit link)))
+         (button              ((,c :inherit link
+                                   :underline (:color ,(gc 'fg+1)))))
          (link                ((,c :foreground ,(gc 'blue-1)
-                                   :underline t :weight normal)))
+                                   :underline t)))
          (link-visited        ((,c :foreground ,(gc 'blue+2)
-                                   :underline t :weight normal)))
+                                   :underline t)))
          (match               ((,c :background ,(gc 'green+1)
                                    :foreground ,(gc 'gray-2))))
          (escape-glyph        ((,c :foreground ,(gc 'yellow) :weight bold)))
@@ -363,9 +364,7 @@ For INVERT, see `alect-get-color'."
                                    :background ,(gc 'bg-2))))
          (header-line         ((,c :foreground ,(gc 'fg+2)
                                    :height ,alect-header-height
-                                   :box (:line-width 1
-                                         :color ,(gc 'fg+2)
-                                         :style nil))))
+                                   :box (:line-width 1 :color ,(gc 'fg+2) :style nil))))
          (highlight           ((,c :foreground ,(gc 'gray+2)
                                    :background ,(gc 'gray-2))))
          (shadow              ((,c :foreground ,(gc 'gray))))
@@ -377,6 +376,9 @@ For INVERT, see `alect-get-color'."
                                    :background ,(gc 'bg-2)
                                    :height ,alect-header-height)))
          (tool-bar            ((,c :inherit mode-line)))
+         (tooltip             ((,c :inherit variable-pitch
+                                   :foreground ,(gc 'cyan+2)
+                                   :background ,(gc 'bg-2))))
          (minibuffer-prompt   ((,c :inherit alect-prompt)))
          (secondary-selection ((,c :background ,(gc 'bg+1))))
          (trailing-whitespace ((,c :background ,(gc 'red))))
