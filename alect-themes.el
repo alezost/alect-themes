@@ -1067,9 +1067,7 @@ For INVERT, see `alect-get-color'."
                                           :color ,(gc 'bg-2)
                                           :style nil))))
          (mode-line-highlight  ((,c :inherit highlight
-                                    :box (:line-width 2
-                                          :color ,(gc 'green)
-                                          :style nil))))
+                                    :box (:line-width 1 :style released-button))))
 
          ;; mu4e
          (mu4e-cited-1-face ((,c :foreground ,(gc 'blue)    :slant italic)))
