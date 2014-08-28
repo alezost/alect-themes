@@ -1335,14 +1335,15 @@ For INVERT, see `alect-get-color'."
          (syslog-ip    ((,c :foreground ,(gc 'yellow+1) :underline t)))
 
          ;; tabbar
-         (tabbar-button     ((,c :foreground ,(gc 'fg+1)
-                                 :background ,(gc 'bg-1))))
-         (tabbar-selected   ((,c :foreground ,(gc 'fg+1)
-                                 :background ,(gc 'bg-1)
-                                 :box (:line-width -1 :style pressed-button))))
-         (tabbar-unselected ((,c :foreground ,(gc 'fg+1)
-                                 :background ,(gc 'bg)
-                                 :box (:line-width -1 :style released-button))))
+         (tabbar-default          ((,c :inherit alect-tab-default)))
+         (tabbar-separator        ((,c :inherit tabbar-default)))
+         (tabbar-highlight        ((,c :inherit alect-tab-mouse)))
+         (tabbar-button           ((,c :inherit alect-button)))
+         (tabbar-button-highlight ((,c :inherit tabbar-highlight)))
+         (tabbar-unselected       ((,c :inherit alect-tab-unselected)))
+         (tabbar-selected         ((,c :inherit alect-tab-selected)))
+         (tabbar-modified         ((,c :inherit tabbar-unselected
+                                       :foreground ,(gc 'red+2))))
 
          ;; term
          (term-color-black       ((,c :foreground ,(gc 'bg-1)
