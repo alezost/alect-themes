@@ -146,6 +146,30 @@ Used for buttons like `custom-button-mouse' or
 `w3m-form-button-mouse'."
   :group 'alect)
 
+(defface alect-tab-default
+  '((t nil))
+  "Auxiliary face for inheriting by some other faces.
+Used for faces like `tabbar-default' or `w3m-tab-background'."
+  :group 'alect)
+
+(defface alect-tab-unselected
+  '((t nil))
+  "Auxiliary face for inheriting by some other faces.
+Used for tabs like `tabbar-unselected' or `w3m-tab-unselected'."
+  :group 'alect)
+
+(defface alect-tab-selected
+  '((t nil))
+  "Auxiliary face for inheriting by some other faces.
+Used for tabs like `tabbar-selected' or `w3m-tab-selected'."
+  :group 'alect)
+
+(defface alect-tab-mouse
+  '((t nil))
+  "Auxiliary face for inheriting by some other faces.
+Used for tabs like `tabbar-highlight' or `w3m-tab-mouse'."
+  :group 'alect)
+
 (defmacro alect-define-color-level-face (n)
   "Define face for color level N.
 Name of the defined face is `alect-color-level-N'."
@@ -433,6 +457,16 @@ For INVERT, see `alect-get-color'."
                                     :box (:line-width 2 :style pressed-button))))
          (alect-button-mouse   ((,c :inherit highlight
                                     :box (:line-width 2 :style released-button))))
+         (alect-tab-default    ((,c :height 0.9 :box nil)))
+         (alect-tab-unselected ((,c :inherit alect-tab-default
+                                    :foreground ,(gc 'fg-2)
+                                    :background ,(gc 'bg)
+                                    :box (:line-width 1 :style released-button))))
+         (alect-tab-selected   ((,c :inherit alect-tab-unselected
+                                    :foreground ,(gc 'fg+2)
+                                    :background ,(gc 'bg+1))))
+         (alect-tab-mouse      ((,c :inherit alect-tab-default
+                                    :inherit mode-line-highlight)))
 
          ;; ace-jump
          (ace-jump-face-background ((,c :foreground ,(gc 'bg+2)
@@ -1340,19 +1374,17 @@ For INVERT, see `alect-get-color'."
          (w3m-form-button                  ((,c :inherit alect-button)))
          (w3m-form-button-pressed          ((,c :inherit alect-button-pressed)))
          (w3m-form-button-mouse            ((,c :inherit alect-button-mouse)))
-         (w3m-tab-background               ((,c :inherit default)))
-         (w3m-tab-selected                 ((,c :inherit alect-button
-                                                :foreground ,(gc 'fg+2))))
-         (w3m-tab-selected-retrieving      ((,c :inherit alect-button
-                                                :foreground ,(gc 'red))))
+         (w3m-tab-background               ((,c :inherit alect-tab-default)))
+         (w3m-tab-selected                 ((,c :inherit alect-tab-selected)))
+         (w3m-tab-selected-retrieving      ((,c :inherit w3m-tab-selected
+                                                :foreground ,(gc 'red+1))))
          (w3m-tab-selected-background      ((,c :background ,(gc 'bg))))
-         (w3m-tab-unselected               ((,c :inherit alect-button
-                                                :foreground ,(gc 'fg-1))))
-         (w3m-tab-unselected-retrieving    ((,c :inherit alect-button
-                                                :foreground ,(gc 'red+2))))
-         (w3m-tab-unselected-unseen        ((,c :inherit alect-button
-                                                :backround ,(gc 'gray))))
-         (w3m-tab-mouse                    ((,c :inherit alect-button-mouse)))
+         (w3m-tab-unselected               ((,c :inherit alect-tab-unselected)))
+         (w3m-tab-unselected-retrieving    ((,c :inherit w3m-tab-unselected
+                                                :foreground ,(gc 'red+1))))
+         (w3m-tab-unselected-unseen        ((,c :inherit w3m-tab-unselected
+                                                :foreground ,(gc 'fg))))
+         (w3m-tab-mouse                    ((,c :inherit alect-tab-mouse)))
          (w3m-header-line-location-title   ((,c :inherit header-line)))
          (w3m-header-line-location-content ((,c :foreground ,(gc 'blue-1)
                                                 :inherit header-line)))
