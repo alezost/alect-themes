@@ -863,14 +863,13 @@ For INVERT, see `alect-get-color'."
          (guix-info-url                         ((,c :inherit link)))
          (guix-info-file-path                   ((,c :foreground ,(gc 'green+1) :underline t)))
          (guix-package-info-name                ((,c :inherit alect-title)))
+         (guix-package-info-name-button         ((,c :inherit guix-package-info-name)))
          (guix-package-info-version             ((,c :foreground ,(gc 'blue-2))))
          (guix-package-info-synopsis            ((,c)))
          (guix-package-info-license             ((,c :foreground ,(gc 'red-1))))
          (guix-package-info-location            ((,c :inherit guix-info-file-path)))
-         (guix-package-info-uninstalled-outputs ((,c :foreground ,(gc 'fg+2) :weight bold
-                                                     :box (:line-width 1 :color ,(gc 'bg+2)))))
-         (guix-package-info-installed-outputs   ((,c :foreground ,(gc 'green-1) :weight bold
-                                                     :box (:line-width 1 :color ,(gc 'fg+2)))))
+         (guix-package-info-uninstalled-outputs ((,c :foreground ,(gc 'fg+2) :weight bold)))
+         (guix-package-info-installed-outputs   ((,c :foreground ,(gc 'green-1) :weight bold)))
          (guix-package-info-inputs              ((,c :foreground ,(gc 'fg) :weight bold)))
          (guix-package-info-native-inputs       ((,c :foreground ,(gc 'fg-1) :weight bold)))
          (guix-package-info-propagated-inputs   ((,c :foreground ,(gc 'fg) :weight bold)))
