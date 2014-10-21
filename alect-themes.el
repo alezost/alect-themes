@@ -804,7 +804,7 @@ For INVERT, see `alect-get-color'."
          (gnus-group-mail-low          ((,c :inherit gnus-group-news-low :slant italic)))
 
          (gnus-header-content          ((,c :inherit message-header-other)))
-         (gnus-header-from             ((,c :inherit message-header-from)))
+         (gnus-header-from             ((,c :foreground ,(gc 'red-1))))
          (gnus-header-name             ((,c :inherit message-header-name)))
          (gnus-header-newsgroups       ((,c :inherit message-header-newsgroups)))
          (gnus-header-subject          ((,c :inherit message-header-subject)))
@@ -1031,7 +1031,6 @@ For INVERT, see `alect-get-color'."
          (message-header-name       ((,c :foreground ,(gc 'yellow+1) :weight bold)))
          (message-header-other      ((,c :foreground ,(gc 'fg))))
          (message-header-to         ((,c :foreground ,(gc 'blue))))
-         (message-header-from       ((,c :foreground ,(gc 'red-1))))
          (message-header-cc         ((,c :foreground ,(gc 'blue-1))))
          (message-header-newsgroups ((,c :foreground ,(gc 'yellow+2))))
          (message-header-subject    ((,c :inherit alect-title)))
