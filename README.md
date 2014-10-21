@@ -247,30 +247,31 @@ instead of the themed colored buttons (the right picture):
 <img src="http://i.imgur.com/66G9VvX.png" title="alect-light - Custom-mode (proper colors)"/></a>
 
 This happens because Emacs applies default face settings even for a
-themed face.  This behaviour is changed in new versions of Emacs: since
-24.4 (not released yet) you will always get pure themes without
-unintended face settings.  If you use a previous version of Emacs, you
-can try the following workaround to achieve the new behaviour:
+themed face.  This behaviour is changed in the new versions of Emacs:
+since 24.4 you will always get pure themes without unintended face
+settings.  If you use a previous version, you can try the following
+workaround to achieve the new behaviour:
 
 ```elisp
-(defun face-spec-recalc-new (face frame)
-  "Improved version of `face-spec-recalc'."
-  (while (get face 'face-alias)
-    (setq face (get face 'face-alias)))
-  (face-spec-reset-face face frame)
-  ;; If FACE is customized or themed, set the custom spec from
-  ;; `theme-face' records, which completely replace the defface spec
-  ;; rather than inheriting from it.
-  (let ((theme-faces (get face 'theme-face)))
-    (if theme-faces
-	(dolist (spec (reverse theme-faces))
-	  (face-spec-set-2 face frame (cadr spec)))
-      (face-spec-set-2 face frame (face-default-spec face))))
-  (face-spec-set-2 face frame (get face 'face-override-spec)))
+(when (version< emacs-version "24.3.50")
+  (defun face-spec-recalc-new (face frame)
+    "Improved version of `face-spec-recalc'."
+    (while (get face 'face-alias)
+      (setq face (get face 'face-alias)))
+    (face-spec-reset-face face frame)
+    ;; If FACE is customized or themed, set the custom spec from
+    ;; `theme-face' records, which completely replace the defface spec
+    ;; rather than inheriting from it.
+    (let ((theme-faces (get face 'theme-face)))
+      (if theme-faces
+          (dolist (spec (reverse theme-faces))
+            (face-spec-set-2 face frame (cadr spec)))
+        (face-spec-set-2 face frame (face-default-spec face))))
+    (face-spec-set-2 face frame (get face 'face-override-spec)))
 
-(defadvice face-spec-recalc (around new-recalc (face frame) activate)
-  "Use `face-spec-recalc-new' instead."
-  (face-spec-recalc-new face frame))
+  (defadvice face-spec-recalc (around new-recalc (face frame) activate)
+    "Use `face-spec-recalc-new' instead."
+    (face-spec-recalc-new face frame)))
 ```
 
 That version of `face-spec-recalc` (wrapped with advice) is one of the
