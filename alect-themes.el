@@ -995,6 +995,11 @@ For INVERT, see `alect-get-color'."
          (magit-process-ng                   ((,c :inherit magit-section-title
                                                   :foreground ,(gc 'red))))
 
+         ;; makefile
+         (makefile-shell       ((,c :weight bold)))
+         (makefile-space       ((,c :inherit trailing-whitespace)))
+         (makefile-makepp-perl ((,c :background ,(gc 'bg+1))))
+
          ;; man
          (Man-overstrike ((,c :foreground ,(gc 'cyan+1) :weight bold)))
 
