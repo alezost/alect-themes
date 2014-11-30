@@ -920,7 +920,8 @@ For INVERT, see `alect-get-color'."
 
          ;; ido-mode
          (ido-first-match ((,c :weight bold)))
-         (ido-only-match  ((,c :inherit ido-first-match :foreground ,(gc 'fg+2))))
+         (ido-only-match  ((,c :inherit ido-first-match
+                               :foreground ,(gc 'blue))))
          (ido-subdir      ((,c :inherit dired-directory)))
          (ido-virtual     ((,c :foreground ,(gc 'red-2))))
 
