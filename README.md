@@ -1,3 +1,7 @@
+[![License GPL 3](https://img.shields.io/badge/license-GPL_3-orange.svg)](http://www.gnu.org/licenses/gpl-3.0.txt)
+[![MELPA](http://melpa.org/packages/alect-themes-badge.svg)](http://melpa.org/#/alect-themes)
+[![MELPA Stable](http://stable.melpa.org/packages/alect-themes-badge.svg)](http://stable.melpa.org/#/alect-themes)
+
 ## About
 
 Alect is a package that provides (rather low contrast but colourful
