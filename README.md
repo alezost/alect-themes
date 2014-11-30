@@ -37,8 +37,8 @@ Add this to your init file (`~/.emacs.d/init.el` or `~/.emacs`):
 
 ### MELPA
 
-The package can be installed from [MELPA](http://melpa.milkbox.net).
-(with `M-x package-install` or `M-x list-packages`).
+The package can be installed from [MELPA](http://melpa.org) (with `M-x
+package-install` or `M-x list-packages`).
 
 If you want to enable (see [Usage section](#usage)) **any** theme
 installed with a package system on Emacs start, you should know the
