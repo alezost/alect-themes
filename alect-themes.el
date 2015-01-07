@@ -911,6 +911,9 @@ For INVERT, see `alect-get-color'."
          ;; hl-todo
          (hl-todo ((,c :foreground ,(gc 'red) :weight bold)))
 
+         ;; indent-guide
+         (indent-guide-face ((,c :foreground ,(gc 'yellow+1))))
+
          ;; info
          (info-title-1     ((,c :inherit alect-color-level-1 :height 1.5 :weight bold)))
          (info-title-2     ((,c :inherit alect-color-level-2 :height 1.4 :weight bold)))
