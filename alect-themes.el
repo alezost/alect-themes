@@ -1,6 +1,6 @@
 ;;; alect-themes.el --- Configurable light, dark and black themes for Emacs 24 or later
 
-;; Copyright (C) 2013-2014 Alex Kost
+;; Copyright (C) 2013-2015 Alex Kost
 
 ;; Author: Alex Kost <alezost@gmail.com>
 ;; Created: 10 Jul 2013
@@ -906,7 +906,10 @@ For INVERT, see `alect-get-color'."
          (help-argument-name ((,c :inherit font-lock-variable-name-face)))
 
          ;; hl-line-mode
-         (hl-line       ((,c :background ,(gc 'bg))))
+         (hl-line ((,c :background ,(gc 'bg))))
+
+         ;; hl-todo
+         (hl-todo ((,c :foreground ,(gc 'red) :weight bold)))
 
          ;; info
          (info-title-1     ((,c :inherit alect-color-level-1 :height 1.5 :weight bold)))
