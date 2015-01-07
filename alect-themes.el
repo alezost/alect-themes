@@ -667,6 +667,10 @@ For INVERT, see `alect-get-color'."
          (egg-section-title    ((,c :foreground ,(gc 'red-1))))
          (egg-stash-mono       ((,c :foreground ,(gc 'green))))
 
+         ;; eldoc
+         (eldoc-highlight-function-argument ((,c :foreground ,(gc 'green)
+                                                 :weight bold)))
+
          ;; emms
          (emms-playlist-track-face    ((,c :inherit gnus-summary-normal-unread)))
          (emms-playlist-selected-face ((,c :inherit alect-selected-item)))
