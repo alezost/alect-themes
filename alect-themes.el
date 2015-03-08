@@ -6,7 +6,6 @@
 ;; Created: 10 Jul 2013
 ;; Version: 0.6.2
 ;; Package-Requires: ((emacs "24.0"))
-;; URL: https://gitorious.org/alezost-emacs/alect-themes
 ;; URL: https://github.com/alezost/alect-themes
 ;; Keywords: color theme
 
