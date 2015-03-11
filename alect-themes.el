@@ -1437,7 +1437,7 @@ For INVERT, see `alect-get-color'."
          (wl-highlight-summary-displaying-face             ((,c :underline t :weight bold)))
 
          ;; which-func-mode
-         (which-func ((,c :foreground ,(gc 'green-2))))
+         (which-func ((,c :inherit font-lock-function-name-face)))
 
          ;; whitespace-mode
          (whitespace-space            ((,c :foreground ,(gc 'bg+1))))
