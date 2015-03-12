@@ -766,13 +766,6 @@ For INVERT, see `alect-get-color'."
          (geiser-font-lock-error-link         ((,c :inherit (error link))))
          (geiser-font-lock-autodoc-identifier ((,c :inherit font-lock-keyword-face)))
 
-         ;; git-commit
-         (git-commit-summary-face         ((,c :weight bold)))
-         (git-commit-branch-face          ((,c :inherit magit-branch)))
-         (git-commit-comment-file-face    ((,c :inherit default)))
-         (git-commit-comment-heading-face ((,c :inherit alect-title)))
-         (git-commit-comment-action-face  ((,c :foreground ,(gc 'yellow+1))))
-
          ;; git-gutter
          (git-gutter:added       ((,c :foreground ,(gc 'green) :weight bold :inverse-video t)))
          (git-gutter:deleted     ((,c :foreground ,(gc 'red) :weight bold :inverse-video t)))
@@ -967,14 +960,105 @@ For INVERT, see `alect-get-color'."
          ;; linum-mode
          (linum ((,c :foreground ,(gc 'fg-2))))
 
-         ;; magit
-         (magit-header                       ((,c :inherit alect-title)))  ; delete this face (obsolete since 3 Apr 2014)
+         ;; magit and related git modes
+         (magit-dimmed                      ((,c :inherit shadow)))
+         (magit-section-heading             ((,c :inherit alect-title)))
+         (magit-section-highlight           ((,c :background ,(gc 'bg))))
+         (magit-head                        ((,c :background ,(gc 'bg-2)
+                                                 :foreground ,(gc 'fg+2)
+                                                 :box (:line-width 2 :color ,(gc 'red)))))
+         (magit-refname                     ((,c :box (:line-width 1 :color ,(gc 'fg+1)))))
+         (magit-refname-wip                 ((,c :inherit magit-refname
+                                                 :foreground ,(gc 'red-1))))
+         (magit-refname-stash               ((,c :inherit magit-refname
+                                                 :foreground ,(gc 'magenta-1))))
+         (magit-branch-local                ((,c :inherit magit-refname
+                                                 :foreground ,(gc 'blue))))
+         (magit-branch-current              ((,c :inherit magit-branch-local
+                                                 :box (:line-width 2 :color ,(gc 'red)))))
+         (magit-branch-remote               ((,c :inherit magit-refname
+                                                 :foreground ,(gc 'green+1))))
+         (magit-tag                         ((,c :foreground ,(gc 'yellow-1) :weight bold)))
+         (magit-hash                        ((,c :foreground ,(gc 'yellow+2))))
+         (magit-log-date                    ((,c :inherit alect-time)))
+         (magit-log-author                  ((,c :foreground ,(gc 'magenta-1))))
+         (magit-reflog-checkout             ((,c :inherit magit-branch-local)))
+         (magit-reflog-remote               ((,c :inherit magit-branch-remote)))
+         (magit-reflog-commit               ((,c :foreground ,(gc 'green-1))))
+         (magit-reflog-amend                ((,c :foreground ,(gc 'magenta))))
+         (magit-reflog-merge                ((,c :foreground ,(gc 'blue-2) :weight bold)))
+         (magit-reflog-reset                ((,c :foreground ,(gc 'red) :weight bold)))
+         (magit-reflog-rebase               ((,c :foreground ,(gc 'yellow))))
+         (magit-reflog-cherry-pick          ((,c :foreground ,(gc 'cyan))))
+         (magit-reflog-other                ((,c :inherit magit-branch-local
+                                                 :foreground ,(gc 'fg+1))))
+         (magit-bisect-bad                  ((,c :foreground ,(gc 'red+1)
+                                                 :box (:line-width -1))))
+         (magit-bisect-skip                 ((,c :inherit magit-bisect-bad
+                                                 :foreground ,(gc 'yellow+1))))
+         (magit-bisect-good                 ((,c :inherit magit-bisect-bad
+                                                 :foreground ,(gc 'green+1))))
+         (magit-cherry-unmatched            ((,c :foreground ,(gc 'red+2))))
+         (magit-cherry-equivalent           ((,c :foreground ,(gc 'cyan+2))))
+         (magit-process-ok                  ((,c :inherit magit-section-title
+                                                 :foreground ,(gc 'green))))
+         (magit-process-ng                  ((,c :inherit magit-section-title
+                                                 :foreground ,(gc 'red))))
+         (magit-blame-heading               ((,c :background ,(gc 'bg-2))))
+         (magit-blame-summary               ((,c :inherit magit-blame-heading)))
+         (magit-blame-hash                  ((,c :inherit (magit-hash
+                                                           magit-blame-heading))))
+         (magit-blame-name                  ((,c :inherit (magit-log-author
+                                                           magit-blame-heading))))
+         (magit-blame-date                  ((,c :inherit (magit-log-date
+                                                           magit-blame-heading))))
+         (magit-diff-file-heading           ((,c :foreground ,(gc 'fg+2)
+                                                 :weight bold)))
+         (magit-diff-lines-heading          ((,c :foreground ,(gc 'bg-1)
+                                                 :background ,(gc 'yellow+2))))
+         (magit-diff-conflict-heading       ((,c :inherit magit-diff-hunk-heading
+                                                 :foreground ,(gc 'red+2))))
+         (magit-diff-hunk-heading           ((,c :inherit diff-hunk-header)))
+         (magit-diff-hunk-heading-highlight ((,c :inherit magit-diff-hunk-heading
+                                                 :background ,(gc 'bg-2))))
+         (magit-diff-context                ((,c :foreground ,(gc 'fg-2))))
+         (magit-diff-context-highlight      ((,c :inherit magit-section-highlight)))
+         (magit-diff-added                  ((,c :inherit diff-added)))
+         (magit-diff-added-highlight        ((,c :inherit (magit-diff-added
+                                                           magit-diff-context-highlight))))
+         (magit-diff-removed                ((,c :inherit diff-removed)))
+         (magit-diff-removed-highlight      ((,c :inherit (magit-diff-removed
+                                                           magit-diff-context-highlight))))
+         (magit-diffstat-added              ((,c :inherit magit-diff-added)))
+         (magit-diffstat-removed            ((,c :inherit magit-diff-removed)))
+         (magit-sequence-pick               ((,c :underline (:color ,(gc 'fg-2)))))
+         (magit-sequence-part               ((,c :inherit magit-sequence-pick
+                                                 :foreground ,(gc 'yellow+1))))
+         (magit-sequence-head               ((,c :inherit magit-sequence-pick
+                                                 :foreground ,(gc 'blue-1))))
+         (magit-sequence-drop               ((,c :inherit magit-sequence-pick
+                                                 :foreground ,(gc 'red+1))))
+         (magit-sequence-onto               ((,c :inherit magit-sequence-pick
+                                                 :foreground ,(gc 'magenta+1))))
+         (magit-sequence-stop               ((,c :inherit magit-sequence-pick
+                                                 :foreground ,(gc 'cyan+1))))
+         (magit-sequence-done               ((,c :inherit magit-sequence-pick
+                                                 :foreground ,(gc 'blue+2))))
+         (magit-signature-good              ((,c :foreground ,(gc 'green-1))))
+         (magit-signature-bad               ((,c :foreground ,(gc 'red-1))))
+         (magit-signature-untrusted         ((,c :foreground ,(gc 'cyan-1))))
+         (git-rebase-hash                   ((,c :inherit magit-hash)))
+         (git-commit-summary                ((,c :weight bold)))
+         (git-commit-comment-branch         ((,c :foreground ,(gc 'blue))))
+         (git-commit-comment-file           ((,c :inherit default)))
+         (git-commit-comment-heading        ((,c :inherit alect-title)))
+         (git-commit-comment-action         ((,c :foreground ,(gc 'yellow+1))))
+
+         ;; TODO Delete the following obsolete (since magit 2.1.0) faces.
+         (magit-header                       ((,c :inherit alect-title)))
          (magit-section-title                ((,c :inherit alect-title)))
-         (magit-tag                          ((,c :foreground ,(gc 'yellow-1) :weight bold)))
          (magit-branch                       ((,c :foreground ,(gc 'blue+1) :weight bold)))
-         (magit-log-date                     ((,c :inherit alect-time)))
          (magit-log-sha1                     ((,c :foreground ,(gc 'yellow+2))))
-         (magit-log-author                   ((,c :foreground ,(gc 'magenta-1))))
          (magit-log-head-label-head          ((,c :background ,(gc 'bg-2)
                                                   :foreground ,(gc 'fg+2)
                                                   :box (:line-width 2 :color ,(gc 'red)))))
@@ -998,12 +1082,11 @@ For INVERT, see `alect-get-color'."
          (magit-log-reflog-label-commit      ((,c :foreground ,(gc 'green-1))))
          (magit-log-reflog-label-amend       ((,c :foreground ,(gc 'magenta))))
          (magit-log-reflog-label-merge       ((,c :foreground ,(gc 'blue-2) :weight bold)))
-         (magit-cherry-unmatched             ((,c :foreground ,(gc 'red+2))))
-         (magit-cherry-equivalent            ((,c :foreground ,(gc 'cyan+2))))
-         (magit-process-ok                   ((,c :inherit magit-section-title
-                                                  :foreground ,(gc 'green))))
-         (magit-process-ng                   ((,c :inherit magit-section-title
-                                                  :foreground ,(gc 'red))))
+         (git-commit-summary-face         ((,c :weight bold)))
+         (git-commit-branch-face          ((,c :inherit magit-branch)))
+         (git-commit-comment-file-face    ((,c :inherit default)))
+         (git-commit-comment-heading-face ((,c :inherit alect-title)))
+         (git-commit-comment-action-face  ((,c :foreground ,(gc 'yellow+1))))
 
          ;; makefile
          (makefile-shell       ((,c :weight bold)))
