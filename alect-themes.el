@@ -1487,6 +1487,17 @@ For INVERT, see `alect-get-color'."
          (term-default-fg-color  ((,c :inherit term-color-white)))
          (term-default-bg-color  ((,c :inherit term-color-black)))
 
+         ;; vc
+         (vc-up-to-date-state    ((,c :foreground ,(gc 'green-1))))
+         (vc-edited-state        ((,c :foreground ,(gc 'yellow+1))))
+         (vc-missing-state       ((,c :foreground ,(gc 'red))))
+         (vc-conflict-state      ((,c :foreground ,(gc 'red+2)
+                                      :weight bold)))
+         (vc-locked-state        ((,c :foreground ,(gc 'cyan-1))))
+         (vc-locally-added-state ((,c :foreground ,(gc 'blue))))
+         (vc-needs-update-state  ((,c :foreground ,(gc 'magenta))))
+         (vc-removed-state       ((,c :foreground ,(gc 'red-1))))
+
          ;; volatile-highlights
          (vhl/default-face ((,c :background ,(gc 'bg-2))))
 
