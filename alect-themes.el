@@ -400,6 +400,7 @@ For INVERT, see `alect-get-color'."
                                    :background ,(gc 'bg-2)
                                    :height ,alect-header-height)))
          (tool-bar            ((,c :inherit mode-line)))
+         (scroll-bar          ((,c :background ,(gc 'bg+2))))
          (tooltip             ((,c :inherit variable-pitch
                                    :foreground ,(gc 'cyan+2)
                                    :background ,(gc 'bg-2))))
