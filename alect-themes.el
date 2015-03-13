@@ -1370,6 +1370,29 @@ For INVERT, see `alect-get-color'."
          (rst-adornment ((,c :foreground ,(gc 'fg+2))))
          (rst-literal   ((,c :foreground ,(gc 'cyan+1))))
 
+         ;; ruler-mode
+         (ruler-mode-default        ((,c :inherit alect-tab-unselected
+                                         :height 1.0)))
+         (ruler-mode-pad            ((,c :inherit ruler-mode-default)))
+         (ruler-mode-column-number  ((,c :inherit ruler-mode-default
+                                         :foreground ,(gc 'fg+1))))
+         (ruler-mode-current-column ((,c :inherit ruler-mode-default
+                                         :background ,(gc 'cursor)
+                                         :foreground ,(gc 'cursor))))
+         (ruler-mode-comment-column ((,c :inherit (font-lock-comment-face
+                                                   ruler-mode-default))))
+         (ruler-mode-fill-column    ((,c :inherit ruler-mode-default
+                                         :foreground ,(gc 'red)
+                                         :weight bold)))
+         (ruler-mode-goal-column    ((,c :inherit ruler-mode-default
+                                         :foreground ,(gc 'red-1))))
+         (ruler-mode-tab-stop       ((,c :inherit ruler-mode-default
+                                         :foreground ,(gc 'blue-2))))
+         (ruler-mode-fringes        ((,c :inherit ruler-mode-default
+                                         :foreground ,(gc 'green))))
+         (ruler-mode-margins        ((,c :inherit ruler-mode-default
+                                         :foreground ,(gc 'magenta))))
+
          ;; sauron
          (sauron-timestamp-face  ((,c :inherit alect-time)))
          (sauron-message-face    ((,c :inherit font-lock-doc-face)))
