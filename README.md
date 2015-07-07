@@ -11,6 +11,7 @@ Emacs 24 or later.  The themes are intended to be used with GUI (see
 
 ## Table of Contents
 
+* [Supported modes](#supported-modes)
 * [Installation](#installation)
   * [Manual](#manual)
   * [MELPA](#melpa)
@@ -26,7 +27,61 @@ Emacs 24 or later.  The themes are intended to be used with GUI (see
   * [Emacs bug in themed variables](#emacs-bug-in-themed-variables)
 * [Screenshots](#screenshots)
 * [History](#history)
-* [Feedback](#feedback)
+* [Contributors](#contributors)
+
+## Supported modes
+
+Along with the general basic faces, the following modes and packages are
+supported (themed):
+
+- Built-in packages (part of Emacs):
+  + isearch
+  + ido
+  + help, apropos, info, man
+  + mode-line (including vc faces)
+  + calendar, diary
+  + comint, eshell, term
+  + compilation
+  + widget, customization
+  + diff, ediff
+  + dired
+  + erc
+  + epa
+  + ert
+  + [Org](http://orgmode.org/)
+  + message
+  + gnus (also see a note about Gnus [here](#other-variables))
+  + flyspell
+  + makefile
+  + ruler
+  + whitespace
+  + linum
+  + show-paren
+- [aurel](https:/github.com/alezost/aurel)
+- [auto-complete](https:/github.com/auto-complete/auto-complete)
+- [company](http://company-mode.github.io/)
+- [dictem](https:/github.com/cheusov/dictem)
+- [EMMS](https://www.gnu.org/software/emms/)
+- [Geiser](https:/github.com/jaor/geiser)
+- [google-translate](https:/github.com/atykhonov/google-translate)
+- [GNU Guix](https://www.gnu.org/software/guix/) (Emacs interface is a
+  part of Guix)
+- [Helm](https://emacs-helm.github.io/helm/) (partial support)
+- [indent-guide](https:/github.com/zk-phi/indent-guide)
+- [Magit](http://magit.vc/) (including version 2.1.0)
+- [markdown](http://jblevins.org/projects/markdown-mode/)
+- [sauron](https:/github.com/djcb/sauron)
+- [slime](https://common-lisp.net/project/slime/)
+- [sunrise-commander](https:/github.com/escherdragon/sunrise-commander)
+- [syslog](https:/github.com/vapniks/syslog-mode)
+- [tabbar](https:/github.com/dholm/tabbar)
+- [w3m](http://emacs-w3m.namazu.org/)
+
+The other packages are not supported yet even if there are some
+customized faces (these faces left from [other themes](#history)).  So
+if you see some ugly faces or if you would like some mode to be
+supported, you may mail me or
+[open an issue](https://github.com/alezost/alect-themes/issues/new).
 
 ## Installation
 
@@ -188,7 +243,7 @@ themes.
 
 ### Alternative themes
 
-Along with 2 original light and dark themes, the package provides 2
+Along with 3 original light, dark and black themes, the package provides
 inverted (alternative) themes (`alect-light-alt` and `alect-dark-alt`).
 They use the same color palettes, so they look very similar to the
 original ones.  The difference (by default) is that dark and bright
@@ -391,8 +446,9 @@ different colors and the same code base came from solarized-theme.
 The code of solarized and zenburn themes was used hardly.  Many thanks
 to their authors.
 
-## Feedback
+## Contributors
 
-If you want this package to support more faces, you may send me a
-letter about your favourite unsupported modes.
+The following people helped to improve the themes:
 
+- Davor Rotim
+- Thomas S. Dye
