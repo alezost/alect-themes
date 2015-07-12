@@ -383,17 +383,22 @@ For INVERT, see `alect-get-color'."
                                    :underline t)))
          (match               ((,c :background ,(gc 'green+1)
                                    :foreground ,(gc 'gray-2))))
-         (escape-glyph        ((,c :foreground ,(gc 'yellow) :weight bold)))
+         (escape-glyph        ((,c :foreground ,(gc 'yellow)
+                                   :weight bold)))
          (fringe              ((,c :foreground ,(gc 'gray)
                                    :background ,(gc 'bg-2))))
          (header-line         ((,c :foreground ,(gc 'fg+2)
                                    :height ,alect-header-height
-                                   :box (:line-width 1 :color ,(gc 'fg+2) :style nil))))
+                                   :box (:line-width 1
+                                         :color ,(gc 'fg+2)
+                                         :style nil))))
          (highlight           ((,c :foreground ,(gc 'gray+2)
                                    :background ,(gc 'gray-2))))
          (shadow              ((,c :foreground ,(gc 'gray))))
-         (success             ((,c :foreground ,(gc 'green) :weight bold)))
-         (error               ((,c :foreground ,(gc 'red) :weight bold)))
+         (success             ((,c :foreground ,(gc 'green)
+                                   :weight bold)))
+         (error               ((,c :foreground ,(gc 'red)
+                                   :weight bold)))
          (warning             ((,c :foreground ,(gc 'yellow-1))))
          (region              ((,c :background ,(gc 'bg+2))))
          (menu                ((,c :foreground ,(gc 'fg+2)
@@ -413,7 +418,8 @@ For INVERT, see `alect-get-color'."
          (window-divider-last-pixel  ((,c :inherit window-divider-first-pixel)))
 
          ;; auxiliary faces for inheriting
-         (alect-prompt         ((,c :foreground ,(gc 'magenta-1) :weight bold)))
+         (alect-prompt         ((,c :foreground ,(gc 'magenta-1)
+                                    :weight bold)))
          (alect-time           ((,c :foreground ,(gc 'cyan-2))))
          (alect-selected-item  ((,c :background ,(gc 'bg)
                                     :box (:line-width -1
@@ -453,16 +459,20 @@ For INVERT, see `alect-get-color'."
 
          (alect-button         ((,c :foreground ,(gc 'fg+2)
                                     :background ,(gc 'bg+2)
-                                    :box (:line-width 2 :style released-button))))
+                                    :box (:line-width 2
+                                          :style released-button))))
          (alect-button-pressed ((,c :inherit alect-button
-                                    :box (:line-width 2 :style pressed-button))))
+                                    :box (:line-width 2
+                                          :style pressed-button))))
          (alect-button-mouse   ((,c :inherit highlight
-                                    :box (:line-width 2 :style released-button))))
+                                    :box (:line-width 2
+                                          :style released-button))))
          (alect-tab-default    ((,c :height 0.9 :box nil)))
          (alect-tab-unselected ((,c :inherit alect-tab-default
                                     :foreground ,(gc 'fg-2)
                                     :background ,(gc 'bg)
-                                    :box (:line-width 1 :style released-button))))
+                                    :box (:line-width 1
+                                          :style released-button))))
          (alect-tab-selected   ((,c :inherit alect-tab-unselected
                                     :foreground ,(gc 'fg+2)
                                     :background ,(gc 'bg+1))))
@@ -486,20 +496,24 @@ For INVERT, see `alect-get-color'."
 
          ;; android mode
          (android-mode-debug-face    ((,c :foreground ,(gc 'green+1))))
-         (android-mode-error-face    ((,c :foreground ,(gc 'fg-2) :weight bold)))
+         (android-mode-error-face    ((,c :foreground ,(gc 'fg-2)
+                                          :weight bold)))
          (android-mode-info-face     ((,c :foreground ,(gc 'fg+1))))
          (android-mode-verbose-face  ((,c :foreground ,(gc 'green))))
          (android-mode-warning-face  ((,c :foreground ,(gc 'yellow))))
 
          ;; apropos
          (apropos-keybinding      ((,c :foreground ,(gc 'yellow))))
-         (apropos-symbol          ((,c :foreground ,(gc 'green+1) :weight bold)))
+         (apropos-symbol          ((,c :foreground ,(gc 'green+1)
+                                       :weight bold)))
 
          ;; auctex
          (font-latex-bold     ((,c :inherit bold)))
          (font-latex-warning  ((,c :inherit font-lock-warning-face)))
-         (font-latex-sedate   ((,c :foreground ,(gc 'yellow) :weight bold )))
-         (font-latex-title-4  ((,c :inherit variable-pitch :weight bold)))
+         (font-latex-sedate   ((,c :foreground ,(gc 'yellow)
+                                   :weight bold )))
+         (font-latex-title-4  ((,c :inherit variable-pitch
+                                   :weight bold)))
 
          ;; aurel
          (aurel-info-id           ((,c :foreground ,(gc 'fg+2))))
@@ -516,7 +530,8 @@ For INVERT, see `alect-get-color'."
          (aurel-info-depends-opt  ((,c :foreground ,(gc 'fg-2))))
          (aurel-info-required     ((,c :foreground ,(gc 'fg))))
          (aurel-info-optional-for ((,c :foreground ,(gc 'fg-2))))
-         (aurel-info-voted        ((,c :foreground ,(gc 'green) :weight bold)))
+         (aurel-info-voted        ((,c :foreground ,(gc 'green)
+                                       :weight bold)))
 
          ;; auto-complete
          (ac-candidate-face       ((,c :foreground ,(gc 'gray+2)
@@ -537,7 +552,9 @@ For INVERT, see `alect-get-color'."
                                          :foreground ,(gc 'bg-1))))
 
          ;; calendar, diary
-         (calendar-today    ((,c :box (:line-width -1 :color ,(gc 'red) :style nil))))
+         (calendar-today    ((,c :box (:line-width -1
+                                       :color ,(gc 'red)
+                                       :style nil))))
          (diary             ((,c :foreground ,(gc 'green+2) :weight bold)))
          (diary-anniversary ((,c :foreground ,(gc 'red))))
          (diary-time        ((,c :inherit alect-time)))
@@ -568,7 +585,8 @@ For INVERT, see `alect-get-color'."
          (company-tooltip-common-selection  ((,c :inherit company-tooltip-selection
                                                  :foreground ,(gc 'fg+1))))
          (company-preview                   ((,c :foreground ,(gc 'fg-1))))
-         (company-preview-common            ((,c :inherit company-preview :underline t)))
+         (company-preview-common            ((,c :inherit company-preview
+                                                 :underline t)))
          (company-scrollbar-fg              ((,c :background ,(gc 'gray+1))))
          (company-scrollbar-bg              ((,c :background ,(gc 'gray))))
 
@@ -600,7 +618,8 @@ For INVERT, see `alect-get-color'."
          (custom-button-pressed          ((,c :inherit alect-button-pressed)))
          (custom-button-mouse            ((,c :inherit alect-button-mouse)))
          (custom-button-unraised         ((,c :inherit alect-button :box nil)))
-         (custom-button-pressed-unraised ((,c :inherit custom-button-unraised :underline t)))
+         (custom-button-pressed-unraised ((,c :inherit custom-button-unraised
+                                              :underline t)))
          (custom-documentation           ((,c :inherit font-lock-doc-face)))
          (custom-comment                 ((,c :foreground ,(gc 'gray))))
          (custom-tag                     ((,c :foreground ,(gc 'blue+2))))
@@ -609,8 +628,10 @@ For INVERT, see `alect-get-color'."
          (custom-group-tag               ((,c :inherit alect-title-1)))
          (custom-group-tag-1             ((,c :inherit alect-title-2)))
          (custom-group-subtitle          ((,c :inherit alect-title-3)))
-         (custom-face-tag                ((,c :foreground ,(gc 'magenta+1) :weight bold)))
-         (custom-variable-tag            ((,c :inherit font-lock-variable-name-face :weight bold)))
+         (custom-face-tag                ((,c :foreground ,(gc 'magenta+1)
+                                              :weight bold)))
+         (custom-variable-tag            ((,c :inherit font-lock-variable-name-face
+                                              :weight bold)))
          (custom-variable-button         ((,c :weight bold :underline t)))
          (custom-visibility              ((,c :inherit link :height 0.8)))
 
@@ -633,11 +654,16 @@ For INVERT, see `alect-get-color'."
          (diff-refine-change     ((,c :inherit diff-changed :slant italic)))
          (diff-refine-removed    ((,c :inherit diff-removed :slant italic)))
          (diff-header            ((,c :foreground ,(gc 'blue-2) :weight bold)))
-         (diff-hunk-header       ((,c :inherit diff-header :foreground ,(gc 'green+2))))
-         (diff-file-header       ((,c :inherit diff-header :foreground ,(gc 'cyan-1))))
-         (diff-function          ((,c :inherit diff-header :foreground ,(gc 'blue))))
-         (diff-index             ((,c :inherit diff-header :foreground ,(gc 'red-1))))
-         (diff-nonexistent       ((,c :inherit diff-header :foreground ,(gc 'gray))))
+         (diff-hunk-header       ((,c :inherit diff-header
+                                      :foreground ,(gc 'green+2))))
+         (diff-file-header       ((,c :inherit diff-header
+                                      :foreground ,(gc 'cyan-1))))
+         (diff-function          ((,c :inherit diff-header
+                                      :foreground ,(gc 'blue))))
+         (diff-index             ((,c :inherit diff-header
+                                      :foreground ,(gc 'red-1))))
+         (diff-nonexistent       ((,c :inherit diff-header
+                                      :foreground ,(gc 'gray))))
 
          ;; dired
          (dired-directory  ((,c :inherit font-lock-function-name-face)))
@@ -689,7 +715,8 @@ For INVERT, see `alect-get-color'."
          (erc-current-nick-face    ((,c :foreground ,(gc 'blue) :weight bold)))
          (erc-dangerous-host-face  ((,c :inherit font-lock-warning-face)))
          (erc-default-face         ((,c :foreground ,(gc 'fg+1))))
-         (erc-direct-msg-face      ((,c :inherit erc-default-face :foreground ,(gc 'red-2))))
+         (erc-direct-msg-face      ((,c :inherit erc-default-face
+                                        :foreground ,(gc 'red-2))))
          (erc-action-face          ((,c :inherit erc-bold-face)))
          (erc-error-face           ((,c :inherit error)))
          (erc-fool-face            ((,c :foreground ,(gc 'blue-2))))
@@ -733,12 +760,20 @@ For INVERT, see `alect-get-color'."
          (eshell-ls-symlink     ((,c :inherit dired-symlink)))
 
          ;; flycheck
-         (flycheck-error-face    ((,c :foreground ,(gc 'red-1) :weight bold :underline t)))
-         (flycheck-warning-face  ((,c :foreground ,(gc 'fg-2) :weight bold :underline t)))
+         (flycheck-error-face    ((,c :foreground ,(gc 'red-1)
+                                      :weight bold
+                                      :underline t)))
+         (flycheck-warning-face  ((,c :foreground ,(gc 'fg-2)
+                                      :weight bold
+                                      :underline t)))
 
          ;; flymake
-         (flymake-errline        ((,c :foreground ,(gc 'red-1) :weight bold :underline t)))
-         (flymake-warnline       ((,c :foreground ,(gc 'fg-2) :weight bold :underline t)))
+         (flymake-errline        ((,c :foreground ,(gc 'red-1)
+                                      :weight bold
+                                      :underline t)))
+         (flymake-warnline       ((,c :foreground ,(gc 'fg-2)
+                                      :weight bold
+                                      :underline t)))
 
          ;; flyspell
          (flyspell-duplicate     ((,c :foreground ,(gc 'gray)
@@ -751,15 +786,18 @@ For INVERT, see `alect-get-color'."
          (font-lock-comment-face           ((,c :foreground ,(gc 'green+1))))
          (font-lock-comment-delimiter-face ((,c :inherit font-lock-comment-face)))
          (font-lock-constant-face          ((,c :foreground ,(gc 'cyan-1))))
-         (font-lock-doc-face               ((,c :foreground ,(gc 'fg-1) :slant italic)))
+         (font-lock-doc-face               ((,c :foreground ,(gc 'fg-1)
+                                                :slant italic)))
          (font-lock-function-name-face     ((,c :foreground ,(gc 'blue-1))))
-         (font-lock-keyword-face           ((,c :foreground ,(gc 'blue+1) :weight bold)))
+         (font-lock-keyword-face           ((,c :foreground ,(gc 'blue+1)
+                                                :weight bold)))
          (font-lock-negation-char-face     ((,c :foreground ,(gc 'blue))))
          (font-lock-preprocessor-face      ((,c :foreground ,(gc 'green-1))))
          (font-lock-string-face            ((,c :foreground ,(gc 'red-2))))
          (font-lock-type-face              ((,c :foreground ,(gc 'magenta+1))))
          (font-lock-variable-name-face     ((,c :foreground ,(gc 'yellow+2))))
-         (font-lock-warning-face           ((,c :foreground ,(gc 'red) :weight bold)))
+         (font-lock-warning-face           ((,c :foreground ,(gc 'red)
+                                                :weight bold)))
          (font-lock-regexp-grouping-backslash ((,c :foreground ,(gc 'red+2))))
          (font-lock-regexp-grouping-construct ((,c :foreground ,(gc 'yellow-1))))
 
@@ -773,13 +811,20 @@ For INVERT, see `alect-get-color'."
          (geiser-font-lock-autodoc-identifier ((,c :inherit font-lock-keyword-face)))
 
          ;; git-gutter
-         (git-gutter:added       ((,c :foreground ,(gc 'green) :weight bold :inverse-video t)))
-         (git-gutter:deleted     ((,c :foreground ,(gc 'red) :weight bold :inverse-video t)))
-         (git-gutter:modified    ((,c :foreground ,(gc 'magenta) :weight bold :inverse-video t)))
-         (git-gutter:unchanged   ((,c :foreground ,(gc 'fg+1) :weight bold :inverse-video t)))
-         (git-gutter-fr:added    ((,c :foreground ,(gc 'green)  :weight bold)))
-         (git-gutter-fr:deleted  ((,c :foreground ,(gc 'red) :weight bold)))
-         (git-gutter-fr:modified ((,c :foreground ,(gc 'magenta) :weight bold)))
+         (git-gutter:added       ((,c :foreground ,(gc 'green)
+                                      :weight bold :inverse-video t)))
+         (git-gutter:deleted     ((,c :foreground ,(gc 'red)
+                                      :weight bold :inverse-video t)))
+         (git-gutter:modified    ((,c :foreground ,(gc 'magenta)
+                                      :weight bold :inverse-video t)))
+         (git-gutter:unchanged   ((,c :foreground ,(gc 'fg+1)
+                                      :weight bold :inverse-video t)))
+         (git-gutter-fr:added    ((,c :foreground ,(gc 'green)
+                                      :weight bold)))
+         (git-gutter-fr:deleted  ((,c :foreground ,(gc 'red)
+                                      :weight bold)))
+         (git-gutter-fr:modified ((,c :foreground ,(gc 'magenta)
+                                      :weight bold)))
 
          ;; gnus
          (gnus-group-news-1-empty      ((,c :inherit alect-color-level-1)))
@@ -789,21 +834,36 @@ For INVERT, see `alect-get-color'."
          (gnus-group-news-5-empty      ((,c :inherit alect-color-level-5)))
          (gnus-group-news-6-empty      ((,c :inherit alect-color-level-6)))
          (gnus-group-news-low-empty    ((,c :inherit alect-color-level-7)))
-         (gnus-group-news-1            ((,c :inherit gnus-group-news-1-empty :weight bold)))
-         (gnus-group-news-2            ((,c :inherit gnus-group-news-2-empty :weight bold)))
-         (gnus-group-news-3            ((,c :inherit gnus-group-news-3-empty :weight bold)))
-         (gnus-group-news-4            ((,c :inherit gnus-group-news-4-empty :weight bold)))
-         (gnus-group-news-5            ((,c :inherit gnus-group-news-5-empty :weight bold)))
-         (gnus-group-news-6            ((,c :inherit gnus-group-news-6-empty :weight bold)))
-         (gnus-group-news-low          ((,c :inherit gnus-group-news-low-empty :weight bold)))
-         (gnus-group-mail-1-empty      ((,c :inherit gnus-group-news-1-empty :slant italic)))
-         (gnus-group-mail-2-empty      ((,c :inherit gnus-group-news-2-empty :slant italic)))
-         (gnus-group-mail-3-empty      ((,c :inherit gnus-group-news-3-empty :slant italic)))
-         (gnus-group-mail-low-empty    ((,c :inherit gnus-group-news-low-empty :slant italic)))
-         (gnus-group-mail-1            ((,c :inherit gnus-group-news-1 :slant italic)))
-         (gnus-group-mail-2            ((,c :inherit gnus-group-news-2 :slant italic)))
-         (gnus-group-mail-3            ((,c :inherit gnus-group-news-3 :slant italic)))
-         (gnus-group-mail-low          ((,c :inherit gnus-group-news-low :slant italic)))
+         (gnus-group-news-1            ((,c :inherit gnus-group-news-1-empty
+                                            :weight bold)))
+         (gnus-group-news-2            ((,c :inherit gnus-group-news-2-empty
+                                            :weight bold)))
+         (gnus-group-news-3            ((,c :inherit gnus-group-news-3-empty
+                                            :weight bold)))
+         (gnus-group-news-4            ((,c :inherit gnus-group-news-4-empty
+                                            :weight bold)))
+         (gnus-group-news-5            ((,c :inherit gnus-group-news-5-empty
+                                            :weight bold)))
+         (gnus-group-news-6            ((,c :inherit gnus-group-news-6-empty
+                                            :weight bold)))
+         (gnus-group-news-low          ((,c :inherit gnus-group-news-low-empty
+                                            :weight bold)))
+         (gnus-group-mail-1-empty      ((,c :inherit gnus-group-news-1-empty
+                                            :slant italic)))
+         (gnus-group-mail-2-empty      ((,c :inherit gnus-group-news-2-empty
+                                            :slant italic)))
+         (gnus-group-mail-3-empty      ((,c :inherit gnus-group-news-3-empty
+                                            :slant italic)))
+         (gnus-group-mail-low-empty    ((,c :inherit gnus-group-news-low-empty
+                                            :slant italic)))
+         (gnus-group-mail-1            ((,c :inherit gnus-group-news-1
+                                            :slant italic)))
+         (gnus-group-mail-2            ((,c :inherit gnus-group-news-2
+                                            :slant italic)))
+         (gnus-group-mail-3            ((,c :inherit gnus-group-news-3
+                                            :slant italic)))
+         (gnus-group-mail-low          ((,c :inherit gnus-group-news-low
+                                            :slant italic)))
 
          (gnus-header-content          ((,c :inherit message-header-other)))
          (gnus-header-from             ((,c :foreground ,(gc 'red-1))))
@@ -820,10 +880,14 @@ For INVERT, see `alect-get-color'."
          (gnus-summary-normal-read     ((,c :foreground ,(gc 'green))))
          (gnus-summary-normal-ticked   ((,c :foreground ,(gc 'red))))
          (gnus-summary-normal-unread   ((,c :foreground ,(gc 'fg+1))))
-         (gnus-summary-high-ancient    ((,c :inherit gnus-summary-normal-ancient :weight bold)))
-         (gnus-summary-high-read       ((,c :inherit gnus-summary-normal-read    :weight bold)))
-         (gnus-summary-high-ticked     ((,c :inherit gnus-summary-normal-ticked  :weight bold)))
-         (gnus-summary-high-unread     ((,c :inherit gnus-summary-normal-unread  :weight bold)))
+         (gnus-summary-high-ancient    ((,c :inherit gnus-summary-normal-ancient
+                                            :weight bold)))
+         (gnus-summary-high-read       ((,c :inherit gnus-summary-normal-read
+                                            :weight bold)))
+         (gnus-summary-high-ticked     ((,c :inherit gnus-summary-normal-ticked
+                                            :weight bold)))
+         (gnus-summary-high-unread     ((,c :inherit gnus-summary-normal-unread
+                                            :weight bold)))
          (gnus-summary-selected        ((,c :inherit alect-selected-item)))
          (gnus-cite-1                  ((,c :inherit alect-color-level-1)))
          (gnus-cite-2                  ((,c :inherit alect-color-level-2)))
@@ -864,7 +928,8 @@ For INVERT, see `alect-get-color'."
          (guix-info-action-button               ((,c :inherit alect-button)))
          (guix-info-action-button-mouse         ((,c :inherit alect-button-mouse)))
          (guix-info-url                         ((,c :inherit link)))
-         (guix-info-file-path                   ((,c :foreground ,(gc 'green+1) :underline t)))
+         (guix-info-file-path                   ((,c :foreground ,(gc 'green+1)
+                                                     :underline t)))
          (guix-package-info-heading             ((,c :inherit alect-title)))
          (guix-package-info-name                ((,c :inherit alect-title)))
          (guix-package-info-name-button         ((,c :inherit guix-package-info-name)))
@@ -872,11 +937,16 @@ For INVERT, see `alect-get-color'."
          (guix-package-info-synopsis            ((,c :inherit font-lock-doc-face)))
          (guix-package-info-license             ((,c :foreground ,(gc 'red-1))))
          (guix-package-info-location            ((,c :inherit guix-info-file-path)))
-         (guix-package-info-uninstalled-outputs ((,c :foreground ,(gc 'fg+2) :weight bold)))
-         (guix-package-info-installed-outputs   ((,c :foreground ,(gc 'green-1) :weight bold)))
-         (guix-package-info-inputs              ((,c :foreground ,(gc 'fg) :weight bold)))
-         (guix-package-info-native-inputs       ((,c :foreground ,(gc 'fg-1) :weight bold)))
-         (guix-package-info-propagated-inputs   ((,c :foreground ,(gc 'fg) :weight bold)))
+         (guix-package-info-uninstalled-outputs ((,c :foreground ,(gc 'fg+2)
+                                                     :weight bold)))
+         (guix-package-info-installed-outputs   ((,c :foreground ,(gc 'green-1)
+                                                     :weight bold)))
+         (guix-package-info-inputs              ((,c :foreground ,(gc 'fg)
+                                                     :weight bold)))
+         (guix-package-info-native-inputs       ((,c :foreground ,(gc 'fg-1)
+                                                     :weight bold)))
+         (guix-package-info-propagated-inputs   ((,c :foreground ,(gc 'fg)
+                                                     :weight bold)))
          (guix-generation-info-number           ((,c :inherit alect-title)))
 
          ;; helm
@@ -917,11 +987,16 @@ For INVERT, see `alect-get-color'."
          (indent-guide-face ((,c :foreground ,(gc 'yellow+1))))
 
          ;; info
-         (info-title-1     ((,c :inherit alect-color-level-1 :height 1.5 :weight bold)))
-         (info-title-2     ((,c :inherit alect-color-level-2 :height 1.4 :weight bold)))
-         (info-title-3     ((,c :inherit alect-color-level-3 :height 1.3 :weight bold)))
-         (info-title-4     ((,c :inherit alect-color-level-4 :height 1.2 :weight bold)))
-         (info-menu-header ((,c :inherit alect-color-level-5 :height 1.1 :weight bold)))
+         (info-title-1     ((,c :inherit alect-color-level-1
+                                :height 1.5 :weight bold)))
+         (info-title-2     ((,c :inherit alect-color-level-2
+                                :height 1.4 :weight bold)))
+         (info-title-3     ((,c :inherit alect-color-level-3
+                                :height 1.3 :weight bold)))
+         (info-title-4     ((,c :inherit alect-color-level-4
+                                :height 1.2 :weight bold)))
+         (info-menu-header ((,c :inherit alect-color-level-5
+                                :height 1.1 :weight bold)))
          (info-node        ((,c :foreground ,(gc 'red+1))))
          (info-menu-star   ((,c :foreground ,(gc 'red))))
          (Info-quoted      ((,c :foreground ,(gc 'fg+2) :weight bold)))
@@ -972,8 +1047,10 @@ For INVERT, see `alect-get-color'."
          (magit-section-highlight           ((,c :background ,(gc 'bg))))
          (magit-head                        ((,c :background ,(gc 'bg-2)
                                                  :foreground ,(gc 'fg+2)
-                                                 :box (:line-width 2 :color ,(gc 'red)))))
-         (magit-refname                     ((,c :box (:line-width 1 :color ,(gc 'fg+1)))))
+                                                 :box (:line-width 2
+                                                       :color ,(gc 'red)))))
+         (magit-refname                     ((,c :box (:line-width 1
+                                                       :color ,(gc 'fg+1)))))
          (magit-refname-wip                 ((,c :inherit magit-refname
                                                  :foreground ,(gc 'red-1))))
          (magit-refname-stash               ((,c :inherit magit-refname
@@ -981,10 +1058,12 @@ For INVERT, see `alect-get-color'."
          (magit-branch-local                ((,c :inherit magit-refname
                                                  :foreground ,(gc 'blue))))
          (magit-branch-current              ((,c :inherit magit-branch-local
-                                                 :box (:line-width 2 :color ,(gc 'red)))))
+                                                 :box (:line-width 2
+                                                       :color ,(gc 'red)))))
          (magit-branch-remote               ((,c :inherit magit-refname
                                                  :foreground ,(gc 'green+1))))
-         (magit-tag                         ((,c :foreground ,(gc 'yellow-1) :weight bold)))
+         (magit-tag                         ((,c :foreground ,(gc 'yellow-1)
+                                                 :weight bold)))
          (magit-hash                        ((,c :foreground ,(gc 'yellow+2))))
          (magit-log-date                    ((,c :inherit alect-time)))
          (magit-log-author                  ((,c :foreground ,(gc 'magenta-1))))
@@ -992,8 +1071,10 @@ For INVERT, see `alect-get-color'."
          (magit-reflog-remote               ((,c :inherit magit-branch-remote)))
          (magit-reflog-commit               ((,c :foreground ,(gc 'green-1))))
          (magit-reflog-amend                ((,c :foreground ,(gc 'magenta))))
-         (magit-reflog-merge                ((,c :foreground ,(gc 'blue-2) :weight bold)))
-         (magit-reflog-reset                ((,c :foreground ,(gc 'red) :weight bold)))
+         (magit-reflog-merge                ((,c :foreground ,(gc 'blue-2)
+                                                 :weight bold)))
+         (magit-reflog-reset                ((,c :foreground ,(gc 'red)
+                                                 :weight bold)))
          (magit-reflog-rebase               ((,c :foreground ,(gc 'yellow))))
          (magit-reflog-cherry-pick          ((,c :foreground ,(gc 'cyan))))
          (magit-reflog-other                ((,c :inherit magit-branch-local
@@ -1110,8 +1191,10 @@ For INVERT, see `alect-get-color'."
          (markdown-header-face-4         ((,c :inherit alect-title-4)))
          (markdown-header-face-5         ((,c :inherit alect-title-5)))
          (markdown-header-face-6         ((,c :inherit alect-title-6)))
-         (markdown-header-rule-face      ((,c :inherit markdown-header-face :foreground ,(gc 'fg))))
-         (markdown-header-delimiter-face ((,c :inherit markdown-header-face :foreground ,(gc 'fg+2))))
+         (markdown-header-rule-face      ((,c :inherit markdown-header-face
+                                              :foreground ,(gc 'fg))))
+         (markdown-header-delimiter-face ((,c :inherit markdown-header-face
+                                              :foreground ,(gc 'fg+2))))
          (markdown-footnote-face         ((,c :foreground ,(gc 'blue+2))))
          (markdown-inline-code-face      ((,c :foreground ,(gc 'cyan+1))))
          (markdown-comment-face          ((,c :inherit font-lock-comment-face)))
@@ -1133,14 +1216,16 @@ For INVERT, see `alect-get-color'."
          ;; message-mode
          (message-cited-text        ((,c :inherit font-lock-comment-face)))
          (message-separator         ((,c :inherit font-lock-comment-face)))
-         (message-header-name       ((,c :foreground ,(gc 'yellow+1) :weight bold)))
+         (message-header-name       ((,c :foreground ,(gc 'yellow+1)
+                                         :weight bold)))
          (message-header-other      ((,c :foreground ,(gc 'fg))))
          (message-header-to         ((,c :foreground ,(gc 'blue))))
          (message-header-cc         ((,c :foreground ,(gc 'blue-1))))
          (message-header-newsgroups ((,c :foreground ,(gc 'yellow+2))))
          (message-header-subject    ((,c :inherit alect-title)))
          (message-header-xheader    ((,c :foreground ,(gc 'green-1))))
-         (message-mml               ((,c :foreground ,(gc 'cyan-2) :weight bold)))
+         (message-mml               ((,c :foreground ,(gc 'cyan-2)
+                                         :weight bold)))
 
          ;; mew
          (mew-face-header-subject    ((,c :foreground ,(gc 'fg-2))))
@@ -1150,12 +1235,14 @@ For INVERT, see `alect-get-color'."
          (mew-face-header-key        ((,c :foreground ,(gc 'green))))
          (mew-face-header-private    ((,c :foreground ,(gc 'green))))
          (mew-face-header-important  ((,c :foreground ,(gc 'blue))))
-         (mew-face-header-marginal   ((,c :foreground ,(gc 'fg+1) :weight bold)))
+         (mew-face-header-marginal   ((,c :foreground ,(gc 'fg+1)
+                                          :weight bold)))
          (mew-face-header-warning    ((,c :foreground ,(gc 'red))))
          (mew-face-header-xmew       ((,c :foreground ,(gc 'green))))
          (mew-face-header-xmew-bad   ((,c :foreground ,(gc 'red))))
          (mew-face-body-url          ((,c :foreground ,(gc 'fg-2))))
-         (mew-face-body-comment      ((,c :foreground ,(gc 'fg+1) :slant italic)))
+         (mew-face-body-comment      ((,c :foreground ,(gc 'fg+1)
+                                          :slant italic)))
          (mew-face-body-cite1        ((,c :foreground ,(gc 'green))))
          (mew-face-body-cite2        ((,c :foreground ,(gc 'blue))))
          (mew-face-body-cite3        ((,c :foreground ,(gc 'fg-2))))
@@ -1194,7 +1281,8 @@ For INVERT, see `alect-get-color'."
                              :foreground ,(gc 'fg+1))))
 
          ;; mode-line
-         (mode-line-buffer-id  ((,c :foreground ,(gc 'blue-1) :weight bold)))
+         (mode-line-buffer-id  ((,c :foreground ,(gc 'blue-1)
+                                    :weight bold)))
          (mode-line            ((,c :foreground ,(gc 'fg+1)
                                     :background ,(gc 'bg-2)
                                     :box (:line-width 2
@@ -1205,7 +1293,8 @@ For INVERT, see `alect-get-color'."
                                           :color ,(gc 'bg-2)
                                           :style nil))))
          (mode-line-highlight  ((,c :inherit highlight
-                                    :box (:line-width 1 :style released-button))))
+                                    :box (:line-width 1
+                                          :style released-button))))
 
          ;; mu4e
          (mu4e-cited-1-face ((,c :foreground ,(gc 'blue)    :slant italic)))
@@ -1243,7 +1332,8 @@ For INVERT, see `alect-get-color'."
          (newsticker-date-face                ((,c :inherit alect-time)))
          (newsticker-default-face             ((,c :foreground ,(gc 'fg+1))))
          (newsticker-enclosure-face           ((,c :foreground ,(gc 'cyan-1))))
-         (newsticker-extra-face               ((,c :foreground ,(gc 'bg+1) :height 0.8)))
+         (newsticker-extra-face               ((,c :foreground ,(gc 'bg+1)
+                                                   :height 0.8)))
          (newsticker-feed-face                ((,c :foreground ,(gc 'fg+1))))
          (newsticker-immortal-item-face       ((,c :foreground ,(gc 'green))))
          (newsticker-new-item-face            ((,c :foreground ,(gc 'blue))))
@@ -1253,7 +1343,8 @@ For INVERT, see `alect-get-color'."
          (newsticker-treeview-face            ((,c :foreground ,(gc 'fg+1))))
          (newsticker-treeview-immortal-face   ((,c :foreground ,(gc 'green))))
          (newsticker-treeview-listwindow-face ((,c :foreground ,(gc 'fg+1))))
-         (newsticker-treeview-new-face        ((,c :foreground ,(gc 'blue) :weight bold)))
+         (newsticker-treeview-new-face        ((,c :foreground ,(gc 'blue)
+                                                   :weight bold)))
          (newsticker-treeview-obsolete-face   ((,c :foreground ,(gc 'red))))
          (newsticker-treeview-old-face        ((,c :foreground ,(gc 'bg+2))))
          (newsticker-treeview-selection-face  ((,c :foreground ,(gc 'yellow))))
@@ -1271,11 +1362,13 @@ For INVERT, see `alect-get-color'."
          (org-block-end-line        ((,c :inherit org-block-begin-line)))
          (org-checkbox              ((,c :background ,(gc 'bg-2)
                                          :foreground ,(gc 'fg)
-                                         :box (:line-width 1 :style pressed-button))))
+                                         :box (:line-width 1
+                                               :style pressed-button))))
          (org-date                  ((,c :inherit alect-time)))
          (org-date-selected         ((,c :inherit alect-selected-item)))
          (org-deadline-announce     ((,c :foreground ,(gc 'red-1))))
-         (org-done                  ((,c :foreground ,(gc 'cyan-1) :weight bold)))
+         (org-done                  ((,c :foreground ,(gc 'cyan-1)
+                                         :weight bold)))
          (org-document-title        ((,c :inherit alect-title)))
          (org-document-info         ((,c :foreground ,(gc 'red-1))))
          (org-document-info-keyword ((,c :foreground ,(gc 'yellow+1))))
@@ -1301,9 +1394,11 @@ For INVERT, see `alect-get-color'."
          (org-todo                  ((,c :foreground ,(gc 'red) :weight bold)))
          (org-upcoming-deadline     ((,c :inherit font-lock-keyword-face)))
          (org-verbatim              ((,c :foreground ,(gc 'fg-2))))
-         (org-warning               ((,c :foreground ,(gc 'red) :weight bold :underline nil)))
+         (org-warning               ((,c :foreground ,(gc 'red)
+                                         :weight bold :underline nil)))
          (org-column                ((,c :background ,(gc 'bg-2))))
-         (org-column-title          ((,c :background ,(gc 'bg-2) :underline t :weight bold)))
+         (org-column-title          ((,c :background ,(gc 'bg-2)
+                                         :underline t :weight bold)))
 
          ;; outline
          (outline-1 ((,c :inherit alect-title-1)))
@@ -1351,7 +1446,8 @@ For INVERT, see `alect-get-color'."
          (rcirc-track-nick                ((,c :inverse-video t)))
          (rcirc-track-keyword             ((,c :weight bold)))
          (rcirc-url                       ((,c :weight bold)))
-         (rcirc-keyword                   ((,c :foreground ,(gc 'yellow) :weight bold)))
+         (rcirc-keyword                   ((,c :foreground ,(gc 'yellow)
+                                               :weight bold)))
 
          ;; rpm-mode
          (rpm-spec-dir-face           ((,c :foreground ,(gc 'green))))
@@ -1435,11 +1531,15 @@ For INVERT, see `alect-get-color'."
                                          :foreground ,(gc 'fg-2))))
          (sr-directory-face         ((,c :inherit dired-directory)))
          (sr-marked-file-face       ((,c :inherit dired-marked)))
-         (sr-marked-dir-face        ((,c :inherit sr-alt-marked-file-face :weight bold)))
-         (sr-alt-marked-file-face   ((,c :inherit sr-marked-file-face :slant italic)))
-         (sr-alt-marked-dir-face    ((,c :inherit sr-marked-dir-face :slant italic)))
+         (sr-marked-dir-face        ((,c :inherit sr-alt-marked-file-face
+                                         :weight bold)))
+         (sr-alt-marked-file-face   ((,c :inherit sr-marked-file-face
+                                         :slant italic)))
+         (sr-alt-marked-dir-face    ((,c :inherit sr-marked-dir-face
+                                         :slant italic)))
          (sr-symlink-face           ((,c :inherit dired-symlink)))
-         (sr-symlink-directory-face ((,c :inherit sr-symlink-face :weight bold)))
+         (sr-symlink-directory-face ((,c :inherit sr-symlink-face
+                                         :weight bold)))
          (sr-broken-link-face       ((,c :inherit dired-warning)))
          (sr-highlight-path-face    ((,c :inherit highlight)))
          (sr-editing-path-face      ((,c :foreground ,(gc 'bg-1)
@@ -1507,7 +1607,8 @@ For INVERT, see `alect-get-color'."
          ;; emacs-w3m
          (w3m-anchor                       ((,c :inherit link)))
          (w3m-arrived-anchor               ((,c :inherit link-visited)))
-         (w3m-form                         ((,c :foreground ,(gc 'red-1) :underline t)))
+         (w3m-form                         ((,c :foreground ,(gc 'red-1)
+                                                :underline t)))
          (w3m-form-button                  ((,c :inherit alect-button)))
          (w3m-form-button-pressed          ((,c :inherit alect-button-pressed)))
          (w3m-form-button-mouse            ((,c :inherit alect-button-mouse)))
