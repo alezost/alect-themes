@@ -60,6 +60,7 @@ supported (themed):
 - [aurel](https:/github.com/alezost/aurel)
 - [auto-complete](https:/github.com/auto-complete/auto-complete)
 - [company](http://company-mode.github.io/)
+- [cperl](https://github.com/jrockway/cperl-mode)
 - [dictem](https:/github.com/cheusov/dictem)
 - [EMMS](https://www.gnu.org/software/emms/)
 - [Geiser](https:/github.com/jaor/geiser)

@@ -582,6 +582,11 @@ For INVERT, see `alect-get-color'."
          (compilation-mode-line-exit        ((,c :inherit success)))
          (compilation-mode-line-fail        ((,c :inherit compilation-error)))
 
+         ;; cperl
+         (cperl-hash-face           ((,c :foreground ,(gc 'cyan+1))))
+         (cperl-array-face          ((,c :foreground ,(gc 'yellow-1))))
+         (cperl-nonoverridable-face ((,c :foreground ,(gc 'green-1))))
+
          ;; ctable
          (ctbl:face-cell-select  ((,c :background ,(gc 'blue)
                                       :foreground ,(gc 'bg-1))))
