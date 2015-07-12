@@ -1213,6 +1213,12 @@ For INVERT, see `alect-get-color'."
          (markdown-pre-face              ((,c :foreground ,(gc 'yellow+2))))
          (markdown-reference-face        ((,c :inherit link)))
 
+         ;; merlin
+         (merlin-locked-face              ((,c :background ,(gc 'bg-2))))
+         (merlin-type-face                ((,c :background ,(gc 'bg+1))))
+         (merlin-compilation-warning-face ((,c :inherit warning)))
+         (merlin-compilation-error-face   ((,c :inherit error)))
+
          ;; message-mode
          (message-cited-text        ((,c :inherit font-lock-comment-face)))
          (message-separator         ((,c :inherit font-lock-comment-face)))
@@ -1348,6 +1354,10 @@ For INVERT, see `alect-get-color'."
          (newsticker-treeview-obsolete-face   ((,c :foreground ,(gc 'red))))
          (newsticker-treeview-old-face        ((,c :foreground ,(gc 'bg+2))))
          (newsticker-treeview-selection-face  ((,c :foreground ,(gc 'yellow))))
+
+         ;; ocaml
+         (ocaml-help-face ((,c :inherit match)))
+         (ocaml-link-face ((,c :inherit link)))
 
          ;; org-mode
          (org-agenda-date           ((,c :inherit alect-time)))
@@ -1589,6 +1599,25 @@ For INVERT, see `alect-get-color'."
                                       :background ,(gc 'magenta))))
          (term-color-cyan        ((,c :foreground ,(gc 'cyan)
                                       :background ,(gc 'cyan+1))))
+
+         ;; tuareg
+         (tuareg-font-lock-governing-face          ((,c :foreground ,(gc 'fg+2)
+                                                        :weight bold)))
+         (tuareg-font-lock-multistage-face         ((,c :foreground ,(gc 'blue-2)
+                                                        :background ,(gc 'bg))))
+         (tuareg-font-lock-line-number-face        ((,c :foreground ,(gc 'fg-2))))
+         (tuareg-font-lock-operator-face           ((,c :foreground ,(gc 'green-1))))
+         (tuareg-font-lock-module-face             ((,c :foreground ,(gc 'cyan))))
+         (tuareg-font-lock-constructor-face        ((,c :foreground ,(gc 'yellow))))
+         (tuareg-font-lock-error-face              ((,c :inherit error
+                                                        :underline t)))
+         (tuareg-font-lock-interactive-error-face  ((,c :inherit font-lock-warning-face)))
+         (tuareg-font-lock-interactive-output-face ((,c :foreground ,(gc 'fg))))
+
+         ;; utop
+         (utop-prompt ((,c :inherit alect-prompt)))
+         (utop-error  ((,c :inherit error)))
+         (utop-stderr ((,c :foreground ,(gc 'red+1))))
 
          ;; vc
          (vc-up-to-date-state    ((,c :foreground ,(gc 'green-1))))

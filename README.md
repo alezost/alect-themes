@@ -59,6 +59,9 @@ supported (themed):
   + show-paren
 - [aurel](https:/github.com/alezost/aurel)
 - [auto-complete](https:/github.com/auto-complete/auto-complete)
+- Caml packages: [tuareg](https://github.com/ocaml/tuareg),
+  [merlin](https://github.com/the-lambda-church/merlin),
+  [utop](https://github.com/diml/utop)
 - [company](http://company-mode.github.io/)
 - [cperl](https://github.com/jrockway/cperl-mode)
 - [dictem](https:/github.com/cheusov/dictem)
