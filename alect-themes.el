@@ -1045,6 +1045,7 @@ For INVERT, see `alect-get-color'."
          (magit-dimmed                      ((,c :inherit shadow)))
          (magit-section-heading             ((,c :inherit alect-title)))
          (magit-section-highlight           ((,c :background ,(gc 'bg))))
+         (magit-section-heading-selection   ((,c :foreground ,(gc 'blue-2))))
          (magit-head                        ((,c :background ,(gc 'bg-2)
                                                  :foreground ,(gc 'fg+2)
                                                  :box (:line-width 2
@@ -1101,13 +1102,17 @@ For INVERT, see `alect-get-color'."
                                                            magit-blame-heading))))
          (magit-diff-file-heading           ((,c :foreground ,(gc 'fg+2)
                                                  :weight bold)))
+         (magit-diff-file-heading-selection ((,c :inherit (magit-section-heading-selection
+                                                           magit-diff-file-heading-highlight))))
          (magit-diff-lines-heading          ((,c :foreground ,(gc 'bg-1)
-                                                 :background ,(gc 'yellow+2))))
+                                                 :background ,(gc 'blue-2))))
          (magit-diff-conflict-heading       ((,c :inherit magit-diff-hunk-heading
                                                  :foreground ,(gc 'red+2))))
          (magit-diff-hunk-heading           ((,c :inherit diff-hunk-header)))
          (magit-diff-hunk-heading-highlight ((,c :inherit magit-diff-hunk-heading
                                                  :background ,(gc 'bg-2))))
+         (magit-diff-hunk-heading-selection ((,c :inherit (magit-section-heading-selection
+                                                           magit-diff-hunk-heading-highlight))))
          (magit-diff-context                ((,c :foreground ,(gc 'fg-2))))
          (magit-diff-context-highlight      ((,c :inherit magit-section-highlight)))
          (magit-diff-added                  ((,c :inherit diff-added)))
