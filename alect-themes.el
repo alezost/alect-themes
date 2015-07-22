@@ -650,9 +650,12 @@ For INVERT, see `alect-get-color'."
          (diff-indicator-added   ((,c :inherit diff-added)))
          (diff-indicator-changed ((,c :inherit diff-changed)))
          (diff-indicator-removed ((,c :inherit diff-removed)))
-         (diff-refine-added      ((,c :inherit diff-added :slant italic)))
-         (diff-refine-change     ((,c :inherit diff-changed :slant italic)))
-         (diff-refine-removed    ((,c :inherit diff-removed :slant italic)))
+         (diff-refine-added      ((,c :inherit diff-added
+                                      :underline t)))
+         (diff-refine-changed    ((,c :inherit diff-changed
+                                      :underline t)))
+         (diff-refine-removed    ((,c :inherit diff-removed
+                                      :underline t)))
          (diff-header            ((,c :foreground ,(gc 'blue-2) :weight bold)))
          (diff-hunk-header       ((,c :inherit diff-header
                                       :foreground ,(gc 'green+2))))
