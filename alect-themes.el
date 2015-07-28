@@ -567,6 +567,16 @@ For INVERT, see `alect-get-color'."
          (diary-time        ((,c :inherit alect-time)))
          (holiday           ((,c :background ,(gc 'bg+2))))
 
+         ;; change-log
+         (change-log-date           ((,c :inherit alect-time)))
+         (change-log-name           ((,c :inherit alect-author)))
+         (change-log-email          ((,c :foreground ,(gc 'red-2))))
+         (change-log-file           ((,c :foreground ,(gc 'green-1))))
+         (change-log-list           ((,c :inherit font-lock-function-name-face)))
+         (change-log-conditionals   ((,c :inherit font-lock-variable-name-face)))
+         (change-log-function       ((,c :foreground ,(gc 'yellow))))
+         (change-log-acknowledgment ((,c :inherit font-lock-keyword-face)))
+
          ;; clojure-test-mode
          (clojure-test-failure-face ((,c :foreground ,(gc 'fg-2)
                                          :weight bold :underline t)))

@@ -40,6 +40,7 @@ supported (themed):
   + help, apropos, info, man
   + mode-line (including vc faces)
   + calendar, diary
+  + changelog
   + comint, eshell, term
   + compilation
   + widget, customization
