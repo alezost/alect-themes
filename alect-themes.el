@@ -112,6 +112,12 @@ Used for various prompts like `minibuffer-prompt' or `eshell-prompt'."
 Used for date/time faces like `org-date' or `erc-timestamp-face'."
   :group 'alect)
 
+(defface alect-author
+  '((t nil))
+  "Auxiliary face for inheriting by some other faces.
+Used for author faces like `magit-log-author' or `change-log-name'."
+  :group 'alect)
+
 (defface alect-selected-item
   '((t nil))
   "Auxiliary face for inheriting by some other faces.
@@ -421,6 +427,7 @@ For INVERT, see `alect-get-color'."
          (alect-prompt         ((,c :foreground ,(gc 'magenta-1)
                                     :weight bold)))
          (alect-time           ((,c :foreground ,(gc 'cyan-2))))
+         (alect-author           ((,c :foreground ,(gc 'magenta-1))))
          (alect-selected-item  ((,c :background ,(gc 'bg)
                                     :box (:line-width -1
                                           :color ,(gc 'fg+1)
@@ -1070,7 +1077,7 @@ For INVERT, see `alect-get-color'."
                                                  :weight bold)))
          (magit-hash                        ((,c :foreground ,(gc 'yellow+2))))
          (magit-log-date                    ((,c :inherit alect-time)))
-         (magit-log-author                  ((,c :foreground ,(gc 'magenta-1))))
+         (magit-log-author                  ((,c :inherit alect-author)))
          (magit-reflog-checkout             ((,c :inherit magit-branch-local)))
          (magit-reflog-remote               ((,c :inherit magit-branch-remote)))
          (magit-reflog-commit               ((,c :foreground ,(gc 'green-1))))
