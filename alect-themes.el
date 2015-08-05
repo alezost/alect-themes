@@ -118,6 +118,12 @@ Used for date/time faces like `org-date' or `erc-timestamp-face'."
 Used for author faces like `magit-log-author' or `change-log-name'."
   :group 'alect)
 
+(defface alect-key
+  '((t nil))
+  "Auxiliary face for inheriting by some other faces.
+Used for key faces like `apropos-keybinding' or `magit-popup-key'."
+  :group 'alect)
+
 (defface alect-selected-item
   '((t nil))
   "Auxiliary face for inheriting by some other faces.
@@ -427,7 +433,9 @@ For INVERT, see `alect-get-color'."
          (alect-prompt         ((,c :foreground ,(gc 'magenta-1)
                                     :weight bold)))
          (alect-time           ((,c :foreground ,(gc 'cyan-2))))
-         (alect-author           ((,c :foreground ,(gc 'magenta-1))))
+         (alect-author         ((,c :foreground ,(gc 'magenta-1))))
+         (alect-key            ((,c :foreground ,(gc 'red-2)
+                                    :weight bold)))
          (alect-selected-item  ((,c :background ,(gc 'bg)
                                     :box (:line-width -1
                                           :color ,(gc 'fg+1)
@@ -510,7 +518,7 @@ For INVERT, see `alect-get-color'."
          (android-mode-warning-face  ((,c :foreground ,(gc 'yellow))))
 
          ;; apropos
-         (apropos-keybinding      ((,c :foreground ,(gc 'yellow))))
+         (apropos-keybinding      ((,c :inherit alect-key)))
          (apropos-symbol          ((,c :foreground ,(gc 'green+1)
                                        :weight bold)))
 
