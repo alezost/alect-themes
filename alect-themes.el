@@ -494,29 +494,6 @@ For INVERT, see `alect-get-color'."
          (alect-tab-mouse      ((,c :inherit alect-tab-default
                                     :inherit mode-line-highlight)))
 
-         ;; ace-jump
-         (ace-jump-face-background ((,c :foreground ,(gc 'bg+2)
-                                        :background ,(gc 'bg-1)
-                                        :inverse-video nil)))
-         (ace-jump-face-foreground ((,c :foreground ,(gc 'green+2)
-                                        :background ,(gc 'bg-1)
-                                        :inverse-video nil)))
-
-         ;; ack
-         (ack-separator  ((,c :foreground ,(gc 'fg+1))))
-         (ack-file       ((,c :foreground ,(gc 'blue))))
-         (ack-line       ((,c :foreground ,(gc 'yellow))))
-         (ack-match      ((,c :foreground ,(gc 'fg-2)
-                              :background ,(gc 'bg-2) :weight bold)))
-
-         ;; android mode
-         (android-mode-debug-face    ((,c :foreground ,(gc 'green+1))))
-         (android-mode-error-face    ((,c :foreground ,(gc 'fg-2)
-                                          :weight bold)))
-         (android-mode-info-face     ((,c :foreground ,(gc 'fg+1))))
-         (android-mode-verbose-face  ((,c :foreground ,(gc 'green))))
-         (android-mode-warning-face  ((,c :foreground ,(gc 'yellow))))
-
          ;; apropos
          (apropos-keybinding      ((,c :inherit alect-key)))
          (apropos-symbol          ((,c :foreground ,(gc 'green+1)
@@ -556,16 +533,6 @@ For INVERT, see `alect-get-color'."
          (ac-completion-face      ((,c :foreground ,(gc 'fg-2))))
          (ac-candidate-mouse-face ((,c :inherit highlight)))
 
-         ;; bm
-         (bm-face                   ((,c :background ,(gc 'yellow-1)
-                                         :foreground ,(gc 'bg-1))))
-         (bm-fringe-face            ((,c :background ,(gc 'yellow-1)
-                                         :foreground ,(gc 'bg-1))))
-         (bm-fringe-persistent-face ((,c :background ,(gc 'green-1)
-                                         :foreground ,(gc 'bg-1))))
-         (bm-persistent-face        ((,c :background ,(gc 'green-1)
-                                         :foreground ,(gc 'bg-1))))
-
          ;; calendar, diary
          (calendar-today    ((,c :box (:line-width -1
                                        :color ,(gc 'red)
@@ -584,14 +551,6 @@ For INVERT, see `alect-get-color'."
          (change-log-conditionals   ((,c :inherit font-lock-variable-name-face)))
          (change-log-function       ((,c :foreground ,(gc 'yellow))))
          (change-log-acknowledgment ((,c :inherit font-lock-keyword-face)))
-
-         ;; clojure-test-mode
-         (clojure-test-failure-face ((,c :foreground ,(gc 'fg-2)
-                                         :weight bold :underline t)))
-         (clojure-test-error-face   ((,c :foreground ,(gc 'red)
-                                         :weight bold :underline t)))
-         (clojure-test-success-face ((,c :foreground ,(gc 'green+1)
-                                         :weight bold :underline t)))
 
          ;; comint
          (comint-highlight-prompt ((,c :inherit alect-prompt)))
@@ -713,19 +672,6 @@ For INVERT, see `alect-get-color'."
          (ediff-even-diff-C ((,c :inherit ediff-even-diff-A)))
          (ediff-odd-diff-C  ((,c :inherit ediff-odd-diff-A)))
 
-         ;; egg
-         (egg-text-base        ((,c :foreground ,(gc 'fg+1))))
-         (egg-help-header-1    ((,c :foreground ,(gc 'cyan+1))))
-         (egg-help-header-2    ((,c :foreground ,(gc 'cyan-1))))
-         (egg-branch           ((,c :foreground ,(gc 'yellow))))
-         (egg-branch-mono      ((,c :foreground ,(gc 'yellow+1))))
-         (egg-term             ((,c :foreground ,(gc 'blue))))
-         (egg-diff-add         ((,c :foreground ,(gc 'green-2))))
-         (egg-diff-del         ((,c :foreground ,(gc 'red+1))))
-         (egg-diff-file-header ((,c :foreground ,(gc 'yellow-2))))
-         (egg-section-title    ((,c :foreground ,(gc 'red-1))))
-         (egg-stash-mono       ((,c :foreground ,(gc 'green))))
-
          ;; eldoc
          (eldoc-highlight-function-argument ((,c :foreground ,(gc 'green)
                                                  :weight bold)))
@@ -838,22 +784,6 @@ For INVERT, see `alect-get-color'."
          (geiser-font-lock-error-link         ((,c :inherit (error link))))
          (geiser-font-lock-autodoc-identifier ((,c :inherit font-lock-keyword-face)))
 
-         ;; git-gutter
-         (git-gutter:added       ((,c :foreground ,(gc 'green)
-                                      :weight bold :inverse-video t)))
-         (git-gutter:deleted     ((,c :foreground ,(gc 'red)
-                                      :weight bold :inverse-video t)))
-         (git-gutter:modified    ((,c :foreground ,(gc 'magenta)
-                                      :weight bold :inverse-video t)))
-         (git-gutter:unchanged   ((,c :foreground ,(gc 'fg+1)
-                                      :weight bold :inverse-video t)))
-         (git-gutter-fr:added    ((,c :foreground ,(gc 'green)
-                                      :weight bold)))
-         (git-gutter-fr:deleted  ((,c :foreground ,(gc 'red)
-                                      :weight bold)))
-         (git-gutter-fr:modified ((,c :foreground ,(gc 'magenta)
-                                      :weight bold)))
-
          ;; gnus
          (gnus-group-news-1-empty      ((,c :inherit alect-color-level-1)))
          (gnus-group-news-2-empty      ((,c :inherit alect-color-level-2)))
@@ -944,11 +874,6 @@ For INVERT, see `alect-get-color'."
          (google-translate-suggestion-label-face ((,c :foreground ,(gc 'red))))
          (google-translate-suggestion-face       ((,c :inherit button)))
          (google-translate-listen-button-face    ((,c :inherit alect-button)))
-
-         ;; guide-key
-         (guide-key/highlight-command-face ((,c :foreground ,(gc 'blue))))
-         (guide-key/key-face ((,c :foreground ,(gc 'green))))
-         (guide-key/prefix-command-face ((,c :foreground ,(gc 'green+1))))
 
          ;; guix
          (guix-info-param-title                 ((,c :foreground ,(gc 'yellow+1))))
@@ -1043,28 +968,6 @@ For INVERT, see `alect-get-color'."
                                     :background ,(gc 'fg+2))))
          (lazy-highlight       ((,c :foreground ,(gc 'bg-2)
                                     :background ,(gc 'gray))))
-
-         ;; js2-mode
-         (js2-warning-face           ((,c :foreground,(gc 'fg-2))))
-         (js2-error-face             ((,c :inherit error)))
-         (js2-jsdoc-tag-face         ((,c :foreground ,(gc 'green-1))))
-         (js2-jsdoc-type-face        ((,c :foreground ,(gc 'green+2))))
-         (js2-jsdoc-value-face       ((,c :foreground ,(gc 'cyan-1))))
-         (js2-function-param-face    ((,c :foreground ,(gc 'cyan-1))))
-         (js2-external-variable-face ((,c :foreground ,(gc 'fg-2))))
-
-         ;; jabber-mode
-         (jabber-roster-user-away       ((,c :foreground ,(gc 'green+2))))
-         (jabber-roster-user-online     ((,c :foreground ,(gc 'blue-1))))
-         (jabber-roster-user-dnd        ((,c :foreground ,(gc 'red+1))))
-         (jabber-rare-time-face         ((,c :inherit alect-time)))
-         (jabber-chat-prompt-local      ((,c :foreground ,(gc 'blue-1))))
-         (jabber-chat-prompt-foreign    ((,c :foreground ,(gc 'red+1))))
-         (jabber-activity-face          ((,c :foreground ,(gc 'red+1))))
-         (jabber-activity-personal-face ((,c :foreground ,(gc 'blue+1))))
-         (jabber-title-small            ((,c :height 1.1 :weight bold)))
-         (jabber-title-medium           ((,c :height 1.2 :weight bold)))
-         (jabber-title-large            ((,c :height 1.3 :weight bold)))
 
          ;; linum-mode
          (linum ((,c :foreground ,(gc 'fg-2))))
@@ -1271,58 +1174,8 @@ For INVERT, see `alect-get-color'."
          (message-mml               ((,c :foreground ,(gc 'cyan-2)
                                          :weight bold)))
 
-         ;; mew
-         (mew-face-header-subject    ((,c :foreground ,(gc 'fg-2))))
-         (mew-face-header-from       ((,c :foreground ,(gc 'yellow))))
-         (mew-face-header-date       ((,c :inherit alect-time)))
-         (mew-face-header-to         ((,c :foreground ,(gc 'red))))
-         (mew-face-header-key        ((,c :foreground ,(gc 'green))))
-         (mew-face-header-private    ((,c :foreground ,(gc 'green))))
-         (mew-face-header-important  ((,c :foreground ,(gc 'blue))))
-         (mew-face-header-marginal   ((,c :foreground ,(gc 'fg+1)
-                                          :weight bold)))
-         (mew-face-header-warning    ((,c :foreground ,(gc 'red))))
-         (mew-face-header-xmew       ((,c :foreground ,(gc 'green))))
-         (mew-face-header-xmew-bad   ((,c :foreground ,(gc 'red))))
-         (mew-face-body-url          ((,c :foreground ,(gc 'fg-2))))
-         (mew-face-body-comment      ((,c :foreground ,(gc 'fg+1)
-                                          :slant italic)))
-         (mew-face-body-cite1        ((,c :foreground ,(gc 'green))))
-         (mew-face-body-cite2        ((,c :foreground ,(gc 'blue))))
-         (mew-face-body-cite3        ((,c :foreground ,(gc 'fg-2))))
-         (mew-face-body-cite4        ((,c :foreground ,(gc 'yellow))))
-         (mew-face-body-cite5        ((,c :foreground ,(gc 'red))))
-         (mew-face-mark-review       ((,c :foreground ,(gc 'blue))))
-         (mew-face-mark-escape       ((,c :foreground ,(gc 'green))))
-         (mew-face-mark-delete       ((,c :foreground ,(gc 'red))))
-         (mew-face-mark-unlink       ((,c :foreground ,(gc 'yellow))))
-         (mew-face-mark-refile       ((,c :foreground ,(gc 'green))))
-         (mew-face-mark-unread       ((,c :foreground ,(gc 'yellow+2))))
-         (mew-face-eof-message       ((,c :foreground ,(gc 'green))))
-         (mew-face-eof-part          ((,c :foreground ,(gc 'yellow))))
-
-         ;; mic-paren
-         (paren-face-match    ((,c :foreground ,(gc 'cyan)
-                                   :background ,(gc 'bg-1)
-                                   :weight bold)))
-         (paren-face-mismatch ((,c :foreground ,(gc 'bg-1)
-                                   :background ,(gc 'magenta)
-                                   :weight bold)))
-         (paren-face-no-match ((,c :foreground ,(gc 'bg-1)
-                                   :background ,(gc 'red)
-                                   :weight bold)))
-
-         ;; mingus
-         (mingus-directory-face ((,c :foreground ,(gc 'blue))))
-         (mingus-pausing-face   ((,c :foreground ,(gc 'magenta))))
-         (mingus-playing-face   ((,c :foreground ,(gc 'cyan))))
-         (mingus-playlist-face  ((,c :foreground ,(gc 'cyan) )))
-         (mingus-song-file-face ((,c :foreground ,(gc 'yellow))))
-         (mingus-stopped-face   ((,c :foreground ,(gc 'red))))
-
-         ;; i don't know what it is, but this face can often be met in mails
-         (mm-uu-extract ((,c :background ,(gc 'bg)
-                             :foreground ,(gc 'fg+1))))
+         ;; mm (used in mails)
+         (mm-uu-extract ((,c :background ,(gc 'bg))))
 
          ;; mode-line
          (mode-line-buffer-id  ((,c :foreground ,(gc 'blue-1)
@@ -1373,47 +1226,11 @@ For INVERT, see `alect-get-color'."
          (mu4e-url-number-face           ((,c :inherit mu4e-attach-number-face
                                               :foreground ,(gc 'yellow+1))))
 
-         ;; mumamo
-         (mumamo-background-chunk-major    ((,c :background nil)))
-         (mumamo-background-chunk-submode1 ((,c :background ,(gc 'bg-2))))
-         (mumamo-background-chunk-submode2 ((,c :background ,(gc 'bg+1))))
-         (mumamo-background-chunk-submode3 ((,c :background ,(gc 'bg+2))))
-         (mumamo-background-chunk-submode4 ((,c :background ,(gc 'bg))))
-
-         ;; nav
-         (nav-face-heading     ((,c :foreground ,(gc 'yellow))))
-         (nav-face-button-num  ((,c :foreground ,(gc 'cyan))))
-         (nav-face-dir         ((,c :foreground ,(gc 'green))))
-         (nav-face-hdir        ((,c :foreground ,(gc 'red))))
-         (nav-face-file        ((,c :foreground ,(gc 'fg+1))))
-         (nav-face-hfile       ((,c :foreground ,(gc 'red-2))))
-
          ;; nethack-el
          (nethack-dark-gray-face          ((,c :foreground ,(gc 'fg-1))))
          (nethack-message-highlight-face  ((,c :background ,(gc 'bg)
                                                :foreground ,(gc 'red+2))))
          (nethack-yellow-face             ((,c :foreground ,(gc 'yellow))))
-
-         ;; newsticker
-         (newsticker-date-face                ((,c :inherit alect-time)))
-         (newsticker-default-face             ((,c :foreground ,(gc 'fg+1))))
-         (newsticker-enclosure-face           ((,c :foreground ,(gc 'cyan-1))))
-         (newsticker-extra-face               ((,c :foreground ,(gc 'bg+1)
-                                                   :height 0.8)))
-         (newsticker-feed-face                ((,c :foreground ,(gc 'fg+1))))
-         (newsticker-immortal-item-face       ((,c :foreground ,(gc 'green))))
-         (newsticker-new-item-face            ((,c :foreground ,(gc 'blue))))
-         (newsticker-obsolete-item-face       ((,c :foreground ,(gc 'red))))
-         (newsticker-old-item-face            ((,c :foreground ,(gc 'bg+2))))
-         (newsticker-statistics-face          ((,c :foreground ,(gc 'fg+1))))
-         (newsticker-treeview-face            ((,c :foreground ,(gc 'fg+1))))
-         (newsticker-treeview-immortal-face   ((,c :foreground ,(gc 'green))))
-         (newsticker-treeview-listwindow-face ((,c :foreground ,(gc 'fg+1))))
-         (newsticker-treeview-new-face        ((,c :foreground ,(gc 'blue)
-                                                   :weight bold)))
-         (newsticker-treeview-obsolete-face   ((,c :foreground ,(gc 'red))))
-         (newsticker-treeview-old-face        ((,c :foreground ,(gc 'bg+2))))
-         (newsticker-treeview-selection-face  ((,c :foreground ,(gc 'yellow))))
 
          ;; ocaml
          (ocaml-help-face ((,c :inherit match)))
@@ -1519,17 +1336,6 @@ For INVERT, see `alect-get-color'."
          (rcirc-keyword                   ((,c :foreground ,(gc 'yellow)
                                                :weight bold)))
 
-         ;; rpm-mode
-         (rpm-spec-dir-face           ((,c :foreground ,(gc 'green))))
-         (rpm-spec-doc-face           ((,c :foreground ,(gc 'green))))
-         (rpm-spec-ghost-face         ((,c :foreground ,(gc 'red))))
-         (rpm-spec-macro-face         ((,c :foreground ,(gc 'yellow))))
-         (rpm-spec-obsolete-tag-face  ((,c :foreground ,(gc 'red))))
-         (rpm-spec-package-face       ((,c :foreground ,(gc 'red))))
-         (rpm-spec-section-face       ((,c :foreground ,(gc 'yellow))))
-         (rpm-spec-tag-face           ((,c :foreground ,(gc 'blue))))
-         (rpm-spec-var-face           ((,c :foreground ,(gc 'red))))
-
          ;; rst-mode
          (rst-level-1   ((,c :inherit alect-title-1)))
          (rst-level-2   ((,c :inherit alect-title-2)))
@@ -1591,9 +1397,6 @@ For INVERT, see `alect-get-color'."
          (slime-repl-output-mouseover-face ((,c :inherit highlight)))
          (slime-repl-prompt-face           ((,c :inherit alect-prompt)))
          (slime-repl-result-face           ((,c :foreground ,(gc 'blue+2))))
-
-         ;; sml-mode-line
-         (sml-modeline-end-face ((,c :inherit default :width condensed)))
 
          ;; sunrise-commander
          (sr-active-path-face       ((,c :inherit dired-header)))
@@ -1690,9 +1493,6 @@ For INVERT, see `alect-get-color'."
          (vc-needs-update-state  ((,c :foreground ,(gc 'magenta))))
          (vc-removed-state       ((,c :foreground ,(gc 'red-1))))
 
-         ;; volatile-highlights
-         (vhl/default-face ((,c :background ,(gc 'bg-2))))
-
          ;; emacs-w3m
          (w3m-anchor                       ((,c :inherit link)))
          (w3m-arrived-anchor               ((,c :inherit link-visited)))
@@ -1717,35 +1517,6 @@ For INVERT, see `alect-get-color'."
                                                 :inherit header-line)))
          (w3m-history-current-url          ((,c :inherit alect-selected-item)))
          (w3m-image-anchor                 ((,c :background ,(gc 'bg+1))))
-
-         ;; wanderlust
-         (wl-highlight-folder-few-face                     ((,c :foreground ,(gc 'yellow+2))))
-         (wl-highlight-folder-many-face                    ((,c :foreground ,(gc 'red-1))))
-         (wl-highlight-folder-path-face                    ((,c :foreground ,(gc 'fg-2))))
-         (wl-highlight-folder-unread-face                  ((,c :foreground ,(gc 'blue))))
-         (wl-highlight-folder-zero-face                    ((,c :foreground ,(gc 'fg+1))))
-         (wl-highlight-folder-unknown-face                 ((,c :foreground ,(gc 'blue))))
-         (wl-highlight-message-citation-header             ((,c :foreground ,(gc 'red-1))))
-         (wl-highlight-message-cited-text-1                ((,c :foreground ,(gc 'red))))
-         (wl-highlight-message-cited-text-2                ((,c :foreground ,(gc 'green+2))))
-         (wl-highlight-message-cited-text-3                ((,c :foreground ,(gc 'blue))))
-         (wl-highlight-message-cited-text-4                ((,c :foreground ,(gc 'blue+1))))
-         (wl-highlight-message-header-contents-face        ((,c :foreground ,(gc 'green))))
-         (wl-highlight-message-headers-face                ((,c :foreground ,(gc 'red+1))))
-         (wl-highlight-message-important-header-contents   ((,c :foreground ,(gc 'green+2))))
-         (wl-highlight-message-header-contents             ((,c :foreground ,(gc 'green+1))))
-         (wl-highlight-message-important-header-contents2  ((,c :foreground ,(gc 'green+2))))
-         (wl-highlight-message-signature                   ((,c :foreground ,(gc 'green))))
-         (wl-highlight-message-unimportant-header-contents ((,c :foreground ,(gc 'fg+1))))
-         (wl-highlight-summary-answered-face               ((,c :foreground ,(gc 'blue))))
-         (wl-highlight-summary-disposed-face               ((,c :foreground ,(gc 'fg+1)
-                                                                :slant italic)))
-         (wl-highlight-summary-new-face                    ((,c :foreground ,(gc 'blue))))
-         (wl-highlight-summary-normal-face                 ((,c :foreground ,(gc 'fg+1))))
-         (wl-highlight-summary-thread-top-face             ((,c :foreground ,(gc 'yellow))))
-         (wl-highlight-thread-indent-face                  ((,c :foreground ,(gc 'magenta))))
-         (wl-highlight-summary-refiled-face                ((,c :foreground ,(gc 'fg+1))))
-         (wl-highlight-summary-displaying-face             ((,c :underline t :weight bold)))
 
          ;; which-func-mode
          (which-func ((,c :inherit font-lock-function-name-face)))
@@ -1777,12 +1548,7 @@ For INVERT, see `alect-get-color'."
          (widget-documentation     ((,c :foreground ,(gc 'green-1))))
          (widget-inactive          ((,c :inherit shadow)))
          (widget-single-line-field ((,c :foreground ,(gc 'fg)
-                                        :inherit widget-field)))
-
-         ;; yascroll
-         (yascroll:thumb-text-area ((,c :background ,(gc 'bg-2))))
-         (yascroll:thumb-fringe    ((,c :background ,(gc 'bg-2)
-                                        :foreground ,(gc 'fg-2)))))
+                                        :inherit widget-field))))
        ;; VARIABLES
        `((ansi-color-names-vector
           [,(gc 'bg-1)
