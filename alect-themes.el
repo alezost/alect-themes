@@ -98,87 +98,92 @@ values should be in matching order)."
   "Options for alect color themes."
   :group 'faces)
 
+(defgroup alect-faces nil
+  "Auxiliary faces used by alect color themes."
+  :group 'alect
+  :group 'faces)
+
 (defface alect-prompt
   '((t nil))
   "Auxiliary face for inheriting by some other faces.
 Used for various prompts like `minibuffer-prompt' or `eshell-prompt'."
-  :group 'alect)
+  :group 'alect-faces)
 
 (defface alect-time
   '((t nil))
   "Auxiliary face for inheriting by some other faces.
 Used for date/time faces like `org-date' or `erc-timestamp-face'."
-  :group 'alect)
+  :group 'alect-faces)
 
 (defface alect-author
   '((t nil))
   "Auxiliary face for inheriting by some other faces.
 Used for author faces like `magit-log-author' or `change-log-name'."
-  :group 'alect)
+  :group 'alect-faces)
 
 (defface alect-key
   '((t nil))
   "Auxiliary face for inheriting by some other faces.
 Used for key faces like `apropos-keybinding' or `magit-popup-key'."
-  :group 'alect)
+  :group 'alect-faces)
 
 (defface alect-selected-item
   '((t nil))
   "Auxiliary face for inheriting by some other faces.
 Used for selected items like `org-date-selected' or
 `gnus-summary-selected'."
-  :group 'alect)
+  :group 'alect-faces)
 
 (defface alect-title
   '((t nil))
   "Auxiliary face for inheriting by some other faces.
 Used for titles without levels like `dired-header' or
 `magit-section-title'."
-  :group 'alect)
+  :group 'alect-faces)
 
 (defface alect-button
   '((t nil))
   "Auxiliary face for inheriting by some other faces.
 Used for buttons like `custom-button' or `w3m-form-button'."
-  :group 'alect)
+  :group 'alect-faces)
 
 (defface alect-button-pressed
   '((t nil))
   "Auxiliary face for inheriting by some other faces.
 Used for buttons like `custom-button-pressed' or
 `w3m-form-button-pressed'."
-  :group 'alect)
+  :group 'alect-faces)
 
 (defface alect-button-mouse
   '((t nil))
   "Auxiliary face for inheriting by some other faces.
 Used for buttons like `custom-button-mouse' or
 `w3m-form-button-mouse'."
-  :group 'alect)
+  :group 'alect-faces)
 
 (defface alect-tab-default
   '((t nil))
   "Auxiliary face for inheriting by some other faces.
 Used for faces like `tabbar-default' or `w3m-tab-background'."
-  :group 'alect)
+  :group 'alect-faces)
 
 (defface alect-tab-unselected
   '((t nil))
   "Auxiliary face for inheriting by some other faces.
 Used for tabs like `tabbar-unselected' or `w3m-tab-unselected'."
-  :group 'alect)
+  :group 'alect-faces)
 
 (defface alect-tab-selected
   '((t nil))
   "Auxiliary face for inheriting by some other faces.
 Used for tabs like `tabbar-selected' or `w3m-tab-selected'."
-  :group 'alect)
+  :group 'alect-faces)
 
 (defface alect-tab-mouse
   '((t nil))
   "Auxiliary face for inheriting by some other faces.
 Used for tabs like `tabbar-highlight' or `w3m-tab-mouse'."
-  :group 'alect)
+  :group 'alect-faces)
 
 (defmacro alect-define-color-level-face (n)
   "Define face for color level N.
@@ -186,7 +191,7 @@ Name of the defined face is `alect-color-level-N'."
   `(defface ,(intern (format "alect-color-level-%d" n))
      '((t nil))
      "Auxiliary face for inheriting by some other faces."
-     :group 'alect))
+     :group 'alect-faces))
 
 (defmacro alect-define-title-face (n)
   "Define title face for level N.
@@ -196,7 +201,7 @@ Name of the defined face is `alect-title-N'."
      ,(format "Auxiliary face for inheriting by some other faces.
 Used for titles with levels like `org-level-%s' or
 `markdown-header-face-%s'." n n)
-     :group 'alect))
+     :group 'alect-faces))
 
 (defmacro alect-define-faces (definer n)
   `(progn
