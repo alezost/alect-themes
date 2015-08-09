@@ -1,4 +1,4 @@
-;;; alect-themes.el --- Configurable light, dark and black themes for Emacs 24 or later
+;;; alect-themes.el --- Configurable light, dark and black themes for Emacs 24 or later   -*- lexical-binding: t -*-
 
 ;; Copyright (C) 2013-2015 Alex Kost
 
@@ -89,9 +89,7 @@ THEME-NAMES is a list of symbols.
 COLORS is a list of lists (COLOR-NAME COLOR-VAL...) where
 COLOR-VAL is a color for specified theme (theme names and color
 values should be in matching order)."
-  (let (cols)
-    (dolist (theme theme-names)
-      (add-to-list 'cols (list theme)))
+  (let ((cols (mapcar #'list theme-names)))
     (dolist (elem colors)
       (alect-put-colors (car elem) theme-names (cdr elem) cols))
     cols))
@@ -185,28 +183,28 @@ Used for tabs like `tabbar-highlight' or `w3m-tab-mouse'."
 (defmacro alect-define-color-level-face (n)
   "Define face for color level N.
 Name of the defined face is `alect-color-level-N'."
-  `(defface ,(intern (format "alect-color-level-%s" n))
+  `(defface ,(intern (format "alect-color-level-%d" n))
      '((t nil))
      "Auxiliary face for inheriting by some other faces."
      :group 'alect))
 
-(let (i)
-  (cl-loop for i from 1 to 12
-           do (eval `(alect-define-color-level-face ,i))))
-
 (defmacro alect-define-title-face (n)
   "Define title face for level N.
 Name of the defined face is `alect-title-N'."
-  `(defface ,(intern (format "alect-title-%s" n))
+  `(defface ,(intern (format "alect-title-%d" n))
      '((t nil))
      ,(format "Auxiliary face for inheriting by some other faces.
 Used for titles with levels like `org-level-%s' or
 `markdown-header-face-%s'." n n)
      :group 'alect))
 
-(let (i)
-  (cl-loop for i from 1 to 8
-           do (eval `(alect-define-title-face ,i))))
+(defmacro alect-define-faces (definer n)
+  `(progn
+     ,@(mapcar (lambda (i) (list definer i))
+               (number-sequence 1 n))))
+
+(alect-define-faces alect-define-color-level-face 12)
+(alect-define-faces alect-define-title-face 8)
 
 (defcustom alect-header-height 1.13
   "Height of `header-line' face."
