@@ -1466,6 +1466,9 @@ For INVERT, see `alect-get-color'."
          (term-color-cyan        ((,c :foreground ,(gc 'cyan)
                                       :background ,(gc 'cyan+1))))
 
+         ;; texinfo
+         (texinfo-heading ((,c :inherit alect-title)))
+
          ;; tuareg
          (tuareg-font-lock-governing-face          ((,c :foreground ,(gc 'fg+2)
                                                         :weight bold)))
