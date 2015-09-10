@@ -785,7 +785,8 @@ For INVERT, see `alect-get-color'."
          (geiser-font-lock-xref-header        ((,c :inherit bold)))
          (geiser-font-lock-xref-link          ((,c :inherit link)))
          (geiser-font-lock-error-link         ((,c :inherit (error link))))
-         (geiser-font-lock-autodoc-identifier ((,c :inherit font-lock-keyword-face)))
+         (geiser-font-lock-autodoc-identifier ((,c :inherit font-lock-function-name-face)))
+         (geiser-font-lock-autodoc-current-arg ((,c :inherit font-lock-variable-name-face)))
 
          ;; gnus
          (gnus-group-news-1-empty      ((,c :inherit alect-color-level-1)))
