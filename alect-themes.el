@@ -1405,6 +1405,17 @@ For INVERT, see `alect-get-color'."
          (slime-repl-prompt-face           ((,c :inherit alect-prompt)))
          (slime-repl-result-face           ((,c :foreground ,(gc 'blue+2))))
 
+         ;; speedbar
+         (speedbar-file-face      ((,c)))
+         (speedbar-directory-face ((,c :inherit dired-directory)))
+         (speedbar-tag-face       ((,c :foreground ,(gc 'yellow+1))))
+         (speedbar-selected-face  ((,c :foreground ,(gc 'red))))
+         (speedbar-separator-face ((,c :inherit alect-title)))
+         (speedbar-highlight-face ((,c :inherit highlight)))
+         (speedbar-button-face    ((,c :foreground ,(gc 'green)
+                                       :box (:line-width 1
+                                             :style released-button))))
+
          ;; sunrise-commander
          (sr-active-path-face       ((,c :inherit dired-header)))
          (sr-passive-path-face      ((,c :inherit dired-header

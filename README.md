@@ -58,6 +58,7 @@ supported (themed):
   + whitespace
   + linum
   + show-paren
+  + speedbar
 - [aurel](https:/github.com/alezost/aurel)
 - [auto-complete](https:/github.com/auto-complete/auto-complete)
 - Caml packages: [tuareg](https://github.com/ocaml/tuareg),
