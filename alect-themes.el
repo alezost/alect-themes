@@ -587,6 +587,9 @@ For INVERT, see `alect-get-color'."
          (compilation-mode-line-exit        ((,c :inherit success)))
          (compilation-mode-line-fail        ((,c :inherit compilation-error)))
 
+         ;; completions
+         (completions-common-part ((,c :foreground ,(gc 'fg-2))))
+
          ;; cperl
          (cperl-hash-face           ((,c :foreground ,(gc 'cyan+1))))
          (cperl-array-face          ((,c :foreground ,(gc 'yellow-1))))
