@@ -944,6 +944,13 @@ For INVERT, see `alect-get-color'."
          ;; hl-todo
          (hl-todo ((,c :foreground ,(gc 'red) :weight bold)))
 
+         ;; hydra
+         (hydra-face-amaranth ((,c :foreground ,(gc 'yellow)    :weight bold)))
+         (hydra-face-red      ((,c :foreground ,(gc 'red-1)     :weight bold)))
+         (hydra-face-pink     ((,c :foreground ,(gc 'magenta-2) :weight bold)))
+         (hydra-face-blue     ((,c :foreground ,(gc 'blue-1)    :weight bold)))
+         (hydra-face-teal     ((,c :foreground ,(gc 'cyan+1)    :weight bold)))
+
          ;; indent-guide
          (indent-guide-face ((,c :foreground ,(gc 'yellow+1))))
 

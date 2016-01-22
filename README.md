@@ -73,6 +73,7 @@ supported (themed):
 - [GNU Guix](https://www.gnu.org/software/guix/) (Emacs interface is a
   part of Guix)
 - [Helm](https://emacs-helm.github.io/helm/) (partial support)
+- [Hydra](https://github.com/abo-abo/hydra)
 - [indent-guide](https:/github.com/zk-phi/indent-guide)
 - [Magit](http://magit.vc/) (including version 2.1.0)
 - [markdown](http://jblevins.org/projects/markdown-mode/)
