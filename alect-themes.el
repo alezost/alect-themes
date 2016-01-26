@@ -650,7 +650,7 @@ For INVERT, see `alect-get-color'."
          (diff-hunk-header       ((,c :inherit diff-header
                                       :foreground ,(gc 'green+2))))
          (diff-file-header       ((,c :inherit diff-header
-                                      :foreground ,(gc 'cyan-1))))
+                                      :foreground ,(gc 'fg+2))))
          (diff-function          ((,c :inherit diff-header
                                       :foreground ,(gc 'blue))))
          (diff-index             ((,c :inherit diff-header
@@ -1046,8 +1046,7 @@ For INVERT, see `alect-get-color'."
                                                            magit-blame-heading))))
          (magit-blame-date                  ((,c :inherit (magit-log-date
                                                            magit-blame-heading))))
-         (magit-diff-file-heading           ((,c :foreground ,(gc 'fg+2)
-                                                 :weight bold)))
+         (magit-diff-file-heading           ((,c :inherit diff-file-header)))
          (magit-diff-file-heading-selection ((,c :inherit (magit-section-heading-selection
                                                            magit-diff-file-heading-highlight))))
          (magit-diff-lines-heading          ((,c :foreground ,(gc 'bg-1)
