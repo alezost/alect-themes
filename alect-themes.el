@@ -1274,6 +1274,8 @@ For INVERT, see `alect-get-color'."
          (org-document-title        ((,c :inherit alect-title)))
          (org-document-info         ((,c :foreground ,(gc 'red-1))))
          (org-document-info-keyword ((,c :foreground ,(gc 'yellow+1))))
+         (org-footnote              ((,c :foreground ,(gc 'cyan)
+                                         :underline t)))
          (org-formula               ((,c :foreground ,(gc 'yellow-2))))
          (org-headline-done         ((,c :foreground ,(gc 'cyan-1))))
          (org-hide                  ((,c :foreground ,(gc 'bg-2))))
