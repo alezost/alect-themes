@@ -1402,6 +1402,8 @@ For INVERT, see `alect-get-color'."
          ;; shell-script
          (sh-heredoc     ((,c :inherit font-lock-doc-face)))
          (sh-quoted-exec ((,c :foreground ,(gc 'cyan))))
+         (sh-escaped-newline ((,c :foreground ,(gc 'fg-1)
+                                  :weight bold)))
 
          ;; show-paren
          (show-paren-mismatch  ((,c :foreground ,(gc 'gray-2)
