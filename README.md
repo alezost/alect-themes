@@ -66,6 +66,7 @@ supported (themed):
   [utop](https://github.com/diml/utop)
 - [company](http://company-mode.github.io/)
 - [cperl](https://github.com/jrockway/cperl-mode)
+- [debbugs](http://elpa.gnu.org/packages/debbugs.html)
 - [dictem](https:/github.com/cheusov/dictem)
 - [EMMS](https://www.gnu.org/software/emms/)
 - [Geiser](https:/github.com/jaor/geiser)

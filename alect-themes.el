@@ -625,6 +625,15 @@ For INVERT, see `alect-get-color'."
          (custom-variable-button         ((,c :weight bold :underline t)))
          (custom-visibility              ((,c :inherit link :height 0.8)))
 
+         ;; debbugs
+         (debbugs-gnu-done     ((,c :foreground ,(gc 'fg-1))))
+         (debbugs-gnu-handled  ((,c :inherit gnus-summary-normal-read)))
+         (debbugs-gnu-new      ((,c :inherit gnus-summary-normal-unread)))
+         (debbugs-gnu-archived ((,c :foreground ,(gc 'fg-2))))
+         (debbugs-gnu-stale    ((,c :foreground ,(gc 'yellow))))
+         (debbugs-gnu-pending  ((,c :foreground ,(gc 'blue))))
+         (debbugs-gnu-tagged   ((,c :foreground ,(gc 'red))))
+
          ;; dictem
          (dictem-reference-definition-face ((,c :inherit link :underline nil)))
          (dictem-database-description-face ((,c :inherit alect-title)))
