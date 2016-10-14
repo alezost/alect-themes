@@ -1429,6 +1429,7 @@ For INVERT, see `alect-get-color'."
          (slime-repl-output-mouseover-face ((,c :inherit highlight)))
          (slime-repl-prompt-face           ((,c :inherit alect-prompt)))
          (slime-repl-result-face           ((,c :foreground ,(gc 'blue+2))))
+         (sldb-section-face                ((,c :inherit alect-title)))
 
          ;; speedbar
          (speedbar-file-face      ((,c)))
