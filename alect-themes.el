@@ -1593,7 +1593,12 @@ For INVERT, see `alect-get-color'."
          (widget-documentation     ((,c :foreground ,(gc 'green-1))))
          (widget-inactive          ((,c :inherit shadow)))
          (widget-single-line-field ((,c :foreground ,(gc 'fg)
-                                        :inherit widget-field))))
+                                        :inherit widget-field)))
+
+         ;; woman
+         (woman-bold     ((,c :inherit Man-overstrike)))
+         (woman-italic   ((,c :inherit Man-underline))))
+
        ;; VARIABLES
        `((ansi-color-names-vector
           [,(gc 'bg-1)
