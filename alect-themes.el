@@ -920,6 +920,7 @@ For INVERT, see `alect-get-color'."
          (guix-devel-gexp-symbol                ((,c :foreground ,(gc 'yellow+2))))
 
          ;; helm
+         (helm-header-line-left-margin ((,c :inherit alect-prompt)))
          (helm-header             ((,c :inherit header-line)))
          (helm-source-header      ((,c :inherit alect-title)))
          (helm-separator          ((,c :foreground ,(gc 'blue+2))))
