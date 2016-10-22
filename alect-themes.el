@@ -536,6 +536,16 @@ For INVERT, see `alect-get-color'."
          (ac-completion-face      ((,c :foreground ,(gc 'fg-2))))
          (ac-candidate-mouse-face ((,c :inherit highlight)))
 
+         ;; bui
+         (bui-action-button       ((,c :inherit alect-button)))
+         (bui-action-button-mouse ((,c :inherit alect-button-mouse)))
+         (bui-file-name           ((,c :foreground ,(gc 'green+1)
+                                       :underline t)))
+         (bui-time                ((,c :inherit alect-time)))
+         (bui-url                 ((,c :inherit link)))
+         (bui-info-heading        ((,c :inherit alect-title)))
+         (bui-info-param-title    ((,c :foreground ,(gc 'yellow+1))))
+
          ;; calendar, diary
          (calendar-today    ((,c :box (:line-width -1
                                        :color ,(gc 'red)
