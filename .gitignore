@@ -1,5 +1,4 @@
 *.elc
 screenshots
-alect-test.el
 tmp
 *-autoloads.el
