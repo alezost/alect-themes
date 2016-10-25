@@ -1859,9 +1859,4 @@ For INVERT, see `alect-get-color'."
 
 (provide 'alect-themes)
 
-;; Local Variables:
-;; fill-column: 72
-;; eval: (and (fboundp 'rainbow-mode) (rainbow-mode))
-;; End:
-
 ;;; alect-themes.el ends here
