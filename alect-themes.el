@@ -64,7 +64,7 @@
 
 ;;; Code:
 
-(require 'cl-macs)
+(require 'cl-lib)
 
 (defun alect-put-colors (color-name theme-names color-vals var)
   "Put theme colors into the variable VAR.
