@@ -1,6 +1,6 @@
 ;;; alect-themes.el --- Configurable light, dark and black themes for Emacs 24 or later   -*- lexical-binding: t -*-
 
-;; Copyright (C) 2013-2015 Alex Kost
+;; Copyright (C) 2013-2016 Alex Kost
 
 ;; Author: Alex Kost <alezost@gmail.com>
 ;; Created: 10 Jul 2013
@@ -1115,40 +1115,6 @@ For INVERT, see `alect-get-color'."
          (git-commit-comment-file           ((,c :inherit default)))
          (git-commit-comment-heading        ((,c :inherit alect-title)))
          (git-commit-comment-action         ((,c :foreground ,(gc 'yellow+1))))
-
-         ;; TODO Delete the following obsolete (since magit 2.1.0) faces.
-         (magit-header                       ((,c :inherit alect-title)))
-         (magit-section-title                ((,c :inherit alect-title)))
-         (magit-branch                       ((,c :foreground ,(gc 'blue+1) :weight bold)))
-         (magit-log-sha1                     ((,c :foreground ,(gc 'yellow+2))))
-         (magit-log-head-label-head          ((,c :background ,(gc 'bg-2)
-                                                  :foreground ,(gc 'fg+2)
-                                                  :box (:line-width 2 :color ,(gc 'red)))))
-         (magit-log-head-label-default       ((,c :box (:line-width 1 :color ,(gc 'fg+1)))))
-         (magit-log-head-label-local         ((,c :inherit magit-log-head-label-default
-                                                  :foreground ,(gc 'blue))))
-         (magit-log-head-label-remote        ((,c :inherit magit-log-head-label-default
-                                                  :foreground ,(gc 'green+1))))
-         (magit-log-head-label-tags          ((,c :inherit magit-log-head-label-default
-                                                  :foreground ,(gc 'yellow-1))))
-         (magit-log-head-label-wip           ((,c :inherit magit-log-head-label-default
-                                                  :foreground ,(gc 'red-1))))
-         (magit-log-head-label-patches       ((,c :inherit magit-log-head-label-default
-                                                  :foreground ,(gc 'cyan-1))))
-         (magit-log-reflog-label-other       ((,c :inherit magit-log-head-label-default)))
-         (magit-log-reflog-label-checkout    ((,c :inherit magit-branch)))
-         (magit-log-reflog-label-remote      ((,c :inherit magit-log-head-label-remote)))
-         (magit-log-reflog-label-reset       ((,c :foreground ,(gc 'red) :weight bold)))
-         (magit-log-reflog-label-rebase      ((,c :foreground ,(gc 'yellow))))
-         (magit-log-reflog-label-cherry-pick ((,c :foreground ,(gc 'cyan))))
-         (magit-log-reflog-label-commit      ((,c :foreground ,(gc 'green-1))))
-         (magit-log-reflog-label-amend       ((,c :foreground ,(gc 'magenta))))
-         (magit-log-reflog-label-merge       ((,c :foreground ,(gc 'blue-2) :weight bold)))
-         (git-commit-summary-face         ((,c :weight bold)))
-         (git-commit-branch-face          ((,c :inherit magit-branch)))
-         (git-commit-comment-file-face    ((,c :inherit default)))
-         (git-commit-comment-heading-face ((,c :inherit alect-title)))
-         (git-commit-comment-action-face  ((,c :foreground ,(gc 'yellow+1))))
 
          ;; makefile
          (makefile-shell       ((,c :weight bold)))
