@@ -1381,6 +1381,9 @@ For INVERT, see `alect-get-color'."
          (sauron-message-face    ((,c :inherit font-lock-doc-face)))
          (sauron-origin-face     ((,c :foreground ,(gc 'blue+1))))
          (sauron-priority-face   ((,c :foreground ,(gc 'yellow+2))))
+         ;; `sauron-header-face' is useless as the header is already
+         ;; fontified by `header-line' face.
+         (sauron-header-face     ((,c nil)))
          (sauron-highlight1-face ((,c :foreground ,(gc 'green))))
          (sauron-highlight2-face ((,c :foreground ,(gc 'red-1))))
          (sauron-highlight3-face ((,c :foreground ,(gc 'magenta))))
