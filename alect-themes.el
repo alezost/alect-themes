@@ -251,7 +251,7 @@ Evaluate it and reload an alect-theme to see the difference."
 (defcustom alect-colors
   (alect-generate-colors
    '(light dark black)
-   '((cursor    "#1074cd" "#ffec8b" "#d1e357")
+   '((cursor    "#1074cd" "#d0d060" "#b1c721")
      (gray-2    "#fafafa" "#e9e9e9" "#dedede")
      (gray-1    "#adadad" "#c0c0c0" "#bababa")
      (gray      "#909090" "#9f9f9f" "#9b9b9b")
