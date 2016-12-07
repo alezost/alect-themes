@@ -1015,12 +1015,11 @@ For INVERT, see `alect-get-color'."
          (ido-virtual     ((,c :foreground ,(gc 'red-2))))
 
          ;; isearch
-         (isearch-fail         ((,c :foreground ,(gc 'fg+1)
-                                    :background ,(gc 'red-2))))
-         (isearch              ((,c :foreground ,(gc 'bg+1)
-                                    :background ,(gc 'fg+2))))
-         (lazy-highlight       ((,c :foreground ,(gc 'bg-2)
-                                    :background ,(gc 'gray))))
+         (isearch-fail         ((,c :background ,(gc 'red-bg))))
+         (isearch              ((,c :foreground ,(gc 'fg+1)
+                                    :background ,(gc 'blue-bg-1))))
+         (lazy-highlight       ((,c :foreground ,(gc 'fg+1)
+                                    :background ,(gc 'bg+2))))
 
          ;; linum-mode
          (linum ((,c :foreground ,(gc 'fg-2))))
