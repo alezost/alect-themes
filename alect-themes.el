@@ -776,6 +776,10 @@ For INVERT, see `alect-get-color'."
          (eshell-ls-special     ((,c :foreground ,(gc 'fg+1) :weight bold)))
          (eshell-ls-symlink     ((,c :inherit dired-symlink)))
 
+         ;; ffap
+         (ffap ((,c :foreground ,(gc 'fg+1)
+                    :background ,(gc 'blue-bg))))
+
          ;; flycheck
          (flycheck-error-face    ((,c :foreground ,(gc 'red-1)
                                       :weight bold
