@@ -265,7 +265,7 @@ Evaluate it and reload an alect-theme to see the difference."
      (bg-2      "#f6f0e1" "#222222" "#404040")
      (bg-1      "#ded6c5" "#3f3f3f" "#000000")
      (bg        "#d9ceb2" "#4f4f4f" "#202020")
-     (bg+1      "#d3c7a0" "#5f5f5f" "#303030")
+     (bg+1      "#d4caa7" "#5f5f5f" "#303030")
      (bg+2      "#ccc19b" "#6f6f6f" "#454545")
      (red-2     "#fa5151" "#fa6a6e" "#e96060")
      (red-1     "#e43838" "#fa5151" "#ea4141")
