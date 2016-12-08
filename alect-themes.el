@@ -822,6 +822,10 @@ For INVERT, see `alect-get-color'."
          (font-lock-regexp-grouping-backslash ((,c :foreground ,(gc 'red+2))))
          (font-lock-regexp-grouping-construct ((,c :foreground ,(gc 'yellow-1))))
 
+         ;; gdb
+         (breakpoint-enabled  ((,c :foreground ,(gc 'red))))
+         (breakpoint-disabled ((,c :foreground ,(gc 'gray))))
+
          ;; geiser
          (geiser-font-lock-doc-title          ((,c :inherit bold)))
          (geiser-font-lock-doc-link           ((,c :inherit link)))
