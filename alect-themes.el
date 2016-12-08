@@ -1489,6 +1489,9 @@ For INVERT, see `alect-get-color'."
          (tabbar-modified         ((,c :inherit tabbar-unselected
                                        :foreground ,(gc 'red+2))))
 
+         ;; table
+         (table-cell ((,c :background ,(gc 'bg))))
+
          ;; term
          (term-color-black       ((,c :foreground ,(gc 'gray+2)
                                       :background ,(gc 'gray+2))))
