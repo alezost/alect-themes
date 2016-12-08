@@ -444,7 +444,7 @@ For INVERT, see `alect-get-color'."
                                    :background ,(gc 'bg-2))))
          (minibuffer-prompt   ((,c :inherit alect-prompt)))
          (secondary-selection ((,c :background ,(gc 'bg+1))))
-         (trailing-whitespace ((,c :background ,(gc 'red))))
+         (trailing-whitespace ((,c :background ,(gc 'red-bg-1))))
          (vertical-border     ((,c :foreground ,(gc 'fg+1))))
          (window-divider      ((,c :foreground ,(gc 'green+2))))
          (window-divider-first-pixel ((,c :foreground ,(gc 'green+1))))
