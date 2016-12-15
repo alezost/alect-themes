@@ -763,10 +763,12 @@ For INVERT, see `alect-get-color'."
          (epa-validity-low      ((,c :foreground ,(gc 'red-1))))
 
          ;; ert
-         (ert-test-result-expected    ((,c :foreground ,(gc 'green-2)
-                                           :background ,(gc 'bg-1))))
-         (ert-test-result-unexpected  ((,c :foreground ,(gc 'red)
-                                           :background ,(gc 'bg-1))))
+         (ert-test-result-expected    ((,c :foreground ,(gc 'green)
+                                           :background ,(gc 'bg-2)
+                                           :box (:line-width 1
+                                                 :style nil))))
+         (ert-test-result-unexpected  ((,c :inherit ert-test-result-expected
+                                           :foreground ,(gc 'red))))
 
          ;; eshell
          (eshell-prompt         ((,c :inherit alect-prompt)))
