@@ -744,7 +744,7 @@ For INVERT, see `alect-get-color'."
          (erc-error-face           ((,c :inherit error)))
          (erc-fool-face            ((,c :foreground ,(gc 'blue-2))))
          (erc-highlight-face       ((,c :inherit hover-highlight)))
-         (erc-input-face           ((,c :background ,(gc 'bg+1))))
+         (erc-input-face           ((,c :background ,(gc 'cyan-bg+1))))
          (erc-keyword-face         ((,c :foreground ,(gc 'green+1))))
          (erc-nick-default-face    ((,c :foreground ,(gc 'blue+1))))
          (erc-my-nick-face         ((,c :foreground ,(gc 'red))))
