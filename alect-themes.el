@@ -1102,8 +1102,9 @@ For INVERT, see `alect-get-color'."
          (magit-diff-file-heading           ((,c :inherit diff-file-header)))
          (magit-diff-file-heading-selection ((,c :inherit (magit-section-heading-selection
                                                            magit-diff-file-heading-highlight))))
-         (magit-diff-lines-heading          ((,c :foreground ,(gc 'bg-1)
-                                                 :background ,(gc 'blue-2))))
+         (magit-diff-lines-heading          ((,c :foreground ,(gc 'fg+1)
+                                                 :background ,(gc 'blue-bg-1))))
+         (magit-diff-lines-boundary         ((,c :background ,(gc 'blue+1))))
          (magit-diff-conflict-heading       ((,c :inherit magit-diff-hunk-heading
                                                  :foreground ,(gc 'red+2))))
          (magit-diff-hunk-heading           ((,c :inherit diff-hunk-header)))
