@@ -720,6 +720,10 @@ For INVERT, see `alect-get-color'."
          (ediff-fine-diff-C           ((,c :background ,(gc 'yellow-bg))))
          (ediff-even-diff-C           ((,c :inherit ediff-even-diff-A)))
          (ediff-odd-diff-C            ((,c :inherit ediff-odd-diff-A)))
+         (ediff-current-diff-Ancestor ((,c :background ,(gc 'magenta-bg+1))))
+         (ediff-fine-diff-Ancestor    ((,c :background ,(gc 'magenta-bg))))
+         (ediff-even-diff-Ancestor    ((,c :inherit ediff-even-diff-A)))
+         (ediff-odd-diff-Ancestor     ((,c :inherit ediff-odd-diff-A)))
 
          ;; eldoc
          (eldoc-highlight-function-argument ((,c :foreground ,(gc 'green)
