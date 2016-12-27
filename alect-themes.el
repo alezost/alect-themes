@@ -141,6 +141,13 @@ Used for titles without levels like `dired-header' or
 `magit-section-title'."
   :group 'alect-faces)
 
+(defface alect-field-title
+  '((t nil))
+  "Auxiliary face for inheriting by some other faces.
+Used for field titles like `package-help-section-name' or
+`message-header-name'."
+  :group 'alect-faces)
+
 (defface alect-button
   '((t nil))
   "Auxiliary face for inheriting by some other faces.
@@ -451,6 +458,7 @@ For INVERT, see `alect-get-color'."
          (window-divider-last-pixel  ((,c :inherit window-divider-first-pixel)))
 
          ;; auxiliary faces for inheriting
+         (alect-field-title    ((,c :foreground ,(gc 'yellow+1))))
          (alect-prompt         ((,c :foreground ,(gc 'magenta-1)
                                     :weight bold)))
          (alect-time           ((,c :foreground ,(gc 'cyan-2))))
@@ -562,7 +570,7 @@ For INVERT, see `alect-get-color'."
          (bui-time                ((,c :inherit alect-time)))
          (bui-url                 ((,c :inherit link)))
          (bui-info-heading        ((,c :inherit alect-title)))
-         (bui-info-param-title    ((,c :foreground ,(gc 'yellow+1))))
+         (bui-info-param-title    ((,c :inherit alect-field-title)))
 
          ;; calendar, diary
          (calendar-today    ((,c :box (:line-width -1
@@ -1203,8 +1211,7 @@ For INVERT, see `alect-get-color'."
          ;; message-mode
          (message-cited-text        ((,c :inherit font-lock-comment-face)))
          (message-separator         ((,c :inherit font-lock-comment-face)))
-         (message-header-name       ((,c :foreground ,(gc 'yellow+1)
-                                         :weight bold)))
+         (message-header-name       ((,c :inherit alect-field-title)))
          (message-header-other      ((,c :foreground ,(gc 'fg))))
          (message-header-to         ((,c :foreground ,(gc 'blue))))
          (message-header-cc         ((,c :foreground ,(gc 'blue-1))))
