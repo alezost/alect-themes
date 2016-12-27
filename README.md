@@ -72,8 +72,7 @@ supported (themed):
 - [EMMS](https://www.gnu.org/software/emms/)
 - [Geiser](https:/github.com/jaor/geiser)
 - [google-translate](https:/github.com/atykhonov/google-translate)
-- [GNU Guix](https://www.gnu.org/software/guix/) (Emacs interface is a
-  part of Guix)
+- [Emacs-Guix](https://github.com/alezost/guix.el)
 - [Helm](https://emacs-helm.github.io/helm/) (partial support)
 - [Hydra](https://github.com/abo-abo/hydra)
 - [indent-guide](https:/github.com/zk-phi/indent-guide)
@@ -138,8 +137,8 @@ To load a theme on Emacs start, add this to your init file:
 ```
 
 *Note:* For quick switching between themes (with unloading the previous
-one), I use `utl-load-theme` function from my
-[emacs-utils](https://github.com/alezost/emacs-utils/blob/master/utl-color.el).
+one), I use `al/load-theme` command from my
+[emacs-config](https://github.com/alezost/emacs-config/blob/master/utils/al-color.el).
 
 ## Configuration
 
