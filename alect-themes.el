@@ -1349,6 +1349,18 @@ For INVERT, see `alect-get-color'."
          (outline-7 ((,c :inherit alect-title-7)))
          (outline-8 ((,c :inherit alect-title-8)))
 
+         ;; package
+         (package-help-section-name ((,c :inherit alect-field-title)))
+         (package-name              ((,c :foreground ,(gc 'blue-1))))
+         (package-status-installed  ((,c :foreground ,(gc 'green+1))))
+         (package-status-dependency ((,c :foreground ,(gc 'green-1))))
+         (package-status-built-in   ((,c :foreground ,(gc 'blue+2))))
+         (package-status-external   ((,c :foreground ,(gc 'blue+1))))
+         (package-status-incompat   ((,c :foreground ,(gc 'magenta-1))))
+         (package-status-avail-obso ((,c :foreground ,(gc 'magenta+1))))
+         (package-status-disabled   ((,c :foreground ,(gc 'red))))
+         (package-status-unsigned   ((,c :inherit warning)))
+
          ;; popup
          (popup-tip-face                    ((,c :foreground ,(gc 'gray+2)
                                                  :background ,(gc 'yellow-2))))

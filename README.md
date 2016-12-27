@@ -57,6 +57,7 @@ supported (themed):
   + ruler
   + whitespace
   + linum
+  + package
   + show-paren
   + speedbar
 - [aurel](https:/github.com/alezost/aurel)
