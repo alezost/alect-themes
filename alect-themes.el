@@ -1042,6 +1042,9 @@ For INVERT, see `alect-get-color'."
                                :foreground ,(gc 'blue))))
          (ido-subdir      ((,c :inherit dired-directory)))
          (ido-virtual     ((,c :foreground ,(gc 'red-2))))
+         ;; I have no idea where this face is used.
+         (ido-indicator   ((,c :background ,(gc 'red-bg)
+                               :foreground ,(gc 'fg+1))))
 
          ;; isearch
          (isearch-fail         ((,c :background ,(gc 'red-bg))))
