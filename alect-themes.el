@@ -948,6 +948,7 @@ For INVERT, see `alect-get-color'."
          (google-translate-listen-button-face    ((,c :inherit alect-button)))
 
          ;; guix
+         (guix-operation-option-key             ((,c :inherit alect-key)))
          (guix-package-info-name                ((,c :inherit alect-title)))
          (guix-package-info-name-button         ((,c :inherit guix-package-info-name)))
          (guix-package-info-version             ((,c :foreground ,(gc 'blue-2))))
