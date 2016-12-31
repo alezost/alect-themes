@@ -818,7 +818,8 @@ For INVERT, see `alect-get-color'."
 
          ;; flyspell
          (flyspell-duplicate     ((,c :foreground ,(gc 'gray)
-                                      :underline (:color ,(gc 'fg+2)))))
+                                      :background ,(gc 'bg))
+                                      :weight bold))
          (flyspell-incorrect     ((,c :inherit flyspell-duplicate
                                       :foreground ,(gc 'red+1))))
 
