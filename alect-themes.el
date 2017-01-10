@@ -571,6 +571,7 @@ For INVERT, see `alect-get-color'."
          (bui-url                 ((,c :inherit link)))
          (bui-info-heading        ((,c :inherit alect-title)))
          (bui-info-param-title    ((,c :inherit alect-field-title)))
+         (bui-hint-key            ((,c :inherit alect-key)))
 
          ;; calendar, diary
          (calendar-today    ((,c :box (:line-width -1
