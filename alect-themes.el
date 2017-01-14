@@ -1195,6 +1195,7 @@ For INVERT, see `alect-get-color'."
                                               :foreground ,(gc 'fg+2))))
          (markdown-footnote-face         ((,c :foreground ,(gc 'blue+2))))
          (markdown-inline-code-face      ((,c :foreground ,(gc 'cyan+1))))
+         (markdown-markup-face           ((,c :foreground ,(gc 'fg-2))))
          (markdown-comment-face          ((,c :inherit font-lock-comment-face)))
          (markdown-blockquote-face       ((,c :inherit font-lock-doc-face)))
          (markdown-bold-face             ((,c :inherit bold)))
