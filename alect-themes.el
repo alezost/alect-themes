@@ -615,7 +615,7 @@ For INVERT, see `alect-get-color'."
          (company-scrollbar-bg              ((,c :background ,(gc 'gray))))
 
          ;; compilation
-         (compilation-info                  ((,c :foreground ,(gc 'green-2))))
+         (compilation-info                  ((,c :foreground ,(gc 'green+1))))
          (compilation-warning               ((,c :inherit warning)))
          (compilation-error                 ((,c :inherit error)))
          (compilation-line-number           ((,c :foreground ,(gc 'yellow))))
