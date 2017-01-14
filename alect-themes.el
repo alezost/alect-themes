@@ -1343,6 +1343,7 @@ For INVERT, see `alect-get-color'."
          (org-todo                  ((,c :foreground ,(gc 'red) :weight bold)))
          (org-upcoming-deadline     ((,c :inherit font-lock-keyword-face)))
          (org-verbatim              ((,c :foreground ,(gc 'fg-2))))
+         (org-code                  ((,c :foreground ,(gc 'cyan+1))))
          (org-warning               ((,c :foreground ,(gc 'red)
                                          :weight bold :underline nil)))
          (org-column                ((,c :background ,(gc 'bg-2))))
