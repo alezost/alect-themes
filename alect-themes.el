@@ -1381,6 +1381,14 @@ For INVERT, see `alect-get-color'."
          (popup-isearch-match               ((,c :foreground ,(gc 'fg+1)
                                                  :background ,(gc 'bg-1) )))
 
+         ;; powerline
+         (powerline-active1   ((,c :inherit mode-line
+                                   :background ,(gc 'cyan-bg))))
+         (powerline-active2   ((,c :inherit mode-line)))
+         (powerline-inactive1 ((,c :inherit mode-line-inactive
+                                   :background ,(gc 'cyan-bg+1))))
+         (powerline-inactive2 ((,c :inherit mode-line-inactive)))
+
          ;; rainbow-delimiters
          (rainbow-delimiters-depth-1-face   ((,c :foreground ,(gc 'fg+1))))
          (rainbow-delimiters-depth-2-face   ((,c :foreground ,(gc 'green+2))))

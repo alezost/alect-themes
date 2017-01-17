@@ -79,6 +79,7 @@ supported (themed):
 - [Magit](http://magit.vc/) (including version 2.1.0)
 - [markdown](http://jblevins.org/projects/markdown-mode/)
 - [mu4e](https://github.com/djcb/mu)
+- [powerline](https://github.com/milkypostman/powerline)
 - [sauron](https:/github.com/djcb/sauron)
 - [slime](https://common-lisp.net/project/slime/)
 - [sunrise-commander](https:/github.com/escherdragon/sunrise-commander)
