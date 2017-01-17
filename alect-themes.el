@@ -1,6 +1,6 @@
 ;;; alect-themes.el --- Configurable light, dark and black themes for Emacs 24 or later   -*- lexical-binding: t -*-
 
-;; Copyright (C) 2013-2016 Alex Kost
+;; Copyright (C) 2013-2017 Alex Kost
 
 ;; Author: Alex Kost <alezost@gmail.com>
 ;; Created: 10 Jul 2013
@@ -304,7 +304,7 @@ Evaluate it and reload an alect-theme to see the difference."
      (cyan+1       "#0d7b72" "#528d8d" "#4c8383")
      (cyan+2       "#286060" "#0c8782" "#0a7874")
      (cyan-bg-1    "#4ecad7" "#1a758a" "#155f70")
-     (cyan-bg      "#70dee9" "#195f73" "#0f414d")
+     (cyan-bg      "#80d7db" "#195f73" "#0f414d")
      (cyan-bg+1    "#c3d4d7" "#235050" "#132c2c")
      (blue-2       "#0092ff" "#b0c0ff" "#8cb7ff")
      (blue-1       "#2c53ca" "#94bff3" "#58b1f3")
@@ -313,7 +313,7 @@ Evaluate it and reload an alect-theme to see the difference."
      (blue+2       "#00008b" "#3390dc" "#2062d0")
      (blue-bg-1    "#7cc0f7" "#1a63b3" "#144f8f")
      (blue-bg      "#b0d0f3" "#134b87" "#0c325a")
-     (blue-bg+1    "#bcd9f5" "#152a5a" "#0d1a38")
+     (blue-bg+1    "#bcd9f5" "#2b3f6b" "#0d1a38")
      (magenta-2    "#dc63dc" "#ebabde" "#dc8cc3")
      (magenta-1    "#ba55d3" "#dc8cc3" "#e353b9")
      (magenta      "#a020f0" "#e353b9" "#da26ce")
