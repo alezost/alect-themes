@@ -1386,7 +1386,7 @@ For INVERT, see `alect-get-color'."
                                    :background ,(gc 'cyan-bg))))
          (powerline-active2   ((,c :inherit mode-line)))
          (powerline-inactive1 ((,c :inherit mode-line-inactive
-                                   :background ,(gc 'cyan-bg+1))))
+                                   :background ,(gc 'cyan-bg))))
          (powerline-inactive2 ((,c :inherit mode-line-inactive)))
 
          ;; rainbow-delimiters
