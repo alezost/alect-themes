@@ -1056,6 +1056,30 @@ For INVERT, see `alect-get-color'."
          (lazy-highlight       ((,c :foreground ,(gc 'fg+1)
                                     :background ,(gc 'bg+2))))
 
+         ;; ivy
+         (ivy-cursor                  ((,c :background ,(gc 'cursor)
+                                           :foreground ,(gc 'bg-2)
+                                           :box (:line-width 1
+                                                 :color ,(gc 'bg-2)
+                                                 :style nil))))
+         (ivy-current-match           ((,c :foreground ,(gc 'fg+2)
+                                           :weight bold)))
+         (ivy-confirm-face            ((,c :inherit minibuffer-prompt
+                                           :foreground ,(gc 'green))))
+         (ivy-match-required-face     ((,c :inherit minibuffer-prompt
+                                           :foreground ,(gc 'red))))
+         (ivy-virtual                 ((,c :foreground ,(gc 'red-2))))
+         (ivy-remote                  ((,c :foreground ,(gc 'blue+1))))
+         ;; Ideally `ivy-minibuffer-match-face-2' should have some
+         ;; background, but by default, ivy mixes colors (in
+         ;; `ivy--add-face') instead of applying only one face.  This
+         ;; may look really ugly, so just disable all minibuffer match
+         ;; faces.
+         (ivy-minibuffer-match-face-1 ((,c nil)))
+         (ivy-minibuffer-match-face-2 ((,c nil)))
+         (ivy-minibuffer-match-face-3 ((,c :inherit ivy-minibuffer-match-face-2)))
+         (ivy-minibuffer-match-face-4 ((,c :inherit ivy-minibuffer-match-face-2)))
+
          ;; linum-mode
          (linum ((,c :foreground ,(gc 'fg-2))))
 
