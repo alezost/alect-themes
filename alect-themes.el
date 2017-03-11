@@ -1676,7 +1676,7 @@ For INVERT, see `alect-get-color'."
                                               :style nil))))
          (widget-button            ((,c :inherit alect-button)))
          (widget-button-pressed    ((,c :inherit alect-button-pressed)))
-         (widget-documentation     ((,c :foreground ,(gc 'green-1))))
+         (widget-documentation     ((,c :inherit font-lock-doc-face)))
          (widget-inactive          ((,c :inherit shadow)))
          (widget-single-line-field ((,c :foreground ,(gc 'fg)
                                         :inherit widget-field)))
