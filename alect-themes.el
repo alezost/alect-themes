@@ -1511,6 +1511,12 @@ For INVERT, see `alect-get-color'."
          (slime-repl-prompt-face           ((,c :inherit alect-prompt)))
          (slime-repl-result-face           ((,c :foreground ,(gc 'blue+2))))
          (sldb-section-face                ((,c :inherit alect-title)))
+         (sldb-frame-label-face            ((,c :foreground ,(gc 'fg-2))))
+         (sldb-restart-number-face         ((,c :inherit sldb-frame-label-face
+                                                :weight bold)))
+         (sldb-detailed-frame-line-face    ((,c :weight bold)))
+         (sldb-restartable-frame-line-face ((,c :foreground ,(gc 'green+1))))
+         (sldb-non-restartable-frame-line-face ((,c :foreground ,(gc 'red+1))))
 
          ;; speedbar
          (speedbar-file-face      ((,c)))
