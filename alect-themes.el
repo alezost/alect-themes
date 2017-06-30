@@ -1427,6 +1427,11 @@ For INVERT, see `alect-get-color'."
          (rainbow-delimiters-depth-11-face  ((,c :foreground ,(gc 'green))))
          (rainbow-delimiters-depth-12-face  ((,c :foreground ,(gc 'cyan+2))))
 
+         ;; realgud
+	 (realgud-overlay-arrow1            ((,c (:foreground ,(gc 'green)))))
+	 (realgud-overlay-arrow2            ((,c (:foreground ,(gc 'yellow)))))
+	 (realgud-overlay-arrow3            ((,c (:foreground ,(gc 'yellow-2)))))
+
          ;; rcirc
          (rcirc-my-nick                   ((,c :foreground ,(gc 'blue))))
          (rcirc-other-nick                ((,c :foreground ,(gc 'fg-2))))
