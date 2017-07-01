@@ -81,6 +81,7 @@ supported (themed):
 - [markdown](http://jblevins.org/projects/markdown-mode/)
 - [mu4e](https://github.com/djcb/mu)
 - [powerline](https://github.com/milkypostman/powerline)
+- [realgud](https://github.com/realgud/realgud)
 - [sauron](https:/github.com/djcb/sauron)
 - [slime](https://common-lisp.net/project/slime/)
 - [sunrise-commander](https:/github.com/escherdragon/sunrise-commander)
@@ -462,4 +463,5 @@ to their authors.
 The following people helped to improve the themes:
 
 - Davor Rotim
+- Rocky Bernstein
 - Thomas S. Dye

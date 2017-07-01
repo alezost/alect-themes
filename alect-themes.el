@@ -1427,6 +1427,19 @@ For INVERT, see `alect-get-color'."
          (rainbow-delimiters-depth-11-face  ((,c :foreground ,(gc 'green))))
          (rainbow-delimiters-depth-12-face  ((,c :foreground ,(gc 'cyan+2))))
 
+         ;; realgud
+         (realgud-overlay-arrow1        ((,c (:foreground ,(gc 'fg+2)))))
+         (realgud-overlay-arrow2        ((,c (:foreground ,(gc 'green-1)))))
+         (realgud-overlay-arrow3        ((,c (:foreground ,(gc 'green-bg-1)))))
+         (realgud-bp-enabled-face       ((,c (:foreground ,(gc 'red)))))
+         (realgud-bp-disabled-face      ((,c (:foreground ,(gc 'gray)))))
+         (realgud-bp-line-enabled-face  ((,c (:background ,(gc 'red-bg+1)))))
+         (realgud-bp-line-disabled-face ((,c)))
+         (realgud-file-name             ((,c :foreground ,(gc 'green+1))))
+         (realgud-line-number           ((,c :foreground ,(gc 'yellow))))
+         (realgud-backtrace-number      ((,c :foreground ,(gc 'fg+2)
+                                             :weight bold)))
+
          ;; rcirc
          (rcirc-my-nick                   ((,c :foreground ,(gc 'blue))))
          (rcirc-other-nick                ((,c :foreground ,(gc 'fg-2))))
