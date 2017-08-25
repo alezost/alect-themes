@@ -950,16 +950,14 @@ For INVERT, see `alect-get-color'."
          (google-translate-listen-button-face    ((,c :inherit alect-button)))
 
          ;; guix
+         (guix-true                             ((,c :foreground ,(gc 'green-1)
+                                                     :weight bold)))
          (guix-operation-option-key             ((,c :inherit alect-key)))
          (guix-package-info-name                ((,c :inherit alect-title)))
          (guix-package-info-name-button         ((,c :inherit guix-package-info-name)))
          (guix-package-info-version             ((,c :foreground ,(gc 'blue-2))))
          (guix-package-info-synopsis            ((,c :inherit font-lock-doc-face)))
          (guix-package-info-license             ((,c :foreground ,(gc 'red-1))))
-         (guix-package-info-uninstalled-outputs ((,c :foreground ,(gc 'fg+2)
-                                                     :weight bold)))
-         (guix-package-info-installed-outputs   ((,c :foreground ,(gc 'green-1)
-                                                     :weight bold)))
          (guix-package-info-inputs              ((,c :foreground ,(gc 'fg)
                                                      :weight bold)))
          (guix-package-info-native-inputs       ((,c :foreground ,(gc 'fg-1)
@@ -968,16 +966,9 @@ For INVERT, see `alect-get-color'."
                                                      :weight bold)))
          (guix-devel-gexp-symbol                ((,c :foreground ,(gc 'yellow+2))))
 
-         ;; TODO remove (obsolete since Emacs-Guix 0.2)
-         (guix-info-heading                     ((,c :inherit alect-title)))
-         (guix-info-param-title                 ((,c :foreground ,(gc 'yellow+1))))
-         (guix-info-time                        ((,c :inherit alect-time)))
-         (guix-info-action-button               ((,c :inherit alect-button)))
-         (guix-info-action-button-mouse         ((,c :inherit alect-button-mouse)))
-         (guix-info-url                         ((,c :inherit link)))
-         (guix-info-file-name                   ((,c :foreground ,(gc 'green+1)
-                                                     :underline t)))
-         (guix-generation-info-number           ((,c :inherit alect-title)))
+         ;; TODO Remove ("covered" by 'guix-true' face since Emacs-Guix 0.3.3).
+         (guix-package-info-installed-outputs   ((,c :foreground ,(gc 'green-1)
+                                                     :weight bold)))
 
          ;; helm
          (helm-header-line-left-margin ((,c :inherit alect-prompt)))
