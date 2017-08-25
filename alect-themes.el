@@ -115,6 +115,13 @@ Used for various prompts like `minibuffer-prompt' or `eshell-prompt'."
 Used for date/time faces like `org-date' or `erc-timestamp-face'."
   :group 'alect-faces)
 
+(defface alect-file
+  '((t nil))
+  "Auxiliary face for inheriting by some other faces.
+Used for 'file name' faces like `change-log-file' or
+`compilation-info'."
+  :group 'alect-faces)
+
 (defface alect-author
   '((t nil))
   "Auxiliary face for inheriting by some other faces.
@@ -462,6 +469,7 @@ For INVERT, see `alect-get-color'."
          (alect-prompt         ((,c :foreground ,(gc 'magenta-1)
                                     :weight bold)))
          (alect-time           ((,c :foreground ,(gc 'cyan-2))))
+         (alect-file           ((,c :foreground ,(gc 'green+1))))
          (alect-author         ((,c :foreground ,(gc 'magenta-1))))
          (alect-key            ((,c :foreground ,(gc 'red-2)
                                     :weight bold)))
@@ -565,7 +573,7 @@ For INVERT, see `alect-get-color'."
          ;; bui
          (bui-action-button       ((,c :inherit alect-button)))
          (bui-action-button-mouse ((,c :inherit alect-button-mouse)))
-         (bui-file-name           ((,c :foreground ,(gc 'green+1)
+         (bui-file-name           ((,c :inherit alect-file
                                        :underline t)))
          (bui-time                ((,c :inherit alect-time)))
          (bui-url                 ((,c :inherit link)))
@@ -586,7 +594,7 @@ For INVERT, see `alect-get-color'."
          (change-log-date           ((,c :inherit alect-time)))
          (change-log-name           ((,c :inherit alect-author)))
          (change-log-email          ((,c :foreground ,(gc 'red-2))))
-         (change-log-file           ((,c :foreground ,(gc 'green-1))))
+         (change-log-file           ((,c :inherit alect-file)))
          (change-log-list           ((,c :inherit font-lock-function-name-face)))
          (change-log-conditionals   ((,c :inherit font-lock-variable-name-face)))
          (change-log-function       ((,c :foreground ,(gc 'yellow))))
@@ -615,7 +623,7 @@ For INVERT, see `alect-get-color'."
          (company-scrollbar-bg              ((,c :background ,(gc 'gray))))
 
          ;; compilation
-         (compilation-info                  ((,c :foreground ,(gc 'green+1))))
+         (compilation-info                  ((,c :inherit alect-file)))
          (compilation-warning               ((,c :inherit warning)))
          (compilation-error                 ((,c :inherit error)))
          (compilation-line-number           ((,c :foreground ,(gc 'yellow))))
@@ -1426,7 +1434,7 @@ For INVERT, see `alect-get-color'."
          (realgud-bp-disabled-face      ((,c (:foreground ,(gc 'gray)))))
          (realgud-bp-line-enabled-face  ((,c (:background ,(gc 'red-bg+1)))))
          (realgud-bp-line-disabled-face ((,c)))
-         (realgud-file-name             ((,c :foreground ,(gc 'green+1))))
+         (realgud-file-name             ((,c :inherit alect-file)))
          (realgud-line-number           ((,c :foreground ,(gc 'yellow))))
          (realgud-backtrace-number      ((,c :foreground ,(gc 'fg+2)
                                              :weight bold)))
