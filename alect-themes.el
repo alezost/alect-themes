@@ -962,16 +962,15 @@ For INVERT, see `alect-get-color'."
                                                      :weight bold)))
          (guix-operation-option-key             ((,c :inherit alect-key)))
          (guix-package-info-name                ((,c :inherit alect-title)))
-         (guix-package-info-name-button         ((,c :inherit guix-package-info-name)))
          (guix-package-info-version             ((,c :foreground ,(gc 'blue-2))))
+         (guix-package-info-name-button         ((,c :foreground ,(gc 'fg)
+                                                     :weight bold)))
          (guix-package-info-synopsis            ((,c :inherit font-lock-doc-face)))
          (guix-package-info-license             ((,c :foreground ,(gc 'red-1))))
-         (guix-package-info-inputs              ((,c :foreground ,(gc 'fg)
-                                                     :weight bold)))
-         (guix-package-info-native-inputs       ((,c :foreground ,(gc 'fg-1)
-                                                     :weight bold)))
-         (guix-package-info-propagated-inputs   ((,c :foreground ,(gc 'fg)
-                                                     :weight bold)))
+         (guix-package-info-inputs              ((,c :inherit guix-package-info-name-button)))
+         (guix-package-info-native-inputs       ((,c :inherit guix-package-info-name-button
+                                                     :foreground ,(gc 'fg-1))))
+         (guix-package-info-propagated-inputs   ((,c :inherit guix-package-info-name-button)))
          (guix-devel-gexp-symbol                ((,c :foreground ,(gc 'yellow+2))))
 
          ;; TODO Remove ("covered" by 'guix-true' face since Emacs-Guix 0.3.3).
