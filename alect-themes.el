@@ -1,6 +1,6 @@
 ;;; alect-themes.el --- Configurable light, dark and black themes for Emacs 24 or later   -*- lexical-binding: t -*-
 
-;; Copyright (C) 2013-2017 Alex Kost
+;; Copyright (C) 2013–2018 Alex Kost
 
 ;; Author: Alex Kost <alezost@gmail.com>
 ;; Created: 10 Jul 2013
@@ -971,6 +971,11 @@ For INVERT, see `alect-get-color'."
          (guix-package-info-native-inputs       ((,c :inherit guix-package-info-name-button
                                                      :foreground ,(gc 'fg-1))))
          (guix-package-info-propagated-inputs   ((,c :inherit guix-package-info-name-button)))
+         (guix-package-info-future              ((,c :foreground ,(gc 'blue-1)
+                                                     :inherit guix-package-info-installed-outputs)))
+         (guix-package-info-unknown             ((,c :foreground ,(gc 'fg+2)
+                                                     :background ,(gc 'red-bg)
+                                                     :inherit guix-package-info-installed-outputs)))
          (guix-devel-gexp-symbol                ((,c :foreground ,(gc 'yellow+2))))
 
          ;; TODO Remove ("covered" by 'guix-true' face since Emacs-Guix 0.3.3).
