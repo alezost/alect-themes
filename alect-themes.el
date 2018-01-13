@@ -1432,12 +1432,12 @@ For INVERT, see `alect-get-color'."
 
          ;; realgud
          (realgud-overlay-arrow1        ((,c (:foreground ,(gc 'green-1)))))
-         (realgud-overlay-arrow2        ((,c (:foreground ,(gc 'green-bg-1)))))
-         (realgud-overlay-arrow3        ((,c (:foreground ,(gc 'yellow-2)))))
-         (realgud-bp-enabled-face       ((,c (:inherit error))))
+         (realgud-overlay-arrow2        ((,c (:foreground ,(gc 'yellow+1)))))
+         (realgud-overlay-arrow3        ((,c (:foreground ,(gc 'yellow)))))
+         (realgud-bp-enabled-face       ((,c (:color ,(gc 'red)))))
          (realgud-bp-disabled-face      ((,c (:foreground ,(gc 'gray)))))
-         (realgud-bp-line-enabled-face  ((,c (:inherit  error))))
-         (realgud-bp-line-disabled-face ((,c (:underline  ,(gc 'gray)))))
+	 (realgud-bp-line-enabled-face  ((,c :box (:color ,(gc 'red) :style nil))))
+         (realgud-bp-line-disabled-face ((,c :box (:color ,(gc 'gray) :style nil))))
          (realgud-file-name             ((,c :inherit alect-file)))
          (realgud-line-number           ((,c :foreground ,(gc 'yellow))))
          (realgud-backtrace-number      ((,c :foreground ,(gc 'fg+2)
