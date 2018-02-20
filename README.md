@@ -82,6 +82,7 @@ supported (themed):
 - [mu4e](https://github.com/djcb/mu)
 - [powerline](https://github.com/milkypostman/powerline)
 - [realgud](https://github.com/realgud/realgud)
+- [rubik](https://github.com/Kurvivor19/rubik-mode)
 - [sauron](https:/github.com/djcb/sauron)
 - [slime](https://common-lisp.net/project/slime/)
 - [sunrise-commander](https:/github.com/escherdragon/sunrise-commander)

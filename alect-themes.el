@@ -1471,6 +1471,14 @@ For INVERT, see `alect-get-color'."
          (rst-adornment ((,c :foreground ,(gc 'fg+2))))
          (rst-literal   ((,c :foreground ,(gc 'cyan+1))))
 
+         ;; rubik
+         (rubik-yellow ((,c :background ,(gc 'yellow-bg-1))))
+         (rubik-white  ((,c :background ,(gc 'gray-2))))
+         (rubik-red    ((,c :background ,(gc 'red-bg-1))))
+         (rubik-orange ((,c :background ,(gc 'yellow))))
+         (rubik-green  ((,c :background ,(gc 'green-bg-1))))
+         (rubik-blue   ((,c :background ,(gc 'blue-bg-1))))
+
          ;; ruler-mode
          (ruler-mode-default        ((,c :inherit alect-tab-unselected
                                          :height 1.0)))
