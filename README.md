@@ -68,6 +68,7 @@ supported (themed):
 - [company](http://company-mode.github.io/)
 - [cperl](https://github.com/jrockway/cperl-mode)
 - [debbugs](http://elpa.gnu.org/packages/debbugs.html)
+- [diff-hl](https://github.com/dgutov/diff-hl)
 - [dictem](https:/github.com/cheusov/dictem)
 - [EMMS](https://www.gnu.org/software/emms/)
 - [Geiser](https:/github.com/jaor/geiser)
