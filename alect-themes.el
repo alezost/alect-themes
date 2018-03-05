@@ -712,6 +712,14 @@ For INVERT, see `alect-get-color'."
          (diff-nonexistent       ((,c :inherit diff-header
                                       :foreground ,(gc 'gray))))
 
+         ;; diff-hl
+         (diff-hl-insert ((,c :foreground ,(gc 'fg+1)
+                              :background ,(gc 'green-bg))))
+         (diff-hl-delete ((,c :inherit diff-hl-insert
+                              :background ,(gc 'red-bg))))
+         (diff-hl-change ((,c :inherit diff-hl-insert
+                              :background ,(gc 'blue-bg))))
+
          ;; dired
          (dired-directory  ((,c :inherit font-lock-function-name-face)))
          (dired-flagged    ((,c :foreground ,(gc 'red))))
