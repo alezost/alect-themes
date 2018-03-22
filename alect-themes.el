@@ -1719,6 +1719,10 @@ For INVERT, see `alect-get-color'."
          (widget-single-line-field ((,c :foreground ,(gc 'fg)
                                         :inherit widget-field)))
 
+         ;; winum
+         (winum-face ((,c :foreground ,(gc 'magenta)
+                          :weight bold)))
+
          ;; woman
          (woman-bold     ((,c :inherit Man-overstrike)))
          (woman-italic   ((,c :inherit Man-underline))))

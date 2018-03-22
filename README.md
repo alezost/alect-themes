@@ -90,6 +90,7 @@ supported (themed):
 - [syslog](https:/github.com/vapniks/syslog-mode)
 - [tabbar](https:/github.com/dholm/tabbar)
 - [w3m](http://emacs-w3m.namazu.org/)
+- [winum](https://github.com/deb0ch/emacs-winum)
 
 The other packages are not supported yet even if there are some
 customized faces (these faces left from [other themes](#history)).  So
