@@ -1075,6 +1075,7 @@ For INVERT, see `alect-get-color'."
                                                  :style nil))))
          (ivy-current-match           ((,c :foreground ,(gc 'fg+2)
                                            :weight bold)))
+         (ivy-highlight-face          ((,c :inherit font-lock-variable-name-face)))
          (ivy-confirm-face            ((,c :inherit minibuffer-prompt
                                            :foreground ,(gc 'green))))
          (ivy-match-required-face     ((,c :inherit minibuffer-prompt
@@ -1090,6 +1091,7 @@ For INVERT, see `alect-get-color'."
          (ivy-minibuffer-match-face-2 ((,c nil)))
          (ivy-minibuffer-match-face-3 ((,c :inherit ivy-minibuffer-match-face-2)))
          (ivy-minibuffer-match-face-4 ((,c :inherit ivy-minibuffer-match-face-2)))
+         (counsel-key-binding         ((,c :inherit alect-key)))
 
          ;; linum-mode
          (linum ((,c :foreground ,(gc 'fg-2))))
