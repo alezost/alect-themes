@@ -973,7 +973,7 @@ For INVERT, see `alect-get-color'."
          (guix-package-info-version             ((,c :foreground ,(gc 'blue-2))))
          (guix-package-info-name-button         ((,c :foreground ,(gc 'fg)
                                                      :weight bold)))
-         (guix-package-info-synopsis            ((,c :inherit font-lock-doc-face)))
+         (guix-package-info-synopsis            ((,c :inherit variable-pitch)))
          (guix-package-info-license             ((,c :foreground ,(gc 'red-1))))
          (guix-package-info-inputs              ((,c :inherit guix-package-info-name-button)))
          (guix-package-info-native-inputs       ((,c :inherit guix-package-info-name-button
@@ -985,10 +985,8 @@ For INVERT, see `alect-get-color'."
                                                      :background ,(gc 'red-bg)
                                                      :inherit guix-package-info-installed-outputs)))
          (guix-devel-gexp-symbol                ((,c :foreground ,(gc 'yellow+2))))
-
-         ;; TODO Remove ("covered" by 'guix-true' face since Emacs-Guix 0.3.3).
-         (guix-package-info-installed-outputs   ((,c :foreground ,(gc 'green-1)
-                                                     :weight bold)))
+         (guix-derivation-drv-file-name         ((,c :inherit guix-derivation-file-name
+                                                     :foreground ,(gc 'cyan))))
 
          ;; helm
          (helm-header-line-left-margin ((,c :inherit alect-prompt)))
