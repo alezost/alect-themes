@@ -294,7 +294,7 @@ Evaluate it and reload an alect-theme to see the difference."
      (yellow       "#ef8300" "#fe8b04" "#dc7700")
      (yellow+1     "#958323" "#e5c900" "#bcaa00")
      (yellow+2     "#6a621b" "#abab3a" "#959508")
-     (yellow-bg-1  "#cbcb20" "#76742d" "#73712a")
+     (yellow-bg-1  "#cbcb20" "#909032" "#73712a")
      (yellow-bg    "#dddd44" "#5e5c28" "#565624")
      (yellow-bg+1  "#e0e0a0" "#3c3c20" "#35351c")
      (green-2      "#3cb368" "#8ce096" "#47cd57")
