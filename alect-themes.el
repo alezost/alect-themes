@@ -155,6 +155,20 @@ Used for field titles like `package-help-section-name' or
 `message-header-name'."
   :group 'alect-faces)
 
+(defface alect-block
+  '((t nil))
+  "Auxiliary face for inheriting by some other faces.
+Used for blocks of text like `org-block' or
+`markdown-code-face'."
+  :group 'alect-faces)
+
+(defface alect-block-title
+  '((t nil))
+  "Auxiliary face for inheriting by some other faces.
+Used for titles of blocks like `org-meta-line' or
+`markdown-language-keyword-face'."
+  :group 'alect-faces)
+
 (defface alect-button
   '((t nil))
   "Auxiliary face for inheriting by some other faces.
@@ -278,6 +292,7 @@ Evaluate it and reload an alect-theme to see the difference."
      (fg+2         "#101010" "#f6f0e1" "#d6cbae")
      (bg-2         "#f6f0e1" "#222222" "#404040")
      (bg-1         "#ded6c5" "#3f3f3f" "#000000")
+     (bg-0.5       "#dcd2bd" "#464646" "#101010")
      (bg           "#d9ceb2" "#4f4f4f" "#202020")
      (bg+1         "#d4caa7" "#5f5f5f" "#303030")
      (bg+2         "#ccc19b" "#6f6f6f" "#454545")
@@ -466,6 +481,9 @@ For INVERT, see `alect-get-color'."
 
          ;; auxiliary faces for inheriting
          (alect-field-title    ((,c :foreground ,(gc 'yellow+1))))
+         (alect-block          ((,c :background ,(gc 'bg-0.5))))
+         (alect-block-title    ((,c :inherit alect-block
+                                    :foreground ,(gc 'green+1))))
          (alect-prompt         ((,c :foreground ,(gc 'magenta-1)
                                     :weight bold)))
          (alect-time           ((,c :foreground ,(gc 'cyan-2))))
@@ -1239,13 +1257,14 @@ For INVERT, see `alect-get-color'."
          (markdown-link-face             ((,c :inherit link)))
          (markdown-link-title-face       ((,c :inherit font-lock-string-face)))
          (markdown-url-face              ((,c :foreground ,(gc 'green+2))))
-         (markdown-language-keyword-face ((,c :foreground ,(gc 'magenta+2))))
+         (markdown-code-face             ((,c :inherit alect-block)))
+         (markdown-language-keyword-face ((,c :inherit alect-block-title)))
          (markdown-line-break-face       ((,c :inherit underline)))
          (markdown-list-face             ((,c :foreground ,(gc 'fg+2)
                                               :weight bold)))
          (markdown-metadata-key-face     ((,c :foreground ,(gc 'blue-2))))
          (markdown-metadata-value-face   ((,c :foreground ,(gc 'red-1))))
-         (markdown-pre-face              ((,c :foreground ,(gc 'yellow+2))))
+         (markdown-pre-face              ((,c)))
          (markdown-reference-face        ((,c :inherit link)))
 
          ;; merlin
@@ -1268,7 +1287,7 @@ For INVERT, see `alect-get-color'."
                                          :weight bold)))
 
          ;; mm (used in mails)
-         (mm-uu-extract ((,c :background ,(gc 'bg))))
+         (mm-uu-extract ((,c :inherit alect-block)))
 
          ;; mode-line
          (mode-line-buffer-id  ((,c :foreground ,(gc 'blue-1)
@@ -1335,11 +1354,16 @@ For INVERT, see `alect-get-color'."
                                          :foreground ,(gc 'cyan-2))))
          (org-agenda-structure      ((,c :inherit alect-title)))
          (org-archived              ((,c :foreground ,(gc 'fg+1) :weight bold)))
-         (org-block                 ((,c :background ,(gc 'bg))))
-         (org-block-background      ((,c :background ,(gc 'bg))))
+         (org-block                 ((,c :inherit alect-block)))
+         (org-quote                 ((,c :inherit org-block
+                                         :foreground ,(gc 'fg+2))))
+         (org-verse                 ((,c :inherit org-block
+                                         :foreground ,(gc 'fg))))
+         (org-meta-line             ((,c :inherit alect-block-title)))
          (org-block-begin-line      ((,c :inherit org-meta-line
-                                         :background ,(gc 'bg+1))))
-         (org-block-end-line        ((,c :inherit org-block-begin-line)))
+                                         :overline t)))
+         (org-block-end-line        ((,c :inherit org-meta-line
+                                         :underline t)))
          (org-checkbox              ((,c :background ,(gc 'bg-2)
                                          :foreground ,(gc 'fg)
                                          :box (:line-width 1
