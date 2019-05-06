@@ -89,6 +89,7 @@ supported (themed):
 - [sunrise-commander](https:/github.com/escherdragon/sunrise-commander)
 - [syslog](https:/github.com/vapniks/syslog-mode)
 - [tabbar](https:/github.com/dholm/tabbar)
+- [transient](https://github.com/magit/transient)
 - [w3m](http://emacs-w3m.namazu.org/)
 - [winum](https://github.com/deb0ch/emacs-winum)
 

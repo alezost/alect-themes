@@ -1,6 +1,6 @@
 ;;; alect-themes.el --- Configurable light, dark and black themes for Emacs 24 or later   -*- lexical-binding: t -*-
 
-;; Copyright (C) 2013–2018 Alex Kost
+;; Copyright © 2013–2019 Alex Kost
 
 ;; Author: Alex Kost <alezost@gmail.com>
 ;; Created: 10 Jul 2013
@@ -1656,6 +1656,27 @@ For INVERT, see `alect-get-color'."
 
          ;; texinfo
          (texinfo-heading ((,c :inherit alect-title)))
+
+         ;; transient
+         (transient-heading               ((,c :inherit alect-title)))
+         (transient-key                   ((,c :inherit alect-key)))
+         (transient-unreachable           ((,c :foreground ,(gc 'fg-2))))
+         (transient-unreachable-key       ((,c :inherit (transient-unreachable
+                                                         alect-key))))
+         (transient-nonstandard-key       ((,c :inherit alect-key
+                                               :foreground ,(gc 'yellow))))
+         (transient-mismatched-key        ((,c :inherit (error
+                                                         alect-key))))
+         (transient-separator             ((,c :background ,(gc 'gray))))
+         (transient-argument              ((,c :foreground ,(gc 'blue-2)
+                                               :weight bold)))
+         (transient-value                 ((,c :inherit (italic
+                                                         font-lock-string-face))))
+         (transient-inactive-argument     ((,c :inherit shadow)))
+         (transient-inactive-value        ((,c :inherit (transient-inactive-argument
+                                                         transient-value))))
+         (transient-disabled-suffix       ((,c :background ,(gc 'red-bg))))
+         (transient-enabled-suffix        ((,c :background ,(gc 'green-bg))))
 
          ;; tuareg
          (tuareg-font-lock-governing-face          ((,c :foreground ,(gc 'fg+2)
