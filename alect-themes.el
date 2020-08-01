@@ -1117,6 +1117,7 @@ For INVERT, see `alect-get-color'."
          (magit-section-heading             ((,c :inherit alect-title)))
          (magit-section-highlight           ((,c :background ,(gc 'bg))))
          (magit-section-heading-selection   ((,c :foreground ,(gc 'blue-2))))
+         (magit-header-line-key             ((,c :inherit alect-key)))
          (magit-head                        ((,c :background ,(gc 'bg-2)
                                                  :foreground ,(gc 'fg+2)
                                                  :box (:line-width 2
