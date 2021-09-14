@@ -1,6 +1,6 @@
 ;;; alect-themes.el --- Configurable light, dark and black themes for Emacs 24 or later   -*- lexical-binding: t -*-
 
-;; Copyright © 2013–2020 Alex Kost
+;; Copyright © 2013–2021 Alex Kost
 
 ;; Author: Alex Kost <alezost@gmail.com>
 ;; Created: 10 Jul 2013
@@ -481,7 +481,8 @@ For INVERT, see `alect-get-color'."
 
          ;; auxiliary faces for inheriting
          (alect-field-title    ((,c :foreground ,(gc 'yellow+1))))
-         (alect-block          ((,c :background ,(gc 'bg-0.5))))
+         (alect-block          ((,c :background ,(gc 'bg-0.5)
+                                    :extend t)))
          (alect-block-title    ((,c :inherit alect-block
                                     :foreground ,(gc 'green+1))))
          (alect-prompt         ((,c :foreground ,(gc 'magenta-1)
