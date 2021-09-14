@@ -1,6 +1,6 @@
-[![License GPL 3](https://img.shields.io/badge/license-GPL_3-orange.svg)](http://www.gnu.org/licenses/gpl-3.0.txt)
-[![MELPA](http://melpa.org/packages/alect-themes-badge.svg)](http://melpa.org/#/alect-themes)
-[![MELPA Stable](http://stable.melpa.org/packages/alect-themes-badge.svg)](http://stable.melpa.org/#/alect-themes)
+[![License GPL 3](https://img.shields.io/badge/license-GPL_3-orange.svg)](https://www.gnu.org/licenses/gpl-3.0.txt)
+[![MELPA](https://melpa.org/packages/alect-themes-badge.svg)](https://melpa.org/#/alect-themes)
+[![MELPA Stable](https://stable.melpa.org/packages/alect-themes-badge.svg)](https://stable.melpa.org/#/alect-themes)
 
 ## About
 
@@ -49,7 +49,7 @@ supported (themed):
   + erc
   + epa
   + ert
-  + [Org](http://orgmode.org/)
+  + [Org](https://orgmode.org/)
   + message
   + gnus (also see a note about Gnus [here](#other-variables))
   + flyspell
@@ -65,9 +65,9 @@ supported (themed):
 - Caml packages: [tuareg](https://github.com/ocaml/tuareg),
   [merlin](https://github.com/the-lambda-church/merlin),
   [utop](https://github.com/diml/utop)
-- [company](http://company-mode.github.io/)
+- [company](https://company-mode.github.io/)
 - [cperl](https://github.com/jrockway/cperl-mode)
-- [debbugs](http://elpa.gnu.org/packages/debbugs.html)
+- [debbugs](https://elpa.gnu.org/packages/debbugs.html)
 - [diff-hl](https://github.com/dgutov/diff-hl)
 - [dictem](https:/github.com/cheusov/dictem)
 - [EMMS](https://www.gnu.org/software/emms/)
@@ -78,8 +78,8 @@ supported (themed):
 - [Hydra](https://github.com/abo-abo/hydra)
 - [indent-guide](https:/github.com/zk-phi/indent-guide)
 - [ivy](https://github.com/abo-abo/swiper)
-- [Magit](http://magit.vc/)
-- [markdown](http://jblevins.org/projects/markdown-mode/)
+- [Magit](https://magit.vc/)
+- [markdown](https://jblevins.org/projects/markdown-mode/)
 - [mu4e](https://github.com/djcb/mu)
 - [org-transclusion](https://github.com/nobiot/org-transclusion)
 - [powerline](https://github.com/milkypostman/powerline)
@@ -113,7 +113,7 @@ Add this to your init file (`~/.emacs.d/init.el` or `~/.emacs`):
 
 ### MELPA
 
-The package can be installed from [MELPA](http://melpa.org) (with `M-x
+The package can be installed from [MELPA](https://melpa.org) (with `M-x
 package-install` or `M-x list-packages`).
 
 If you want to enable (see [Usage section](#usage)) **any** theme
@@ -317,10 +317,10 @@ example, if you enable `alect-light` theme, you can see ugly gray
 buttons and other faces in the `Custom-mode` (the left picture)
 instead of the themed colored buttons (the right picture):
 
-<a href="http://i.imgur.com/sLKZI90.png">
-<img src="http://i.imgur.com/Ah1YXNH.png" title="alect-light - Custom-mode (wrong colors)"/></a>
-<a href="http://i.imgur.com/yn6Njtq.png">
-<img src="http://i.imgur.com/66G9VvX.png" title="alect-light - Custom-mode (proper colors)"/></a>
+<a href="https://i.imgur.com/sLKZI90.png">
+<img src="https://i.imgur.com/Ah1YXNH.png" title="alect-light - Custom-mode (wrong colors)"/></a>
+<a href="https://i.imgur.com/yn6Njtq.png">
+<img src="https://i.imgur.com/66G9VvX.png" title="alect-light - Custom-mode (proper colors)"/></a>
 
 This happens because Emacs applies default face settings even for a
 themed face.  This behaviour is changed in the new versions of Emacs:
@@ -355,7 +355,7 @@ development variants from 24.3.50.1.  It works good except of one
 particular case: if you try to use that workaround and enable a theme in
 an unsupported (by the theme) terminal (e.g. alect-theme in a text
 terminal), your monitor may suddenly explode.  Currently
-[faces.el](http://git.savannah.gnu.org/cgit/emacs.git/tree/lisp/faces.el)
+[faces.el](https://git.savannah.gnu.org/cgit/emacs.git/tree/lisp/faces.el)
 is changed a lot (comparing to 24.3) and I don't know a better
 workaround.
 
@@ -367,7 +367,7 @@ they should.
 ### Emacs bug in themed variables
 
 Emacs has a bug
-([#16266](http://debbugs.gnu.org/cgi/bugreport.cgi?bug=16266)) that
+([#16266](https://debbugs.gnu.org/cgi/bugreport.cgi?bug=16266)) that
 doesn't allow to set undefined variables.  For example, if a theme
 customizes a color for emms icon and you load the theme before emms,
 then emms icon will use a default color instead of the themed one.  This
@@ -392,7 +392,7 @@ You can use this workaround to avoid the bug:
 ## Screenshots
 
 You can see the following and other screenshots in
-[this imgur album](http://imgur.com/a/eBx96).
+[this imgur album](https://imgur.com/a/eBx96).
 
 ### C, shell, linum, ido
 
@@ -400,10 +400,10 @@ You can see the following and other screenshots in
 
 **Font:** *Terminus-12*
 
-<a href="http://i.imgur.com/XS9TM80.png">
-<img src="http://i.imgur.com/XS9TM80.png" title="alect-light - c, shell" width=320 height=240/></a>
-<a href="http://i.imgur.com/Fj0s7oT.png">
-<img src="http://i.imgur.com/Fj0s7oT.png" title="alect-dark - c, shell" width=320 height=240/></a>
+<a href="https://i.imgur.com/XS9TM80.png">
+<img src="https://i.imgur.com/XS9TM80.png" title="alect-light - c, shell" width=320 height=240/></a>
+<a href="https://i.imgur.com/Fj0s7oT.png">
+<img src="https://i.imgur.com/Fj0s7oT.png" title="alect-dark - c, shell" width=320 height=240/></a>
 
 ### Org, markdown
 
@@ -411,10 +411,10 @@ You can see the following and other screenshots in
 
 **Font:** *DejaVu Sans Mono-12*
 
-<a href="http://i.imgur.com/QoKlSxn.png">
-<img src="http://i.imgur.com/QoKlSxn.png" title="alect-light - org, markdown" width=320 height=240/></a>
-<a href="http://i.imgur.com/Ufx12Nm.png">
-<img src="http://i.imgur.com/Ufx12Nm.png" title="alect-black - org, markdown" width=320 height=240/></a>
+<a href="https://i.imgur.com/QoKlSxn.png">
+<img src="https://i.imgur.com/QoKlSxn.png" title="alect-light - org, markdown" width=320 height=240/></a>
+<a href="https://i.imgur.com/Ufx12Nm.png">
+<img src="https://i.imgur.com/Ufx12Nm.png" title="alect-black - org, markdown" width=320 height=240/></a>
 
 ### Magit
 
@@ -422,10 +422,10 @@ You can see the following and other screenshots in
 
 **Font:** *Anonymous Pro-13*
 
-<a href="http://i.imgur.com/rjGvhV6.png">
-<img src="http://i.imgur.com/rjGvhV6.png" title="alect-light - magit" width=320 height=240/></a>
-<a href="http://i.imgur.com/5WJ4xu9.png">
-<img src="http://i.imgur.com/5WJ4xu9.png" title="alect-dark - magit" width=320 height=240/></a>
+<a href="https://i.imgur.com/rjGvhV6.png">
+<img src="https://i.imgur.com/rjGvhV6.png" title="alect-light - magit" width=320 height=240/></a>
+<a href="https://i.imgur.com/5WJ4xu9.png">
+<img src="https://i.imgur.com/5WJ4xu9.png" title="alect-dark - magit" width=320 height=240/></a>
 
 ### Elisp, ido
 
@@ -435,10 +435,10 @@ original dark theme and a dark theme with some changed faces (see
 
 **Font:** *Liberation Mono-12*
 
-<a href="http://i.imgur.com/gZAZgvT.png">
-<img src="http://i.imgur.com/gZAZgvT.png" title="alect-dark (default) - elisp" width=320 height=240/></a>
-<a href="http://i.imgur.com/mAlbxLd.png">
-<img src="http://i.imgur.com/mAlbxLd.png" title="alect-dark (modified) - elisp" width=320 height=240/></a>
+<a href="https://i.imgur.com/gZAZgvT.png">
+<img src="https://i.imgur.com/gZAZgvT.png" title="alect-dark (default) - elisp" width=320 height=240/></a>
+<a href="https://i.imgur.com/mAlbxLd.png">
+<img src="https://i.imgur.com/mAlbxLd.png" title="alect-dark (modified) - elisp" width=320 height=240/></a>
 
 ### Dired, elisp
 
@@ -448,10 +448,10 @@ alternative themes, configured to invert background (see
 
 **Font:** *Anonymous Pro-13*
 
-<a href="http://i.imgur.com/ljO1Dlf.png">
-<img src="http://i.imgur.com/ljO1Dlf.png" title="alect-light-alt (modified) - dired, elisp" width=320 height=240/></a>
-<a href="http://i.imgur.com/HNMr4qj.png">
-<img src="http://i.imgur.com/HNMr4qj.png" title="alect-dark-alt (modified) - dired, elisp" width=320 height=240/></a>
+<a href="https://i.imgur.com/ljO1Dlf.png">
+<img src="https://i.imgur.com/ljO1Dlf.png" title="alect-light-alt (modified) - dired, elisp" width=320 height=240/></a>
+<a href="https://i.imgur.com/HNMr4qj.png">
+<img src="https://i.imgur.com/HNMr4qj.png" title="alect-dark-alt (modified) - dired, elisp" width=320 height=240/></a>
 
 ## History
 
