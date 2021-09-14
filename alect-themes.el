@@ -1615,6 +1615,10 @@ For INVERT, see `alect-get-color'."
          (sr-xml-face               ((,c :foreground ,(gc 'green+2))))
          (sr-html-face              ((,c :foreground ,(gc 'cyan+2))))
 
+         (sunshine-forecast-date-face        ((,c :inherit alect-time)))
+         (sunshine-forecast-day-divider-face ((,c :foreground ,(gc 'fg-1))))
+         (sunshine-forecast-headline-face    ((,c :inherit alect-title)))
+
          ;; syslog-mode
          (syslog-error ((,c :inherit error)))
          (syslog-warn  ((,c :inherit warning)))
