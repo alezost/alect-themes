@@ -81,6 +81,7 @@ supported (themed):
 - [Magit](http://magit.vc/)
 - [markdown](http://jblevins.org/projects/markdown-mode/)
 - [mu4e](https://github.com/djcb/mu)
+- [org-transclusion](https://github.com/nobiot/org-transclusion)
 - [powerline](https://github.com/milkypostman/powerline)
 - [realgud](https://github.com/realgud/realgud)
 - [rubik](https://github.com/Kurvivor19/rubik-mode)

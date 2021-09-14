@@ -1413,6 +1413,16 @@ For INVERT, see `alect-get-color'."
          (org-column-title          ((,c :background ,(gc 'bg-2)
                                          :underline t :weight bold)))
 
+         ;; org-transclusion
+         (org-transclusion-keyword     ((,c :inherit org-meta-line)))
+         (org-transclusion             ((,c :background ,(gc 'bg+1)
+                                            :extend t)))
+         (org-transclusion-edit        ((,c :inherit org-transclusion)))
+         (org-transclusion-source      ((,c :background ,(gc 'green-bg+1)
+                                            :extend t)))
+         (org-transclusion-source-edit ((,c :background ,(gc 'yellow-bg+1)
+                                            :extend t)))
+
          ;; outline
          (outline-1 ((,c :inherit alect-title-1)))
          (outline-2 ((,c :inherit alect-title-2)))
