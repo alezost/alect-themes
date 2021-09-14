@@ -538,7 +538,8 @@ For INVERT, see `alect-get-color'."
          (alect-button-mouse   ((,c :inherit highlight
                                     :box (:line-width 2
                                           :style released-button))))
-         (alect-tab-default    ((,c :height 0.9 :box nil)))
+         (alect-tab-default    ((,c :height 0.9 :box nil
+                                    :background ,(gc 'bg-1))))
          (alect-tab-unselected ((,c :inherit alect-tab-default
                                     :foreground ,(gc 'fg-2)
                                     :background ,(gc 'bg)
