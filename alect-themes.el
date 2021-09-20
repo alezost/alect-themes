@@ -1639,6 +1639,12 @@ For INVERT, see `alect-get-color'."
          (syslog-su    ((,c :foreground ,(gc 'cyan))))
          (syslog-ip    ((,c :foreground ,(gc 'yellow+1) :underline t)))
 
+         ;; tab-bar
+         (tab-line                ((,c :inherit header-line)))
+         (tab-bar                 ((,c :inherit alect-tab-default)))
+         (tab-bar-tab             ((,c :inherit alect-tab-selected)))
+         (tab-bar-tab-inactive    ((,c :inherit alect-tab-unselected)))
+
          ;; tabbar
          (tabbar-default          ((,c :inherit alect-tab-default)))
          (tabbar-separator        ((,c :inherit tabbar-default)))
