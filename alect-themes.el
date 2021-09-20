@@ -1732,8 +1732,16 @@ For INVERT, see `alect-get-color'."
          (vc-removed-state       ((,c :foreground ,(gc 'red-1))))
 
          ;; emacs-w3m
-         (w3m-anchor                       ((,c :inherit link)))
-         (w3m-arrived-anchor               ((,c :inherit link-visited)))
+         (w3m-anchor                       ((,c :inherit link
+                                                :underline nil)))
+         (w3m-arrived-anchor               ((,c :inherit link-visited
+                                                :underline nil)))
+         (w3m-current-anchor               ((,c :inherit link
+                                                :weight bold)))
+         (w3m-image-anchor                 ((,c :inherit w3m-anchor
+                                                :box (:line-width -1
+                                                      :color ,(gc 'green)
+                                                      :style nil))))
          (w3m-form                         ((,c :foreground ,(gc 'red-1)
                                                 :underline t)))
          (w3m-form-button                  ((,c :inherit alect-button)))
@@ -1750,11 +1758,12 @@ For INVERT, see `alect-get-color'."
          (w3m-tab-unselected-unseen        ((,c :inherit w3m-tab-unselected
                                                 :foreground ,(gc 'fg))))
          (w3m-tab-mouse                    ((,c :inherit alect-tab-mouse)))
-         (w3m-header-line-location-title   ((,c :inherit header-line)))
-         (w3m-header-line-location-content ((,c :foreground ,(gc 'blue-1)
+         (w3m-header-line-background       ((,c :background ,(gc 'bg))))
+         (w3m-header-line-title            ((,c :inherit (alect-title
+                                                          header-line))))
+         (w3m-header-line-content          ((,c :foreground ,(gc 'blue-1)
                                                 :inherit header-line)))
          (w3m-history-current-url          ((,c :inherit alect-selected-item)))
-         (w3m-image-anchor                 ((,c :background ,(gc 'bg+1))))
 
          ;; which-func-mode
          (which-func ((,c :inherit font-lock-function-name-face)))
