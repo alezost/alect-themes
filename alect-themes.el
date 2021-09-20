@@ -711,15 +711,15 @@ For INVERT, see `alect-get-color'."
          (diff-added             ((,c :foreground ,(gc 'green-1))))
          (diff-changed           ((,c :foreground ,(gc 'yellow-1))))
          (diff-removed           ((,c :foreground ,(gc 'red-1))))
-         (diff-indicator-added   ((,c :inherit diff-added)))
-         (diff-indicator-changed ((,c :inherit diff-changed)))
-         (diff-indicator-removed ((,c :inherit diff-removed)))
-         (diff-refine-added      ((,c :inherit diff-added
-                                      :underline t)))
-         (diff-refine-changed    ((,c :inherit diff-changed
-                                      :underline t)))
-         (diff-refine-removed    ((,c :inherit diff-removed
-                                      :underline t)))
+         (diff-indicator-added   ((,c :inherit diff-added :weight bold)))
+         (diff-indicator-changed ((,c :inherit diff-changed :weight bold)))
+         (diff-indicator-removed ((,c :inherit diff-removed :weight bold)))
+         (diff-refine-added      ((,c :background ,(gc 'green-bg)
+                                      :foreground ,(gc 'fg+1))))
+         (diff-refine-changed    ((,c :background ,(gc 'yellow-bg)
+                                      :foreground ,(gc 'fg+1))))
+         (diff-refine-removed    ((,c :background ,(gc 'red-bg)
+                                      :foreground ,(gc 'fg+1))))
          (diff-header            ((,c :foreground ,(gc 'blue-2) :weight bold)))
          (diff-hunk-header       ((,c :inherit diff-header
                                       :foreground ,(gc 'green+2))))
