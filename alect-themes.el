@@ -4,7 +4,7 @@
 
 ;; Author: Alex Kost <alezost@gmail.com>
 ;; Created: 10 Jul 2013
-;; Version: 0.9
+;; Version: 0.10
 ;; Package-Requires: ((emacs "24.0"))
 ;; URL: https://github.com/alezost/alect-themes
 ;; Keywords: color theme
