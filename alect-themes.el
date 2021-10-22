@@ -1401,6 +1401,8 @@ For INVERT, see `alect-get-color'."
          (org-scheduled-previously  ((,c :foreground ,(gc 'red-2))))
          (org-scheduled-today       ((,c :foreground ,(gc 'blue+1))))
          (org-special-keyword       ((,c :inherit font-lock-doc-face)))
+         (org-drawer                ((,c :inherit org-special-keyword
+                                         :weight bold)))
          (org-table                 ((,c :foreground ,(gc 'fg-1))))
          (org-tag                   ((,c :slant italic)))
          (org-time-grid             ((,c :foreground ,(gc 'fg-2))))
