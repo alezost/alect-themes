@@ -92,6 +92,7 @@ supported (themed):
 - [tabbar](https://github.com/dholm/tabbar)
 - [transient](https://github.com/magit/transient)
 - [w3m](http://emacs-w3m.namazu.org/)
+- [which-key](https://github.com/justbur/emacs-which-key)
 - [winum](https://github.com/deb0ch/emacs-winum)
 
 The other packages are not supported yet even if there are some

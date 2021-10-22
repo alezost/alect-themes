@@ -1768,6 +1768,16 @@ For INVERT, see `alect-get-color'."
          ;; which-func-mode
          (which-func ((,c :inherit font-lock-function-name-face)))
 
+         ;; which-key
+         (which-key-key-face                 ((,c :inherit alect-key)))
+         (which-key-separator-face           ((,c :foreground ,(gc 'fg-1))))
+         (which-key-note-face                ((,c :inherit font-lock-comment-face)))
+         (which-key-command-description-face ((,c nil)))
+         (which-key-highlighted-command-face ((,c :foreground ,(gc 'blue))))
+         (which-key-group-description-face   ((,c :inherit which-key-command-description-face
+                                                  :weight bold)))
+         (which-key-docstring-face           ((,c :inherit font-lock-doc-face)))
+
          ;; whitespace-mode
          (whitespace-space            ((,c :foreground ,(gc 'bg+1))))
          (whitespace-hspace           ((,c :background ,(gc 'bg)
