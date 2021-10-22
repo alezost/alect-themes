@@ -196,10 +196,9 @@ the background.  You can change those colors by putting this into your
 `.emacs` (before loading an alect-theme if you use it on Emacs start):
 
 ```elisp
-(eval-after-load 'alect-themes
-  '(progn
-     (alect-set-color 'light 'cyan-2 "#00a8a8")
-     (alect-set-color 'dark 'bg-1 "black")))
+(with-eval-after-load 'alect-themes
+  (alect-set-color 'light 'cyan-2 "#00a8a8")
+  (alect-set-color 'dark 'bg-1 "black"))
 ```
 
 The function `alect-set-color` is just a convenient way for modifying
