@@ -1033,6 +1033,7 @@ For INVERT, see `alect-get-color'."
          (helm-buffer-process     ((,c :foreground ,(gc 'green+1))))
          (helm-buffer-size        ((,c :foreground ,(gc 'cyan))))
          (helm-grep-file          ((,c :inherit compilation-info)))
+		 (helm-match              ((,c :foreground ,(gc 'green))))
 
          ;; help
          (help-argument-name ((,c :inherit font-lock-variable-name-face)))
