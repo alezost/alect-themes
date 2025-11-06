@@ -653,7 +653,10 @@ For INVERT, see `alect-get-color'."
          (compilation-mode-line-fail        ((,c :inherit compilation-error)))
 
          ;; completions
-         (completions-common-part ((,c :foreground ,(gc 'fg-2))))
+         (completions-annotations ((,c :inherit alect-key)))
+         (completions-highlight   ((,c :inherit alect-selected-item)))
+         (completions-common-part ((,c :background ,(gc 'bg+1))))
+         (completions-first-difference ((,c :foreground ,(gc 'blue-1))))
 
          ;; cperl
          (cperl-hash-face           ((,c :foreground ,(gc 'cyan+1))))
