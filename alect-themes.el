@@ -1392,6 +1392,7 @@ For INVERT, see `alect-get-color'."
          (org-date                  ((,c :inherit alect-time)))
          (org-date-selected         ((,c :inherit alect-selected-item)))
          (org-deadline-announce     ((,c :foreground ,(gc 'red-1))))
+         (org-dispatcher-highlight  ((,c :inherit alect-key)))
          (org-done                  ((,c :foreground ,(gc 'cyan-1)
                                          :weight bold)))
          (org-document-title        ((,c :inherit alect-title)))
