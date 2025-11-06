@@ -880,6 +880,8 @@ For INVERT, see `alect-get-color'."
                                                 :weight bold)))
          (font-lock-regexp-grouping-backslash ((,c :foreground ,(gc 'red+2))))
          (font-lock-regexp-grouping-construct ((,c :foreground ,(gc 'yellow-1))))
+         (elisp-shorthand-font-lock-face   ((,c :inherit font-lock-keyword-face
+                                                :foreground ,(gc 'green-1))))
 
          ;; gdb
          (breakpoint-enabled  ((,c :foreground ,(gc 'red))))
