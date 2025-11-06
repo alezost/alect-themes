@@ -1214,6 +1214,7 @@ For INVERT, see `alect-get-color'."
                                                            magit-diff-context-highlight))))
          (magit-diffstat-added              ((,c :inherit magit-diff-added)))
          (magit-diffstat-removed            ((,c :inherit magit-diff-removed)))
+         (magit-keyword                     ((,c :weight bold)))
          (magit-popup-heading               ((,c :inherit alect-title)))
          (magit-popup-key                   ((,c :inherit alect-key)))
          (magit-popup-argument              ((,c :foreground ,(gc 'blue-2)
