@@ -141,6 +141,16 @@ Used for selected items like `org-date-selected' or
 `gnus-summary-selected'."
   :group 'alect-faces)
 
+(defface alect-line-number
+  '((t nil))
+  "Auxiliary face for inheriting by some other faces.
+Used for selected items like `compilation-line-number' or
+`helm-grep-lineno'.
+
+Unfortunately, `display-line-numbers-mode' uses `shadow' face for line
+numbers, so we cannot make `alect-line-number' work for this mode."
+  :group 'alect-faces)
+
 (defface alect-title
   '((t nil))
   "Auxiliary face for inheriting by some other faces.
@@ -496,6 +506,7 @@ For INVERT, see `alect-get-color'."
                                     :box (:line-width -1
                                           :color ,(gc 'fg+1)
                                           :style nil))))
+         (alect-line-number    ((,c :foreground ,(gc 'yellow+2))))
          (alect-color-level-1  ((,c :foreground ,(gc 'blue+1))))
          (alect-color-level-2  ((,c :foreground ,(gc 'green))))
          (alect-color-level-3  ((,c :foreground ,(gc 'red+1))))
@@ -646,8 +657,8 @@ For INVERT, see `alect-get-color'."
          (compilation-info                  ((,c :inherit alect-file)))
          (compilation-warning               ((,c :inherit warning)))
          (compilation-error                 ((,c :inherit error)))
-         (compilation-line-number           ((,c :foreground ,(gc 'yellow))))
-         (compilation-column-number         ((,c :foreground ,(gc 'yellow+2))))
+         (compilation-line-number           ((,c :inherit alect-line-number)))
+         (compilation-column-number         ((,c :inherit alect-line-number)))
          (compilation-mode-line-run         ((,c :foreground ,(gc 'blue))))
          (compilation-mode-line-exit        ((,c :inherit success)))
          (compilation-mode-line-fail        ((,c :inherit compilation-error)))
@@ -1039,6 +1050,7 @@ For INVERT, see `alect-get-color'."
          (helm-buffer-process     ((,c :foreground ,(gc 'green+1))))
          (helm-buffer-size        ((,c :foreground ,(gc 'cyan))))
          (helm-grep-file          ((,c :inherit compilation-info)))
+         (helm-grep-lineno        ((,c :inherit alect-line-number)))
 
          ;; help
          (help-argument-name ((,c :inherit font-lock-variable-name-face)))
@@ -1506,7 +1518,7 @@ For INVERT, see `alect-get-color'."
          (realgud-bp-line-enabled-face  ((,c :box (:color ,(gc 'red) :style nil))))
          (realgud-bp-line-disabled-face ((,c :box (:color ,(gc 'gray) :style nil))))
          (realgud-file-name             ((,c :inherit alect-file)))
-         (realgud-line-number           ((,c :foreground ,(gc 'yellow))))
+         (realgud-line-number           ((,c :inherit alect-line-number)))
          (realgud-backtrace-number      ((,c :foreground ,(gc 'fg+2)
                                              :weight bold)))
 
@@ -1727,7 +1739,7 @@ For INVERT, see `alect-get-color'."
                                                         :weight bold)))
          (tuareg-font-lock-multistage-face         ((,c :foreground ,(gc 'blue-2)
                                                         :background ,(gc 'bg))))
-         (tuareg-font-lock-line-number-face        ((,c :foreground ,(gc 'fg-2))))
+         (tuareg-font-lock-line-number-face        ((,c :inherit alect-line-number)))
          (tuareg-font-lock-operator-face           ((,c :foreground ,(gc 'green-1))))
          (tuareg-font-lock-module-face             ((,c :foreground ,(gc 'cyan))))
          (tuareg-font-lock-constructor-face        ((,c :foreground ,(gc 'yellow))))
