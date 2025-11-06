@@ -1,6 +1,6 @@
 ;;; alect-themes.el --- Configurable light, dark and black themes for Emacs 24 or later   -*- lexical-binding: t -*-
 
-;; Copyright © 2013–2021 Alex Kost
+;; Copyright © 2013–2025 Alex Kost
 
 ;; Author: Alex Kost <alezost@gmail.com>
 ;; Created: 10 Jul 2013
@@ -1079,9 +1079,14 @@ For INVERT, see `alect-get-color'."
                                :foreground ,(gc 'fg+1))))
 
          ;; isearch
-         (isearch-fail         ((,c :background ,(gc 'red-bg))))
+         (isearch-fail         ((,c :foreground ,(gc 'fg+1)
+                                    :background ,(gc 'red-bg))))
          (isearch              ((,c :foreground ,(gc 'fg+1)
                                     :background ,(gc 'blue-bg-1))))
+         (isearch-group-1      ((,c :foreground ,(gc 'fg+1)
+                                    :background ,(gc 'green-bg-1))))
+         (isearch-group-2      ((,c :foreground ,(gc 'fg+1)
+                                    :background ,(gc 'green-bg))))
          (lazy-highlight       ((,c :foreground ,(gc 'fg+1)
                                     :background ,(gc 'bg+2))))
 
