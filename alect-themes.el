@@ -1057,6 +1057,11 @@ For INVERT, see `alect-get-color'."
          (hydra-face-blue     ((,c :foreground ,(gc 'blue-1)    :weight bold)))
          (hydra-face-teal     ((,c :foreground ,(gc 'cyan+1)    :weight bold)))
 
+         ;; icomplete-mode
+         (icomplete-first-match    ((,c :weight bold)))
+         (icomplete-section        ((,c :foreground ,(gc 'green+1))))
+         (icomplete-selected-match ((,c :inherit icomplete-first-match)))
+
          ;; indent-guide
          (indent-guide-face ((,c :foreground ,(gc 'yellow+1))))
 
