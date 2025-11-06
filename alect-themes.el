@@ -749,6 +749,7 @@ For INVERT, see `alect-get-color'."
          (dired-marked     ((,c :inherit warning)))
          (dired-perm-write ((,c :foreground ,(gc 'green-1))))
          (dired-symlink    ((,c :inherit font-lock-constant-face)))
+         (dired-broken-symlink ((,c :inherit error)))
          (dired-warning    ((,c :inherit font-lock-warning-face
                                 :background ,(gc 'bg-2))))
 
