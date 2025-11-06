@@ -873,7 +873,7 @@ For INVERT, see `alect-get-color'."
                                                 :weight bold)))
          (font-lock-negation-char-face     ((,c :foreground ,(gc 'blue))))
          (font-lock-preprocessor-face      ((,c :foreground ,(gc 'green-1))))
-         (font-lock-string-face            ((,c :foreground ,(gc 'red-2))))
+         (font-lock-string-face            ((,c :foreground ,(gc 'red-1))))
          (font-lock-type-face              ((,c :foreground ,(gc 'magenta+1))))
          (font-lock-variable-name-face     ((,c :foreground ,(gc 'yellow+2))))
          (font-lock-warning-face           ((,c :foreground ,(gc 'red)
