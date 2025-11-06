@@ -1741,6 +1741,9 @@ For INVERT, see `alect-get-color'."
          (utop-error  ((,c :inherit error)))
          (utop-stderr ((,c :foreground ,(gc 'red+1))))
 
+         ;; vertico
+         (vertico-current    ((,c :weight bold)))
+
          ;; vc
          (vc-up-to-date-state    ((,c :foreground ,(gc 'green-1))))
          (vc-edited-state        ((,c :foreground ,(gc 'yellow+1))))
