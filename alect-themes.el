@@ -316,7 +316,7 @@ Evaluate it and reload an alect-theme to see the difference."
      (red-bg+1     "#eec5c5" "#6a3636" "#531311")
      (yellow-2     "#ab9c3a" "#f8ffa0" "#e9e953")
      (yellow-1     "#9ca30b" "#e8e815" "#c9d617")
-     (yellow       "#ef8300" "#fe8b04" "#dc7700")
+     (yellow       "#da7710" "#fe8b04" "#dc7700")
      (yellow+1     "#958323" "#e5c900" "#bcaa00")
      (yellow+2     "#6a621b" "#abab3a" "#959508")
      (yellow-bg-1  "#cbcb20" "#909032" "#73712a")
