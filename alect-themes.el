@@ -1428,7 +1428,7 @@ For INVERT, see `alect-get-color'."
                                          :underline t)))
          (org-formula               ((,c :foreground ,(gc 'yellow-2))))
          (org-headline-done         ((,c :foreground ,(gc 'cyan-1))))
-         (org-hide                  ((,c :foreground ,(gc 'bg-2))))
+         (org-hide                  ((,c :inherit shadow)))
          (org-level-1               ((,c :inherit alect-title-1)))
          (org-level-2               ((,c :inherit alect-title-2)))
          (org-level-3               ((,c :inherit alect-title-3)))
