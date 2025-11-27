@@ -1736,6 +1736,17 @@ For INVERT, see `alect-get-color'."
          ;; transient
          (transient-heading               ((,c :inherit alect-title)))
          (transient-key                   ((,c :inherit alect-key)))
+         (transient-key-exit              ((,c :inherit alect-key)))
+         (transient-key-recurse           ((,c :inherit alect-key
+                                               :foreground ,(gc 'blue-2))))
+         (transient-key-noop              ((,c :inherit alect-key
+                                               :foreground ,(gc 'gray))))
+         (transient-key-stay              ((,c :inherit alect-key
+                                               :foreground ,(gc 'green-1))))
+         (transient-key-stack             ((,c :inherit alect-key
+                                               :box (:style released-button))))
+         (transient-key-return             ((,c :inherit alect-key
+                                               :box (:style pressed-button))))
          (transient-unreachable           ((,c :foreground ,(gc 'fg-2))))
          (transient-unreachable-key       ((,c :inherit (transient-unreachable
                                                          alect-key))))
@@ -1744,8 +1755,7 @@ For INVERT, see `alect-get-color'."
          (transient-mismatched-key        ((,c :inherit (error
                                                          alect-key))))
          (transient-separator             ((,c :background ,(gc 'gray))))
-         (transient-argument              ((,c :foreground ,(gc 'blue-2)
-                                               :weight bold)))
+         (transient-argument              ((,c :foreground ,(gc 'blue))))
          (transient-value                 ((,c :inherit (italic
                                                          font-lock-string-face))))
          (transient-inactive-argument     ((,c :inherit shadow)))
