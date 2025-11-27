@@ -840,7 +840,7 @@ For INVERT, see `alect-get-color'."
          (eshell-ls-backup      ((,c :inherit dired-ignored)))
          (eshell-ls-clutter     ((,c :inherit font-lock-comment-face)))
          (eshell-ls-directory   ((,c :inherit dired-directory)))
-         (eshell-ls-executable  ((,c :foreground ,(gc 'yellow))))
+         (eshell-ls-executable  ((,c :foreground ,(gc 'green-1))))
          (eshell-ls-unreadable  ((,c :foreground ,(gc 'red-2))))
          (eshell-ls-readonly    ((,c :foreground ,(gc 'fg-2))))
          (eshell-ls-missing     ((,c :inherit dired-warning)))
