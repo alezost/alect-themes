@@ -1634,6 +1634,13 @@ For INVERT, see `alect-get-color'."
          (sldb-restartable-frame-line-face ((,c :foreground ,(gc 'green+1))))
          (sldb-non-restartable-frame-line-face ((,c :foreground ,(gc 'red+1))))
 
+         ;; smerge
+         (smerge-base            ((,c :background ,(gc 'yellow-bg))))
+         (smerge-upper           ((,c :background ,(gc 'red-bg+1))))
+         (smerge-lower           ((,c :background ,(gc 'green-bg+1))))
+         (smerge-refined-removed ((,c :background ,(gc 'red-bg))))
+         (smerge-refined-added   ((,c :background ,(gc 'green-bg))))
+
          ;; speedbar
          (speedbar-file-face      ((,c)))
          (speedbar-directory-face ((,c :inherit dired-directory)))
