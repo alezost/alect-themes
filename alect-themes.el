@@ -1613,6 +1613,10 @@ For INVERT, see `alect-get-color'."
          (sh-escaped-newline ((,c :foreground ,(gc 'fg-1)
                                   :weight bold)))
 
+         ;; shortdoc
+         (shortdoc-heading  ((,c :inherit alect-title)))
+         (shortdoc-section  ((,c :inherit italic)))
+
          ;; show-paren
          (show-paren-mismatch  ((,c :foreground ,(gc 'gray-2)
                                     :background ,(gc 'red))))
