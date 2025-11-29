@@ -4,7 +4,7 @@
 
 ;; Author: Alex Kost <alezost@gmail.com>
 ;; Created: 10 Jul 2013
-;; Version: 0.10
+;; Version: 0.11
 ;; Package-Requires: ((emacs "24.0"))
 ;; URL: https://github.com/alezost/alect-themes
 ;; Keywords: color theme
@@ -118,7 +118,7 @@ Used for date/time faces like `org-date' or `erc-timestamp-face'."
 (defface alect-file
   '((t nil))
   "Auxiliary face for inheriting by some other faces.
-Used for 'file name' faces like `change-log-file' or
+Used for file name faces like `change-log-file' or
 `compilation-info'."
   :group 'alect-faces)
 
@@ -279,7 +279,7 @@ specifications of faces.
 
 Example:
   (setq alect-overriding-faces
-        '((mode-line-buffer-id ((t :foreground bg-2 :weight bold)))
+        \\='((mode-line-buffer-id ((t :foreground bg-2 :weight bold)))
           (mode-line           ((t :foreground bg-1 :background fg+1
                                    :box (:line-width 2 :color bg-2))))))
 Evaluate it and reload an alect-theme to see the difference."
