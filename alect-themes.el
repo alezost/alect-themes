@@ -1068,6 +1068,7 @@ For INVERT, see `alect-get-color'."
          ;; help
          (help-argument-name ((,c :inherit font-lock-variable-name-face)))
          (help-key-binding   ((,c :inherit alect-key)))
+         (help-for-help-header ((,c :inherit alect-title)))
 
          ;; hl-line-mode
          (hl-line ((,c :background ,(gc 'bg))))
