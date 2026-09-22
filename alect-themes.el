@@ -1,11 +1,11 @@
-;;; alect-themes.el --- Configurable light, dark and black themes for Emacs 24 or later   -*- lexical-binding: t -*-
+;;; alect-themes.el --- Configurable light, dark and black themes  -*- lexical-binding: t -*-
 
-;; Copyright © 2013–2025 Alex Kost
+;; Copyright © 2013–2026 Alex Kost
 
 ;; Author: Alex Kost <alezost@gmail.com>
 ;; Created: 10 Jul 2013
 ;; Version: 0.11
-;; Package-Requires: ((emacs "24.0"))
+;; Package-Requires: ((emacs "25.0"))
 ;; URL: https://github.com/alezost/alect-themes
 ;; Keywords: color theme
 
@@ -64,7 +64,8 @@
 
 ;;; Code:
 
-(require 'cl-lib)
+(eval-when-compile (require 'cl-lib))
+(require 'seq)
 
 (defun alect-put-colors (color-name theme-names color-vals var)
   "Put theme colors into the variable VAR.
@@ -2085,8 +2086,8 @@ This function is destructive to ORIGINAL."
   (cond
    ((null ignored) original)
    ((eq t ignored) nil)
-   (t (cl-delete-if (lambda (elt) (memq (car elt) ignored))
-                    original))))
+   (t (seq-remove (lambda (elt) (memq (car elt) ignored))
+                  original))))
 
 (defmacro alect-create-theme (theme &optional invert)
   "Define and provide a color theme THEME.
