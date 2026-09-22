@@ -465,8 +465,7 @@ For INVERT, see `alect-get-color'."
                                    :box (:line-width 1
                                          :color ,(gc 'fg+2)
                                          :style nil))))
-         (highlight           ((,c :foreground ,(gc 'gray+2)
-                                   :background ,(gc 'gray-2))))
+         (highlight           ((,c :background ,(gc 'blue-bg))))
          (shadow              ((,c :foreground ,(gc 'gray))))
          (success             ((,c :foreground ,(gc 'green)
                                    :weight bold)))
