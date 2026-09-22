@@ -482,6 +482,8 @@ For INVERT, see `alect-get-color'."
                                    :foreground ,(gc 'cyan+2)
                                    :background ,(gc 'bg-2))))
          (minibuffer-prompt   ((,c :inherit alect-prompt)))
+         (minibuffer-nonselected ((,c :foreground ,(gc 'red)
+                                      :strike-through t)))
          (secondary-selection ((,c :background ,(gc 'bg+1))))
          (trailing-whitespace ((,c :background ,(gc 'red-bg-1))))
          (vertical-border     ((,c :foreground ,(gc 'fg+1))))
