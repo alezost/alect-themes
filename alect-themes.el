@@ -856,6 +856,14 @@ For INVERT, see `alect-get-color'."
          (eshell-ls-special     ((,c :foreground ,(gc 'fg+1) :weight bold)))
          (eshell-ls-symlink     ((,c :inherit dired-symlink)))
 
+         ;; eww
+         (eww-form-submit       ((,c :inherit alect-button)))
+         (eww-form-select       ((,c :inherit alect-button-mouse)))
+         (eww-form-file         ((,c :inherit alect-button
+                                     :background ,(gc 'green-bg+1))))
+         (eww-form-checkbox     ((,c :inherit alect-button
+                                     :background ,(gc 'cyan-bg+1))))
+
          ;; ffap
          (ffap ((,c :foreground ,(gc 'fg+1)
                     :background ,(gc 'blue-bg))))
