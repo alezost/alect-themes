@@ -135,6 +135,12 @@ Used for author faces like `magit-log-author' or `change-log-name'."
 Used for key faces like `apropos-keybinding' or `magit-popup-key'."
   :group 'alect-faces)
 
+(defface alect-text-field
+  '((t nil))
+  "Auxiliary face for inheriting by some other faces.
+Used for text fields like `widget-field' or `eww-form-text'."
+  :group 'alect-faces)
+
 (defface alect-selected-item
   '((t nil))
   "Auxiliary face for inheriting by some other faces.
@@ -504,6 +510,10 @@ For INVERT, see `alect-get-color'."
          (alect-author         ((,c :foreground ,(gc 'magenta-1))))
          (alect-key            ((,c :foreground ,(gc 'red-2)
                                     :weight bold)))
+         (alect-text-field     ((,c :background ,(gc 'bg)
+                                    :box (:line-width -1
+                                          :color ,(gc 'fg-2)
+                                          :style nil))))
          (alect-selected-item  ((,c :background ,(gc 'bg)
                                     :box (:line-width -1
                                           :color ,(gc 'fg+1)
@@ -1884,10 +1894,7 @@ For INVERT, see `alect-get-color'."
                                            :foreground ,(gc 'blue))))
 
          ;; widget
-         (widget-field             ((,c :background ,(gc 'bg)
-                                        :box (:line-width -1
-                                              :color ,(gc 'fg-2)
-                                              :style nil))))
+         (widget-field             ((,c :inherit alect-text-field)))
          (widget-button            ((,c :inherit alect-button)))
          (widget-button-pressed    ((,c :inherit alect-button-pressed)))
          (widget-documentation     ((,c :inherit font-lock-doc-face)))
