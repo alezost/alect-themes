@@ -1909,7 +1909,11 @@ For INVERT, see `alect-get-color'."
 
          ;; woman
          (woman-bold     ((,c :inherit Man-overstrike)))
-         (woman-italic   ((,c :inherit Man-underline))))
+         (woman-italic   ((,c :inherit Man-underline)))
+
+         ;; xref
+         (xref-file-header ((,c :inherit alect-title)))
+         (xref-line-number ((,c :inherit alect-line-number))))
 
        ;; VARIABLES
        `((ansi-color-names-vector
