@@ -1,4 +1,4 @@
-;;; alect-black-alt-theme.el --- Black theme for Emacs 24 or later   -*- lexical-binding: t -*-
+;;; alect-black-alt-theme.el --- Black alternative theme  -*- lexical-binding: t; no-byte-compile: t -*-
 
 (require 'alect-themes)
 

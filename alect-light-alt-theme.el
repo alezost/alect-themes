@@ -1,4 +1,4 @@
-;;; alect-light-alt-theme.el --- Light theme for Emacs 24 or later   -*- lexical-binding: t -*-
+;;; alect-light-alt-theme.el --- Light alternative theme  -*- lexical-binding: t; no-byte-compile: t -*-
 
 (require 'alect-themes)
 
