@@ -2126,9 +2126,12 @@ For INVERT, see `alect-get-color'."
                        (cdr theme-vals) alect-ignored-variables)))
 
     `(progn
-       (deftheme ,theme-name ,(format "The %s color theme."
-                                      (concat (and invert "alternative ")
-                                              (symbol-name theme))))
+       (deftheme ,theme-name
+         ,(format "The %s color theme."
+                  (concat (and invert "alternative ")
+                          (symbol-name theme)))
+         :family 'alect
+         :background-mode ',theme)
        (apply 'custom-theme-set-variables ',theme-name ',theme-vars)
        (apply 'custom-theme-set-faces     ',theme-name ',theme-faces)
        (provide-theme ',theme-name))))
