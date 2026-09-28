@@ -1668,6 +1668,19 @@ For INVERT, see `alect-get-color'."
          (sldb-restartable-frame-line-face ((,c :foreground ,(gc 'green+1))))
          (sldb-non-restartable-frame-line-face ((,c :foreground ,(gc 'red+1))))
 
+         ;; SLY
+         (sly-action-face           ((,c :inherit alect-button)))
+         (sly-part-button-face      ((,c :inherit button)))
+         (sly-mrepl-note-face       ((,c :inherit font-lock-comment-face)))
+         (sly-mrepl-output-face     ((,c :inherit default)))
+         (sly-mrepl-prompt-face     ((,c :inherit comint-highlight-prompt)))
+         (sly-db-section-face       ((,c :inherit alect-title)))
+         (sly-db-local-name-face    ((,c :inherit font-lock-variable-name-face)))
+         (sly-db-restartable-frame-line-face     ((,c :inherit link)))
+         (sly-db-non-restartable-frame-line-face ((,c :inherit link-visited)))
+         (sly-db-restart-number-face             ((,c :foreground ,(gc 'green-2)
+                                                      :weight bold)))
+
          ;; smerge
          (smerge-base            ((,c :background ,(gc 'yellow-bg))))
          (smerge-upper           ((,c :background ,(gc 'red-bg+1))))
