@@ -867,6 +867,7 @@ For INVERT, see `alect-get-color'."
          (eshell-ls-symlink     ((,c :inherit dired-symlink)))
 
          ;; eww
+         (eww-form-text         ((,c :inherit alect-text-field)))
          (eww-form-submit       ((,c :inherit alect-button)))
          (eww-form-select       ((,c :inherit alect-button-mouse)))
          (eww-form-file         ((,c :inherit alect-button
