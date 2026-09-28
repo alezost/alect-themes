@@ -1653,6 +1653,7 @@ For INVERT, see `alect-get-color'."
 
          ;; SLIME
          (slime-error-face                 ((,c :inherit error)))
+         (slime-reader-conditional-face    ((,c :inherit alect-block)))
          (slime-repl-input-face            ((,c :inherit comint-highlight-input)))
          (slime-repl-output-face           ((,c :foreground ,(gc 'green-1))))
          (slime-repl-inputed-output-face   ((,c :foreground ,(gc 'red))))
