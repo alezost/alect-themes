@@ -1127,8 +1127,7 @@ For INVERT, see `alect-get-color'."
                                 :height 1.3 :weight bold)))
          (info-title-4     ((,c :inherit alect-color-level-4
                                 :height 1.2 :weight bold)))
-         (info-menu-header ((,c :inherit alect-color-level-5
-                                :height 1.1 :weight bold)))
+         (info-menu-header ((,c :inherit alect-title)))
          (info-node        ((,c :foreground ,(gc 'red+1))))
          (info-menu-star   ((,c :foreground ,(gc 'red))))
          (Info-quoted      ((,c :foreground ,(gc 'fg+2) :weight bold)))
