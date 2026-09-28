@@ -2056,12 +2056,11 @@ OVERRIDING list, add new faces from OVERRIDING list, and return the
 resulting list.
 
 This function is destructive: ORIGINAL list may not stay the same."
-  (mapc (lambda (face)
-          (let ((orig-face (assoc (car face) original)))
-            (and orig-face
-                 (setq original (delete orig-face original)))
-            (add-to-list 'original face)))
-        overriding)
+  (dolist (face overriding)
+    (let ((orig-face (assoc (car face) original)))
+      (and orig-face
+           (setq original (delete orig-face original)))
+      (push face original)))
   original)
 
 (defcustom alect-ignored-faces nil
